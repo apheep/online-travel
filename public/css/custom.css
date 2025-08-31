@@ -1,0 +1,18 @@
+/* Custom Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Custom Font Family */
+.font-poppins {
+    font-family: "Poppins", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+}
+
+/* Custom Colors */
+.bg-custom-nav {
+    background-color: #F4F7FE;
+}
+
+.text-custom-nav {
+    color: #A0AAC3;
+}
+
+/* Additional custom styles can be added here */

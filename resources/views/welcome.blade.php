@@ -1,24 +1,9 @@
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Travelling</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      safelist: ['opacity-100'],
-      theme: {
-        extend: {
-          fontFamily: {
-            poppins: ["Poppins", "ui-sans-serif", "system-ui", "-apple-system", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "Noto Sans", "sans-serif"],
-          },
-        },
-      },
-    }
-  </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-</head>
+@include('partials.head')
+    
+@section('title', 'Home - Online Travel')
+
+
+
 <body class="relative bg-white font-poppins opacity-0 transition-opacity duration-700">
 
   <!-- Background Section -->
@@ -501,12 +486,7 @@
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="py-8 bg-gray-800">
-    <div class="max-w-6xl mx-auto px-6 text-center">
-      <p class="text-2xl font-bold text-white">.travelling</p>
-    </div>
-  </footer>
+@include('partials.footer')
 
       <script>
       document.addEventListener('DOMContentLoaded', function () {
@@ -576,6 +556,5 @@
         }
       }
     </script>
-
 </body>
-</html>
+
