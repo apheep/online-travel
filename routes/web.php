@@ -1,8 +1,12 @@
 <?php
 
 use App\Http\Controllers\LoginController;
+
+use App\Http\Controllers\PesawatController;
+
 use App\Http\Controllers\MultiUserController;
 use Illuminate\Support\Facades\Route;
+
 
 // Routes for guests only (not logged in users)
 Route::middleware(['guest'])->group(function () {
@@ -13,6 +17,15 @@ Route::middleware(['guest'])->group(function () {
     Route::get('/login', [LoginController::class, 'index'])->name('login');
     Route::post('/login', [LoginController::class, 'authenticate'])->name('login.attempt');
 });
+
+
+Route::get('/pesanan/pesawat', function () {
+    return view('pesanan.pesawat');
+});
+
+Route::get('/checkout/checkout-pesawat', [PesawatController::class, 'checkout']);
+Route::post('/checkout/process', [PesawatController::class, 'processCheckout']);
+Route::get('/checkout/available-seats', [PesawatController::class, 'getAvailableSeats']);
 
 // Protected routes for logged in users
 Route::middleware(['auth'])->group(function () {
@@ -32,3 +45,4 @@ Route::middleware(['auth'])->group(function () {
         return view('pesanan.pesawat');
     })->name('pesanan.pesawat');
 });
+
