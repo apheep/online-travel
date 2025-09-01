@@ -37,9 +37,15 @@
         <li><a href="#" class="hover:underline">Our Contact</a></li>
       </ul>
 
-      <!-- Desktop Login -->
-      <div class="hidden md:flex space-x-6 text-sm">
-        <a href="#" class="bg-gradient-to-r from-[#187499] to-[#36AE7E] px-6 py-3 rounded-lg font-medium hover:from-[#156b8a] hover:to-[#2d9a6e] transition-all duration-300 shadow-lg">Login</a>
+      <!-- Desktop User Info & Logout -->
+      <div class="hidden md:flex items-center space-x-4 text-sm">
+        <span class="text-white">Selamat datang, {{ Auth::user()->name }}</span>
+        <form action="{{ route('logout') }}" method="POST" class="inline">
+          @csrf
+          <button type="submit" class="bg-gradient-to-r from-[#187499] to-[#36AE7E] px-6 py-3 rounded-lg font-medium hover:from-[#156b8a] hover:to-[#2d9a6e] transition-all duration-300 shadow-lg">
+            Logout
+          </button>
+        </form>
       </div>
 
       <!-- Mobile Hamburger -->
@@ -66,10 +72,14 @@
         <a href="#" class="block text-gray-700 hover:text-green-600 py-2 font-medium">About</a>
         <a href="#" class="block text-gray-700 hover:text-green-600 py-2 font-medium">Offers</a>
         <a href="#" class="block text-gray-700 hover:text-green-600 py-2 font-medium">Our Contact</a>
-        <div class="pt-4">
-          <a href="#" class="block bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-center py-3 rounded-lg font-medium hover:from-[#156b8a] hover:to-[#2d9a6e] transition-all duration-300">
-            Login
-          </a>
+        <div class="pt-4 border-t">
+          <p class="text-sm text-gray-600 mb-2">Selamat datang, {{ Auth::user()->name }}</p>
+          <form action="{{ route('logout') }}" method="POST">
+            @csrf
+            <button type="submit" class="w-full bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-center py-3 rounded-lg font-medium hover:from-[#156b8a] hover:to-[#2d9a6e] transition-all duration-300">
+              Logout
+            </button>
+          </form>
         </div>
       </div>
     </div>
