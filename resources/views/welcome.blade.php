@@ -22,6 +22,7 @@
         <li><a href="#" class="hover:underline">Our Contact</a></li>
       </ul>
 
+
       <!-- Desktop Login -->
       <div class="hidden md:flex space-x-6 text-sm items-center">
         <!-- Notification Icon -->
@@ -89,6 +90,7 @@
         <a href="#" class="block text-gray-700 hover:text-green-600 py-2 font-medium">About</a>
         <a href="#" class="block text-gray-700 hover:text-green-600 py-2 font-medium">Offers</a>
         <a href="#" class="block text-gray-700 hover:text-green-600 py-2 font-medium">Our Contact</a>
+
         <div class="pt-4">
           <!-- Mobile Notification Icon -->
           <div class="mb-4">
@@ -129,6 +131,7 @@
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </div>
