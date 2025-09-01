@@ -44,5 +44,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/pesanan/pesawat', function () {
         return view('pesanan.pesawat');
     })->name('pesanan.pesawat');
+    
+    // History route
+    Route::get('/history', function () {
+        return view('history');
+    })->name('history');
 });
 

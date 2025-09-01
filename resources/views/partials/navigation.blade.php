@@ -1,14 +1,14 @@
     <!-- NavBar -->
-    <nav class="relative z-10 flex items-center justify-between w-full max-w-7xl mx-auto px-10 py-6 text-white">
-      <a href="#" class="text-[26px] md:text-[30px] font-bold tracking-wide" style="color: #A0AAC3;">.travelling</a>
+    <nav class="relative z-50 flex items-center justify-between w-full max-w-7xl mx-auto px-10 py-6 text-white">
+      <a href="{{ route('welcome') }}" class="text-[26px] md:text-[30px] font-bold tracking-wide" style="color: #A0AAC3;">.travelling</a>
 
       <!-- Desktop Login -->
       <div class="hidden md:flex space-x-3 text-sm items-center">
         <!-- History Icon -->
         <div class="relative">
-          <button class="p-2 text-white hover:bg-white/10 rounded-full transition-all duration-300">
+          <a href="{{ route('history') }}" class="p-2 text-white hover:bg-white/10 rounded-full transition-all duration-300 block">
             <img src="/history.png" alt="History" class="w-5 h-6">
-          </button>
+          </a>
         </div>
         
         <!-- Notification Icon -->
@@ -20,17 +20,17 @@
           <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-medium">3</span>
         </div>
         
-        <div class="relative group">
-          <a href="#" class="bg-gradient-to-r from-[#187499] to-[#36AE7E] px-6 py-3 rounded-full font-medium hover:from-[#156b8a] hover:to-[#2d9a6e] transition-all duration-300 shadow-lg flex items-center justify-center gap-3 text-white cursor-pointer">
+        <div class="relative">
+          <button id="user-menu-btn" class="bg-gradient-to-r from-[#187499] to-[#36AE7E] px-6 py-3 rounded-full font-medium hover:from-[#156b8a] hover:to-[#2d9a6e] transition-all duration-300 shadow-lg flex items-center justify-center gap-3 text-white cursor-pointer">
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
             </svg>
             <span>{{ Auth::user()->name }}</span>
-            <svg class="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" fill="currentColor" viewBox="0 0 20 20">
+            <svg id="dropdown-arrow" class="w-4 h-4 transition-transform duration-300" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
             </svg>
-          </a>
-          <div class="absolute right-0 mt-3 w-56 bg-white rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 border border-gray-100 transform scale-95 group-hover:scale-100 origin-top-right">
+          </button>
+          <div id="user-dropdown" class="absolute right-0 mt-3 w-56 bg-white rounded-xl shadow-2xl opacity-0 invisible transition-all duration-300 z-50 border border-gray-100 transform scale-95 origin-top-right">
             <div class="p-2">
               <div class="px-4 py-3 border-b border-gray-100">
                 <p class="text-sm font-medium text-gray-900">Hi, {{ Auth::user()->name }}</p>
@@ -109,12 +109,12 @@
           <!-- Mobile Action Buttons -->
           <div class="mb-4 grid grid-cols-2 gap-3">
             <!-- History Button -->
-            <button class="bg-white border-2 border-gray-100 hover:border-[#187499] text-gray-700 hover:text-[#187499] py-4 px-4 rounded-2xl font-medium transition-all duration-300 flex flex-col items-center gap-2 shadow-sm hover:shadow-md">
+            <a href="{{ route('history') }}" class="bg-white border-2 border-gray-100 hover:border-[#187499] text-gray-700 hover:text-[#187499] py-4 px-4 rounded-2xl font-medium transition-all duration-300 flex flex-col items-center gap-2 shadow-sm hover:shadow-md">
               <div class=" flex items-center justify-center">
                 <img src="/history.png" alt="History" class="w-4 h-5">
               </div>
               <span class="text-sm">Riwayat</span>
-            </button>
+            </a>
             
             <!-- Notification Button -->
             <button class="bg-white border-2 border-gray-100 hover:border-[#36AE7E] text-gray-700 hover:text-[#36AE7E] py-4 px-4 rounded-2xl font-medium transition-all duration-300 flex flex-col items-center gap-2 shadow-sm hover:shadow-md relative">
@@ -151,4 +151,45 @@
         sidebar.classList.add('translate-x-full');
         overlay.classList.add('hidden');
       }
+
+      // User dropdown functionality
+      document.addEventListener('DOMContentLoaded', function() {
+        const userMenuBtn = document.getElementById('user-menu-btn');
+        const userDropdown = document.getElementById('user-dropdown');
+        const dropdownArrow = document.getElementById('dropdown-arrow');
+        let isDropdownOpen = false;
+
+        // Toggle dropdown on button click
+        userMenuBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          
+          if (isDropdownOpen) {
+            closeDropdown();
+          } else {
+            openDropdown();
+          }
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+          if (!userMenuBtn.contains(e.target) && !userDropdown.contains(e.target)) {
+            closeDropdown();
+          }
+        });
+
+        function openDropdown() {
+          userDropdown.classList.remove('opacity-0', 'invisible', 'scale-95');
+          userDropdown.classList.add('opacity-100', 'visible', 'scale-100');
+          dropdownArrow.classList.add('rotate-180');
+          isDropdownOpen = true;
+        }
+
+        function closeDropdown() {
+          userDropdown.classList.remove('opacity-100', 'visible', 'scale-100');
+          userDropdown.classList.add('opacity-0', 'invisible', 'scale-95');
+          dropdownArrow.classList.remove('rotate-180');
+          isDropdownOpen = false;
+        }
+      });
     </script>

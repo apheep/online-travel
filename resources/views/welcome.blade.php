@@ -19,9 +19,9 @@
       <div class="hidden md:flex space-x-3 text-sm items-center">
         <!-- History Icon -->
         <div class="relative">
-          <button class="p-2 text-white hover:bg-white/10 rounded-full transition-all duration-300">
+          <a href="{{ route('history') }}" class="p-2 text-white hover:bg-white/10 rounded-full transition-all duration-300 block">
             <img src="/history.png" alt="History" class="w-5 h-6">
-          </button>
+          </a>
         </div>
         
         <!-- Notification Icon -->
