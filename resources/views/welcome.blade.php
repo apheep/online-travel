@@ -23,8 +23,46 @@
       </ul>
 
       <!-- Desktop Login -->
-      <div class="hidden md:flex space-x-6 text-sm">
-        <a href="#" class="bg-gradient-to-r from-[#187499] to-[#36AE7E] px-6 py-3 rounded-lg font-medium hover:from-[#156b8a] hover:to-[#2d9a6e] transition-all duration-300 shadow-lg">Login</a>
+      <div class="hidden md:flex space-x-6 text-sm items-center">
+        <!-- Notification Icon -->
+        <div class="relative">
+          <button class="p-2 text-white hover:bg-white/10 rounded-full transition-all duration-300">
+            <img src="/notif.png" alt="Notifications" class="w-6 h-6">
+          </button>
+          <!-- Notification badge -->
+          <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-medium">3</span>
+        </div>
+        
+        <div class="relative group">
+          <a href="#" class="bg-gradient-to-r from-[#187499] to-[#36AE7E] px-6 py-3 rounded-full font-medium hover:from-[#156b8a] hover:to-[#2d9a6e] transition-all duration-300 shadow-lg flex items-center justify-center gap-3 text-white cursor-pointer">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
+            </svg>
+            <span>inlife</span>
+            <svg class="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+            </svg>
+          </a>
+          <div class="absolute right-0 mt-3 w-56 bg-white rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 border border-gray-100 transform scale-95 group-hover:scale-100 origin-top-right">
+            <div class="p-2">
+              <div class="px-4 py-3 border-b border-gray-100">
+                <p class="text-sm font-medium text-gray-900">Welcome back!</p>
+                <p class="text-xs text-gray-500">Manage your account</p>
+              </div>
+              <div class="py-2">
+                <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-gradient-to-r hover:from-[#187499] hover:to-[#36AE7E] hover:text-white rounded-lg transition-all duration-200 group/item">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+                  </svg>
+                  <span class="font-medium">Logout</span>
+                  <svg class="w-4 h-4 ml-auto opacity-0 group-hover/item:opacity-100 transition-opacity duration-200" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- Mobile Hamburger -->
@@ -52,9 +90,45 @@
         <a href="#" class="block text-gray-700 hover:text-green-600 py-2 font-medium">Offers</a>
         <a href="#" class="block text-gray-700 hover:text-green-600 py-2 font-medium">Our Contact</a>
         <div class="pt-4">
-          <a href="#" class="block bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-center py-3 rounded-lg font-medium hover:from-[#156b8a] hover:to-[#2d9a6e] transition-all duration-300">
-            Login
-          </a>
+          <!-- Mobile Notification Icon -->
+          <div class="mb-4">
+            <button class="w-full flex items-center justify-center gap-3 bg-gray-100 text-gray-700 py-3 px-6 rounded-full font-medium hover:bg-gray-200 transition-all duration-300">
+              <img src="/notif.png" alt="Notifications" class="w-5 h-5">
+              <span>Notifikasi</span>
+              <span class="bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-medium ml-auto">3</span>
+            </button>
+          </div>
+          
+          <div class="relative group">
+            <a href="#" class="block bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-center py-3 px-6 rounded-full font-medium hover:from-[#156b8a] hover:to-[#2d9a6e] transition-all duration-300 flex items-center justify-center gap-3 cursor-pointer">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
+              </svg>
+              <span>inlife</span>
+              <svg class="w-4 h-4 transition-transform duration-300 group-hover:rotate-180" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+              </svg>
+            </a>
+            <div class="absolute left-0 mt-3 w-56 bg-white rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 border border-gray-100 transform scale-95 group-hover:scale-100 origin-top-left">
+              <div class="p-2">
+                <div class="px-4 py-3 border-b border-gray-100">
+                  <p class="text-sm font-medium text-gray-900">Welcome back!</p>
+                  <p class="text-xs text-gray-500">Manage your account</p>
+                </div>
+                <div class="py-2">
+                  <a href="#" class="flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-gradient-to-r hover:from-[#187499] hover:to-[#36AE7E] hover:text-white rounded-lg transition-all duration-200 group/item">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+                    </svg>
+                    <span class="font-medium">Logout</span>
+                    <svg class="w-4 h-4 ml-auto opacity-0 group-hover/item:opacity-100 transition-opacity duration-200" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
