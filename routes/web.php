@@ -10,3 +10,9 @@ Route::get('/', function () {
 Route::get('/pesanan/pesawat', function () {
     return view('pesanan.pesawat');
 });
+
+Route::get('/pesanan/hotel', function () {
+    return view('pesanan.hotel');
+});
+
+
