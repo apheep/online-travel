@@ -3,6 +3,8 @@
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MultiUserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
+
 
 // Routes for guests only (not logged in users)
 Route::middleware(['guest'])->group(function () {
@@ -26,4 +28,8 @@ Route::middleware(['auth'])->group(function () {
     
     // Logout route
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+Route::get('/pesanan/pesawat', function () {
+    return view('pesanan.pesawat');
+
 });
