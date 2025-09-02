@@ -27,6 +27,11 @@ Route::get('/checkout/checkout-pesawat', [PesawatController::class, 'checkout'])
 Route::post('/checkout/process', [PesawatController::class, 'processCheckout']);
 Route::get('/checkout/available-seats', [PesawatController::class, 'getAvailableSeats']);
 
+// Checkout hotel route
+Route::get('/checkout/checkout-hotel', function () {
+    return view('checkout.checkout-hotel');
+});
+
 // Protected routes for logged in users
 Route::middleware(['auth'])->group(function () {
     // Dashboard routes based on user role
