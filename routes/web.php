@@ -55,6 +55,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/history', function () {
         return view('history');
     })->name('history');
+
+    // Check detail page
+    Route::get('/check/detail', function () {
+        return view('check.detail-pesanan');
+    })->name('check.detail');
 });
 
 
