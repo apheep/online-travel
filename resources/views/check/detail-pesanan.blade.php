@@ -12,6 +12,37 @@
       </a>
     </div>
 
+  <!-- Modal Konfirmasi Terima -->
+  <div id="modal-terima" class="fixed inset-0 z-50 hidden">
+    <!-- Backdrop -->
+    <div class="absolute inset-0 bg-black/50 opacity-0 transition-opacity duration-300 ease-out" aria-hidden="true"></div>
+    <!-- Center wrapper -->
+    <div class="relative z-10 w-full h-full flex items-start sm:items-center justify-center p-4">
+      <!-- Panel -->
+      <div class="max-w-md w-full bg-white rounded-2xl shadow-2xl border border-gray-100 opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95 transition-all duration-300 ease-out">
+        <div class="p-6">
+          <div class="flex items-start justify-between mb-2">
+            <div class="flex items-center gap-2">
+              <div class="h-8 w-8 rounded-lg bg-gradient-to-r from-[#187499] to-[#36AE7E] flex items-center justify-center text-white">
+                <i class="fas fa-check text-xs"></i>
+              </div>
+              <h3 class="text-lg font-semibold text-gray-900">Konfirmasi</h3>
+            </div>
+            <button id="btn-terima-x" class="text-gray-400 hover:text-gray-600 transition" aria-label="Tutup">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <p class="text-sm text-gray-700">Yakin ingin menerima pengajuan perjalanan dinas ini?</p>
+
+          <div class="mt-5 flex items-center justify-end gap-2">
+            <button id="btn-terima-cancel" class="px-4 py-2 text-sm rounded-lg border border-gray-200 text-gray-700 hover:bg-gray-100">Tidak</button>
+            <button id="btn-terima-confirm" class="px-4 py-2 text-sm rounded-lg text-white bg-gradient-to-r from-[#187499] to-[#36AE7E] hover:from-[#156b8a] hover:to-[#2d9a6e] shadow">Ya, Terima</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
     <h1 class="text-2xl sm:text-3xl font-bold text-center text-gray-900 mb-8">Detail</h1>
 
     <div class="space-y-6">
@@ -123,7 +154,7 @@
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <button id="btn-tolak" class="w-full px-6 py-3 rounded-xl font-semibold text-white bg-red-600 hover:bg-red-700 transition shadow-md">Tolak</button>
-          <button class="w-full px-6 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-[#187499] to-[#36AE7E] hover:from-[#156b8a] hover:to-[#2d9a6e] transition shadow-md">Terima</button>
+          <button id="btn-terima" class="w-full px-6 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-[#187499] to-[#36AE7E] hover:from-[#156b8a] hover:to-[#2d9a6e] transition shadow-md">Terima</button>
         </div>
       </div>
     </div>
@@ -131,14 +162,33 @@
 
   <!-- Modal Tolak -->
   <div id="modal-tolak" class="fixed inset-0 z-50 hidden">
-    <div class="absolute inset-0 bg-black/50"></div>
-    <div class="relative z-10 max-w-lg mx-auto mt-24 bg-white rounded-2xl shadow-2xl border border-gray-100 p-6">
-      <h3 class="text-lg font-semibold text-gray-900 mb-3">Alasan menolak</h3>
-      <p class="text-sm text-gray-600 mb-3">Tuliskan catatan mengapa menolak perjalanan dinas ini.</p>
-      <textarea id="alasan-text" rows="4" class="w-full border-2 border-gray-200 rounded-xl p-3 text-sm focus:outline-none focus:border-[#36AE7E]" placeholder="Tulis alasan Anda di sini..."></textarea>
-      <div class="mt-4 flex items-center justify-end gap-2">
-        <button id="btn-cancel" class="px-4 py-2 text-sm rounded-lg border border-gray-200 text-gray-700 hover:bg-gray-100">Batal</button>
-        <button id="btn-submit" class="px-4 py-2 text-sm rounded-lg text-white bg-gradient-to-r from-[#187499] to-[#36AE7E] hover:from-[#156b8a] hover:to-[#2d9a6e]">Simpan</button>
+    <!-- Backdrop -->
+    <div class="absolute inset-0 bg-black/50 opacity-0 transition-opacity duration-300 ease-out" aria-hidden="true"></div>
+    <!-- Panel wrapper to center -->
+    <div class="relative z-10 w-full h-full flex items-start sm:items-center justify-center p-4">
+      <!-- Panel -->
+      <div class="max-w-lg w-full bg-white rounded-2xl shadow-2xl border border-gray-100 opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95 transition-all duration-300 ease-out">
+        <div class="p-6">
+          <div class="flex items-start justify-between mb-2">
+            <div class="flex items-center gap-2">
+              <div class="h-8 w-8 rounded-lg bg-gradient-to-r from-[#187499] to-[#36AE7E] flex items-center justify-center text-white">
+                <i class="fas fa-comment-dots text-xs"></i>
+              </div>
+              <h3 class="text-lg font-semibold text-gray-900">Alasan menolak</h3>
+            </div>
+            <button id="btn-x-close" class="text-gray-400 hover:text-gray-600 transition" aria-label="Tutup">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <p class="text-sm text-gray-600 mb-3">Tuliskan catatan mengapa menolak perjalanan dinas ini.</p>
+          <label for="alasan-text" class="sr-only">Alasan</label>
+          <textarea id="alasan-text" rows="4" class="w-full border-2 border-gray-200 rounded-xl p-3 text-sm focus:outline-none focus:border-[#36AE7E]" placeholder="Tulis alasan Anda di sini..."></textarea>
+
+          <div class="mt-4 flex items-center justify-end gap-2">
+            <button id="btn-cancel" class="px-4 py-2 text-sm rounded-lg border border-gray-200 text-gray-700 hover:bg-gray-100">Batal</button>
+            <button id="btn-submit" class="px-4 py-2 text-sm rounded-lg text-white bg-gradient-to-r from-[#187499] to-[#36AE7E] hover:from-[#156b8a] hover:to-[#2d9a6e] shadow">Simpan</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -155,22 +205,89 @@
     const btnTolak = document.getElementById('btn-tolak');
     const btnCancel = document.getElementById('btn-cancel');
     const btnSubmit = document.getElementById('btn-submit');
+    const btnXClose = document.getElementById('btn-x-close');
+    const modalBackdrop = modal?.querySelector('div[aria-hidden="true"]');
+    const modalPanel = modal?.querySelector('.max-w-lg.w-full');
 
-    function openModal() { modal.classList.remove('hidden'); }
-    function closeModal() { modal.classList.add('hidden'); }
+    // confirm modal elements
+    const modalTerima = document.getElementById('modal-terima');
+    const btnTerima = document.getElementById('btn-terima');
+    const btnTerimaX = document.getElementById('btn-terima-x');
+    const btnTerimaCancel = document.getElementById('btn-terima-cancel');
+    const btnTerimaConfirm = document.getElementById('btn-terima-confirm');
+    const terimaBackdrop = modalTerima?.querySelector('div[aria-hidden="true"]');
+    const terimaPanel = modalTerima?.querySelector('.max-w-md.w-full');
+
+    function openModal() {
+      if (!modal || !modalBackdrop || !modalPanel) return;
+      modal.classList.remove('hidden');
+      // allow layout flush before transitioning
+      requestAnimationFrame(() => {
+        modalBackdrop.classList.remove('opacity-0');
+        modalPanel.classList.remove('opacity-0', 'translate-y-4', 'sm:scale-95');
+      });
+    }
+
+    function closeModal() {
+      if (!modal || !modalBackdrop || !modalPanel) return;
+      modalBackdrop.classList.add('opacity-0');
+      modalPanel.classList.add('opacity-0', 'translate-y-4', 'sm:scale-95');
+      // wait for transition to end before hiding
+      const done = () => {
+        modal.classList.add('hidden');
+        modalBackdrop.removeEventListener('transitionend', done);
+      };
+      modalBackdrop.addEventListener('transitionend', done);
+    }
 
     btnTolak?.addEventListener('click', openModal);
     btnCancel?.addEventListener('click', closeModal);
+    btnXClose?.addEventListener('click', closeModal);
     btnSubmit?.addEventListener('click', () => {
       const alasan = (document.getElementById('alasan-text') || {}).value || '';
       // TODO: submit alasan via fetch/AJAX if needed
       closeModal();
-      alert('Catatan penolakan tersimpan:\\n' + alasan);
+      // Redirect back with rejected flag; optionally you can persist alasan server-side
+      window.location.href = "{{ route('checking') }}?rejected=1";
     });
 
     // close when clicking backdrop
     modal?.addEventListener('click', (e) => {
       if (e.target === modal) closeModal();
+    });
+
+    // open confirm modal for Terima
+    function openConfirm() {
+      if (!modalTerima || !terimaBackdrop || !terimaPanel) return;
+      modalTerima.classList.remove('hidden');
+      requestAnimationFrame(() => {
+        terimaBackdrop.classList.remove('opacity-0');
+        terimaPanel.classList.remove('opacity-0', 'translate-y-4', 'sm:scale-95');
+      });
+    }
+
+    function closeConfirm() {
+      if (!modalTerima || !terimaBackdrop || !terimaPanel) return;
+      terimaBackdrop.classList.add('opacity-0');
+      terimaPanel.classList.add('opacity-0', 'translate-y-4', 'sm:scale-95');
+      const done2 = () => {
+        modalTerima.classList.add('hidden');
+        terimaBackdrop.removeEventListener('transitionend', done2);
+      };
+      terimaBackdrop.addEventListener('transitionend', done2);
+    }
+
+    btnTerima?.addEventListener('click', openConfirm);
+    btnTerimaCancel?.addEventListener('click', closeConfirm);
+    btnTerimaX?.addEventListener('click', closeConfirm);
+    btnTerimaConfirm?.addEventListener('click', () => {
+      closeConfirm();
+      // Redirect to checking page with success flag
+      window.location.href = "{{ route('checking') }}?success=1";
+    });
+
+    modalTerima?.addEventListener('click', (e) => {
+      if (e.target === modalTerima) closeConfirm();
     });
   </script>
 </body>
