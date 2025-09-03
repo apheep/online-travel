@@ -23,6 +23,12 @@ Route::get('/pesanan/pesawat', function () {
     return view('pesanan.pesawat');
 });
 
+
+Route::get('/pesanan/hotel', function () {
+    return view('pesanan.hotel');
+});
+
+
 Route::get('/checkout/checkout-pesawat', [PesawatController::class, 'checkout']);
 Route::post('/checkout/process', [PesawatController::class, 'processCheckout']);
 Route::get('/checkout/available-seats', [PesawatController::class, 'getAvailableSeats']);
@@ -49,5 +55,16 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/pesanan/pesawat', function () {
         return view('pesanan.pesawat');
     })->name('pesanan.pesawat');
+    
+    // History route
+    Route::get('/history', function () {
+        return view('history');
+    })->name('history');
+
+    // Check detail page
+    Route::get('/check/detail', function () {
+        return view('check.detail-pesanan');
+    })->name('check.detail');
 });
+
 

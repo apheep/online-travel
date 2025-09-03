@@ -1,6 +1,6 @@
     <!-- NavBar -->
     <nav id="main-navbar" class="sticky top-0 z-50 w-full bg-gray-50 text-white">
-  <div class="flex items-center justify-between max-w-7xl mx-auto px-10 py-6">
+      <div class="relative flex items-center justify-between max-w-7xl mx-auto px-10 py-6">
     <a href="{{ route('welcome') }}" 
        class="text-[26px] md:text-[30px] font-bold tracking-wide" 
        style="color: #A0AAC3;">.travelling</a>      
@@ -8,21 +8,12 @@
        
        <!-- Desktop Login -->
       <div class="hidden md:flex space-x-3 text-sm items-center">
-        <!-- History Icon -->
-        <div class="relative">
-          <a href="{{ route('history') }}" class="p-2 text-white hover:bg-white/10 rounded-full transition-all duration-300 block">
-            <img src="/history.png" alt="History" class="w-5 h-6">
-          </a>
-        </div>
-        
-        <!-- Notification Icon -->
-        <div class="relative">
-          <button class="p-2 text-white hover:bg-white/10 rounded-full transition-all duration-300">
-            <img src="/notif.png" alt="Notifications" class="w-5 h-6">
-          </button>
-          <!-- Notification badge -->
-          <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-medium">3</span>
-        </div>
+              <!-- Desktop Menu -->
+      <ul class="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center justify-center space-x-8 text-[18px] font-semibold text-[#A0AAC3]">
+        <li><a href="#" class=" hover:underline">Order</a></li>
+        <li><a href="#" class=" hover:underline">Account</a></li>
+        <li><a href="#" class=" hover:underline">Profile</a></li>
+      </ul>
         
         <div class="relative">
           <button id="user-menu-btn" class="bg-gradient-to-r from-[#187499] to-[#36AE7E] px-6 py-3 rounded-full font-medium hover:from-[#156b8a] hover:to-[#2d9a6e] transition-all duration-300 shadow-lg flex items-center justify-center gap-3 text-white cursor-pointer">
@@ -110,26 +101,37 @@
             </div>
           </div>
           
-          <!-- Mobile Action Buttons -->
-          <div class="mb-4 grid grid-cols-2 gap-3">
-            <!-- History Button -->
-            <a href="{{ route('history') }}" class="bg-white border-2 border-gray-100 hover:border-[#187499] text-gray-700 hover:text-[#187499] py-4 px-4 rounded-2xl font-medium transition-all duration-300 flex flex-col items-center gap-2 shadow-sm hover:shadow-md">
-              <div class=" flex items-center justify-center">
-                <img src="/history.png" alt="History" class="w-4 h-5">
-              </div>
-              <span class="text-sm">Riwayat</span>
-            </a>
-            
-            <!-- Notification Button -->
-            <button class="bg-white border-2 border-gray-100 hover:border-[#36AE7E] text-gray-700 hover:text-[#36AE7E] py-4 px-4 rounded-2xl font-medium transition-all duration-300 flex flex-col items-center gap-2 shadow-sm hover:shadow-md relative">
-              <div class="flex items-center justify-center">
-                <img src="/notif.png" alt="Notifications" class="w-4 h-5">
-              </div>
-              <span class="text-sm">Notifikasi</span>
-              <!-- Notification badge -->
-              <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-medium">3</span>
-            </button>
-          </div>
+
+        </div>
+        <!-- Mobile Menu Links -->
+        <nav class="mb-2">
+          <ul class="flex flex-col space-y-2">
+            <li>
+              <a href="#" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-gray-700 hover:text-white hover:bg-gradient-to-r hover:from-[#187499] hover:to-[#36AE7E] transition-all duration-200">
+                <span>Order</span>
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-gray-700 hover:text-white hover:bg-gradient-to-r hover:from-[#187499] hover:to-[#36AE7E] transition-all duration-200">
+                <span>Account</span>
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-gray-700 hover:text-white hover:bg-gradient-to-r hover:from-[#187499] hover:to-[#36AE7E] transition-all duration-200">
+                <span>Profile</span>
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </nav>
 
         </div>
       </div>

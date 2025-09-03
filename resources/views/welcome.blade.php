@@ -19,9 +19,9 @@
       <div class="hidden md:flex space-x-3 text-sm items-center">
         <!-- History Icon -->
         <div class="relative">
-          <button class="p-2 text-white hover:bg-white/10 rounded-full transition-all duration-300">
+          <a href="{{ route('history') }}" class="p-2 text-white hover:bg-white/10 rounded-full transition-all duration-300 block">
             <img src="/history.png" alt="History" class="w-5 h-6">
-          </button>
+          </a>
         </div>
         
         <!-- Notification Icon -->
@@ -379,12 +379,18 @@
       // Handle search button click
       function handleSearch() {
         // Check which form is currently active
+        const hotelForm = document.getElementById('hotel-form');
         const pesawatForm = document.getElementById('pesawat-form');
         const keretaForm = document.getElementById('kereta-form');
         
-        if (!pesawatForm.classList.contains('hidden')) {
+        if (!hotelForm.classList.contains('hidden')) {
+          // Hotel form is active, redirect to pesanan/hotel
+          console.log('Redirect: hotel');
+          window.location.href = "{{ url('/pesanan/hotel') }}";
+        } else if (!pesawatForm.classList.contains('hidden')) {
           // Pesawat form is active, redirect to pesanan/pesawat
-          window.location.href = '/pesanan/pesawat';
+          console.log('Redirect: pesawat');
+          window.location.href = "{{ url('/pesanan/pesawat') }}";
         } else if (!keretaForm.classList.contains('hidden')) {
           // Kereta form is active, you can add kereta route here if needed
           // window.location.href = '/pesanan/kereta';
