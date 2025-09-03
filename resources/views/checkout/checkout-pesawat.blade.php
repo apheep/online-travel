@@ -141,7 +141,17 @@
  
  <!-- Overlay Modal -->
  <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
-     <div class="bg-white rounded-2xl p-8 max-w-md mx-4 text-center">
+     <div class="bg-white rounded-2xl p-8 max-w-md mx-4 text-center relative">
+         <button type="button" onclick="goToCheckout()" class="absolute top-3 right-3 text-gray-400 hover:text-gray-600 transition-colors">
+             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+             </svg>
+         </button>
+         <div class="mx-auto mb-4 w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
+             <svg class="w-5 h-5 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M12 2a10 10 0 110 20 10 10 0 010-20z" />
+             </svg>
+         </div>
          <h3 class="text-xl font-bold text-gray-800 mb-4">Mau lihat penerbangan lain?</h3>
          <p class="text-gray-600 mb-6">Kalau kamu kembali ke halaman sebelumnya, semua info yang diisi dan penerbangan yang dipilih akan hilang.</p>
          <div class="flex flex-col space-y-3">
@@ -177,6 +187,10 @@
      if (overlay) {
          overlay.classList.add('hidden');
      }
+ }
+
+ function goToCheckout() {
+     window.location.href = '/checkout/checkout-pesawat';
  }
  
  function viewOtherFlights() {

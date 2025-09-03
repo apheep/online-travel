@@ -8,7 +8,7 @@ class MultiUserController extends Controller
 {
     public function checking()
     {
-        return view('check');
+        return view('check.check');
     }
 
     public function ticketing()
