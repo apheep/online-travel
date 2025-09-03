@@ -4,102 +4,67 @@
 
 @include('partials.navigation')
 
-<style>
-    .bg-gradient-custom {
-        background: linear-gradient(135deg, #187499 0%, #36AE7E 100%);
-    }
-    
-    /* Price Range Slider Styles */
-    .slider-thumb {
-        background: transparent;
-    }
-    
-    .slider-thumb::-webkit-slider-thumb {
-        appearance: none;
-        height: 20px;
-        width: 20px;
-        border-radius: 50%;
-        background: #187499;
-        cursor: pointer;
-        border: 2px solid white;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    }
-    
-    .slider-thumb::-moz-range-thumb {
-        height: 20px;
-        width: 20px;
-        border-radius: 50%;
-        background: #187499;
-        cursor: pointer;
-        border: 2px solid white;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-    }
-</style>
-
-<body class="bg-[F4F7FE] font-poppins">
-    
+<body class="bg-gray-50 font-poppins">
     <!-- Main Content -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8">
-        
         <!-- Hotel Search Bar -->
-        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-4 sm:p-6 mb-6 sm:mb-8 hotel-search-container">
-          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
-            
-            <!-- Search Info -->
-            <div class="flex flex-col sm:flex-row sm:items-center space-y-3 sm:space-y-0 sm:space-x-4 text-sm sm:text-base">
+        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-4 sm:p-6 mb-6 sm:mb-8">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
+                <!-- Search Info -->
+                <div class="flex flex-col sm:flex-row sm:items-center space-y-3 sm:space-y-0 sm:space-x-4 text-sm sm:text-base">
               
-              <!-- Search Icon -->
-              <div class="text-gray-400">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                </svg>
-              </div>
+                    <!-- Search Icon -->
+                    <div class="text-gray-400">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                        </svg>
+                    </div>
 
-              <!-- Location Info -->
-              <div class="flex items-center space-x-2 cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-all duration-300 transform hover:scale-105 active:scale-95" onclick="openLocationModal()">
-                <span class="text-gray-900 font-medium" id="hotelLocation">Jakarta</span>
-                <svg class="w-4 h-4 text-gray-400 transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                </svg>
-              </div>
+                    <!-- Location Info -->
+                    <div class="flex items-center space-x-2 cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-all duration-300 transform hover:scale-105 active:scale-95" onclick="openLocationModal()">
+                        <span class="text-gray-900 font-medium" id="hotelLocation">Jakarta</span>
+                        <svg class="w-4 h-4 text-gray-400 transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </div>
 
-              <!-- Check-in Date -->
-              <div class="flex items-center space-x-2 cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-all duration-300 transform hover:scale-105 active:scale-95" onclick="openCheckinModal()">
-                <span class="text-gray-600" id="checkinDate">Check-in: -</span>
-                <svg class="w-4 h-4 text-gray-400 ml-1 transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                </svg>
-              </div>
+                    <!-- Check-in Date -->
+                    <div class="flex items-center space-x-2 cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-all duration-300 transform hover:scale-105 active:scale-95" onclick="openCheckinModal()">
+                        <span class="text-gray-600 whitespace-nowrap" id="checkinDate">Check-in: -</span>
+                        <svg class="w-4 h-4 text-gray-400 ml-1 transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </div>
 
-              <!-- Check-out Date -->
-              <div class="flex items-center space-x-2 cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-all duration-300 transform hover:scale-105 active:scale-95" onclick="openCheckoutModal()">
-                <span class="text-gray-600" id="checkoutDate">Check-out: -</span>
-                <svg class="w-4 h-4 text-gray-400 ml-1 transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                </svg>
-              </div>
+                    <!-- Check-out Date -->
+                    <div class="flex items-center space-x-2 cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-all duration-300 transform hover:scale-105 active:scale-95" onclick="openCheckoutModal()">
+                        <span class="text-gray-600 whitespace-nowrap" id="checkoutDate">Check-out: -</span>
+                        <svg class="w-4 h-4 text-gray-400 ml-1 transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </div>
 
-              <!-- Guests & Rooms Info -->
-              <div class="flex items-center space-x-2 cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-all duration-300 transform hover:scale-105 active:scale-95" onclick="openGuestModal()">
-                <span class="text-gray-600" id="guestCount">2 Tamu</span>
-                <span class="text-gray-400 text-sm" id="roomCount">(1 Kamar)</span>
-                <svg class="w-4 h-4 text-gray-400 ml-1 transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                </svg>
-              </div>
-            </div>
+                    <!-- Guests & Rooms Info -->
+                    <div class="flex items-center space-x-2 cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-all duration-300 transform hover:scale-105 active:scale-95" onclick="openGuestModal()">
+                        <span class="text-gray-600 whitespace-nowrap" id="guestCount">2 Tamu</span>
+                        <span class="text-gray-400 text-sm whitespace-nowrap" id="roomCount">(1 Kamar)</span>
+                        <svg class="w-4 h-4 text-gray-400 ml-1 transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </div>
+                </div>
 
-            <!-- Search Button -->
-            <div class="sm:ml-auto">
-              <button onclick="searchHotels()" class="w-full sm:w-auto text-white px-6 py-2 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95 text-sm sm:text-base" style="background: linear-gradient(90deg, #187499 0%, #36AE7E 100%);">
-                <span class="flex items-center justify-center space-x-2">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                  </svg>
-                  <span>Cari Hotel</span>
-                </span>
-              </button>
-            </div>
+                <!-- Search Button -->
+                <div class="sm:ml-auto">
+                    <button onclick="searchHotels()" class="w-full sm:w-auto bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white px-6 py-2 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95 text-sm sm:text-base">
+                        <span class="flex items-center justify-center space-x-2">
+                            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                            </svg>
+                            <span>Cari Hotel</span>
+                        </span>
+                    </button>
+                </div>
           </div>
         </div>
 
@@ -107,13 +72,13 @@
         <div id="locationModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4 transition-all duration-300">
             <div class="bg-white rounded-2xl shadow-xl w-full max-w-md max-h-[85vh] flex flex-col transform transition-all duration-300 scale-95 opacity-0" id="locationModalContent">
                 <!-- Sticky Header -->
-                <div class="p-6 border-b border-gray-200 rounded-t-2xl bg-white">
+                <div class="p-6 border-b border-gray-200 rounded-t-2xl bg-white sticky top-0 z-10">
                     <div class="flex justify-between items-center">
                         <div>
                             <h3 class="text-xl font-bold text-gray-900 mb-1">Pilih Destinasi</h3>
                             <p class="text-gray-500 text-sm">Cari hotel di kota tujuan Anda</p>
                         </div>
-                        <button onclick="closeLocationModal()" class="text-gray-400 hover:text-gray-600 transition-all duration-200 p-2 hover:bg-gray-100 rounded-full transform hover:scale-110">
+                        <button onclick="closeLocationModal()" class="text-gray-400 hover:text-gray-600 transition-all duration-200 p-2 hover:bg-gray-100 rounded-full transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                             </svg>
@@ -123,24 +88,29 @@
                 
                 <!-- Scrollable Content -->
                 <div class="flex-1 overflow-y-auto p-6">
-                    
+                    <!-- Search Input -->
                     <div class="mb-6 relative">
                         <div class="relative">
-                            <input type="text" id="locationSearchInput" placeholder="Masukkan nama kota atau hotel" 
-                                   class="w-full p-3 pl-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-200"
-                                   oninput="searchLocations()" onkeydown="handleLocationKeydown(event)">
+                            <input 
+                                type="text" 
+                                id="locationSearchInput" 
+                                placeholder="Masukkan nama kota atau hotel" 
+                                class="w-full p-3 pl-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200 focus:outline-none"
+                                oninput="searchLocations()" 
+                                onkeydown="handleLocationKeydown(event)"
+                            >
                             <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                             </svg>
                         </div>
                         <!-- Search Suggestions Dropdown -->
-                        <div id="locationSuggestions" class="absolute top-full left-0 right-0 bg-white border border-gray-200 rounded-lg shadow-lg z-10 hidden max-h-48 overflow-y-auto">
+                        <div id="locationSuggestions" class="absolute top-full left-0 right-0 bg-white border border-gray-200 rounded-lg shadow-lg z-10 hidden max-h-48 overflow-y-auto mt-1">
                             <!-- Suggestions will be populated by JavaScript -->
                         </div>
                     </div>
                     
                     <!-- Recent Searches -->
-                    <div class="mb-6" id="recentSearchesSection" style="display: none;">
+                    <div class="mb-6 hidden" id="recentSearchesSection">
                         <div class="flex items-center justify-between mb-3">
                             <h4 class="text-sm font-semibold text-gray-900 flex items-center">
                                 <svg class="w-4 h-4 mr-2 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -148,7 +118,10 @@
                                 </svg>
                                 Pencarian Terakhir
                             </h4>
-                            <button onclick="clearRecentSearches()" class="text-xs text-teal-600 hover:text-teal-700 font-medium transition-colors duration-200">
+                            <button 
+                                onclick="clearRecentSearches()" 
+                                class="text-xs text-blue-600 hover:text-blue-700 font-medium transition-colors duration-200 focus:outline-none"
+                            >
                                 Hapus Semua
                             </button>
                         </div>
@@ -166,37 +139,54 @@
                             Destinasi Populer
                         </h4>
                         <div class="grid grid-cols-2 gap-3">
-                            <button onclick="selectLocation('Jakarta')" class="p-4 border-2 border-gray-200 rounded-xl hover:border-teal-300 hover:bg-teal-50 transition-all duration-200 text-left group transform hover:scale-105">
-                                <div class="text-sm font-medium text-gray-900 group-hover:text-teal-700">Jakarta</div>
-                                <div class="text-xs text-gray-500 group-hover:text-teal-600 mt-1">1,234 hotel</div>
+                            <button 
+                                onclick="selectLocation('Jakarta')" 
+                                class="p-4 border-2 border-gray-200 rounded-xl hover:border-blue-300 hover:bg-blue-50 transition-all duration-200 text-left group transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                            >
+                                <div class="text-sm font-medium text-gray-900 group-hover:text-blue-700">Jakarta</div>
+                                <div class="text-xs text-gray-500 group-hover:text-blue-600 mt-1">1,234 hotel</div>
                             </button>
-                            <button onclick="selectLocation('Bali')" class="p-4 border-2 border-gray-200 rounded-xl hover:border-teal-300 hover:bg-teal-50 transition-all duration-200 text-left group transform hover:scale-105">
-                                <div class="text-sm font-medium text-gray-900 group-hover:text-teal-700">Bali</div>
-                                <div class="text-xs text-gray-500 group-hover:text-teal-600 mt-1">2,156 hotel</div>
+                            <button 
+                                onclick="selectLocation('Bali')" 
+                                class="p-4 border-2 border-gray-200 rounded-xl hover:border-blue-300 hover:bg-blue-50 transition-all duration-200 text-left group transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                            >
+                                <div class="text-sm font-medium text-gray-900 group-hover:text-blue-700">Bali</div>
+                                <div class="text-xs text-gray-500 group-hover:text-blue-600 mt-1">2,156 hotel</div>
                             </button>
-                            <button onclick="selectLocation('Yogyakarta')" class="p-4 border-2 border-gray-200 rounded-xl hover:border-teal-300 hover:bg-teal-50 transition-all duration-200 text-left group transform hover:scale-105">
-                                <div class="text-sm font-medium text-gray-900 group-hover:text-teal-700">Yogyakarta</div>
-                                <div class="text-xs text-gray-500 group-hover:text-teal-600 mt-1">567 hotel</div>
+                            <button 
+                                onclick="selectLocation('Yogyakarta')" 
+                                class="p-4 border-2 border-gray-200 rounded-xl hover:border-blue-300 hover:bg-blue-50 transition-all duration-200 text-left group transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                            >
+                                <div class="text-sm font-medium text-gray-900 group-hover:text-blue-700">Yogyakarta</div>
+                                <div class="text-xs text-gray-500 group-hover:text-blue-600 mt-1">567 hotel</div>
                             </button>
-                            <button onclick="selectLocation('Surabaya')" class="p-4 border-2 border-gray-200 rounded-xl hover:border-teal-300 hover:bg-teal-50 transition-all duration-200 text-left group transform hover:scale-105">
-                                <div class="text-sm font-medium text-gray-900 group-hover:text-teal-700">Surabaya</div>
-                                <div class="text-xs text-gray-500 group-hover:text-teal-600 mt-1">789 hotel</div>
+                            <button 
+                                onclick="selectLocation('Surabaya')" 
+                                class="p-4 border-2 border-gray-200 rounded-xl hover:border-blue-300 hover:bg-blue-50 transition-all duration-200 text-left group transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                            >
+                                <div class="text-sm font-medium text-gray-900 group-hover:text-blue-700">Surabaya</div>
+                                <div class="text-xs text-gray-500 group-hover:text-blue-600 mt-1">789 hotel</div>
                             </button>
-                            <button onclick="selectLocation('Bandung')" class="p-4 border-2 border-gray-200 rounded-xl hover:border-teal-300 hover:bg-teal-50 transition-all duration-200 text-left group transform hover:scale-105">
-                                <div class="text-sm font-medium text-gray-900 group-hover:text-teal-700">Bandung</div>
-                                <div class="text-xs text-gray-500 group-hover:text-teal-600 mt-1">456 hotel</div>
+                            <button 
+                                onclick="selectLocation('Bandung')" 
+                                class="p-4 border-2 border-gray-200 rounded-xl hover:border-blue-300 hover:bg-blue-50 transition-all duration-200 text-left group transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                            >
+                                <div class="text-sm font-medium text-gray-900 group-hover:text-blue-700">Bandung</div>
+                                <div class="text-xs text-gray-500 group-hover:text-blue-600 mt-1">456 hotel</div>
                             </button>
-                            <button onclick="selectLocation('Semarang')" class="p-4 border-2 border-gray-200 rounded-xl hover:border-teal-300 hover:bg-teal-50 transition-all duration-200 text-left group transform hover:scale-105">
-                                <div class="text-sm font-medium text-gray-900 group-hover:text-teal-700">Semarang</div>
-                                <div class="text-xs text-gray-500 group-hover:text-teal-600 mt-1">234 hotel</div>
+                            <button 
+                                onclick="selectLocation('Semarang')" 
+                                class="p-4 border-2 border-gray-200 rounded-xl hover:border-blue-300 hover:bg-blue-50 transition-all duration-200 text-left group transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                            >
+                                <div class="text-sm font-medium text-gray-900 group-hover:text-blue-700">Semarang</div>
+                                <div class="text-xs text-gray-500 group-hover:text-blue-600 mt-1">234 hotel</div>
                             </button>
                         </div>
                     </div>
-                    
                 </div>
                 
                 <!-- Sticky Footer -->
-                <div class="p-6 border-t border-gray-200 bg-white rounded-b-2xl">
+                <div class="p-6 border-t border-gray-200 bg-white rounded-b-2xl sticky bottom-0 z-10">
                     <div class="flex space-x-3">
                         <button onclick="closeLocationModal()" class="flex-1 px-4 py-3 border-2 border-gray-300 rounded-xl text-gray-700 hover:bg-gray-50 transition-all duration-200 font-medium transform hover:scale-105">Batal</button>
                         <button onclick="saveLocation()" class="flex-1 px-4 py-3 text-white rounded-xl font-medium transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-105" style="background: linear-gradient(135deg, #187499 0%, #36AE7E 100%);">Simpan</button>
@@ -291,7 +281,7 @@
                 <div class="p-6 border-t border-gray-200 bg-white rounded-b-2xl">
                     <div class="flex space-x-3">
                         <button onclick="closeGuestModal()" class="flex-1 px-4 py-3 border-2 border-gray-300 rounded-xl text-gray-700 hover:bg-gray-50 transition-all duration-200 font-medium transform hover:scale-105">Batal</button>
-                        <button onclick="saveGuest()" class="flex-1 px-4 py-3 text-white rounded-xl font-medium transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105" style="background: linear-gradient(135deg, #187499 0%, #36AE7E 100%);">Simpan</button>
+                        <button onclick="saveGuest()" class="flex-1 px-4 py-3 text-white rounded-xl font-medium transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 bg-gradient-to-r from-[#187499] to-[#36AE7E]">Simpan</button>
                     </div>
                 </div>
             </div>
@@ -397,7 +387,7 @@
                         <button onclick="closeCheckinModal()" class="flex-1 px-6 py-3 border-2 border-gray-300 rounded-xl text-gray-700 hover:bg-gray-50 transition-all duration-200 font-semibold transform hover:scale-105">
                             Batal
                         </button>
-                        <button onclick="saveCheckinDate()" class="flex-1 px-6 py-3 text-white rounded-xl font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105" style="background: linear-gradient(135deg, #187499 0%, #36AE7E 100%);">
+                        <button onclick="saveCheckinDate()" class="flex-1 px-6 py-3 text-white rounded-xl font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 bg-gradient-to-r from-[#187499] to-[#36AE7E]">
                             Simpan
                         </button>
                     </div>
@@ -506,7 +496,7 @@
                         <button onclick="closeCheckoutModal()" class="flex-1 px-6 py-3 border-2 border-gray-300 rounded-xl text-gray-700 hover:bg-gray-50 transition-all duration-200 font-semibold transform hover:scale-105">
                             Batal
                         </button>
-                        <button onclick="saveCheckoutDate()" class="flex-1 px-6 py-3 text-white rounded-xl font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105" style="background: linear-gradient(135deg, #187499 0%, #36AE7E 100%);">
+                        <button onclick="saveCheckoutDate()" class="flex-1 px-6 py-3 text-white rounded-xl font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 bg-gradient-to-r from-[#187499] to-[#36AE7E]">
                             Simpan
                         </button>
                     </div>
@@ -528,13 +518,13 @@
                             <!-- Price Range Slider -->
                             <div class="relative mb-4">
                                 <input type="range" id="priceRangeMin" min="0" max="20000000" value="0" step="100000" 
-                                       class="absolute w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider-thumb"
-                                       style="z-index: 1;" oninput="updatePriceRange()">
+                                       class="absolute w-full h-2 bg-transparent rounded-lg appearance-none cursor-pointer slider-thumb z-[1]"
+                                       oninput="updatePriceRange()">
                                 <input type="range" id="priceRangeMax" min="0" max="20000000" value="16000000" step="100000" 
-                                       class="absolute w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider-thumb"
-                                       style="z-index: 2;" oninput="updatePriceRange()">
+                                       class="absolute w-full h-2 bg-transparent rounded-lg appearance-none cursor-pointer slider-thumb z-[2]"
+                                       oninput="updatePriceRange()">
                                 <div class="relative h-2 bg-gray-200 rounded-lg">
-                                    <div id="priceRangeTrack" class="absolute h-2 rounded-lg" style="background: linear-gradient(90deg, #187499 0%, #36ae7e 100%); left: 0%; right: 20%;"></div>
+                                    <div id="priceRangeTrack" class="absolute h-2 rounded-lg bg-gradient-to-r from-[#187499] to-[#36ae7e] left-[0%] right-[20%]"></div>
                                 </div>
                             </div>
                             
@@ -552,7 +542,7 @@
                             
                             <!-- Apply Price Filter Button -->
                             <div class="mt-3">
-                                <button onclick="applyPriceFilter()" class="w-full bg-teal-600 text-white text-sm py-2 px-4 rounded-lg hover:bg-teal-700 transition-colors duration-200">
+                                <button onclick="applyPriceFilter()" class="w-full bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-sm py-2 px-4 rounded-lg hover:bg-teal-700 transition-colors duration-200">
                                     Terapkan Harga
                                 </button>
                             </div>
@@ -694,7 +684,7 @@
                                     <div class="text-sm text-gray-600">
                                         <span class="text-green-600 font-medium">Pembatalan Gratis</span> hingga 24 jam sebelum check-in
                                     </div>
-                                    <button class="px-6 py-2 text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg" style="background: linear-gradient(135deg, #187499 0%, #36AE7E 100%);">
+                                    <button class="px-6 py-2 text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg bg-gradient-to-r from-[#187499] to-[#36AE7E]">
                                         Pilih Kamar
                                     </button>
                                 </div>
@@ -733,7 +723,7 @@
                                     <div class="text-sm text-gray-600">
                                         <span class="text-green-600 font-medium">Pembatalan Gratis</span> hingga 48 jam sebelum check-in
                                     </div>
-                                    <button class="px-6 py-2 text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg" style="background: linear-gradient(135deg, #187499 0%, #36AE7E 100%);">
+                                    <button class="px-6 py-2 text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg bg-gradient-to-r from-[#187499] to-[#36AE7E]">
                                         Pilih Kamar
                                     </button>
                                 </div>
@@ -772,7 +762,7 @@
                                     <div class="text-sm text-gray-600">
                                         <span class="text-green-600 font-medium">Pembatalan Gratis</span> hingga 24 jam sebelum check-in
                                     </div>
-                                    <button class="px-6 py-2 text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg" style="background: linear-gradient(135deg, #187499 0%, #36AE7E 100%);">
+                                    <button class="px-6 py-2 text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg bg-gradient-to-r from-[#187499] to-[#36AE7E]">
                                         Pilih Kamar
                                     </button>
                                 </div>
@@ -908,11 +898,20 @@ function updatePriceRange() {
     minDisplay.textContent = formatPrice(minVal);
     maxDisplay.textContent = formatPrice(maxVal);
     
-    // Update slider track
+    // Update slider track with Tailwind classes
     const minPercent = (minVal / 20000000) * 100;
     const maxPercent = (maxVal / 20000000) * 100;
-    track.style.left = minPercent + '%';
-    track.style.right = (100 - maxPercent) + '%';
+    track.style.left = `${minPercent}%`;
+    track.style.right = `${100 - maxPercent}%`;
+    
+    // Update z-index to ensure proper layering
+    if (minVal > maxVal - 100000) {
+        minSlider.classList.add('z-[3]');
+        maxSlider.classList.remove('z-[3]');
+    } else {
+        minSlider.classList.remove('z-[3]');
+        maxSlider.classList.add('z-[3]');
+    }
 }
 
 function formatPrice(price) {
