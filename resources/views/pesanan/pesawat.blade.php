@@ -5,7 +5,7 @@
 
     @include('partials.navigation')
 
-<body class="bg-gray-50 font-poppins">
+<body class="bg-[F4F7FE] font-poppins">
     
 
     <!-- Main Content -->
@@ -86,8 +86,8 @@
 
         <!-- Departure Location Modal -->
         <div id="departureModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
-            <div class="bg-white rounded-2xl shadow-xl max-w-md w-full max-h-[85vh] overflow-y-auto">
-                <div class="p-6">
+            <div class="bg-white rounded-2xl shadow-xl w-full max-w-md h-[600px] flex flex-col">
+                <div class="p-6 flex-1 flex flex-col overflow-hidden">
                     <!-- Header -->
                     <div class="flex justify-between items-center mb-6">
                         <div>
@@ -111,7 +111,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                             </svg>
                         </div>
-                        <div id="departureSearchResults" class="mt-2 max-h-40 overflow-y-auto hidden bg-white rounded-lg shadow-lg border border-gray-200"></div>
+                        <div id="departureSearchResults" class="mt-2 h-32 overflow-y-auto hidden bg-white rounded-lg shadow-lg border border-gray-200"></div>
                     </div>
                     
                     <!-- Recent Searches -->
@@ -120,7 +120,7 @@
                             <h4 class="text-sm font-semibold text-gray-900">Pencarian Terakhir</h4>
                             <button onclick="clearDepartureRecentSearches()" class="text-sm text-gray-600 hover:text-gray-700 font-medium">Hapus</button>
                         </div>
-                        <div id="departureRecentSearches" class="space-y-2">
+                        <div id="departureRecentSearches" class="space-y-2 h-24 overflow-y-auto">
                             <div class="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer transition duration-200" onclick="selectDepartureRecentLocation('Jakarta, Indonesia', 'CGK')">
                                 <div class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center mr-3">
                                     <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -139,7 +139,7 @@
                     <!-- Popular Departure Cities -->
                     <div class="mb-6">
                         <h4 class="text-sm font-semibold text-gray-900 mb-3">Kota Populer</h4>
-                        <div class="grid grid-cols-3 gap-2">
+                        <div class="grid grid-cols-3 gap-2 h-32 overflow-y-auto">
                             <button onclick="selectDeparturePopularLocation('Jakarta')" class="p-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition duration-200 text-sm font-medium text-gray-700">
                                 Jakarta
                             </button>
@@ -161,7 +161,7 @@
                         </div>
                     </div>
                     
-                    <div class="flex space-x-3">
+                    <div class="flex space-x-3 mt-auto pt-4">
                         <button onclick="closeDepartureModal()" class="flex-1 px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition duration-200 font-medium">
                             Batal
                         </button>
@@ -175,8 +175,8 @@
 
         <!-- Arrival Location Modal -->
         <div id="arrivalModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
-            <div class="bg-white rounded-2xl shadow-xl max-w-md w-full max-h-[85vh] overflow-y-auto">
-                <div class="p-6">
+            <div class="bg-white rounded-2xl shadow-xl w-full max-w-md h-[600px] flex flex-col">
+                <div class="p-6 flex-1 flex flex-col overflow-hidden">
                     <!-- Header -->
                     <div class="flex justify-between items-center mb-6">
                         <div>
@@ -200,7 +200,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                             </svg>
                         </div>
-                        <div id="arrivalSearchResults" class="mt-2 max-h-40 overflow-y-auto hidden bg-white rounded-lg shadow-lg border border-gray-200"></div>
+                        <div id="arrivalSearchResults" class="mt-2 h-32 overflow-y-auto hidden bg-white rounded-lg shadow-lg border border-gray-200"></div>
                     </div>
                     
                     <!-- Recent Searches -->
@@ -209,7 +209,7 @@
                             <h4 class="text-sm font-semibold text-gray-900">Pencarian Terakhir</h4>
                             <button onclick="clearArrivalRecentSearches()" class="text-sm text-gray-600 hover:text-gray-700 font-medium">Hapus</button>
                         </div>
-                        <div id="arrivalRecentSearches" class="space-y-2">
+                        <div id="arrivalRecentSearches" class="space-y-2 h-24 overflow-y-auto">
                             <div class="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer transition duration-200" onclick="selectArrivalRecentLocation('Denpasar-Bali, Indonesia', 'DPS')">
                                 <div class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center mr-3">
                                     <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -228,7 +228,7 @@
                     <!-- Popular Destinations -->
                     <div class="mb-6">
                         <h4 class="text-sm font-semibold text-gray-900 mb-3">Destinasi Populer</h4>
-                        <div class="grid grid-cols-3 gap-2">
+                        <div class="grid grid-cols-3 gap-2 h-32 overflow-y-auto">
                             <button onclick="selectArrivalPopularLocation('Denpasar-Bali')" class="p-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition duration-200 text-sm font-medium text-gray-700">
                                 Denpasar-Bali
                             </button>
@@ -250,7 +250,7 @@
                         </div>
                     </div>
                     
-                    <div class="flex space-x-3">
+                    <div class="flex space-x-3 mt-auto pt-4">
                         <button onclick="closeArrivalModal()" class="flex-1 px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition duration-200 font-medium">
                             Batal
                         </button>
@@ -262,13 +262,15 @@
             </div>
         </div>
 
+
         @include('partials.calender')
+
 
         <!-- Passenger Selection Modal -->
         <div id="passengerModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
-            <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full">
-                <div class="p-8">
-                    <div class="flex justify-between items-center mb-8">
+            <div class="bg-white rounded-2xl shadow-xl w-full max-w-md h-[450px] flex flex-col">
+                <div class="p-6 flex-1 flex flex-col overflow-hidden">
+                    <div class="flex justify-between items-center mb-6">
                         <div>
                             <h3 class="text-2xl font-bold text-gray-900 mb-1">Pilih Penumpang</h3>
                             <p class="text-gray-500">Tentukan jumlah dan kelas penumpang</p>
@@ -281,8 +283,8 @@
                     </div>
                     
                     <!-- Passenger Count -->
-                    <div class="mb-8">
-                        <label class="block text-sm font-semibold text-gray-700 mb-4">Jumlah Penumpang</label>
+                    <div class="mb-6">
+                        <label class="block text-sm font-semibold text-gray-700 mb-3">Jumlah Penumpang</label>
                         <div class="flex items-center justify-center space-x-8">
                             <button onclick="changePassengerCount(-1)" class="w-12 h-12 rounded-full border-2 border-gray-300 flex items-center justify-center hover:bg-gray-50 hover:border-gray-400 transition duration-200 text-gray-600 font-bold text-xl">-</button>
                             <div class="text-center">
@@ -294,16 +296,16 @@
                     </div>
                     
                     <!-- Class Selection -->
-                    <div class="mb-8">
+                    <div class="mb-6">
                         <label class="block text-sm font-semibold text-gray-700 mb-3">Kelas</label>
-                        <select id="classSelect" class="w-full p-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200 text-lg">
+                        <select id="classSelect" class="w-full p-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200 text-lg">
                             <option value="Ekonomi">Ekonomi</option>
                             <option value="Bisnis">Bisnis</option>
                             <option value="First Class">First Class</option>
                         </select>
                     </div>
                     
-                    <div class="flex space-x-4">
+                    <div class="flex space-x-4 mt-auto pt-4">
                         <button onclick="closePassengerModal()" class="flex-1 px-6 py-3 border-2 border-gray-300 rounded-xl text-gray-700 hover:bg-gray-50 transition duration-200 font-semibold">
                             Batal
                         </button>
@@ -319,14 +321,14 @@
         <div class="mb-8 date-cards-container">
             <div class="relative">
                 <!-- Left Arrow Button -->
-                <button onclick="scrollDateCards('left')" class="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white border border-gray-200 rounded-full p-2 shadow-sm hover:bg-gray-50 transition-colors duration-150 -ml-4 hidden md:block">
+                <button onclick="scrollDateCards('left')" class="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white border border-gray-200 rounded-full p-2 shadow-sm hover:bg-gray-50 transition-colors duration-150 -ml-10 hidden md:block">
                     <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                     </svg>
                 </button>
                 
                 <!-- Right Arrow Button -->
-                <button onclick="scrollDateCards('right')" class="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white border border-gray-200 rounded-full p-2 shadow-sm hover:bg-gray-50 transition-colors duration-150 -mr-4 hidden md:block">
+                <button onclick="scrollDateCards('right')" class="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white border border-gray-200 rounded-full p-2 shadow-sm hover:bg-gray-50 transition-colors duration-150 -mr-10 hidden md:block">
                     <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                     </svg>
