@@ -1,7 +1,7 @@
 
     @include('partials.head')
 
-    @section('title', 'Flight Search - Online Travel')
+    @section('title', 'Train Search - Online Travel')
 
     @include('partials.navigation')
 
@@ -11,7 +11,7 @@
     <!-- Main Content -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8">
         
-        <!-- Flight Search Bar -->
+        <!-- Train Search Bar -->
         <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-4 sm:p-6 mb-6 sm:mb-8 flight-search-container">
           <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
             
@@ -44,7 +44,7 @@
                 
                 <!-- Arrival -->
                 <div class="flex items-center space-x-2 cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-all duration-300 transform hover:scale-105  active:scale-95" onclick="openArrivalModal()">
-                  <span class="text-gray-900 font-medium" id="toLocation">Bali</span>
+                  <span class="text-gray-900 font-medium" id="toLocation">Banyuwangi</span>
                   <svg class="w-4 h-4 text-gray-400 transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                   </svg>
@@ -146,8 +146,8 @@
                             <button onclick="selectDeparturePopularLocation('Surabaya')" class="p-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition duration-200 text-sm font-medium text-gray-700">
                                 Surabaya
                             </button>
-                            <button onclick="selectDeparturePopularLocation('Medan')" class="p-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition duration-200 text-sm font-medium text-gray-700">
-                                Medan
+                            <button onclick="selectDeparturePopularLocation('Bandung')" class="p-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition duration-200 text-sm font-medium text-gray-700">
+                                Bandung
                             </button>
                             <button onclick="selectDeparturePopularLocation('Makassar')" class="p-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition duration-200 text-sm font-medium text-gray-700">
                                 Makassar
@@ -210,17 +210,17 @@
                             <button onclick="clearArrivalRecentSearches()" class="text-sm text-gray-600 hover:text-gray-700 font-medium">Hapus</button>
                         </div>
                         <div id="arrivalRecentSearches" class="space-y-2">
-                            <div class="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer transition duration-200" onclick="selectArrivalRecentLocation('Denpasar-Bali, Indonesia', 'DPS')">
+                            <div class="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-gray-50 cursor-pointer transition duration-200" onclick="selectArrivalRecentLocation('Banyuwangi, Indonesia', 'BWI')">
                                 <div class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center mr-3">
                                     <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
                                     </svg>
                                 </div>
                                 <div class="flex-1">
-                                    <div class="text-sm font-medium text-gray-900">Denpasar-Bali, Indonesia</div>
-                                    <div class="text-xs text-gray-500">Denpasar-Bali</div>
+                                    <div class="text-sm font-medium text-gray-900">Banyuwangi, Indonesia</div>
+                                    <div class="text-xs text-gray-500">Banyuwangi</div>
                                 </div>
-                                <span class="text-xs text-gray-400 bg-gray-100 px-2 py-1 rounded">DPS</span>
+                                <span class="text-xs text-gray-400 bg-gray-100 px-2 py-1 rounded">BWI</span>
                             </div>
                         </div>
                     </div>
@@ -229,14 +229,14 @@
                     <div class="mb-6">
                         <h4 class="text-sm font-semibold text-gray-900 mb-3">Destinasi Populer</h4>
                         <div class="grid grid-cols-3 gap-2">
-                            <button onclick="selectArrivalPopularLocation('Denpasar-Bali')" class="p-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition duration-200 text-sm font-medium text-gray-700">
-                                Denpasar-Bali
+                            <button onclick="selectArrivalPopularLocation('Banyuwangi')" class="p-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition duration-200 text-sm font-medium text-gray-700">
+                                Banyuwangi
                             </button>
                             <button onclick="selectArrivalPopularLocation('Surabaya')" class="p-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition duration-200 text-sm font-medium text-gray-700">
                                 Surabaya
                             </button>
-                            <button onclick="selectArrivalPopularLocation('Medan')" class="p-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition duration-200 text-sm font-medium text-gray-700">
-                                Medan
+                            <button onclick="selectArrivalPopularLocation('Bandung')" class="p-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition duration-200 text-sm font-medium text-gray-700">
+                                Bandung
                             </button>
                             <button onclick="selectArrivalPopularLocation('Makassar')" class="p-3 border border-gray-300 rounded-lg hover:bg-gray-50 transition duration-200 text-sm font-medium text-gray-700">
                                 Makassar
@@ -388,9 +388,9 @@
             </div>
         </div>
 
-        @include('partials.flight-result')
+        @include('partials.train-result')
 
-        @include('partials.flight-detail')
+        @include('partials.train-detail')
 
         <!-- Load More Button -->
         <div class="text-center mt-6 sm:mt-8">
