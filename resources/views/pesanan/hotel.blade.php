@@ -21,34 +21,69 @@
                     </div>
 
                     <!-- Location Info -->
-                    <div class="flex items-center space-x-2 cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-all duration-300 transform hover:scale-105 active:scale-95" onclick="openLocationModal()">
-                        <span class="text-gray-900 font-medium" id="hotelLocation">Jakarta</span>
-                        <svg class="w-4 h-4 text-gray-400 transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div class="flex items-center space-x-2 cursor-pointer bg-gradient-to-r from-[#187499]/5 to-[#36AE7E]/5 p-3 rounded-lg transition-all duration-300 transform hover:scale-105 active:scale-95 group" onclick="openLocationModal()">
+                        <div class="p-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] rounded-lg">
+                            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-xs text-gray-500">Lokasi</span>
+                            <span class="text-gray-900 font-medium" id="hotelLocation">Jakarta</span>
+                        </div>
+                        <svg class="w-4 h-4 text-gray-400 ml-auto transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </div>
 
                     <!-- Check-in Date -->
-                    <div class="flex items-center space-x-2 cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-all duration-300 transform hover:scale-105 active:scale-95" onclick="openCheckinModal()">
-                        <span class="text-gray-600 whitespace-nowrap" id="checkinDate">Check-in: -</span>
-                        <svg class="w-4 h-4 text-gray-400 ml-1 transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div class="flex items-center space-x-2 cursor-pointer bg-gradient-to-r from-[#187499]/5 to-[#36AE7E]/5 p-3 rounded-lg transition-all duration-300 transform hover:scale-105 active:scale-95 group" onclick="openCheckinModal()">
+                        <div class="p-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] rounded-lg">
+                            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-xs text-gray-500">Check-in</span>
+                            <span class="text-gray-900 font-medium whitespace-nowrap" id="checkinDate">Pilih Tanggal</span>
+                        </div>
+                        <svg class="w-4 h-4 text-gray-400 ml-auto transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </div>
 
                     <!-- Check-out Date -->
-                    <div class="flex items-center space-x-2 cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-all duration-300 transform hover:scale-105 active:scale-95" onclick="openCheckoutModal()">
-                        <span class="text-gray-600 whitespace-nowrap" id="checkoutDate">Check-out: -</span>
-                        <svg class="w-4 h-4 text-gray-400 ml-1 transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div class="flex items-center space-x-2 cursor-pointer bg-gradient-to-r from-[#187499]/5 to-[#36AE7E]/5 p-3 rounded-lg transition-all duration-300 transform hover:scale-105 active:scale-95 group" onclick="openCheckoutModal()">
+                        <div class="p-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] rounded-lg">
+                            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-xs text-gray-500">Check-out</span>
+                            <span class="text-gray-900 font-medium whitespace-nowrap" id="checkoutDate">Pilih Tanggal</span>
+                        </div>
+                        <svg class="w-4 h-4 text-gray-400 ml-auto transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </div>
 
                     <!-- Guests & Rooms Info -->
-                    <div class="flex items-center space-x-2 cursor-pointer hover:bg-gray-50 p-2 rounded-lg transition-all duration-300 transform hover:scale-105 active:scale-95" onclick="openGuestModal()">
-                        <span class="text-gray-600 whitespace-nowrap" id="guestCount">2 Tamu</span>
-                        <span class="text-gray-400 text-sm whitespace-nowrap" id="roomCount">(1 Kamar)</span>
-                        <svg class="w-4 h-4 text-gray-400 ml-1 transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <div class="flex items-center space-x-2 cursor-pointer bg-gradient-to-r from-[#187499]/5 to-[#36AE7E]/5 p-3 rounded-lg transition-all duration-300 transform hover:scale-105 active:scale-95 group" onclick="openGuestModal()">
+                        <div class="p-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] rounded-lg">
+                            <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                        </div>
+                        <div class="flex flex-col">
+                            <span class="text-xs text-gray-500">Tamu & Kamar</span>
+                            <span class="text-gray-900 font-medium whitespace-nowrap">
+                                <span id="guestCount">2 Tamu</span>
+                                <span class="text-gray-400 text-sm whitespace-nowrap" id="roomCount">(1 Kamar)</span>
+                            </span>
+                        </div>
+                        <svg class="w-4 h-4 text-gray-400 ml-auto transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </div>
@@ -563,7 +598,7 @@
                                         <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                                         <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                                     </div>
-                                    5 Bintang
+                                    5 
                                 </span>
                             </label>
                             <label class="flex items-center cursor-pointer group">
@@ -576,7 +611,7 @@
                                         <svg class="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                                         <svg class="w-4 h-4 text-gray-300 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                                     </div>
-                                    4 Bintang ke atas
+                                    4 
                                 </span>
                             </label>
                             <label class="flex items-center cursor-pointer group">
@@ -589,7 +624,7 @@
                                         <svg class="w-4 h-4 text-gray-300 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                                         <svg class="w-4 h-4 text-gray-300 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                                     </div>
-                                    3 Bintang ke atas
+                                    3 
                                 </span>
                             </label>
                             <label class="flex items-center cursor-pointer group">
@@ -602,7 +637,7 @@
                                         <svg class="w-4 h-4 text-gray-300 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                                         <svg class="w-4 h-4 text-gray-300 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                                     </div>
-                                    2 Bintang ke atas
+                                    2 
                                 </span>
                             </label>
                             <label class="flex items-center cursor-pointer group">
@@ -615,7 +650,7 @@
                                         <svg class="w-4 h-4 text-gray-300 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                                         <svg class="w-4 h-4 text-gray-300 fill-current" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
                                     </div>
-                                    1 Bintang ke atas
+                                    1 
                                 </span>
                             </label>
                         </div>
@@ -774,7 +809,7 @@
                 <!-- Load More Button -->
                 <div class="text-center mt-8">
                     <button onclick="loadMoreHotels()" class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-8 py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 active:scale-95">
-                        Muat Lebih Banyak Hotel
+                        Load More Hotel
                     </button>
                 </div>
             </div>
