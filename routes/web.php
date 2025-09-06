@@ -28,6 +28,11 @@ Route::get('/pesanan/hotel', function () {
     return view('pesanan.hotel');
 });
 
+// Hotel detail page - for viewing the new hotel layout
+Route::get('checkout/informasi-hotel', function () {
+    return view('checkout.informasi-hotel');
+});
+
 
 Route::get('/checkout/checkout-pesawat', [PesawatController::class, 'checkout']);
 Route::post('/checkout/process', [PesawatController::class, 'processCheckout']);
