@@ -11,8 +11,8 @@
   @include('partials.alert')
     <!-- Page Header -->
     <div class="mb-8 pl-2">
-      <h2 class="text-3xl font-bold text-gray-900">Admin</h2>
-      <p class="text-gray-600 mt-1">Order Management</p>
+      <h2 class="text-3xl font-bold text-gray-900">Ticketing</h2>
+      <p class="text-gray-600 mt-1">Ticket Management</p>
     </div>
 
     <!-- Filter Tabs -->
@@ -62,10 +62,12 @@
   </div>
 </div>
 
-@include('partials.table-order')
+@include('partials.table-ticketing')
 
 
 </main>
+
+@include('partials.overlay-detail-ticket')
 
   <script>
     // Smooth page enter transition
