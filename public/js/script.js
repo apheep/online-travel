@@ -48,7 +48,17 @@ const cities = [
 
 // Location Modal Functions
 function openDepartureModal() {
-    document.getElementById('departureModal').classList.remove('hidden');
+    const modal = document.getElementById('departureModal');
+    const content = document.getElementById('departureModalContent');
+    
+    modal.classList.remove('hidden');
+    
+    // Animate modal in
+    setTimeout(() => {
+        content.classList.remove('scale-95', 'opacity-0');
+        content.classList.add('scale-100', 'opacity-100');
+    }, 50);
+    
     // Set current value to the search input
     document.getElementById('departureSearchInput').value = '';
     
@@ -61,7 +71,18 @@ function openDepartureModal() {
 }
 
 function closeDepartureModal() {
-    document.getElementById('departureModal').classList.add('hidden');
+    const modal = document.getElementById('departureModal');
+    const content = document.getElementById('departureModalContent');
+    
+    // Animate modal out
+    content.classList.remove('scale-100', 'opacity-100');
+    content.classList.add('scale-95', 'opacity-0');
+    
+    // Hide modal after animation
+    setTimeout(() => {
+        modal.classList.add('hidden');
+    }, 300);
+    
     // Hide suggestions
     document.getElementById('departureSearchResults').classList.add('hidden');
 }
@@ -83,7 +104,7 @@ function searchDepartureCities() {
     
     if (filteredCities.length > 0) {
         suggestions.innerHTML = filteredCities.map(city => `
-            <div class="p-3 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0 transition duration-200" 
+            <div class="p-3 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0 transition-colors duration-200" 
                  onclick="selectDepartureLocationCity('${city.name}', '${city.code}', '${city.airport}')">
                 <div class="flex items-center justify-between">
                     <div>
@@ -101,10 +122,18 @@ function searchDepartureCities() {
 }
 
 function selectDepartureLocationCity(cityName, cityCode, airportName) {
+    // Update the main location display immediately
+    document.getElementById('fromLocation').textContent = cityName;
+    
+    // Update the input and close suggestions
     document.getElementById('departureSearchInput').value = cityName;
     document.getElementById('departureSearchResults').classList.add('hidden');
+    
     // Add to recent searches
     addDepartureRecentSearch(cityName, cityCode);
+    
+    // Close modal smoothly
+    closeDepartureModal();
 }
 
 function saveDepartureLocation() {
@@ -159,9 +188,27 @@ function clearDepartureRecentSearches() {
 
 // Popular Destinations Functions
 function selectDeparturePopularLocation(cityName) {
-    document.getElementById('departureSearchInput').value = cityName;
-    document.getElementById('departureSearchResults').classList.add('hidden');
-    addDepartureRecentSearch(cityName, 'POP'); // Assuming a placeholder code for popular destinations
+    // Add visual feedback with smooth animation
+    const button = event.target;
+    button.style.transform = 'scale(0.95)';
+    button.style.transition = 'transform 0.15s ease-out';
+    
+    setTimeout(() => {
+        button.style.transform = 'scale(1)';
+        
+        // Update the main location display
+        document.getElementById('fromLocation').textContent = cityName;
+        
+        // Update the input and close modal with animation
+        document.getElementById('departureSearchInput').value = cityName;
+        document.getElementById('departureSearchResults').classList.add('hidden');
+        addDepartureRecentSearch(cityName, 'POP');
+        
+        // Auto close modal after selection with smooth animation
+        setTimeout(() => {
+            closeDepartureModal();
+        }, 200);
+    }, 150);
 }
 
 // Hide suggestions when clicking outside
@@ -175,7 +222,17 @@ document.addEventListener('click', function(event) {
 });
 
 function openArrivalModal() {
-    document.getElementById('arrivalModal').classList.remove('hidden');
+    const modal = document.getElementById('arrivalModal');
+    const content = document.getElementById('arrivalModalContent');
+    
+    modal.classList.remove('hidden');
+    
+    // Animate modal in
+    setTimeout(() => {
+        content.classList.remove('scale-95', 'opacity-0');
+        content.classList.add('scale-100', 'opacity-100');
+    }, 50);
+    
     // Set current value to the search input
     document.getElementById('arrivalSearchInput').value = '';
     
@@ -188,7 +245,18 @@ function openArrivalModal() {
 }
 
 function closeArrivalModal() {
-    document.getElementById('arrivalModal').classList.add('hidden');
+    const modal = document.getElementById('arrivalModal');
+    const content = document.getElementById('arrivalModalContent');
+    
+    // Animate modal out
+    content.classList.remove('scale-100', 'opacity-100');
+    content.classList.add('scale-95', 'opacity-0');
+    
+    // Hide modal after animation
+    setTimeout(() => {
+        modal.classList.add('hidden');
+    }, 300);
+    
     // Hide suggestions
     document.getElementById('arrivalSearchResults').classList.add('hidden');
 }
@@ -210,7 +278,7 @@ function searchArrivalCities() {
     
     if (filteredCities.length > 0) {
         suggestions.innerHTML = filteredCities.map(city => `
-            <div class="p-3 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0 transition duration-200" 
+            <div class="p-3 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0 transition-colors duration-200" 
                  onclick="selectArrivalLocationCity('${city.name}', '${city.code}', '${city.airport}')">
                 <div class="flex items-center justify-between">
                     <div>
@@ -228,10 +296,18 @@ function searchArrivalCities() {
 }
 
 function selectArrivalLocationCity(cityName, cityCode, airportName) {
+    // Update the main location display immediately
+    document.getElementById('toLocation').textContent = cityName;
+    
+    // Update the input and close suggestions
     document.getElementById('arrivalSearchInput').value = cityName;
     document.getElementById('arrivalSearchResults').classList.add('hidden');
+    
     // Add to recent searches
     addArrivalRecentSearch(cityName, cityCode);
+    
+    // Close modal smoothly
+    closeArrivalModal();
 }
 
 function saveArrivalLocation() {
@@ -293,9 +369,27 @@ function clearArrivalRecentSearches() {
 
 // Popular Destinations Functions
 function selectArrivalPopularLocation(cityName) {
-    document.getElementById('arrivalSearchInput').value = cityName;
-    document.getElementById('arrivalSearchResults').classList.add('hidden');
-    addArrivalRecentSearch(cityName, 'POP'); // Assuming a placeholder code for popular destinations
+    // Add visual feedback with smooth animation
+    const button = event.target;
+    button.style.transform = 'scale(0.95)';
+    button.style.transition = 'transform 0.15s ease-out';
+    
+    setTimeout(() => {
+        button.style.transform = 'scale(1)';
+        
+        // Update the main location display
+        document.getElementById('toLocation').textContent = cityName;
+        
+        // Update the input and close modal with animation
+        document.getElementById('arrivalSearchInput').value = cityName;
+        document.getElementById('arrivalSearchResults').classList.add('hidden');
+        addArrivalRecentSearch(cityName, 'POP');
+        
+        // Auto close modal after selection with smooth animation
+        setTimeout(() => {
+            closeArrivalModal();
+        }, 200);
+    }, 150);
 }
 
 // Hide suggestions when clicking outside
@@ -315,13 +409,33 @@ let departureDate = null;
 let returnDate = null;
 
 function openDateModal() {
-    document.getElementById('dateModal').classList.remove('hidden');
+    const modal = document.getElementById('dateModal');
+    const content = document.getElementById('dateModalContent');
+    
+    modal.classList.remove('hidden');
+    
+    // Animate modal in
+    setTimeout(() => {
+        content.classList.remove('scale-95', 'opacity-0');
+        content.classList.add('scale-100', 'opacity-100');
+    }, 50);
+    
     generateCalendar();
     switchTripType('oneWay'); // Default to one-way
 }
 
 function closeDateModal() {
-    document.getElementById('dateModal').classList.add('hidden');
+    const modal = document.getElementById('dateModal');
+    const content = document.getElementById('dateModalContent');
+    
+    // Animate modal out
+    content.classList.remove('scale-100', 'opacity-100');
+    content.classList.add('scale-95', 'opacity-0');
+    
+    setTimeout(() => {
+        modal.classList.add('hidden');
+    }, 300);
+    
     departureDate = null;
     returnDate = null;
 }
@@ -329,23 +443,46 @@ function closeDateModal() {
 function switchTripType(type) {
     tripType = type;
     
-    // Update button styling
+    // Update button styling with smooth transitions
     const oneWayBtn = document.getElementById('oneWayBtn');
     const roundTripBtn = document.getElementById('roundTripBtn');
     const returnDateSection = document.getElementById('returnDateSection');
     
+    // Add transition classes for smooth animation
+    oneWayBtn.style.transition = 'all 0.3s ease-out';
+    roundTripBtn.style.transition = 'all 0.3s ease-out';
+    returnDateSection.style.transition = 'all 0.4s ease-out';
+    
     if (type === 'oneWay') {
         oneWayBtn.style.background = 'linear-gradient(135deg, #187499 0%, #36AE7E 100%)';
         oneWayBtn.style.color = 'white';
+        oneWayBtn.style.transform = 'scale(1)';
+        
         roundTripBtn.style.background = 'white';
         roundTripBtn.style.color = '#374151';
-        returnDateSection.style.display = 'none';
+        roundTripBtn.style.transform = 'scale(1)';
+        
+        // Smooth hide animation for return date section
+        returnDateSection.style.opacity = '0';
+        returnDateSection.style.transform = 'translateY(-10px)';
+        setTimeout(() => {
+            returnDateSection.style.display = 'none';
+        }, 300);
     } else {
         oneWayBtn.style.background = 'white';
         oneWayBtn.style.color = '#374151';
+        oneWayBtn.style.transform = 'scale(1)';
+        
         roundTripBtn.style.background = 'linear-gradient(135deg, #187499 0%, #36AE7E 100%)';
         roundTripBtn.style.color = 'white';
+        roundTripBtn.style.transform = 'scale(1)';
+        
+        // Smooth show animation for return date section
         returnDateSection.style.display = 'block';
+        setTimeout(() => {
+            returnDateSection.style.opacity = '1';
+            returnDateSection.style.transform = 'translateY(0)';
+        }, 50);
     }
     
     // Reset selections
@@ -398,12 +535,7 @@ function generateCalendarDays(month, year) {
                 dayClass += ' shadow-md';
                 dayClass += ' transition-all duration-200';
                 dayClass += ' transform scale-105';
-                dayClass += ' z-10';
-                dayClass += ' relative';
-                dayClass += ' overflow-hidden';
-                dayClass += ' before:absolute before:inset-0 before:bg-gradient-to-r before:from-blue-500 before:to-green-500 before:opacity-90';
-                dayClass += ' before:z-0';
-                dayClass += ' relative z-10';
+                dayClass += ' bg-gradient-to-r from-[#187499] to-[#36AE7E]';
             } else if (isToday) {
                 dayClass += ' text-blue-600 font-semibold';
             } else {
@@ -412,7 +544,7 @@ function generateCalendarDays(month, year) {
             
             html += `
                 <div class="${dayClass}" onclick="selectDate('${currentDate.toISOString()}')">
-                    <div class="relative z-10">${dayText}</div>
+                    ${dayText}
                 </div>
             `;
         }
@@ -491,7 +623,7 @@ function saveDate() {
             document.getElementById('selectedDate').textContent = formattedDate;
             document.getElementById('tripType').textContent = '(Sekali jalan)';
         } else {
-            alert('Silakan pilih tanggal keberangkatan.');
+            alert('Silakan pilih tanggal.');
             return;
         }
     } else {
@@ -559,11 +691,30 @@ function loadMoreFlights() {
 let passengerCount = 2;
 
 function openPassengerModal() {
-    document.getElementById('passengerModal').classList.remove('hidden');
+    const modal = document.getElementById('passengerModal');
+    const content = document.getElementById('passengerModalContent');
+    
+    modal.classList.remove('hidden');
+    
+    // Animate modal in
+    setTimeout(() => {
+        content.classList.remove('scale-95', 'opacity-0');
+        content.classList.add('scale-100', 'opacity-100');
+    }, 50);
 }
 
 function closePassengerModal() {
-    document.getElementById('passengerModal').classList.add('hidden');
+    const modal = document.getElementById('passengerModal');
+    const content = document.getElementById('passengerModalContent');
+    
+    // Animate modal out
+    content.classList.remove('scale-100', 'opacity-100');
+    content.classList.add('scale-95', 'opacity-0');
+    
+    // Hide modal after animation
+    setTimeout(() => {
+        modal.classList.add('hidden');
+    }, 300);
 }
 
 function changePassengerCount(change) {
@@ -571,8 +722,79 @@ function changePassengerCount(change) {
     document.getElementById('passengerCountDisplay').textContent = passengerCount;
 }
 
+// Custom Dropdown Functions
+function toggleClassDropdown() {
+    const dropdown = document.getElementById('classOptions');
+    const arrow = document.getElementById('dropdownArrow');
+    
+    if (dropdown.classList.contains('hidden')) {
+        dropdown.classList.remove('hidden');
+        dropdown.style.opacity = '0';
+        dropdown.style.transform = 'translateY(-10px)';
+        
+        setTimeout(() => {
+            dropdown.style.opacity = '1';
+            dropdown.style.transform = 'translateY(0)';
+        }, 10);
+        
+        arrow.style.transform = 'rotate(180deg)';
+    } else {
+        dropdown.style.opacity = '0';
+        dropdown.style.transform = 'translateY(-10px)';
+        
+        setTimeout(() => {
+            dropdown.classList.add('hidden');
+        }, 150);
+        
+        arrow.style.transform = 'rotate(0deg)';
+    }
+}
+
+function selectClass(className) {
+    const selectedElement = document.getElementById('selectedClass');
+    const dropdown = document.getElementById('classOptions');
+    const arrow = document.getElementById('dropdownArrow');
+    
+    // Smooth text change
+    selectedElement.style.opacity = '0.7';
+    
+    setTimeout(() => {
+        selectedElement.textContent = className;
+        selectedElement.style.opacity = '1';
+    }, 100);
+    
+    // Close dropdown with animation
+    dropdown.style.opacity = '0';
+    dropdown.style.transform = 'translateY(-10px)';
+    
+    setTimeout(() => {
+        dropdown.classList.add('hidden');
+    }, 150);
+    
+    arrow.style.transform = 'rotate(0deg)';
+}
+
+// Close dropdown when clicking outside
+document.addEventListener('click', function(event) {
+    const dropdown = document.getElementById('classDropdown');
+    const options = document.getElementById('classOptions');
+    
+    if (!dropdown.contains(event.target) && !options.contains(event.target)) {
+        if (!options.classList.contains('hidden')) {
+            options.style.opacity = '0';
+            options.style.transform = 'translateY(-10px)';
+            
+            setTimeout(() => {
+                options.classList.add('hidden');
+            }, 150);
+            
+            document.getElementById('dropdownArrow').style.transform = 'rotate(0deg)';
+        }
+    }
+});
+
 function savePassenger() {
-    const passengerClass = document.getElementById('classSelect').value;
+    const passengerClass = document.getElementById('selectedClass').textContent;
     
     document.getElementById('passengerCount').textContent = passengerCount + ' Penumpang';
     document.getElementById('passengerClass').textContent = '(' + passengerClass + ')';
@@ -1184,6 +1406,47 @@ function handleMouseUp() {
     const container = document.getElementById('dateCardsContainer');
     isScrolling = false;
     container.style.cursor = 'grab';
+}
+
+// Flight Detail Toggle Function
+function toggleFlightDetail(flightId) {
+    const detailElement = document.getElementById(flightId);
+    
+    if (detailElement.classList.contains('hidden')) {
+        // Show with smooth animation
+        detailElement.classList.remove('hidden');
+        detailElement.style.maxHeight = '0px';
+        detailElement.style.opacity = '0';
+        detailElement.style.transform = 'translateY(-10px)';
+        detailElement.style.transition = 'all 0.3s ease-out';
+        
+        // Force reflow
+        detailElement.offsetHeight;
+        
+        // Animate to full height
+        detailElement.style.maxHeight = '500px';
+        detailElement.style.opacity = '1';
+        detailElement.style.transform = 'translateY(0)';
+    } else {
+        // Hide with smooth animation
+        detailElement.style.maxHeight = detailElement.scrollHeight + 'px';
+        detailElement.style.opacity = '1';
+        detailElement.style.transform = 'translateY(0)';
+        detailElement.style.transition = 'all 0.3s ease-out';
+        
+        // Force reflow
+        detailElement.offsetHeight;
+        
+        // Animate to hidden
+        detailElement.style.maxHeight = '0px';
+        detailElement.style.opacity = '0';
+        detailElement.style.transform = 'translateY(-10px)';
+        
+        // Hide after animation
+        setTimeout(() => {
+            detailElement.classList.add('hidden');
+        }, 300);
+    }
 }
 
 // Initialize responsive styles when page loads

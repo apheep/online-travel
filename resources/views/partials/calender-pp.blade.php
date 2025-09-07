@@ -7,7 +7,7 @@
                     <div class="flex justify-between items-center mb-4">
                         <div>
                             <h3 class="text-lg font-bold text-gray-900 mb-1">Pilih Tanggal</h3>
-                            <p class="text-gray-500 text-xs">Tentukan tanggal Anda</p>
+                            <p class="text-gray-500 text-xs">Tentukan tanggal keberangkatan Anda</p>
                         </div>
                         <button onclick="closeDateModal()" class="text-gray-400 hover:text-gray-600 transition duration-200 p-1.5 hover:bg-gray-100 rounded-full">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -17,7 +17,7 @@
                     </div>
                     
                     <!-- Trip Type Options -->
-                    <!-- <div>
+                    <div>
                         <div class="flex space-x-2">
                             <button id="oneWayBtn" onclick="switchTripType('oneWay')" class="flex-1 py-2 px-3 text-center text-sm font-medium rounded-lg border border-gray-300 transition-all duration-300 ease-out transform hover:scale-105 active:scale-95" style="background: linear-gradient(135deg, #187499 0%, #36AE7E 100%); color: white;">
                                 Sekali jalan
@@ -26,7 +26,7 @@
                                 Pulang pergi
                             </button>
                         </div>
-                    </div> -->
+                    </div>
                 </div>
                 
                 <!-- Scrollable Content -->
@@ -70,17 +70,17 @@
                     <div id="selectedDatesDisplay" class="mb-4 p-3 bg-gray-50 rounded-lg">
                         <div class="grid grid-cols-1 gap-3">
                             <div>
-                                <label class="block text-xs font-semibold text-gray-700 mb-1">Tanggal :</label>
+                                <label class="block text-xs font-semibold text-gray-700 mb-1">Tanggal Keberangkatan</label>
                                 <div id="departureDateDisplay" class="p-2 bg-white border border-gray-300 rounded-lg text-gray-500 text-sm">
                                     Pilih tanggal 
                                 </div>
                             </div>
-                            <!-- <div id="returnDateSection">
+                            <div id="returnDateSection">
                                 <label class="block text-xs font-semibold text-gray-700 mb-1">Tanggal Pulang</label>
                                 <div id="returnDateDisplay" class="p-2 bg-white border border-gray-300 rounded-lg text-gray-500 text-sm">
                                     Pilih tanggal pulang
                                 </div>
-                            </div> -->
+                            </div>
                         </div>
                     </div>
                     

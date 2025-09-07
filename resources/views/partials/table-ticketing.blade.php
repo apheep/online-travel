@@ -11,6 +11,7 @@
                 </div>
               </th>
               <th class="px-6 py-5 text-center text-xs font-bold text-gray-700 uppercase tracking-wider">Detail</th>
+              <th class="px-6 py-5 text-center text-xs font-bold text-gray-700 uppercase tracking-wider">Aksi</th>
               <th class="px-6 py-5 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
                 <div class="flex items-center space-x-1">
                   <span>Jenis Tiket</span>
@@ -19,7 +20,13 @@
               </th>
               <th class="px-6 py-5 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
                 <div class="flex items-center space-x-1">
-                  <span>Tanggal</span>
+                  <span>Tanggal Booking</span>
+                  <i class="fas fa-sort text-gray-400 text-xs"></i>
+                </div>
+              </th>
+              <th class="px-6 py-5 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
+                <div class="flex items-center space-x-1">
+                  <span>Tanggal Input</span>
                   <i class="fas fa-sort text-gray-400 text-xs"></i>
                 </div>
               </th>
@@ -29,13 +36,19 @@
                   <i class="fas fa-sort text-gray-400 text-xs"></i>
                 </div>
               </th>
-              <th class="px-6 py-5 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">Kontak</th>
               <th class="px-6 py-5 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
                 <div class="flex items-center space-x-1">
-                  <span>Status</span>
+                  <span>Nomor Telepon</span>
                   <i class="fas fa-sort text-gray-400 text-xs"></i>
                 </div>
               </th>
+              <th class="px-6 py-5 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
+                <div class="flex items-center space-x-1">
+                  <span>Email</span>
+                  <i class="fas fa-sort text-gray-400 text-xs"></i>
+                </div>
+              </th>
+              
             </tr>
           </thead>
           <tbody id="orders-tbody" class="divide-y divide-gray-100 bg-white">
@@ -50,35 +63,38 @@
               </td>
               <td class="px-6 py-5 whitespace-nowrap text-center">
                 <div class="flex items-center justify-center">
-                  <a href="{{ route('check.detail-kereta') }}" class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg hover:from-[#156b8a] hover:to-[#2d9a6e] transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                  <button class="btn-open-detail inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg hover:from-[#156b8a] hover:to-[#2d9a6e] transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
                     <i class="fas fa-eye mr-2"></i>
                     Detail
-                  </a>
+                  </button>
                 </div>
+              </td>
+              <td class="px-6 py-5 whitespace-nowrap text-center">
+                <input type="file" class="hidden upload-input" accept=".pdf,.jpg,.jpeg,.png" />
+                <button type="button" class="upload-trigger inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg  transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                  <i class="fas fa-upload mr-2"></i>
+                  Upload
+                </button>
               </td>
               <td class="px-6 py-5 whitespace-nowrap">
                 <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-teal-50 text-teal-700 border border-teal-200">Kereta</span>
               </td>
               <td class="px-6 py-5 whitespace-nowrap">
                 <div class="text-sm font-semibold text-gray-900">15 Jan 2024</div>
-                <div class="text-xs text-gray-500">10:30 AM</div>
               </td>
               <td class="px-6 py-5 whitespace-nowrap">
-                <div>
-                  <div class="text-sm font-semibold text-gray-900">John Doe</div>
-                  <div class="text-xs text-gray-500">john.doe@email.com</div>
-                </div>
+                <div class="text-xs text-gray-700">10:30 AM</div>
+              </td>
+              <td class="px-6 py-5 whitespace-nowrap">
+                <div class="text-sm font-semibold text-gray-900">John Doe</div>
               </td>
               <td class="px-6 py-5 whitespace-nowrap">
                 <div class="text-sm text-gray-900">+62 812-3456-7890</div>
-                <div class="text-xs text-gray-500">WhatsApp</div>
               </td>
               <td class="px-6 py-5 whitespace-nowrap">
-                <span class="inline-flex items-center px-3 py-2 rounded-full text-xs font-semibold bg-gradient-to-r from-yellow-100 to-orange-100 text-yellow-800 border border-yellow-200 shadow-sm">
-                  <div class="h-2 w-2 bg-yellow-500 rounded-full mr-2 animate-pulse"></div>
-                  Request
-                </span>
+                <div class="text-xs text-gray-700">john.doe@email.com</div>
               </td>
+              
             </tr>
 
             <!-- Sample Row 2 -->
@@ -92,35 +108,38 @@
               </td>
               <td class="px-6 py-5 whitespace-nowrap text-center">
                 <div class="flex items-center justify-center">
-                  <button class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg hover:from-[#156b8a] hover:to-[#2d9a6e] transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                  <button class="btn-open-detail inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg hover:from-[#156b8a] hover:to-[#2d9a6e] transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
                     <i class="fas fa-eye mr-2"></i>
-                    Detail
+                     Detail
                   </button>
                 </div>
+              </td>
+              <td class="px-6 py-5 whitespace-nowrap text-center">
+                <input type="file" class="hidden upload-input" accept=".pdf,.jpg,.jpeg,.png" />
+                <button type="button" class="upload-trigger inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg hover:from-[#156b8a] hover:to-[#2d9a6e] transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                  <i class="fas fa-upload mr-2"></i>
+                  Upload
+                </button>
               </td>
               <td class="px-6 py-5 whitespace-nowrap">
                 <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">Pesawat</span>
               </td>
               <td class="px-6 py-5 whitespace-nowrap">
                 <div class="text-sm font-semibold text-gray-900">14 Jan 2024</div>
-                <div class="text-xs text-gray-500">09:15 AM</div>
               </td>
               <td class="px-6 py-5 whitespace-nowrap">
-                <div>
-                  <div class="text-sm font-semibold text-gray-900">Jane Smith</div>
-                  <div class="text-xs text-gray-500">jane.smith@email.com</div>
-                </div>
+                <div class="text-xs text-gray-700">09:15 AM</div>
+              </td>
+              <td class="px-6 py-5 whitespace-nowrap">
+                <div class="text-sm font-semibold text-gray-900">Jane Smith</div>
               </td>
               <td class="px-6 py-5 whitespace-nowrap">
                 <div class="text-sm text-gray-900">+62 813-9876-5432</div>
-                <div class="text-xs text-gray-500">WhatsApp</div>
               </td>
               <td class="px-6 py-5 whitespace-nowrap">
-                <span class="inline-flex items-center px-3 py-2 rounded-full text-xs font-semibold bg-gradient-to-r from-red-100 to-red-200 text-red-800 border border-red-200 shadow-sm">
-                  <div class="h-2 w-2 bg-red-500 rounded-full mr-2"></div>
-                  Reject
-                </span>
+                <div class="text-xs text-gray-700">jane.smith@email.com</div>
               </td>
+              
             </tr>
 
             <!-- Sample Row 3 -->
@@ -134,35 +153,38 @@
               </td>
               <td class="px-6 py-5 whitespace-nowrap text-center">
                 <div class="flex items-center justify-center">
-                <a href="{{ route('check.detail-hotel') }}" class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg hover:from-[#156b8a] hover:to-[#2d9a6e] transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                  <button class="btn-open-detail inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg hover:from-[#156b8a] hover:to-[#2d9a6e] transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
                     <i class="fas fa-eye mr-2"></i>
-                    Detail
-                  </a>
+                     Detail
+                  </button>
                 </div>
+              </td>
+              <td class="px-6 py-5 whitespace-nowrap text-center">
+                <input type="file" class="hidden upload-input" accept=".pdf,.jpg,.jpeg,.png" />
+                <button type="button" class="upload-trigger inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg hover:from-[#156b8a] hover:to-[#2d9a6e] transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                  <i class="fas fa-upload mr-2"></i>
+                  Upload
+                </button>
               </td>
               <td class="px-6 py-5 whitespace-nowrap">
                 <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">Hotel</span>
               </td>
               <td class="px-6 py-5 whitespace-nowrap">
                 <div class="text-sm font-semibold text-gray-900">13 Jan 2024</div>
-                <div class="text-xs text-gray-500">14:20 PM</div>
               </td>
               <td class="px-6 py-5 whitespace-nowrap">
-                <div>
-                  <div class="text-sm font-semibold text-gray-900">Ahmad Budi</div>
-                  <div class="text-xs text-gray-500">ahmad.budi@email.com</div>
-                </div>
+                <div class="text-xs text-gray-700">14:20 PM</div>
+              </td>
+              <td class="px-6 py-5 whitespace-nowrap">
+                <div class="text-sm font-semibold text-gray-900">Ahmad Budi</div>
               </td>
               <td class="px-6 py-5 whitespace-nowrap">
                 <div class="text-sm text-gray-900">+62 814-1234-5678</div>
-                <div class="text-xs text-gray-500">WhatsApp</div>
               </td>
               <td class="px-6 py-5 whitespace-nowrap">
-                <span class="inline-flex items-center px-3 py-2 rounded-full text-xs font-semibold bg-gradient-to-r from-green-100 to-emerald-100 text-green-800 border border-green-200 shadow-sm">
-                  <div class="h-2 w-2 bg-green-500 rounded-full mr-2"></div>
-                  Approve
-                </span>
+                <div class="text-xs text-gray-700">ahmad.budi@email.com</div>
               </td>
+              
             </tr>
 
             <!-- Sample Row 4 -->
@@ -176,34 +198,36 @@
               </td>
               <td class="px-6 py-5 whitespace-nowrap text-center">
                 <div class="flex items-center justify-center">
-                  <a href="{{ route('check.detail') }}" class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg hover:from-[#156b8a] hover:to-[#2d9a6e] transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                  <button type="button" class="btn-open-detail inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg hover:from-[#156b8a] hover:to-[#2d9a6e] transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
                     <i class="fas fa-eye mr-2"></i>
-                    Detail
-                  </a>
+                     Detail
+                  </button>
                 </div>
+              </td>
+              <td class="px-6 py-5 whitespace-nowrap text-center">
+                <input type="file" class="hidden upload-input" accept=".pdf,.jpg,.jpeg,.png" />
+                <button type="button" class="upload-trigger inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg hover:from-[#156b8a] hover:to-[#2d9a6e] transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                  <i class="fas fa-upload mr-2"></i>
+                  Upload
+                </button>
               </td>
               <td class="px-6 py-5 whitespace-nowrap">
                 <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">Pesawat</span>
               </td>
               <td class="px-6 py-5 whitespace-nowrap">
                 <div class="text-sm font-semibold text-gray-900">12 Jan 2024</div>
-                <div class="text-xs text-gray-500">16:45 PM</div>
               </td>
               <td class="px-6 py-5 whitespace-nowrap">
-                <div>
-                  <div class="text-sm font-semibold text-gray-900">Sari Rahayu</div>
-                  <div class="text-xs text-gray-500">sari.rahayu@email.com</div>
-                </div>
+                <div class="text-xs text-gray-700">16:45 PM</div>
+              </td>
+              <td class="px-6 py-5 whitespace-nowrap">
+                <div class="text-sm font-semibold text-gray-900">Sari Rahayu</div>
               </td>
               <td class="px-6 py-5 whitespace-nowrap">
                 <div class="text-sm text-gray-900">+62 815-5678-9012</div>
-                <div class="text-xs text-gray-500">WhatsApp</div>
               </td>
               <td class="px-6 py-5 whitespace-nowrap">
-                <span class="inline-flex items-center px-3 py-2 rounded-full text-xs font-semibold bg-gradient-to-r from-red-100 to-red-200 text-red-800 border border-red-200 shadow-sm">
-                  <div class="h-2 w-2 bg-red-500 rounded-full mr-2"></div>
-                  Reject
-                </span>
+                <div class="text-xs text-gray-700">sari.rahayu@email.com</div>
               </td>
             </tr>
           </tbody>
@@ -218,12 +242,14 @@
         <div class="flex items-start justify-between mb-4">
           <div>
             <div class="text-sm font-medium text-gray-900">#001</div>
-            <div class="text-xs text-gray-500">15 Jan 2024 • 10:30</div>
           </div>
-          <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold bg-yellow-100 text-yellow-800">
-            <div class="w-1.5 h-1.5 bg-yellow-500 rounded-full mr-1 animate-pulse"></div>
-            Request
-          </span>
+          <div class="flex items-center space-x-2">
+            <button class="btn-open-detail px-3 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg shadow-md">Detail</button>
+            <input type="file" class="hidden upload-input" accept=".pdf,.jpg,.jpeg,.png" />
+            <button type="button" class="upload-trigger px-3 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg shadow-md">
+              <i class="fas fa-upload mr-2"></i>Upload
+            </button>
+          </div>
         </div>
         <div class="flex items-center mb-3">
           <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-teal-50 text-teal-700 border border-teal-200 mr-3">Kereta</span>
@@ -232,12 +258,19 @@
             <div class="text-xs text-gray-500">john.doe@email.com</div>
           </div>
         </div>
-        <div class="flex justify-between items-center mb-4">
+        <div class="grid grid-cols-2 gap-3 text-sm mb-3">
           <div>
-            <div class="text-xs text-gray-500">Kontak</div>
-            <div class="text-sm text-gray-900">+62 812-3456-7890 (WhatsApp)</div>
+            <div class="text-xs text-gray-500">Tanggal Booking</div>
+            <div class="text-gray-900">15 Jan 2024</div>
           </div>
-          <a href="{{ url('/check/detail-kereta') }}" class="ml-3 px-3 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg shadow-md">Detail</a>
+          <div>
+            <div class="text-xs text-gray-500">Tanggal Input</div>
+            <div class="text-gray-900">10:30 AM</div>
+          </div>
+        </div>
+        <div class="mb-1">
+          <div class="text-xs text-gray-500">Nomor Telepon</div>
+          <div class="text-sm text-gray-900">+62 812-3456-7890</div>
         </div>
       </div>
 
@@ -246,12 +279,14 @@
         <div class="flex items-start justify-between mb-4">
           <div>
             <div class="text-sm font-medium text-gray-900">#002</div>
-            <div class="text-xs text-gray-500">14 Jan 2024 • 09:15</div>
           </div>
-          <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold bg-red-100 text-red-800">
-            <div class="w-1.5 h-1.5 bg-red-500 rounded-full mr-1"></div>
-            Reject
-          </span>
+          <div class="flex items-center space-x-2">
+            <button class="btn-open-detail px-3 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg shadow-md">Detail</button>
+            <input type="file" class="hidden upload-input" accept=".pdf,.jpg,.jpeg,.png" />
+            <button type="button" class="upload-trigger px-3 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg shadow-md">
+              <i class="fas fa-upload mr-2"></i>Upload
+            </button>
+          </div>
         </div>
         <div class="flex items-center mb-3">
           <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200 mr-3">Pesawat</span>
@@ -260,12 +295,19 @@
             <div class="text-xs text-gray-500">jane.smith@email.com</div>
           </div>
         </div>
-        <div class="flex justify-between items-center mb-4">
+        <div class="grid grid-cols-2 gap-3 text-sm mb-3">
           <div>
-            <div class="text-xs text-gray-500">Kontak</div>
-            <div class="text-sm text-gray-900">+62 813-9876-5432 (WhatsApp)</div>
+            <div class="text-xs text-gray-500">Tanggal Booking</div>
+            <div class="text-gray-900">14 Jan 2024</div>
           </div>
-          <a href="{{ route('check.detail') }}" class="ml-3 px-3 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg shadow-md">Detail</a>
+          <div>
+            <div class="text-xs text-gray-500">Tanggal Input</div>
+            <div class="text-gray-900">09:15 AM</div>
+          </div>
+        </div>
+        <div class="mb-1">
+          <div class="text-xs text-gray-500">Nomor Telepon</div>
+          <div class="text-sm text-gray-900">+62 813-9876-5432</div>
         </div>
       </div>
 
@@ -274,12 +316,14 @@
         <div class="flex items-start justify-between mb-4">
           <div>
             <div class="text-sm font-medium text-gray-900">#003</div>
-            <div class="text-xs text-gray-500">13 Jan 2024 • 14:20</div>
           </div>
-          <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-800">
-            <div class="w-1.5 h-1.5 bg-green-500 rounded-full mr-1"></div>
-            Approve
-          </span>
+          <div class="flex items-center space-x-2">
+            <button class="btn-open-detail px-3 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg shadow-md">Detail</button>
+            <input type="file" class="hidden upload-input" accept=".pdf,.jpg,.jpeg,.png" />
+            <button type="button" class="upload-trigger px-3 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg shadow-md">
+              <i class="fas fa-upload mr-2"></i>Upload
+            </button>
+          </div>
         </div>
         <div class="flex items-center mb-3">
           <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 mr-3">Hotel</span>
@@ -288,12 +332,19 @@
             <div class="text-xs text-gray-500">ahmad.budi@email.com</div>
           </div>
         </div>
-        <div class="flex justify-between items-center mb-4">
+        <div class="grid grid-cols-2 gap-3 text-sm mb-3">
           <div>
-            <div class="text-xs text-gray-500">Kontak</div>
-            <div class="text-sm text-gray-900">+62 814-1234-5678 (WhatsApp)</div>
+            <div class="text-xs text-gray-500">Tanggal Booking</div>
+            <div class="text-gray-900">13 Jan 2024</div>
           </div>
-          <a href="{{ url('/check/detail-hotel') }}" class="ml-3 px-3 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg shadow-md">Detail</a>
+          <div>
+            <div class="text-xs text-gray-500">Tanggal Input</div>
+            <div class="text-gray-900">14:20 PM</div>
+          </div>
+        </div>
+        <div class="mb-1">
+          <div class="text-xs text-gray-500">Nomor Telepon</div>
+          <div class="text-sm text-gray-900">+62 814-1234-5678</div>
         </div>
       </div>
 
@@ -302,12 +353,14 @@
         <div class="flex items-start justify-between mb-4">
           <div>
             <div class="text-sm font-medium text-gray-900">#004</div>
-            <div class="text-xs text-gray-500">12 Jan 2024 • 16:45</div>
           </div>
-          <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold bg-red-100 text-red-800">
-            <div class="w-1.5 h-1.5 bg-red-500 rounded-full mr-1"></div>
-            Reject
-          </span>
+          <div class="flex items-center space-x-2">
+            <button type="button" class="btn-open-detail px-3 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg shadow-md">Detail</button>
+            <input type="file" class="hidden upload-input" accept=".pdf,.jpg,.jpeg,.png" />
+            <button type="button" class="upload-trigger px-3 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg shadow-md">
+              <i class="fas fa-upload mr-2"></i>Upload
+            </button>
+          </div>
         </div>
         <div class="flex items-center mb-3">
           <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200 mr-3">Pesawat</span>
@@ -316,12 +369,19 @@
             <div class="text-xs text-gray-500">sari.rahayu@email.com</div>
           </div>
         </div>
-        <div class="flex justify-between items-center mb-4">
+        <div class="grid grid-cols-2 gap-3 text-sm mb-3">
           <div>
-            <div class="text-xs text-gray-500">Kontak</div>
-            <div class="text-sm text-gray-900">+62 815-5678-9012 (WhatsApp)</div>
+            <div class="text-xs text-gray-500">Tanggal Booking</div>
+            <div class="text-gray-900">12 Jan 2024</div>
           </div>
-          <a href="{{ route('check.detail') }}" class="ml-3 px-3 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg shadow-md">Detail</a>
+          <div>
+            <div class="text-xs text-gray-500">Tanggal Input</div>
+            <div class="text-gray-900">16:45 PM</div>
+          </div>
+        </div>
+        <div class="mb-1">
+          <div class="text-xs text-gray-500">Nomor Telepon</div>
+          <div class="text-sm text-gray-900">+62 815-5678-9012</div>
         </div>
       </div>
     </div>
@@ -443,3 +503,86 @@
       })();
     </script>
 
+    <script>
+      (function () {
+        // Delegated click handler for all `.btn-open-detail` buttons (desktop & mobile)
+        function detectTicketType(scopeEl) {
+          if (!scopeEl) return null;
+          // Search common badge containers inside the same row/card
+          const badge = scopeEl.querySelector('span');
+          const spans = Array.from(scopeEl.querySelectorAll('span'));
+          let text = '';
+          for (const sp of spans) {
+            const t = (sp.textContent || '').trim().toLowerCase();
+            if (t === 'kereta' || t === 'pesawat' || t === 'hotel') {
+              text = t; break;
+            }
+          }
+          return text || null;
+        }
+
+        function onOpenDetailClick(event) {
+          event.preventDefault();
+          // Find the nearest row or card to read its ticket type badge
+          const btn = event.target.closest('.btn-open-detail');
+          const scope = btn.closest('tr') || btn.closest('.order-card') || document;
+          let type = detectTicketType(scope);
+          // If not found next to button, try reading from entire row's siblings
+          if (!type) {
+            const row = btn.closest('tr');
+            if (row) type = detectTicketType(row);
+          }
+          if (!type) type = 'kereta'; // default fallback
+
+          // Call specific global functions exposed by overlay-detail-ticket.blade.php
+          const fnMap = {
+            'kereta': window.openDetailKereta,
+            'pesawat': window.openDetailPesawat,
+            'hotel': window.openDetailHotel
+          };
+          const fn = fnMap[type];
+          if (typeof fn === 'function') {
+            fn();
+          }
+        }
+
+        document.addEventListener('click', function (e) {
+          const btn = e.target && e.target.closest && e.target.closest('.btn-open-detail');
+          if (btn) onOpenDetailClick(e);
+        });
+      })();
+    </script>
+
+    <script>
+      (function () {
+        const tbody = document.getElementById('orders-tbody');
+        const cardsContainer = document.getElementById('orders-cards');
+
+        function attachUploadHandlers(scope) {
+          if (!scope) return;
+          const rows = Array.from(scope.querySelectorAll('tr, .order-card'));
+          rows.forEach((row) => {
+            const btn = row.querySelector('button.upload-trigger');
+            const input = row.querySelector('input.upload-input');
+            if (!btn || !input) return;
+
+            btn.addEventListener('click', () => input.click());
+
+            input.addEventListener('change', () => {
+              if (input.files && input.files.length > 0) {
+                // Visual uploaded state only (no backend logic)
+                btn.innerHTML = '<i class="fas fa-check mr-2"></i> Uploaded';
+                btn.classList.remove('from-blue-600', 'to-emerald-600');
+                btn.classList.add('from-emerald-600', 'to-emerald-600');
+                btn.disabled = true;
+                btn.classList.add('opacity-90', 'cursor-default');
+              }
+            });
+          });
+        }
+
+        attachUploadHandlers(tbody);
+        attachUploadHandlers(cardsContainer);
+      })();
+    </script>
+    

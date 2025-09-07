@@ -3,7 +3,7 @@
     @section('title', 'Riwayat Pesanan - Online Travel')
 
 
-<body class="relative bg-gray-50 font-poppins min-h-screen">
+<body class="relative bg-[F4F7FE] font-poppins min-h-screen">
     <!-- Background Section with Navigation -->
     <section class="relative bg-cover shadow-2xl" style="background-image: url(/background.png);">
         <div class="absolute inset-0 bg-black/30"></div>
@@ -13,7 +13,7 @@
         <!-- Header Section -->
         <div class="relative z-10 text-center text-white py-16 px-6">
             <h1 class="text-4xl md:text-5xl font-bold mb-4">
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#187499] to-[#36AE7E]">
                     Riwayat Pesanan
                 </span>
             </h1>
@@ -29,31 +29,80 @@
         <div class="bg-white rounded-2xl shadow-lg p-6 mb-8">
             <div class="flex flex-col md:flex-row gap-4 items-center justify-between">
                 <div class="flex flex-col md:flex-row gap-4 w-full md:w-auto">
-                    <select class="px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white">
-                        <option value="">Semua Status</option>
-                        <option value="pending">Dalam Proses</option>
-                        <option value="confirmed">Dikonfirmasi</option>
-                        <option value="completed">Selesai</option>
-                        <option value="cancelled">Dibatalkan</option>
-                    </select>
-                    
-                    <select class="px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white">
-                        <option value="">Semua Jenis</option>
-                        <option value="flight">Pesawat</option>
-                        <option value="hotel">Hotel</option>
-                        <option value="train">Kereta</option>
-                        <option value="package">Paket Wisata</option>
-                    </select>
+                    <!-- Custom Dropdown: Status -->
+                    <div class="relative w-full md:w-56">
+                        <input type="hidden" id="statusValue" value="">
+                        <div id="statusDropdown" class="w-full p-3 bg-white border-2 border-gray-200 rounded-xl cursor-pointer hover:border-gray-300 transition duration-200 flex items-center justify-between" onclick="toggleFilterDropdown('status')">
+                            <span id="statusSelected" class="text-gray-900 font-medium">Semua Status</span>
+                            <svg id="statusArrow" class="w-5 h-5 text-gray-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                        <div id="statusOptions" class="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-200 rounded-xl shadow-lg z-50 hidden overflow-hidden">
+                            <div class="p-3 hover:bg-gray-50 cursor-pointer transition duration-150 border-b border-gray-100" onclick="selectFilterOption('status','','Semua Status')">
+                                <div class="font-medium text-gray-900">Semua Status</div>
+                            </div>
+                            <div class="p-3 hover:bg-gray-50 cursor-pointer transition duration-150 border-b border-gray-100" onclick="selectFilterOption('status','pending','Dalam Proses')">
+                                <div class="font-medium text-gray-900">Dalam Proses</div>
+                            </div>
+                            <div class="p-3 hover:bg-gray-50 cursor-pointer transition duration-150 border-b border-gray-100" onclick="selectFilterOption('status','confirmed','Dikonfirmasi')">
+                                <div class="font-medium text-gray-900">Dikonfirmasi</div>
+                            </div>
+                            <div class="p-3 hover:bg-gray-50 cursor-pointer transition duration-150 border-b border-gray-100" onclick="selectFilterOption('status','completed','Selesai')">
+                                <div class="font-medium text-gray-900">Selesai</div>
+                            </div>
+                            <div class="p-3 hover:bg-gray-50 cursor-pointer transition duration-150" onclick="selectFilterOption('status','cancelled','Dibatalkan')">
+                                <div class="font-medium text-gray-900">Dibatalkan</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Custom Dropdown: Jenis -->
+                    <div class="relative w-full md:w-56">
+                        <input type="hidden" id="jenisValue" value="">
+                        <div id="jenisDropdown" class="w-full p-3 bg-white border-2 border-gray-200 rounded-xl cursor-pointer hover:border-gray-300 transition duration-200 flex items-center justify-between" onclick="toggleFilterDropdown('jenis')">
+                            <span id="jenisSelected" class="text-gray-900 font-medium">Semua Jenis</span>
+                            <svg id="jenisArrow" class="w-5 h-5 text-gray-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                        <div id="jenisOptions" class="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-200 rounded-xl shadow-lg z-50 hidden overflow-hidden">
+                            <div class="p-3 hover:bg-gray-50 cursor-pointer transition duration-150 border-b border-gray-100" onclick="selectFilterOption('jenis','','Semua Jenis')">
+                                <div class="font-medium text-gray-900">Semua Jenis</div>
+                            </div>
+                            <div class="p-3 hover:bg-gray-50 cursor-pointer transition duration-150 border-b border-gray-100" onclick="selectFilterOption('jenis','flight','Pesawat')">
+                                <div class="font-medium text-gray-900">Pesawat</div>
+                            </div>
+                            <div class="p-3 hover:bg-gray-50 cursor-pointer transition duration-150 border-b border-gray-100" onclick="selectFilterOption('jenis','hotel','Hotel')">
+                                <div class="font-medium text-gray-900">Hotel</div>
+                            </div>
+                            <div class="p-3 hover:bg-gray-50 cursor-pointer transition duration-150 border-b border-gray-100" onclick="selectFilterOption('jenis','train','Kereta')">
+                                <div class="font-medium text-gray-900">Kereta</div>
+                            </div>
+                            <div class="p-3 hover:bg-gray-50 cursor-pointer transition duration-150" onclick="selectFilterOption('jenis','package','Paket Wisata')">
+                                <div class="font-medium text-gray-900">Paket Wisata</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="flex gap-3">
-                    <input type="date" class="px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
-                    <button class="px-6 py-3 bg-gradient-to-r from-blue-500 to-emerald-500 hover:from-blue-600 hover:to-emerald-600 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105">
+                    <button type="button" onclick="openDateModal()" class="px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white flex items-center gap-2">
+                        <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3M5 11h14M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                        <span id="selectedDate" class="text-gray-700">Pilih tanggal</span>
+                        <span id="tripType" class="text-xs text-gray-500"></span>
+                    </button>
+                    <button class="px-6 py-3 bg-gradient-to-r from-[#187499] to-[#36AE7E]  text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105">
                         Filter
                     </button>
                 </div>
             </div>
         </div>
+
+        {{-- Calendar Modal Partial --}}
+        @include('partials.calender')
 
         <!-- Back Button -->
         <div class="mb-6">
@@ -354,7 +403,7 @@
                 <button class="px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed" disabled>
                     Sebelumnya
                 </button>
-                <button class="px-3 py-2 text-sm font-medium text-white bg-gradient-to-r from-blue-500 to-emerald-500 rounded-lg">
+                <button class="px-3 py-2 text-sm font-medium text-white bg-gradient-to-r from-[#187499] to-[#36AE7E] rounded-lg">
                     1
                 </button>
                 <button class="px-3 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50">
@@ -392,10 +441,60 @@
             document.body.classList.remove('opacity-0');
         });
 
-        // Filter functionality (placeholder)
-        document.querySelector('select').addEventListener('change', function() {
-            // Add filter logic here
-            console.log('Filter changed:', this.value);
+        // Custom dropdown logic for filters
+        function toggleFilterDropdown(which){
+            const dropdown = document.getElementById(which + 'Options');
+            const arrow = document.getElementById(which + 'Arrow');
+            const isHidden = dropdown.classList.contains('hidden');
+            // Close all first
+            ['status','jenis'].forEach(function(key){
+                const opt = document.getElementById(key + 'Options');
+                const arr = document.getElementById(key + 'Arrow');
+                if(opt){ opt.classList.add('hidden'); }
+                if(arr){ arr.classList.remove('rotate-180'); }
+            });
+            if(isHidden){
+                dropdown.classList.remove('hidden');
+                arrow.classList.add('rotate-180');
+            }
+        }
+
+        function selectFilterOption(which, value, label){
+            // set hidden value
+            const hidden = document.getElementById(which + 'Value');
+            if(hidden){ hidden.value = value; }
+            // set label
+            const selected = document.getElementById(which + 'Selected');
+            if(selected){ selected.textContent = label; }
+            // close dropdown
+            const dropdown = document.getElementById(which + 'Options');
+            const arrow = document.getElementById(which + 'Arrow');
+            if(dropdown){ dropdown.classList.add('hidden'); }
+            if(arrow){ arrow.classList.remove('rotate-180'); }
+            // emit payload
+            const payload = {
+                status: (document.getElementById('statusValue')||{}).value || '',
+                jenis: (document.getElementById('jenisValue')||{}).value || ''
+            };
+            console.log('Filters changed:', payload);
+        }
+
+        // Close on outside click
+        document.addEventListener('click', function(e){
+            const targets = ['status','jenis'];
+            const clickedInside = targets.some(function(key){
+                const box = document.getElementById(key + 'Dropdown');
+                const opts = document.getElementById(key + 'Options');
+                return (box && box.contains(e.target)) || (opts && opts.contains(e.target));
+            });
+            if(!clickedInside){
+                targets.forEach(function(key){
+                    const opt = document.getElementById(key + 'Options');
+                    const arr = document.getElementById(key + 'Arrow');
+                    if(opt){ opt.classList.add('hidden'); }
+                    if(arr){ arr.classList.remove('rotate-180'); }
+                });
+            }
         });
 
         // Smooth scroll for mobile

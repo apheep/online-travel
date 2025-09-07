@@ -1,19 +1,19 @@
     <!-- NavBar -->
-    <nav id="main-navbar" class="sticky top-0 z-50 w-full bg-gray-50 text-white">
+    <nav id="main-navbar" class="sticky top-0 z-50 w-full bg-[F4F7FE] text-white">
       <div class="relative flex items-center justify-between max-w-7xl mx-auto px-10 py-6">
-    <a href="{{ route('welcome') }}" 
+    <a href="" 
        class="text-[26px] md:text-[30px] font-bold tracking-wide" 
        style="color: #A0AAC3;">.travelling</a>      
        
        
        <!-- Desktop Login -->
-      <div class="hidden md:flex space-x-3 text-sm items-center">
+      <div class="hidden md:flex space-x-3 text-sm items-acenter">
               <!-- Desktop Menu -->
-      <ul class="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center justify-center space-x-8 text-[18px] font-semibold text-[#A0AAC3]">
+      <!-- <ul class="hidden md:flex absolute left-1/2 -translate-x-1/2 items-center justify-center space-x-8 text-[18px] font-semibold text-[#A0AAC3]">
         <li><a href="#" class=" hover:underline">Order</a></li>
         <li><a href="#" class=" hover:underline">Account</a></li>
         <li><a href="#" class=" hover:underline">Profile</a></li>
-      </ul>
+      </ul> -->
         
         <div class="relative">
           <button id="user-menu-btn" class="bg-gradient-to-r from-[#187499] to-[#36AE7E] px-6 py-3 rounded-full font-medium hover:from-[#156b8a] hover:to-[#2d9a6e] transition-all duration-300 shadow-lg flex items-center justify-center gap-3 text-white cursor-pointer">
@@ -104,7 +104,7 @@
 
         </div>
         <!-- Mobile Menu Links -->
-        <nav class="mb-2">
+        <!-- <nav class="mb-2">
           <ul class="flex flex-col space-y-2">
             <li>
               <a href="#" class="w-full flex items-center justify-between px-4 py-3 rounded-xl text-gray-700 hover:text-white hover:bg-gradient-to-r hover:from-[#187499] hover:to-[#36AE7E] transition-all duration-200">
@@ -131,7 +131,7 @@
               </a>
             </li>
           </ul>
-        </nav>
+        </nav> -->
 
         </div>
       </div>

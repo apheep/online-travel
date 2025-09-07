@@ -11,28 +11,9 @@
   @include('partials.alert')
     <!-- Page Header -->
     <div class="mb-8 pl-2">
-      <h2 class="text-3xl font-bold text-gray-900">Admin</h2>
-      <p class="text-gray-600 mt-1">Order Management</p>
+      <h2 class="text-3xl font-bold text-gray-900">Ticketing</h2>
+      <p class="text-gray-600 mt-1">Ticket Management</p>
     </div>
-
-    <!-- Filter Tabs -->
-    <div class="mb-6">
-      <div class="flex flex-wrap gap-2">
-        <button class="px-4 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white rounded-full text-sm font-medium">
-          All
-        </button>
-        <button class="px-4 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white rounded-full text-sm font-medium">
-          Request
-        </button>
-        <button class="px-4 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white rounded-full text-sm font-medium">
-          Approve
-        </button>
-        <button class="px-4 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white rounded-full text-sm font-medium">
-          Reject
-        </button>
-      </div>
-    </div>
-
 <!-- Search and Filter -->
 <div class="mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
   <!-- Search Bar -->
@@ -62,10 +43,12 @@
   </div>
 </div>
 
-@include('partials.table-order')
+@include('partials.table-ticketing')
 
 
 </main>
+
+@include('partials.overlay-detail-ticket')
 
   <script>
     // Smooth page enter transition
