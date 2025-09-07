@@ -4,46 +4,51 @@
 
 @include('partials.navigation')
 
-<body class="bg-gray-50 font-poppins">
+<body class="bg-[F4F7FE] font-poppins">
     <div class="min-h-screen">
         <!-- Search Header Section -->
-        <div class="bg-gray-50 py-6">
-            <div class="max-w-6xl mx-auto px-4">
-                <div class="flex justify-center items-center">
-                    <!-- Wrapper Box -->
-                    <div class="flex items-center border rounded-lg overflow-hidden">
-                        <!-- Location -->
-                        <div class="flex items-center px-4 py-2 border-r">
-                            <svg class="w-5 h-5 text-black mr-2" fill="currentColor" viewBox="0 0 24 24">
-                                <path fill-rule="evenodd" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1112 6a2.5 2.5 0 010 5.5z" clip-rule="evenodd"/>
-                            </svg>
-                            <span class="text-sm font-medium text-gray-900">Jakarta</span>
-                        </div>
-                        
-                        <!-- Dates -->
-                        <div class="flex items-center px-4 py-2 border-r">
-                            <svg class="w-5 h-5 text-black mr-2" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M7 10h10M7 14h7m5-9h-1V4a1 1 0 00-2 0v1H9V4a1 1 0 00-2 0v1H6a2 2 0 00-2 2v11a2 2 0 002 2h12a2 2 0 002-2V7a2 2 0 00-2-2z"/>
-                            </svg>
-                            <span class="text-sm font-medium text-gray-900">Sen, 1 Sep 2025 - Sab, 6 Sep 2025</span>
-                        </div>
-                        
-                        <!-- Guests -->
-                        <div class="flex items-center px-4 py-2">
-                            <svg class="w-5 h-5 text-black mr-2" fill="currentColor" viewBox="0 0 24 24">
-                                <path fill-rule="evenodd" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" clip-rule="evenodd"/>
-                            </svg>
-                            <span class="text-sm font-medium text-gray-900">2 Adults, 0 Child, 1 Room</span>
-                        </div>
-                    </div>
-                    
-                    <!-- Search Button -->
-                    <button class="ml-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white px-6 py-2 rounded-lg text-sm font-medium hover:from-[#156b8a] hover:to-[#2d9a6b] transition-all duration-200">
-                        Cari
-                    </button>
+       <div class="bg-[#F4F7FE] py-6">
+    <div class="max-w-6xl mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-center items-stretch gap-2">
+            <!-- Wrapper Box -->
+            <div class="flex flex-col md:flex-row items-st-stretch border rounded-lg overflow-hidden flex-1">
+                <!-- Location -->
+                <div class="flex items-center px-4 py-3 border-b md:border-b-0 md:border-r">
+                    <svg class="w-5 h-5 text-black mr-2" fill="currentColor" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd"
+                              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1112 6a2.5 2.5 0 010 5.5z"
+                              clip-rule="evenodd"/>
+                    </svg>
+                    <span class="text-sm font-medium text-gray-900">Jakarta</span>
+                </div>
+
+                <!-- Dates -->
+                <div class="flex items-center px-4 py-3 border-b md:border-b-0 md:border-r">
+                    <svg class="w-5 h-5 text-black mr-2" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M7 10h10M7 14h7m5-9h-1V4a1 1 0 00-2 0v1H9V4a1 1 0 00-2 0v1H6a2 2 0 00-2 2v11a2 2 0 002 2h12a2 2 0 002-2V7a2 2 0 00-2-2z"/>
+                    </svg>
+                    <span class="text-sm font-medium text-gray-900">Sen, 1 Sep 2025 - Sab, 6 Sep 2025</span>
+                </div>
+
+                <!-- Guests -->
+                <div class="flex items-center px-4 py-3">
+                    <svg class="w-5 h-5 text-black mr-2" fill="currentColor" viewBox="0 0 24 24">
+                        <path fill-rule="evenodd"
+                              d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+                              clip-rule="evenodd"/>
+                    </svg>
+                    <span class="text-sm font-medium text-gray-900">2 Adults, 0 Child, 1 Room</span>
                 </div>
             </div>
+
+            <!-- Search Button -->
+            <button class="w-full md:w-auto bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white px-6 py-3 rounded-lg text-sm font-medium hover:from-[#156b8a] hover:to-[#2d9a6b] transition-all duration-200">
+                Cari
+            </button>
         </div>
+    </div>
+</div>
+
         
         <!-- Main Content -->
         <div class="max-w-6xl mx-auto px-4 py-6">
@@ -94,7 +99,7 @@
             <!-- Facilities -->
             <div>
                 <h3 class="text-lg font-semibold text-gray-800 mb-4">Fasilitas</h3>
-                <div class="bg-gray-50 rounded-xl p-4">
+                <div class="bg-[F4F7FE] rounded-xl p-4">
                     <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
                         <!-- First Column -->
                         <div class="space-y-3">
@@ -148,192 +153,211 @@
             </div>
 
             <!-- Room Types & Pricing -->
-            <div class="bg-gray-50 p-6 mb-6">
+            <div class="bg-[F4F7FE] p-6 mb-6">
                 <h2 class="text-xl font-bold text-gray-800 mb-6">Tipe kamar & Harga</h2>
                 
                 <!-- Room Options -->
                 <div class="space-y-6">
                     <!-- Room 1 -->
                     <div class="mb-6">
-                        <h3 class="font-semibold text-gray-800 mb-4 text-lg">Kamar king</h3>
-                        <div class="flex flex-col lg:flex-row gap-4">
-                            <!-- Room Image -->
-                            <div class="flex-shrink-0">
-                                <img src="{{ asset('kategorikamar.png') }}" alt="Kamar King" class="w-full lg:w-48 h-32 object-cover rounded-lg">
-                            </div>
+        <!-- Single Card Container -->
+        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow duration-300">
+            <!-- Room Title inside card -->
+            <h3 class="font-semibold text-gray-800 mb-4 text-lg">Kamar King</h3>
 
-                            <!-- Room Details & Price in 2 Columns -->
-                            <div class="flex-1 bg-gray-50 border border-gray-200 rounded-lg p-4">
-                                <div class="grid grid-cols-1 lg:grid-cols-2 lg:divide-x lg:divide-gray-300 gap-6">
-                                    <!-- Left Column: Room Details -->
-                                    <div class="lg:pr-6">
-                                        <span class="bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs px-3 py-1 rounded mb-4 inline-block">
-                                            Sarapan (1pax)
-                                        </span>
-                                        
-                                        <div class="space-y-2">
-                                            <div class="flex items-center text-sm text-gray-700">
-                                                <svg class="w-4 h-4 mr-2 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
-                                                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                                                </svg>
-                                                <span>1 Dewasa, 1 Anak</span>
-                                            </div>
-                                            <div class="flex items-center text-sm text-gray-700">
-                                                <span class="w-2 h-2 rounded-full bg-gray-400 mr-2"></span>
-                                                <span>Kasur 2 ranjang</span>
-                                            </div>
-                                            <div class="flex items-center text-sm text-gray-700">
-                                                <span class="w-2 h-2 rounded-full bg-gray-400 mr-2"></span>
-                                                <span>TV</span>
-                                            </div>
-                                            <div class="flex items-center text-sm text-gray-700">
-                                                <span class="w-2 h-2 rounded-full bg-gray-400 mr-2"></span>
-                                                <span>Bathtub</span>
-                                            </div>
-                                            <div class="flex items-center text-sm text-gray-700">
-                                                <span class="w-2 h-2 rounded-full bg-gray-400 mr-2"></span>
-                                                <span>Teras atau Balkon</span>
-                                            </div>
-                                            <div class="flex items-center text-sm text-gray-700">
-                                                <span class="w-2 h-2 rounded-full bg-gray-400 mr-2"></span>
-                                                <span>Pembersihan Kamar Harian</span>
-                                            </div>
-                                        </div>
+            <!-- Flex Layout -->
+            <div class="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-4">
+                
+                <!-- Left: Room Image -->
+                <div class="flex-shrink-0">
+                    <img src="{{ asset('kategorikamar.png') }}" 
+                        alt="Kamar King" 
+                        class="w-40 h-32 object-cover rounded-lg">
+                </div>
+
+            <!-- Middle: Room Details -->
+                           <div class="flex-1">
+                                <span class="bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs px-3 py-1 rounded mb-3 inline-block">
+                                    Sarapan (1pax)
+                                </span>
+                                <div class="space-y-1.5">
+                                    <div class="flex items-center text-sm text-gray-700">
+                                        <svg class="w-4 h-4 mr-2 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M12 12c2.21 0 4-1.79 
+                                            4-4s-1.79-4-4-4-4 1.79-4 
+                                            4 1.79 4 4 4zm0 2c-2.67 
+                                            0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                                        </svg>
+                                        <span>1 Dewasa, 1 Anak</span>
                                     </div>
-                                    
-                                    <!-- Right Column: Price & Booking -->
-                                    <div class="flex flex-col justify-center items-center lg:items-end text-center lg:text-right lg:pl-6">
-                                        <div class="text-2xl font-bold text-red-500 mb-4">IDR 600.000</div>
-                                        <button onclick="window.location.href='/checkout/checkout-hotel'" class="bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white px-8 py-3 rounded-lg text-sm font-medium hover:from-[#156b8a] hover:to-[#2d9a6b] transition-all duration-200 w-full lg:w-auto lg:min-w-[120px]">
-                                            Pesan
-                                        </button>
+                                    <div class="flex items-center text-sm text-gray-700">
+                                        <span class="w-2 h-2 rounded-full bg-gray-400 mr-2"></span>
+                                        <span>Kasur 2 ranjang</span>
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-700">
+                                        <span class="w-2 h-2 rounded-full bg-gray-400 mr-2"></span>
+                                        <span>TV</span>
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-700">
+                                        <span class="w-2 h-2 rounded-full bg-gray-400 mr-2"></span>
+                                        <span>Bathtub</span>
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-700">
+                                        <span class="w-2 h-2 rounded-full bg-gray-400 mr-2"></span>
+                                        <span>Teras atau Balkon</span>
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-700">
+                                        <span class="w-2 h-2 rounded-full bg-gray-400 mr-2"></span>
+                                        <span>Pembersihan Kamar Harian</span>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
 
-                    <!-- Room 2 -->
-                    <div class="mb-6">
-                        <h3 class="font-semibold text-gray-800 mb-4 text-lg">Kamar king</h3>
-                        <div class="flex flex-col lg:flex-row gap-4">
-                            <!-- Room Image -->
-                            <div class="flex-shrink-0">
-                                <img src="{{ asset('kategorikamar.png') }}" alt="Kamar King" class="w-full lg:w-48 h-32 object-cover rounded-lg">
-                            </div>
-                            
-                            <!-- Room Details & Price in 2 Columns -->
-                            <div class="flex-1 bg-gray-50 border border-gray-200 rounded-lg p-4">
-                                <div class="grid grid-cols-1 lg:grid-cols-2 lg:divide-x lg:divide-gray-300 gap-6">
-                                    <!-- Left Column: Room Details -->
-                                    <div class="lg:pr-6">
-                                        <span class="bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs px-3 py-1 rounded mb-4 inline-block">
-                                            Sarapan (1pax)
-                                        </span>
-                                        
-                                        <div class="space-y-2">
-                                            <div class="flex items-center text-sm text-gray-700">
-                                                <svg class="w-4 h-4 mr-2 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
-                                                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                                                </svg>
-                                                <span>1 Dewasa, 1 Anak</span>
-                                            </div>
-                                            <div class="flex items-center text-sm text-gray-700">
-                                                <span class="w-2 h-2 rounded-full bg-gray-400 mr-2"></span>
-                                                <span>Kasur 2 ranjang</span>
-                                            </div>
-                                            <div class="flex items-center text-sm text-gray-700">
-                                                <span class="w-2 h-2 rounded-full bg-gray-400 mr-2"></span>
-                                                <span>TV</span>
-                                            </div>
-                                            <div class="flex items-center text-sm text-gray-700">
-                                                <span class="w-2 h-2 rounded-full bg-gray-400 mr-2"></span>
-                                                <span>Bathtub</span>
-                                            </div>
-                                            <div class="flex items-center text-sm text-gray-700">
-                                                <span class="w-2 h-2 rounded-full bg-gray-400 mr-2"></span>
-                                                <span>Teras atau Balkon</span>
-                                            </div>
-                                            <div class="flex items-center text-sm text-gray-700">
-                                                <span class="w-2 h-2 rounded-full bg-gray-400 mr-2"></span>
-                                                <span>Pembersihan Kamar Harian</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Right Column: Price & Booking -->
-                                    <div class="flex flex-col justify-center items-center lg:items-end text-center lg:text-right lg:pl-6">
-                                        <div class="text-2xl font-bold text-red-500 mb-4">IDR 600.000</div>
-                                        <button onclick="window.location.href='/checkout/checkout-hotel'" class="bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white px-8 py-3 rounded-lg text-sm font-medium hover:from-[#156b8a] hover:to-[#2d9a6b] transition-all duration-200 w-full lg:w-auto lg:min-w-[120px]">
-                                            Pesan
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Room 3 -->
-                    <div class="mb-6">
-                        <h3 class="font-semibold text-gray-800 mb-4 text-lg">Kamar king</h3>
-                        <div class="flex flex-col lg:flex-row gap-4">
-                            <!-- Room Image -->
-                            <div class="flex-shrink-0">
-                                <img src="{{ asset('kategorikamar.png') }}" alt="Kamar King" class="w-full lg:w-48 h-32 object-cover rounded-lg">
-                            </div>
-                            
-                            <!-- Room Details & Price in 2 Columns -->
-                            <div class="flex-1 bg-gray-50 border border-gray-200 rounded-lg p-4">
-                                <div class="grid grid-cols-1 lg:grid-cols-2 lg:divide-x lg:divide-gray-300 gap-6">
-                                    <!-- Left Column: Room Details -->
-                                    <div class="lg:pr-6">
-                                        <span class="bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs px-3 py-1 rounded mb-4 inline-block">
-                                            Sarapan (1pax)
-                                        </span>
-                                        
-                                        <div class="space-y-2">
-                                            <div class="flex items-center text-sm text-gray-700">
-                                                <svg class="w-4 h-4 mr-2 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
-                                                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                                                </svg>
-                                                <span>1 Dewasa, 1 Anak</span>
-                                            </div>
-                                            <div class="flex items-center text-sm text-gray-700">
-                                                <span class="w-2 h-2 rounded-full bg-gray-400 mr-2"></span>
-                                                <span>Kasur 2 ranjang</span>
-                                            </div>
-                                            <div class="flex items-center text-sm text-gray-700">
-                                                <span class="w-2 h-2 rounded-full bg-gray-400 mr-2"></span>
-                                                <span>TV</span>
-                                            </div>
-                                            <div class="flex items-center text-sm text-gray-700">
-                                                <span class="w-2 h-2 rounded-full bg-gray-400 mr-2"></span>
-                                                <span>Bathtub</span>
-                                            </div>
-                                            <div class="flex items-center text-sm text-gray-700">
-                                                <span class="w-2 h-2 rounded-full bg-gray-400 mr-2"></span>
-                                                <span>Teras atau Balkon</span>
-                                            </div>
-                                            <div class="flex items-center text-sm text-gray-700">
-                                                <span class="w-2 h-2 rounded-full bg-gray-400 mr-2"></span>
-                                                <span>Pembersihan Kamar Harian</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Right Column: Price & Booking -->
-                                    <div class="flex flex-col justify-center items-center lg:items-end text-center lg:text-right lg:pl-6">
-                                        <div class="text-2xl font-bold text-red-500 mb-4">IDR 600.000</div>
-                                        <button onclick="window.location.href='/checkout/checkout-hotel'" class="bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white px-8 py-3 rounded-lg text-sm font-medium hover:from-[#156b8a] hover:to-[#2d9a6b] transition-all duration-200 w-full lg:w-auto lg:min-w-[120px]">
-                                            Pesan
-                                        </button>
-                                    </div>
-                                </div>
+                            <!-- Right: Price & Booking -->
+                            <div class="flex flex-col justify-center items-center lg:items-end text-center lg:text-right">
+                                <div class="text-2xl font-bold text-red-500 mb-2">IDR 600.000</div>
+                                <button onclick="window.location.href='/checkout/checkout-hotel'" 
+                                        class="bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white px-6 py-2.5 rounded-lg text-sm font-medium hover:from-[#156b8a] hover:to-[#2d9a6b] transition-all duration-200 w-full lg:w-auto lg:min-w-[120px]">
+                                    Pesan
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+
+                                       <!-- Room 1 -->
+                    <div class="mb-6">
+        <!-- Single Card Container -->
+        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow duration-300">
+            <!-- Room Title inside card -->
+            <h3 class="font-semibold text-gray-800 mb-4 text-lg">Kamar King</h3>
+
+            <!-- Flex Layout -->
+            <div class="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-4">
+                
+                <!-- Left: Room Image -->
+                <div class="flex-shrink-0">
+                    <img src="{{ asset('kategorikamar.png') }}" 
+                        alt="Kamar King" 
+                        class="w-40 h-32 object-cover rounded-lg">
+                </div>
+
+            <!-- Middle: Room Details -->
+                           <div class="flex-1">
+                                <span class="bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs px-3 py-1 rounded mb-3 inline-block">
+                                    Sarapan (1pax)
+                                </span>
+                                <div class="space-y-1.5">
+                                    <div class="flex items-center text-sm text-gray-700">
+                                        <svg class="w-4 h-4 mr-2 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M12 12c2.21 0 4-1.79 
+                                            4-4s-1.79-4-4-4-4 1.79-4 
+                                            4 1.79 4 4 4zm0 2c-2.67 
+                                            0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                                        </svg>
+                                        <span>1 Dewasa, 1 Anak</span>
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-700">
+                                        <span class="w-2 h-2 rounded-full bg-gray-400 mr-2"></span>
+                                        <span>Kasur 2 ranjang</span>
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-700">
+                                        <span class="w-2 h-2 rounded-full bg-gray-400 mr-2"></span>
+                                        <span>TV</span>
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-700">
+                                        <span class="w-2 h-2 rounded-full bg-gray-400 mr-2"></span>
+                                        <span>Bathtub</span>
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-700">
+                                        <span class="w-2 h-2 rounded-full bg-gray-400 mr-2"></span>
+                                        <span>Teras atau Balkon</span>
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-700">
+                                        <span class="w-2 h-2 rounded-full bg-gray-400 mr-2"></span>
+                                        <span>Pembersihan Kamar Harian</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Right: Price & Booking -->
+                            <div class="flex flex-col justify-center items-center lg:items-end text-center lg:text-right">
+                                <div class="text-2xl font-bold text-red-500 mb-2">IDR 600.000</div>
+                                <button onclick="window.location.href='/checkout/checkout-hotel'" 
+                                        class="bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white px-6 py-2.5 rounded-lg text-sm font-medium hover:from-[#156b8a] hover:to-[#2d9a6b] transition-all duration-200 w-full lg:w-auto lg:min-w-[120px]">
+                                    Pesan
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                                        <!-- Room 1 -->
+                    <div class="mb-6">
+        <!-- Single Card Container -->
+        <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 hover:shadow-md transition-shadow duration-300">
+            <!-- Room Title inside card -->
+            <h3 class="font-semibold text-gray-800 mb-4 text-lg">Kamar King</h3>
+
+            <!-- Flex Layout -->
+            <div class="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-4">
+                
+                <!-- Left: Room Image -->
+                <div class="flex-shrink-0">
+                    <img src="{{ asset('kategorikamar.png') }}" 
+                        alt="Kamar King" 
+                        class="w-40 h-32 object-cover rounded-lg">
+                </div>
+
+            <!-- Middle: Room Details -->
+                           <div class="flex-1">
+                                <span class="bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs px-3 py-1 rounded mb-3 inline-block">
+                                    Sarapan (1pax)
+                                </span>
+                                <div class="space-y-1.5">
+                                    <div class="flex items-center text-sm text-gray-700">
+                                        <svg class="w-4 h-4 mr-2 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M12 12c2.21 0 4-1.79 
+                                            4-4s-1.79-4-4-4-4 1.79-4 
+                                            4 1.79 4 4 4zm0 2c-2.67 
+                                            0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                                        </svg>
+                                        <span>1 Dewasa, 1 Anak</span>
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-700">
+                                        <span class="w-2 h-2 rounded-full bg-gray-400 mr-2"></span>
+                                        <span>Kasur 2 ranjang</span>
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-700">
+                                        <span class="w-2 h-2 rounded-full bg-gray-400 mr-2"></span>
+                                        <span>TV</span>
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-700">
+                                        <span class="w-2 h-2 rounded-full bg-gray-400 mr-2"></span>
+                                        <span>Bathtub</span>
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-700">
+                                        <span class="w-2 h-2 rounded-full bg-gray-400 mr-2"></span>
+                                        <span>Teras atau Balkon</span>
+                                    </div>
+                                    <div class="flex items-center text-sm text-gray-700">
+                                        <span class="w-2 h-2 rounded-full bg-gray-400 mr-2"></span>
+                                        <span>Pembersihan Kamar Harian</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Right: Price & Booking -->
+                            <div class="flex flex-col justify-center items-center lg:items-end text-center lg:text-right">
+                                <div class="text-2xl font-bold text-red-500 mb-2">IDR 600.000</div>
+                                <button onclick="window.location.href='/checkout/checkout-hotel'" 
+                                        class="bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white px-6 py-2.5 rounded-lg text-sm font-medium hover:from-[#156b8a] hover:to-[#2d9a6b] transition-all duration-200 w-full lg:w-auto lg:min-w-[120px]">
+                                    Pesan
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
             <!-- Location Section -->
             <div class="bg-gray-50 p-6">

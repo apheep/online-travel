@@ -4,7 +4,7 @@
 
 @include('partials.navigation')
 <body class="font-poppins">
-<div class="min-h-screen bg-gradient-to-br from-blue-50 to-gray-100 py-4 sm:py-8 px-3 sm:px-4">
+<div class="min-h-screen bg-[F4F7FE] py-4 sm:py-8 px-3 sm:px-4">
     <div class="max-w-6xl mx-auto">
         <!-- Back Navigation -->
         <div class="flex items-center mb-4 sm:mb-6">
@@ -12,7 +12,7 @@
                  <svg class="w-5 h-5 mr-2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
                  </svg>
-                 <span class="text-sm font-medium">Apakah ingin kembali?</span>
+                 <span class="text-sm font-medium">Back</span>
             </button>
         </div>
 
@@ -332,33 +332,50 @@
         <!-- Submit Button -->
         <div class="text-center">
             <button type="submit" 
-                     class="w-full max-w-md bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white font-bold py-4 px-8 rounded-xl hover:from-[#156b8a] hover:to-[#2d9a6b] transition-all duration-200 transform hover:scale-105 shadow-lg">
+                     class="w-full max-w-md bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white font-bold py-4 px-8 rounded-xl hover:from-[#156b8a] hover:to-[#2d9a6b] transition-all duration-200 transform hover:scale-105 shadow-lg mt-10">
                  SUBMIT
             </button>
             <!-- Modal konfirmasi (paste di bawah seat map / sebelum </body>) -->
-            <div id="confirm-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
-            <div role="dialog" aria-modal="true" aria-labelledby="confirm-title"
-                class="bg-white rounded-2xl p-8 max-w-lg w-full mx-4 text-center shadow-2xl">
-                <h3 id="confirm-title" class="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">Apakah anda yakin?</h3>
-                <p id="confirm-sub" class="text-sm text-gray-600 mb-8">anda tidak dapat mengubah data setelah disubmit</p>
-
-                <div class="flex gap-4">    
-                <!-- Tombol 'tidak' -->
-                <button id="confirm-no"
-                        class="flex-1 py-3 rounded-xl bg-red-600 hover:bg-red-700 text-white font-semibold text-lg tracking-wide transition"
-                        onclick="hideConfirmation()">
-                    tidak
+            <div id="confirm-overlay" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center hidden opacity-0 transition-opacity duration-200 ease-out">
+              <div id="confirm-dialog" role="dialog" aria-modal="true" aria-labelledby="confirm-title"
+                   class="relative bg-white rounded-2xl w-full max-w-md mx-4 shadow-2xl transform scale-95 opacity-0 transition-all duration-300 ease-out">
+                <!-- Close button -->
+                <button type="button" aria-label="Tutup" onclick="hideConfirmation()"
+                        class="absolute top-3 right-3 text-gray-400 hover:text-gray-600 transition p-2 rounded-full hover:bg-gray-100">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
                 </button>
 
-                <!-- Tombol 'iya' -->
-                <button id="confirm-yes"
-                        class="flex-1 py-3 rounded-xl text-white font-semibold text-lg tracking-wide transition"
-                        style="background: linear-gradient(90deg,#187499,#36AE7E);"
-                        onclick="confirmYes()">
-                    iya
-                </button>
+                <div class="p-6 sm:p-8 text-center">
+                  <!-- Icon -->
+                  <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-gradient-to-r from-[#187499] to-[#36AE7E] flex items-center justify-center shadow-md">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+
+                  <!-- Title & Subtitle -->
+                  <h3 id="confirm-title" class="text-2xl sm:text-xl font-extrabold text-gray-900 mb-2">Apakah Anda yakin?</h3>
+                  <p id="confirm-sub" class="text-xs sm:text-sm text-gray-600 mb-6">Anda tidak dapat mengubah data setelah disubmit.</p>
+
+                  <!-- Actions -->
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <!-- Tombol 'tidak' -->
+                    <button id="confirm-no" onclick="hideConfirmation()"
+                            class="py-3 rounded-xl border border-gray-200 text-gray-700 hover:bg-gray-50 hover:border-gray-300 font-semibold transition">
+                      Tidak
+                    </button>
+
+                    <!-- Tombol 'iya' -->
+                    <button id="confirm-yes" onclick="confirmYes()"
+                            class="py-3 rounded-xl text-white font-semibold shadow-md hover:shadow-lg transition"
+                            style="background: linear-gradient(90deg,#187499,#36AE7E);">
+                      Iya, Lanjutkan
+                    </button>
+                  </div>
                 </div>
-            </div>
+              </div>
             </div>
 
             <script>
@@ -377,7 +394,13 @@
             }
 
             function showConfirmation() {
+                const dialog = document.getElementById('confirm-dialog');
                 overlay.classList.remove('hidden');
+                // animate in
+                requestAnimationFrame(() => {
+                    overlay.classList.remove('opacity-0');
+                    dialog.classList.remove('scale-95','opacity-0');
+                });
                 document.documentElement.style.overflow = 'hidden'; // disable scroll
                 // fokus ke tombol iya
                 const yesBtn = document.getElementById('confirm-yes');
@@ -388,8 +411,14 @@
             }
 
             function hideConfirmation() {
-                overlay.classList.add('hidden');
-                document.documentElement.style.overflow = '';
+                const dialog = document.getElementById('confirm-dialog');
+                // animate out
+                overlay.classList.add('opacity-0');
+                dialog.classList.add('scale-95','opacity-0');
+                setTimeout(() => {
+                    overlay.classList.add('hidden');
+                    document.documentElement.style.overflow = '';
+                }, 220);
             }
 
             // ketika user tekan 'iya' -> jalankan performSave() lalu tutup modal
@@ -450,8 +479,8 @@
  </div>
  
  <!-- Overlay Modal -->
- <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
-     <div class="bg-white rounded-2xl p-8 max-w-md mx-4 text-center">
+ <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden opacity-0 transition-opacity duration-200 ease-out">
+    <div id="overlay-dialog" class="bg-white rounded-2xl p-8 max-w-md mx-4 text-center transform scale-95 opacity-0 transition-all duration-300 ease-out">
          <h3 class="text-xl font-bold text-gray-800 mb-4">Mau lihat kereta lain?</h3>
          <p class="text-gray-600 mb-6">Kalau kamu kembali ke halaman sebelumnya, semua info yang diisi dan keberangkatan yang dipilih akan hilang.</p>
          <div class="flex flex-col space-y-3">
@@ -465,10 +494,6 @@
      </div>
  </div>
  
- </body>
- 
- @include('partials.footer')
- 
  <script>
  // Back navigation function
  function goBack() {
@@ -478,15 +503,23 @@
  
  // Overlay functions
  function showOverlay() {
-     const overlay = document.getElementById('overlay');
-     overlay.classList.remove('hidden');
+    const overlay = document.getElementById('overlay');
+    const dialog = document.getElementById('overlay-dialog');
+    overlay.classList.remove('hidden');
+    requestAnimationFrame(() => {
+        overlay.classList.remove('opacity-0');
+        dialog.classList.remove('scale-95','opacity-0');
+    });
  }
  
  function hideOverlay() {
-     const overlay = document.getElementById('overlay');
-     if (overlay) {
-         overlay.classList.add('hidden');
-     }
+    const overlay = document.getElementById('overlay');
+    const dialog = document.getElementById('overlay-dialog');
+    if (overlay && dialog) {
+        overlay.classList.add('opacity-0');
+        dialog.classList.add('scale-95','opacity-0');
+        setTimeout(() => overlay.classList.add('hidden'), 220);
+    }
  }
  
  function viewOtherFlights() {

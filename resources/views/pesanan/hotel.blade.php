@@ -685,7 +685,7 @@
                 </div>
             </div>
             
-            <!-- Hotel Results -->
+            <!-- Hotel Results --> 
             <div class="lg:col-span-3">
                 <div class="space-y-4">
                     <!-- Hotel Card 1 -->

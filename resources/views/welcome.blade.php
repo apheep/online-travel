@@ -7,8 +7,11 @@
 <body class="relative bg-white font-poppins opacity-0 transition-opacity duration-700">
 
   <!-- Background Section -->
-  <section class="relative bg-cover shadow-2xl" style="background-image: url(/background.png);">
-    <div class="absolute inset-0 bg-black/30 "></div>
+  <section class="relative shadow-2xl min-h-[100dvh]">
+    <!-- Fixed Background Layer -->
+    <div class="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat" style="background-image: url(/background.png);"></div>
+    <!-- Fixed Overlay -->
+    <div class="fixed inset-0 -z-10 bg-black/30"></div>
 
     <!-- NavBar -->
     <nav class="relative z-10 flex items-center justify-between w-full px-10 py-6 text-white">
@@ -26,9 +29,9 @@
         
         <!-- Notification Icon -->
         <div class="relative">
-          <button class="p-2 text-white hover:bg-white/10 rounded-full transition-all duration-300">
+          <a href="{{ route('notifications.mailbox') }}" class="p-2 text-white hover:bg-white/10 rounded-full transition-all duration-300 block">
             <img src="/notif.png" alt="Notifications" class="w-5 h-6">
-          </button>
+          </a>
           <!-- Notification badge -->
           <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-medium">3</span>
         </div>
@@ -130,14 +133,14 @@
             </button>
             
             <!-- Notification Button -->
-            <button class="bg-white border-2 border-gray-100 hover:border-[#36AE7E] text-gray-700 hover:text-[#36AE7E] py-4 px-4 rounded-2xl font-medium transition-all duration-300 flex flex-col items-center gap-2 shadow-sm hover:shadow-md relative">
+            <a href="{{ route('notifications.mailbox') }}" class="bg-white border-2 border-gray-100 hover:border-[#36AE7E] text-gray-700 hover:text-[#36AE7E] py-4 px-4 rounded-2xl font-medium transition-all duration-300 flex flex-col items-center gap-2 shadow-sm hover:shadow-md relative">
               <div class="flex items-center justify-center">
                 <img src="/notif.png" alt="Notifications" class="w-4 h-5">
               </div>
               <span class="text-sm">Notifikasi</span>
               <!-- Notification badge -->
               <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-medium">3</span>
-            </button>
+            </a>
           </div>
 
         </div>
@@ -148,8 +151,8 @@
     <div id="sidebar-overlay" class="fixed inset-0 bg-black/50 z-40 hidden md:hidden" onclick="closeSidebar()"></div>
 
     <!-- Main Content -->
-    <div class="relative z-10 flex flex-col items-center justify-center h-[calc(100vh-72px)] max-w-4xl mx-auto px-6 text-white text-center mt-10 md:mt-2">
-      <h1 class="text-[36px] md:text-[50px] font-bold leading-tight tracking-wide drop-shadow-md">
+    <div class="relative z-10 flex flex-col items-center justify-start pt-16 md:pt-20 min-h-[100dvh] max-w-4xl mx-auto px-6 text-white text-center mt-10 md:mt-2 pb-10">
+      <h1 class="text-[28px] sm:text-[32px] md:text-[46px] font-bold leading-tight tracking-wide drop-shadow-md">
         Hai, Mau Travelling Kemana?
       </h1>
 
@@ -174,77 +177,84 @@
         </div>
         
         <!-- Form Card -->
-        <div class="bg-white rounded-2xl p-4 shadow-lg">
+        <div class="bg-white rounded-2xl px-4 pt-4 pb-2 shadow-lg">
           <!-- Hotel Form -->
-          <div id="hotel-form" class="space-y-3">
-            <div class="flex items-center space-x-3 bg-gray-100 rounded-lg p-3">
-              <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div id="hotel-form" class="space-y-2 sm:space-y-2.5">
+            <div class="flex items-center gap-2 sm:gap-3 bg-gray-100 rounded-lg p-2 sm:p-2.5">
+              <svg class="w-4 h-4 sm:w-5 sm:h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
               </svg>
-              <input type="text" placeholder="Mau nginep dimana?" class="flex-1 bg-transparent text-gray-700 placeholder-gray-500 outline-none text-sm">
+              <input type="text" placeholder="Mau nginep dimana?" class="flex-1 bg-transparent text-gray-700 placeholder-gray-500 outline-none text-xs sm:text-sm truncate">
             </div>
-            <div class="flex items-center space-x-3 bg-gray-100 rounded-lg p-3">
-              <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="flex items-center gap-2 sm:gap-3 bg-gray-100 rounded-lg p-2 sm:p-2.5">
+              <svg class="w-4 h-4 sm:w-5 sm:h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
               </svg>
-              <input type="date" class="flex-1 bg-transparent text-gray-700 outline-none text-sm">
-              <span class="text-gray-500 text-sm">Check-in</span>
+              <button type="button" onclick="openDateFor('hotelCheckin')" class="flex-1 text-left bg-transparent text-gray-700 outline-none text-xs sm:text-sm truncate">
+                <span id="hotelCheckinDisplay" class="text-gray-700">Pilih tanggal</span>
+              </button>
+              <span class="text-gray-500 text-[11px] sm:text-xs shrink-0">Check-in</span>
             </div>
-            <div class="flex items-center space-x-3 bg-gray-100 rounded-lg p-3">
-              <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="flex items-center gap-2 sm:gap-3 bg-gray-100 rounded-lg p-2 sm:p-2.5">
+              <svg class="w-4 h-4 sm:w-5 sm:h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
               </svg>
-              <input type="date" class="flex-1 bg-transparent text-gray-700 outline-none text-sm">
-              <span class="text-gray-500 text-sm">Check-out</span>
+              <button type="button" onclick="openDateFor('hotelCheckout')" class="flex-1 text-left bg-transparent text-gray-700 outline-none text-xs sm:text-sm truncate">
+                <span id="hotelCheckoutDisplay" class="text-gray-700">Pilih tanggal</span>
+              </button>
+              <span class="text-gray-500 text-[11px] sm:text-xs shrink-0">Check-out</span>
             </div>
-            <div class="flex items-center space-x-3 bg-gray-100 rounded-lg p-3">
-              <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="flex items-center gap-2 sm:gap-3 bg-gray-100 rounded-lg p-2 sm:p-2.5">
+              <svg class="w-4 h-4 sm:w-5 sm:h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
               </svg>
-              <input type="text" placeholder="Kamar & tamu" class="flex-1 bg-transparent text-gray-700 placeholder-gray-500 outline-none text-sm">
+              <input type="text" placeholder="Kamar & tamu" class="flex-1 bg-transparent text-gray-700 placeholder-gray-500 outline-none text-xs sm:text-sm truncate">
             </div>
           </div>
 
           <!-- Pesawat Form -->
-          <div id="pesawat-form" class="space-y-3 hidden">
-            <div class="flex items-center space-x-3 bg-gray-100 rounded-lg p-3">
+          <div id="pesawat-form" class="space-y-2 sm:space-y-2.5 hidden">
+            <div class="flex items-center gap-1.5 sm:gap-3 bg-gray-100 rounded-lg p-2 sm:p-2.5">
             <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
               </svg>
-              <input type="text" placeholder="Masukkan nama kota atau bandara" class="flex-1 bg-transparent text-gray-700 placeholder-gray-500 outline-none text-sm">
-              <span class="text-gray-500 text-sm">Dari</span>
+              <input type="text" placeholder="Masukkan nama kota atau bandara" class="flex-1 bg-transparent text-gray-700 placeholder-gray-500 outline-none text-xs sm:text-sm truncate">
+              <span class="text-gray-500 text-[11px] sm:text-xs shrink-0">Dari</span>
             </div>
-            <div class="flex items-center space-x-3 bg-gray-100 rounded-lg p-3">
+            <div class="flex items-center gap-1.5 sm:gap-3 bg-gray-100 rounded-lg p-2 sm:p-2.5">
             <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
               </svg>
-              </svg>
-              <input type="text" placeholder="Masukkan nama kota atau bandara" class="flex-1 bg-transparent text-gray-700 placeholder-gray-500 outline-none text-sm">
-              <span class="text-gray-500 text-sm">Ke</span>
+              <input type="text" placeholder="Masukkan nama kota atau bandara" class="flex-1 bg-transparent text-gray-700 placeholder-gray-500 outline-none text-xs sm:text-sm truncate">
+              <span class="text-gray-500 text-[11px] sm:text-xs shrink-0">Ke</span>
             </div>
-            <div class="flex items-center space-x-3 bg-gray-100 rounded-lg p-3">
+            <div class="flex items-center gap-1.5 sm:gap-3 bg-gray-100 rounded-lg p-2 sm:p-2.5">
               <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
               </svg>
-              <input type="date" class="flex-1 bg-transparent text-gray-700 outline-none text-sm">
-              <span class="text-gray-500 text-sm">Pergi</span>
+              <button type="button" onclick="openDateFor('pesawatPergi')" class="flex-1 text-left bg-transparent text-gray-700 outline-none text-xs sm:text-sm truncate">
+                <span id="pesawatPergiDisplay" class="text-gray-700">Pilih tanggal</span>
+              </button>
+              <span class="text-gray-500 text-[11px] sm:text-xs shrink-0">Pergi</span>
             </div>
-            <div class="flex items-center space-x-3 bg-gray-100 rounded-lg p-3">
+            <div class="flex items-center gap-1.5 sm:gap-3 bg-gray-100 rounded-lg p-2 sm:p-2.5">
               <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
               </svg>
-              <input type="text" placeholder="Atur jumlah penumpang" class="flex-1 bg-transparent text-gray-700 placeholder-gray-500 outline-none text-sm">
+              <input type="text" placeholder="Atur jumlah penumpang" class="flex-1 bg-transparent text-gray-700 placeholder-gray-500 outline-none text-xs sm:text-sm truncate">
             </div>
 
-            <div id="pesawat-return" class="flex items-center space-x-3 bg-gray-100 rounded-lg p-3 hidden">
+            <div id="pesawat-return" class="flex items-center gap-1.5 sm:gap-3 bg-gray-100 rounded-lg p-2 sm:p-2.5 hidden">
               <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
               </svg>
-              <input type="date" class="flex-1 bg-transparent text-gray-700 outline-none text-sm">
-              <span class="text-gray-500 text-sm">Pulang</span>
+              <button type="button" onclick="openDateFor('pesawatPulang')" class="flex-1 text-left bg-transparent text-gray-700 outline-none text-xs sm:text-sm truncate">
+                <span id="pesawatPulangDisplay" class="text-gray-700">Pilih tanggal</span>
+              </button>
+              <span class="text-gray-500 text-[11px] sm:text-xs shrink-0">Pulang</span>
             </div>
             <div class="flex items-center justify-between bg-gray-50 rounded-lg p-3">
               <span class="text-gray-700 text-sm font-medium">Pulang-pergi?</span>
@@ -255,36 +265,40 @@
           </div>
 
           <!-- Kereta Form -->
-          <div id="kereta-form" class="space-y-3 hidden">
-            <div class="flex items-center space-x-3 bg-gray-100 rounded-lg p-3">
+          <div id="kereta-form" class="space-y-2 sm:space-y-2.5 hidden">
+            <div class="flex items-center gap-2 sm:gap-3 bg-gray-100 rounded-lg p-2 sm:p-2.5">
             <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
               </svg>
-              <input type="text" placeholder="Masukkan nama kota atau stasiun" class="flex-1 bg-transparent text-gray-700 placeholder-gray-500 outline-none text-sm">
-              <span class="text-gray-500 text-sm">Dari</span>
+              <input type="text" placeholder="Masukkan nama kota atau stasiun" class="flex-1 bg-transparent text-gray-700 placeholder-gray-500 outline-none text-xs sm:text-sm truncate">
+              <span class="text-gray-500 text-[11px] sm:text-xs shrink-0">Dari</span>
             </div>
-            <div class="flex items-center space-x-3 bg-gray-100 rounded-lg p-3">
+            <div class="flex items-center gap-2 sm:gap-3 bg-gray-100 rounded-lg p-2 sm:p-2.5">
             <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
               </svg>
-              <input type="text" placeholder="Masukkan nama kota atau stasiun" class="flex-1 bg-transparent text-gray-700 placeholder-gray-500 outline-none text-sm">
-              <span class="text-gray-500 text-sm">Ke</span>
+              <input type="text" placeholder="Masukkan nama kota atau stasiun" class="flex-1 bg-transparent text-gray-700 placeholder-gray-500 outline-none text-xs sm:text-sm truncate">
+              <span class="text-gray-500 text-[11px] sm:text-xs shrink-0">Ke</span>
             </div>
-            <div class="flex items-center space-x-3 bg-gray-100 rounded-lg p-3">
+            <div class="flex items-center gap-2 sm:gap-3 bg-gray-100 rounded-lg p-2 sm:p-2.5">
               <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
               </svg>
-              <input type="date" class="flex-1 bg-transparent text-gray-700 outline-none text-sm">
-              <span class="text-gray-500 text-sm">Pergi</span>
+              <button type="button" onclick="openDateFor('keretaPergi')" class="flex-1 text-left bg-transparent text-gray-700 outline-none text-xs sm:text-sm truncate">
+                <span id="keretaPergiDisplay" class="text-gray-700">Pilih tanggal</span>
+              </button>
+              <span class="text-gray-500 text-[11px] sm:text-xs shrink-0">Pergi</span>
             </div>
-            <div id="kereta-return" class="flex items-center space-x-3 bg-gray-100 rounded-lg p-3 hidden">
+            <div id="kereta-return" class="flex items-center gap-2 sm:gap-3 bg-gray-100 rounded-lg p-2 sm:p-2.5 hidden">
               <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
               </svg>
-              <input type="date" class="flex-1 bg-transparent text-gray-700 outline-none text-sm">
-              <span class="text-gray-500 text-sm">Pulang</span>
+              <button type="button" onclick="openDateFor('keretaPulang')" class="flex-1 text-left bg-transparent text-gray-700 outline-none text-xs sm:text-sm truncate">
+                <span id="keretaPulangDisplay" class="text-gray-700">Pilih tanggal</span>
+              </button>
+              <span class="text-gray-500 text-[11px] sm:text-xs shrink-0">Pulang</span>
             </div>
             <div class="flex items-center space-x-3 bg-gray-100 rounded-lg p-3">
               <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -300,13 +314,16 @@
             </div>
           </div>
 
-          <button onclick="handleSearch()" class="w-full bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white py-3 px-4 rounded-lg font-semibold text-sm hover:from-[#156b8a] hover:to-[#2d9a6e] transition-all duration-300 shadow-md mt-4">
+          <button onclick="handleSearch()" class="w-full bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white py-3 px-6 rounded-lg font-semibold text-sm hover:from-[#156b8a] hover:to-[#2d9a6e] transition-all duration-300 shadow-md mt-5">
             Ayo cari!
           </button>
         </div>
       </div>
     </div>
   </section>
+
+  {{-- Calendar Modal Partial for date picking --}}
+  @include('partials.calender')
 
       <script>
       document.addEventListener('DOMContentLoaded', function () {
@@ -321,6 +338,68 @@
           mobileSidebar.classList.remove("translate-x-full");
           sidebarOverlay.classList.remove("hidden");
         });
+
+      // Bridge calendar modal to welcome page date fields
+      // Map logical targets to display span IDs
+      const dateDisplayMap = {
+        hotelCheckin: 'hotelCheckinDisplay',
+        hotelCheckout: 'hotelCheckoutDisplay',
+        pesawatPergi: 'pesawatPergiDisplay',
+        pesawatPulang: 'pesawatPulangDisplay',
+        keretaPergi: 'keretaPergiDisplay',
+        keretaPulang: 'keretaPulangDisplay',
+      };
+
+      // Current field we are picking for
+      window._dateTarget = null;
+
+      // Open the shared calendar modal for a specific target
+      window.openDateFor = function(targetKey){
+        window._dateTarget = targetKey;
+        // Default to one way for single date pick on welcome
+        if (typeof switchTripType === 'function') {
+          try { switchTripType('oneWay'); } catch(e) {}
+        }
+        if (typeof openDateModal === 'function') {
+          openDateModal();
+        }
+      };
+
+      // Wrap global saveDate to also update welcome displays
+      (function(){
+        if (typeof window.saveDate === 'function' && !window._origSaveDate) {
+          window._origSaveDate = window.saveDate;
+          window.saveDate = function(){
+            // Call original behavior safely (it may reference IDs not present on this page)
+            try { window._origSaveDate(); } catch(e) { /* swallow */ }
+            // Then update our display span if a target was set
+            try {
+              const key = window._dateTarget;
+              if (key && dateDisplayMap[key]) {
+                const displayEl = document.getElementById(dateDisplayMap[key]);
+                if (displayEl) {
+                  // Prefer the text from the modal display
+                  const depTextEl = document.getElementById('departureDateDisplay');
+                  let text = depTextEl ? depTextEl.textContent : '';
+                  // Fallback: format global departureDate if available
+                  if ((!text || text.trim().length === 0) && window.departureDate instanceof Date) {
+                    text = window.departureDate.toLocaleDateString('id-ID', {
+                      weekday: 'long', day: 'numeric', month: 'short', year: 'numeric'
+                    });
+                  }
+                  if (text && text.trim().length > 0) {
+                    displayEl.textContent = text;
+                  }
+                }
+              }
+            } catch(e) { /* no-op */ }
+            // Ensure modal closes
+            try { if (typeof closeDateModal === 'function') closeDateModal(); } catch(e) {}
+            // Reset target
+            window._dateTarget = null;
+          }
+        }
+      })();
       });
 
       // Close sidebar function

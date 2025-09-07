@@ -5,7 +5,7 @@
 
     @include('partials.navigation')
 
-<body class="bg-gray-50 font-poppins">
+<body class="bg-[F4F7FE] font-poppins">
     
 
     <!-- Main Content -->
@@ -262,7 +262,7 @@
             </div>
         </div>
 
-        @include('partials.calender')
+        @include('partials.calender-pp')
 
         <!-- Passenger Selection Modal -->
         <div id="passengerModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">

@@ -4,7 +4,7 @@
 
 @include('partials.navbarcheck')
 
-<body class="bg-gray-50 min-h-screen font-poppins">
+<body class="bg-[F4F7FE] min-h-screen font-poppins">
   <!-- Main Content -->
   <main id="page-main" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 opacity-0 translate-y-2 transition-all duration-500 ease-out">
 
@@ -14,25 +14,6 @@
       <h2 class="text-3xl font-bold text-gray-900">Ticketing</h2>
       <p class="text-gray-600 mt-1">Ticket Management</p>
     </div>
-
-    <!-- Filter Tabs -->
-    <div class="mb-6">
-      <div class="flex flex-wrap gap-2">
-        <button class="px-4 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white rounded-full text-sm font-medium">
-          All
-        </button>
-        <button class="px-4 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white rounded-full text-sm font-medium">
-          Request
-        </button>
-        <button class="px-4 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white rounded-full text-sm font-medium">
-          Approve
-        </button>
-        <button class="px-4 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white rounded-full text-sm font-medium">
-          Reject
-        </button>
-      </div>
-    </div>
-
 <!-- Search and Filter -->
 <div class="mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
   <!-- Search Bar -->

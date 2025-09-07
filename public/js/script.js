@@ -623,7 +623,7 @@ function saveDate() {
             document.getElementById('selectedDate').textContent = formattedDate;
             document.getElementById('tripType').textContent = '(Sekali jalan)';
         } else {
-            alert('Silakan pilih tanggal keberangkatan.');
+            alert('Silakan pilih tanggal.');
             return;
         }
     } else {
