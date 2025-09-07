@@ -47,13 +47,22 @@
                 </div>
                 
                 <div class="flex gap-3">
-                    <input type="date" class="px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    <button type="button" onclick="openDateModal()" class="px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white flex items-center gap-2">
+                        <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3M5 11h14M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                        <span id="selectedDate" class="text-gray-700">Pilih tanggal</span>
+                        <span id="tripType" class="text-xs text-gray-500"></span>
+                    </button>
                     <button class="px-6 py-3 bg-gradient-to-r from-blue-500 to-emerald-500 hover:from-blue-600 hover:to-emerald-600 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105">
                         Filter
                     </button>
                 </div>
             </div>
         </div>
+
+        {{-- Calendar Modal Partial --}}
+        @include('partials.calender')
 
         <!-- Back Button -->
         <div class="mb-6">

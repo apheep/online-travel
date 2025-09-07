@@ -26,9 +26,9 @@
         
         <!-- Notification Icon -->
         <div class="relative">
-          <button class="p-2 text-white hover:bg-white/10 rounded-full transition-all duration-300">
+          <a href="{{ route('notifications.mailbox') }}" class="p-2 text-white hover:bg-white/10 rounded-full transition-all duration-300 block">
             <img src="/notif.png" alt="Notifications" class="w-5 h-6">
-          </button>
+          </a>
           <!-- Notification badge -->
           <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-medium">3</span>
         </div>
@@ -130,14 +130,14 @@
             </button>
             
             <!-- Notification Button -->
-            <button class="bg-white border-2 border-gray-100 hover:border-[#36AE7E] text-gray-700 hover:text-[#36AE7E] py-4 px-4 rounded-2xl font-medium transition-all duration-300 flex flex-col items-center gap-2 shadow-sm hover:shadow-md relative">
+            <a href="{{ route('notifications.mailbox') }}" class="bg-white border-2 border-gray-100 hover:border-[#36AE7E] text-gray-700 hover:text-[#36AE7E] py-4 px-4 rounded-2xl font-medium transition-all duration-300 flex flex-col items-center gap-2 shadow-sm hover:shadow-md relative">
               <div class="flex items-center justify-center">
                 <img src="/notif.png" alt="Notifications" class="w-4 h-5">
               </div>
               <span class="text-sm">Notifikasi</span>
               <!-- Notification badge -->
               <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-medium">3</span>
-            </button>
+            </a>
           </div>
 
         </div>

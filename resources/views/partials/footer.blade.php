@@ -1,7 +1,7 @@
   <!-- Footer -->
- <footer class="bg-gray-50 text-[#A0AAC3]">
+ <footer class="bg-[F4F7FE] text-[#A0AAC3]">
     <!-- Main Footer Content -->
-    <div class="border-t border-gray-200 bg-gray-50">
+    <div class="border-t border-gray-200 bg-[F4F7FE]">
     <div class="max-w-7xl mx-auto px-6 py-6">
       <div class="flex flex-col md:flex-row items-center justify-center">
         <a href="" class="text-[22px] font-bold" style="color: #A0AAC3;">.travelling</a>
