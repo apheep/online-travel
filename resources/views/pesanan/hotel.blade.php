@@ -684,9 +684,9 @@
                                     <div class="text-sm text-gray-600">
                                         <span class="text-green-600 font-medium">Pembatalan Gratis</span> hingga 24 jam sebelum check-in
                                     </div>
-                                    <button class="px-6 py-2 text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg bg-gradient-to-r from-[#187499] to-[#36AE7E]">
+                                    <a href="{{ url('/checkout/informasi-hotel') }}" class="px-6 py-2 text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg bg-gradient-to-r from-[#187499] to-[#36AE7E]">
                                         Pilih Kamar
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -723,9 +723,9 @@
                                     <div class="text-sm text-gray-600">
                                         <span class="text-green-600 font-medium">Pembatalan Gratis</span> hingga 48 jam sebelum check-in
                                     </div>
-                                    <button class="px-6 py-2 text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg bg-gradient-to-r from-[#187499] to-[#36AE7E]">
+                                    <a href="{{ url('/checkout/informasi-hotel') }}" class="px-6 py-2 text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg bg-gradient-to-r from-[#187499] to-[#36AE7E]">
                                         Pilih Kamar
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                         </div>

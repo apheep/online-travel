@@ -15,7 +15,7 @@
                     <svg class="w-5 h-5 mr-2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
                     </svg>
-                    <span class="text-sm font-medium">Apakah ingin kembali?</span>
+                    <span class="text-sm font-medium">Back</span>
                 </button>
             </div>
 
@@ -245,8 +245,7 @@
     
     function viewOtherHotels() {
         hideOverlay();
-        alert('Redirecting to hotel search page...');
-        // window.location.href = '/search-flights'; 
+        window.location.href = '/pesanan/hotel';
     }
     
     function completeBooking() {
