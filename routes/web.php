@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PesawatController;
 
 use App\Http\Controllers\MultiUserController;
+use App\Http\Controllers\MailboxController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -59,6 +60,11 @@ Route::middleware(['auth'])->group(function () {
     
     Route::get('/checking', [MultiUserController::class, 'checking'])->name('checking');
     Route::get('/ticketing', [MultiUserController::class, 'ticketing'])->name('ticketing');
+
+    // Mailbox routes
+    Route::get('/notifications/mailbox', [MailboxController::class, 'index'])->name('notifications.mailbox');
+    Route::get('/notifications/diterima/{id}', [MailboxController::class, 'showDiterima'])->name('notifications.diterima');
+    Route::get('/notifications/ditolak/{id}', [MailboxController::class, 'showDitolak'])->name('notifications.ditolak');
     
     // Logout route
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
@@ -83,6 +89,14 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/check/detail', function () {
         return view('check.detail-pesanan');
     })->name('check.detail');
+
+    Route::get('/check/detail-kereta', function () {
+        return view('check.detail-kereta');
+    })->name('check.detail-kereta');
+
+    Route::get('/check/detail-hotel', function () {
+        return view('check.detail-hotel');
+    })->name('check.detail-hotel');
 
 });
 

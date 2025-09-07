@@ -4,7 +4,7 @@
 
 @include('partials.navbarcheck')
 
-<body class="bg-gray-50 min-h-screen font-poppins">
+<body class="bg-[F4F7FE] min-h-screen font-poppins">
   <!-- Main Content -->
   <main id="page-main" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 opacity-0 translate-y-2 transition-all duration-500 ease-out">
 
