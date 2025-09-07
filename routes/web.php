@@ -30,13 +30,24 @@ Route::get('/pesanan/hotel', function () {
     return view('pesanan.hotel');
 });
 
+// Hotel detail page - for viewing the new hotel layout
+Route::get('checkout/informasi-hotel', function () {
+    return view('checkout.informasi-hotel');
+});
+
 
 Route::get('/checkout/checkout-pesawat', [PesawatController::class, 'checkout']);
 Route::post('/checkout/process', [PesawatController::class, 'processCheckout']);
 Route::get('/checkout/available-seats', [PesawatController::class, 'getAvailableSeats']);
 
+
+// Checkout hotel route
+Route::get('/checkout/checkout-hotel', function () {
+    return view('checkout.checkout-hotel');
+
 Route::get('/checkout/checkout-kereta', function (){
     return view('checkout.checkout-kereta');
+
 });
 
 // Protected routes for logged in users
