@@ -71,7 +71,7 @@
               </td>
               <td class="px-6 py-5 whitespace-nowrap text-center">
                 <input type="file" class="hidden upload-input" accept=".pdf,.jpg,.jpeg,.png" />
-                <button type="button" class="upload-trigger inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-600 to-emerald-600 text-white text-xs font-semibold rounded-lg hover:from-blue-700 hover:to-emerald-700 transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                <button type="button" class="upload-trigger inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg  transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
                   <i class="fas fa-upload mr-2"></i>
                   Upload
                 </button>
@@ -116,7 +116,7 @@
               </td>
               <td class="px-6 py-5 whitespace-nowrap text-center">
                 <input type="file" class="hidden upload-input" accept=".pdf,.jpg,.jpeg,.png" />
-                <button type="button" class="upload-trigger inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-600 to-emerald-600 text-white text-xs font-semibold rounded-lg hover:from-blue-700 hover:to-emerald-700 transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                <button type="button" class="upload-trigger inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg hover:from-[#156b8a] hover:to-[#2d9a6e] transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
                   <i class="fas fa-upload mr-2"></i>
                   Upload
                 </button>
@@ -161,7 +161,7 @@
               </td>
               <td class="px-6 py-5 whitespace-nowrap text-center">
                 <input type="file" class="hidden upload-input" accept=".pdf,.jpg,.jpeg,.png" />
-                <button type="button" class="upload-trigger inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-600 to-emerald-600 text-white text-xs font-semibold rounded-lg hover:from-blue-700 hover:to-emerald-700 transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                <button type="button" class="upload-trigger inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg hover:from-[#156b8a] hover:to-[#2d9a6e] transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
                   <i class="fas fa-upload mr-2"></i>
                   Upload
                 </button>
@@ -206,7 +206,7 @@
               </td>
               <td class="px-6 py-5 whitespace-nowrap text-center">
                 <input type="file" class="hidden upload-input" accept=".pdf,.jpg,.jpeg,.png" />
-                <button type="button" class="upload-trigger inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-600 to-emerald-600 text-white text-xs font-semibold rounded-lg hover:from-blue-700 hover:to-emerald-700 transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                <button type="button" class="upload-trigger inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg hover:from-[#156b8a] hover:to-[#2d9a6e] transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
                   <i class="fas fa-upload mr-2"></i>
                   Upload
                 </button>
@@ -246,7 +246,7 @@
           <div class="flex items-center space-x-2">
             <button class="btn-open-detail px-3 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg shadow-md">Detail</button>
             <input type="file" class="hidden upload-input" accept=".pdf,.jpg,.jpeg,.png" />
-            <button type="button" class="upload-trigger px-3 py-2 bg-gradient-to-r from-blue-600 to-emerald-600 text-white text-xs font-semibold rounded-lg shadow-md">
+            <button type="button" class="upload-trigger px-3 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg shadow-md">
               <i class="fas fa-upload mr-2"></i>Upload
             </button>
           </div>
@@ -283,7 +283,7 @@
           <div class="flex items-center space-x-2">
             <button class="btn-open-detail px-3 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg shadow-md">Detail</button>
             <input type="file" class="hidden upload-input" accept=".pdf,.jpg,.jpeg,.png" />
-            <button type="button" class="upload-trigger px-3 py-2 bg-gradient-to-r from-blue-600 to-emerald-600 text-white text-xs font-semibold rounded-lg shadow-md">
+            <button type="button" class="upload-trigger px-3 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg shadow-md">
               <i class="fas fa-upload mr-2"></i>Upload
             </button>
           </div>
@@ -320,7 +320,7 @@
           <div class="flex items-center space-x-2">
             <button class="btn-open-detail px-3 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg shadow-md">Detail</button>
             <input type="file" class="hidden upload-input" accept=".pdf,.jpg,.jpeg,.png" />
-            <button type="button" class="upload-trigger px-3 py-2 bg-gradient-to-r from-blue-600 to-emerald-600 text-white text-xs font-semibold rounded-lg shadow-md">
+            <button type="button" class="upload-trigger px-3 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg shadow-md">
               <i class="fas fa-upload mr-2"></i>Upload
             </button>
           </div>
@@ -357,7 +357,7 @@
           <div class="flex items-center space-x-2">
             <button type="button" class="btn-open-detail px-3 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg shadow-md">Detail</button>
             <input type="file" class="hidden upload-input" accept=".pdf,.jpg,.jpeg,.png" />
-            <button type="button" class="upload-trigger px-3 py-2 bg-gradient-to-r from-blue-600 to-emerald-600 text-white text-xs font-semibold rounded-lg shadow-md">
+            <button type="button" class="upload-trigger px-3 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg shadow-md">
               <i class="fas fa-upload mr-2"></i>Upload
             </button>
           </div>
