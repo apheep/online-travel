@@ -41,9 +41,9 @@
                             <button onclick="toggleFlightDetail('flight1')" class="flex-1 text-gray-700 px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-md active:scale-95 border border-gray-300 hover:bg-gray-50">
                                 Detail
                             </button>
-                            <button class="flex-1 text-white px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95" style="background: linear-gradient(90deg, #187499 0%, #36AE7E 100%);">
+                            <a href="{{ url('/checkout/checkout-kereta') }}" class="flex-1 text-white px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95" style="background: linear-gradient(90deg, #187499 0%, #36AE7E 100%);">
                                 Pilih
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -117,9 +117,9 @@
                             <button onclick="toggleFlightDetail('flight2')" class="flex-1 text-gray-700 px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-md active:scale-95 border border-gray-300 hover:bg-gray-50">
                                 Detail
                             </button>
-                            <button class="flex-1 text-white px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95" style="background: linear-gradient(90deg, #187499 0%, #36AE7E 100%);">
+                            <a href="{{ url('/checkout/checkout-kereta') }}" class="flex-1 text-white px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95" style="background: linear-gradient(90deg, #187499 0%, #36AE7E 100%);">
                                 Pilih
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -193,9 +193,9 @@
                             <button onclick="toggleFlightDetail('flight3')" class="flex-1 text-gray-700 px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-md active:scale-95 border border-gray-300 hover:bg-gray-50">
                                 Detail
                             </button>
-                            <button class="flex-1 text-white px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95" style="background: linear-gradient(90deg, #187499 0%, #36AE7E 100%);">
+                            <a href="{{ url('/checkout/checkout-kereta') }}" class="flex-1 text-white px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95" style="background: linear-gradient(90deg, #187499 0%, #36AE7E 100%);">
                                 Pilih
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -269,9 +269,9 @@
                             <button onclick="toggleFlightDetail('flight4')" class="flex-1 text-gray-700 px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-md active:scale-95 border border-gray-300 hover:bg-gray-50">
                                 Detail
                             </button>
-                            <button class="flex-1 text-white px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95" style="background: linear-gradient(90deg, #187499 0%, #36AE7E 100%);">
+                            <a href="{{ url('/checkout/checkout-kereta') }}" class="flex-1 text-white px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95" style="background: linear-gradient(90deg, #187499 0%, #36AE7E 100%);">
                                 Pilih
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -345,9 +345,9 @@
                             <button onclick="toggleFlightDetail('flight5')" class="flex-1 text-gray-700 px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-md active:scale-95 border border-gray-300 hover:bg-gray-50">
                                 Detail
                             </button>
-                            <button class="flex-1 text-white px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95" style="background: linear-gradient(90deg, #187499 0%, #36AE7E 100%);">
+                            <a href="{{ url('/checkout/checkout-kereta') }}" class="flex-1 text-white px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95" style="background: linear-gradient(90deg, #187499 0%, #36AE7E 100%);">
                                 Pilih
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -420,13 +420,13 @@
                             <div class="text-lg sm:text-xl font-bold text-red-600">IDR 480.000</div>
                             <div class="text-xs sm:text-sm text-gray-500">per passenger</div>
                             <div class="flex space-x-2 mt-2">
-                                <button onclick="toggleFlightDetail('flight6')" class="flex-1 text-gray-700 px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-md active:scale-95 border border-gray-300 hover:bg-gray-50">
-                                    Detail
-                                </button>
-                                <button class="flex-1 text-white px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95" style="background: linear-gradient(90deg, #187499 0%, #36AE7E 100%);">
-                                    Pilih
-                                </button>
-                            </div>
+                            <button onclick="toggleFlightDetail('flight6')" class="flex-1 text-gray-700 px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-md active:scale-95 border border-gray-300 hover:bg-gray-50">
+                                Detail
+                            </button>
+                            <a href="{{ url('/checkout/checkout-kereta') }}" class="flex-1 text-white px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95" style="background: linear-gradient(90deg, #187499 0%, #36AE7E 100%);">
+                                Pilih
+                            </a>
+                        </div>
                         </div>
                     </div>
                     
@@ -454,9 +454,9 @@
                                 <div class="text-sm text-gray-500">Bali</div>
                             </div>
                         </div>
-                        </div>
                     </div>
                 </div>
+            </div>
 
                             <!-- Flight Card 7 -->
             <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-4 sm:p-6 hover:shadow-md transition duration-200 flight-card">
@@ -496,13 +496,13 @@
                             <div class="text-lg sm:text-xl font-bold text-red-600">IDR 450.000</div>
                             <div class="text-xs sm:text-sm text-gray-500">per passenger</div>
                             <div class="flex space-x-2 mt-2">
-                                <button onclick="toggleFlightDetail('flight7')" class="flex-1 text-gray-700 px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-md active:scale-95 border border-gray-300 hover:bg-gray-50">
-                                    Detail
-                                </button>
-                                <button class="flex-1 text-white px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95" style="background: linear-gradient(90deg, #187499 0%, #36AE7E 100%);">
-                                    Pilih
-                                </button>
-                            </div>
+                            <button onclick="toggleFlightDetail('flight7')" class="flex-1 text-gray-700 px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-md active:scale-95 border border-gray-300 hover:bg-gray-50">
+                                Detail
+                            </button>
+                            <a href="{{ url('/checkout/checkout-kereta') }}" class="flex-1 text-white px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95" style="background: linear-gradient(90deg, #187499 0%, #36AE7E 100%);">
+                                Pilih
+                            </a>
+                        </div>
                         </div>
                     </div>
                     

@@ -392,9 +392,9 @@
           console.log('Redirect: pesawat');
           window.location.href = "{{ url('/pesanan/pesawat') }}";
         } else if (!keretaForm.classList.contains('hidden')) {
-          // Kereta form is active, you can add kereta route here if needed
-          // window.location.href = '/pesanan/kereta';
-          alert('Pencarian kereta belum tersedia');
+          // Kereta form is active, redirect to pesanan/kereta
+          console.log('Redirect: kereta');
+          window.location.href = "{{ route('pesanan.kereta') }}";
         }
       }
     </script>
