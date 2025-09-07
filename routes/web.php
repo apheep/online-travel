@@ -44,10 +44,10 @@ Route::get('/checkout/available-seats', [PesawatController::class, 'getAvailable
 // Checkout hotel route
 Route::get('/checkout/checkout-hotel', function () {
     return view('checkout.checkout-hotel');
+});
 
-Route::get('/checkout/checkout-kereta', function (){
+Route::get('/checkout/checkout-kereta', function () {
     return view('checkout.checkout-kereta');
-
 });
 
 // Protected routes for logged in users
