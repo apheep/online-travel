@@ -268,9 +268,10 @@
 
         <!-- Passenger Selection Modal -->
         <div id="passengerModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4 transition-all duration-300 ease-out">
-            <div class="bg-white rounded-2xl shadow-xl w-full max-w-md h-[450px] flex flex-col transform scale-95 opacity-0 transition-all duration-500 ease-out" id="passengerModalContent">
-                <div class="p-6 flex-1 flex flex-col overflow-hidden">
-                    <div class="flex justify-between items-center mb-6">
+            <div class="bg-white rounded-2xl shadow-xl w-full max-w-md max-h-[90vh] flex flex-col transform scale-95 opacity-0 transition-all duration-500 ease-out" id="passengerModalContent">
+                <!-- Modal Header -->
+                <div class="p-6 border-b border-gray-100">
+                    <div class="flex justify-between items-center">
                         <div>
                             <h3 class="text-2xl font-bold text-gray-900 mb-1">Pilih Penumpang</h3>
                             <p class="text-gray-500">Tentukan jumlah dan kelas penumpang</p>
@@ -281,7 +282,10 @@
                             </svg>
                         </button>
                     </div>
-                    
+                </div>
+                
+                <!-- Modal Content -->
+                <div class="flex-1 overflow-y-auto p-6">
                     <!-- Passenger Count -->
                     <div class="mb-6">
                         <label class="block text-sm font-semibold text-gray-700 mb-3">Jumlah Penumpang</label>
@@ -298,14 +302,31 @@
                     <!-- Class Selection -->
                     <div class="mb-6">
                         <label class="block text-sm font-semibold text-gray-700 mb-3">Kelas</label>
-                        <select id="classSelect" class="w-full p-3 border-2 border-transparent bg-gradient-to-r from-[#187499] to-[#36AE7E] rounded-xl focus:ring-2 focus:ring-[#187499] focus:border-transparent transition duration-200 text-lg" style="background: linear-gradient(white, white) padding-box, linear-gradient(135deg, #187499, #36AE7E) border-box; border: 2px solid transparent;">
-                            <option value="Ekonomi">Ekonomi</option>
-                            <option value="Bisnis">Bisnis</option>
-                            <option value="First Class">First Class</option>
-                        </select>
+                        <div class="relative">
+                            <div id="classDropdown" class="w-full p-4 bg-white border-2 border-gray-200 rounded-xl cursor-pointer hover:border-gray-300 transition duration-200 flex items-center justify-between" onclick="toggleClassDropdown()">
+                                <span id="selectedClass" class="text-gray-900 font-medium">Economy Class</span>
+                                <svg id="dropdownArrow" class="w-5 h-5 text-gray-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </div>
+                            <div id="classOptions" class="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-200 rounded-xl shadow-lg z-[60] hidden max-h-48 overflow-y-auto transition-all duration-150 ease-out">
+                                <div class="p-3 hover:bg-gray-50 cursor-pointer transition duration-150 border-b border-gray-100 last:border-b-0" onclick="selectClass('Economy Class')">
+                                    <div class="font-medium text-gray-900">Economy Class</div>
+                                </div>
+                                <div class="p-3 hover:bg-gray-50 cursor-pointer transition duration-150 border-b border-gray-100 last:border-b-0" onclick="selectClass('Business Class')">
+                                    <div class="font-medium text-gray-900">Business Class</div>
+                                </div>
+                                <div class="p-3 hover:bg-gray-50 cursor-pointer transition duration-150" onclick="selectClass('First Class')">
+                                    <div class="font-medium text-gray-900">First Class</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    
-                    <div class="flex space-x-4 mt-auto pt-4">
+                </div>
+                
+                <!-- Modal Footer - Sticky -->
+                <div class="border-t border-gray-100 p-6 bg-white rounded-b-2xl">
+                    <div class="flex space-x-4">
                         <button onclick="closePassengerModal()" class="flex-1 px-6 py-3 border-2 border-gray-300 rounded-xl text-gray-700 hover:bg-gray-50 transition duration-200 font-semibold">
                             Batal
                         </button>

@@ -722,8 +722,79 @@ function changePassengerCount(change) {
     document.getElementById('passengerCountDisplay').textContent = passengerCount;
 }
 
+// Custom Dropdown Functions
+function toggleClassDropdown() {
+    const dropdown = document.getElementById('classOptions');
+    const arrow = document.getElementById('dropdownArrow');
+    
+    if (dropdown.classList.contains('hidden')) {
+        dropdown.classList.remove('hidden');
+        dropdown.style.opacity = '0';
+        dropdown.style.transform = 'translateY(-10px)';
+        
+        setTimeout(() => {
+            dropdown.style.opacity = '1';
+            dropdown.style.transform = 'translateY(0)';
+        }, 10);
+        
+        arrow.style.transform = 'rotate(180deg)';
+    } else {
+        dropdown.style.opacity = '0';
+        dropdown.style.transform = 'translateY(-10px)';
+        
+        setTimeout(() => {
+            dropdown.classList.add('hidden');
+        }, 150);
+        
+        arrow.style.transform = 'rotate(0deg)';
+    }
+}
+
+function selectClass(className) {
+    const selectedElement = document.getElementById('selectedClass');
+    const dropdown = document.getElementById('classOptions');
+    const arrow = document.getElementById('dropdownArrow');
+    
+    // Smooth text change
+    selectedElement.style.opacity = '0.7';
+    
+    setTimeout(() => {
+        selectedElement.textContent = className;
+        selectedElement.style.opacity = '1';
+    }, 100);
+    
+    // Close dropdown with animation
+    dropdown.style.opacity = '0';
+    dropdown.style.transform = 'translateY(-10px)';
+    
+    setTimeout(() => {
+        dropdown.classList.add('hidden');
+    }, 150);
+    
+    arrow.style.transform = 'rotate(0deg)';
+}
+
+// Close dropdown when clicking outside
+document.addEventListener('click', function(event) {
+    const dropdown = document.getElementById('classDropdown');
+    const options = document.getElementById('classOptions');
+    
+    if (!dropdown.contains(event.target) && !options.contains(event.target)) {
+        if (!options.classList.contains('hidden')) {
+            options.style.opacity = '0';
+            options.style.transform = 'translateY(-10px)';
+            
+            setTimeout(() => {
+                options.classList.add('hidden');
+            }, 150);
+            
+            document.getElementById('dropdownArrow').style.transform = 'rotate(0deg)';
+        }
+    }
+});
+
 function savePassenger() {
-    const passengerClass = document.getElementById('classSelect').value;
+    const passengerClass = document.getElementById('selectedClass').textContent;
     
     document.getElementById('passengerCount').textContent = passengerCount + ' Penumpang';
     document.getElementById('passengerClass').textContent = '(' + passengerClass + ')';
