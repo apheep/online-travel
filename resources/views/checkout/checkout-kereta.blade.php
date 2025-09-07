@@ -60,146 +60,67 @@
             </div>
         </div>
 
-        <!-- BAWAH: dua kolom (kiri 50% = detail + dokumen, kanan 50% = kursi) -->
+        <!-- BAWAH: dua kolom (kiri = detail pemesanan, kanan = dokumen pendukung) -->
         <div class="flex flex-col lg:flex-row gap-6 items-stretch">
-            <!-- KIRI: 50% (stacked) -->
-            <div class="w-full lg:w-1/2 flex flex-col gap-6">
-            <!-- Detail Pemesanan -->
-            <div class="bg-white rounded-2xl shadow-lg p-6">
+            <!-- KIRI: Detail Pemesanan -->
+            <div class="w-full lg:w-1/2">
+              <div class="bg-white rounded-2xl shadow-lg p-6 h-full">
                 <h2 class="text-2xl font-bold text-gray-800 mb-2">Detail Pemesanan</h2>
                 <p class="text-gray-600 text-sm mb-6">Detail kontak ini akan digunakan untuk pengiriman e-tiket</p>
 
                 <form id="booking-form">
-                <div class="space-y-4">
+                  <div class="space-y-4">
                     <div>
-                    <label for="nama" class="block text-sm font-medium text-gray-700 mb-2">Nama Lengkap</label>
-                    <input type="text" id="nama" name="nama"
-                            class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-200 transition"
-                            placeholder="Masukkan nama lengkap">
+                      <label for="nama" class="block text-sm font-medium text-gray-700 mb-2">Nama Lengkap</label>
+                      <input type="text" id="nama" name="nama" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-200 transition" placeholder="Masukkan nama lengkap">
                     </div>
-
                     <div>
-                    <label for="telepon" class="block text-sm font-medium text-gray-700 mb-2">Nomor Telpon</label>
-                    <input type="tel" id="telepon" name="telepon"
-                            class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-200 transition"
-                            placeholder="Masukkan nomor telepon">
+                      <label for="telepon" class="block text-sm font-medium text-gray-700 mb-2">Nomor Telpon</label>
+                      <input type="tel" id="telepon" name="telepon" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-200 transition" placeholder="Masukkan nomor telepon">
                     </div>
-
                     <div>
-                    <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Alamat Email</label>
-                    <input type="email" id="email" name="email"
-                            class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-200 transition"
-                            placeholder="Masukkan alamat email">
+                      <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Alamat Email</label>
+                      <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-200 transition" placeholder="Masukkan alamat email">
                     </div>
-                </div>
+                  </div>
                 </form>
+              </div>
             </div>
 
-            <!-- Dokumen Pendukung -->
-            <div class="bg-white rounded-2xl shadow-lg p-6">
+            <!-- KANAN: Dokumen Pendukung -->
+            <div class="w-full lg:w-1/2">
+              <div class="bg-white rounded-2xl shadow-lg p-6 h-full">
                 <h2 class="text-2xl font-bold text-gray-800 mb-2">Dokumen Pendukung</h2>
                 <p class="text-gray-600 text-sm mb-6">KTP dan surat dinas diperlukan untuk memproses e-tiket Anda</p>
 
                 <div class="space-y-4">
-                <!-- Upload KTP -->
-                <div>
+                  <!-- Upload KTP -->
+                  <div>
                     <label class="block text-sm font-medium text-gray-700 mb-2">Upload KTP</label>
-                    <div
-                    class="upload-box border-2 border-dashed border-gray-200 rounded-xl p-4 hover:border-blue-300 transition-colors duration-200 cursor-pointer flex items-center gap-4"
-                    onclick="triggerFile('ktp')">
-                    <img src="{{ asset('folder.png') }}" alt="icon" class="w-8 h-8">
-                    <div class="flex-1 text-left">
+                    <div class="upload-box border-2 border-dashed border-gray-200 rounded-xl p-4 hover:border-blue-300 transition-colors duration-200 cursor-pointer flex items-center gap-4" onclick="triggerFile('ktp')">
+                      <img src="{{ asset('folder.png') }}" alt="icon" class="w-8 h-8">
+                      <div class="flex-1 text-left">
                         <div class="text-gray-700">Klik untuk upload atau tarik file ke sini</div>
                         <div id="ktp-filename" class="text-sm text-gray-400">Format: PDF (maks 5MB)</div>
+                      </div>
+                      <input type="file" id="ktp" name="ktp" accept=".pdf" class="hidden" onchange="handleFileChange(event, 'ktp-filename')">
                     </div>
-                    <input type="file" id="ktp" name="ktp" accept=".pdf" class="hidden" onchange="handleFileChange(event, 'ktp-filename')">
-                    </div>
-                </div>
+                  </div>
 
-                <!-- Upload Surat Dinas -->
-                <div>
+                  <!-- Upload Surat Dinas -->
+                  <div>
                     <label class="block text-sm font-medium text-gray-700 mb-2">Upload Surat Dinas</label>
-                    <div
-                    class="upload-box border-2 border-dashed border-gray-200 rounded-xl p-4 hover:border-blue-300 transition-colors duration-200 cursor-pointer flex items-center gap-4"
-                    onclick="triggerFile('surat_dinas')">
-                    <img src="{{ asset('folder.png') }}" alt="icon" class="w-8 h-8">
-                    <div class="flex-1 text-left">
+                    <div class="upload-box border-2 border-dashed border-gray-200 rounded-xl p-4 hover:border-blue-300 transition-colors duration-200 cursor-pointer flex items-center gap-4" onclick="triggerFile('surat_dinas')">
+                      <img src="{{ asset('folder.png') }}" alt="icon" class="w-8 h-8">
+                      <div class="flex-1 text-left">
                         <div class="text-gray-700">Klik untuk upload atau tarik file ke sini</div>
                         <div id="surat_dinas-filename" class="text-sm text-gray-400">Format: PDF (maks 5MB)</div>
+                      </div>
+                      <input type="file" id="surat_dinas" name="surat_dinas" accept=".pdf" class="hidden" onchange="handleFileChange(event, 'surat_dinas-filename')">
                     </div>
-                    <input type="file" id="surat_dinas" name="surat_dinas" accept=".pdf" class="hidden" onchange="handleFileChange(event, 'surat_dinas-filename')">
-                    </div>
+                  </div>
                 </div>
-                </div>
-            </div>
-            </div>
-
-            <!-- KANAN: 50% (Detail Kursi) - flex sehingga tinggi mengikuti kiri -->
-            <div class="w-full lg:w-1/2 flex">
-            <div class="bg-white rounded-2xl shadow-lg p-6 flex-1 flex flex-col">
-                <h3 class="text-2xl font-bold text-gray-800 mb-2">Detail Kursi</h3>
-                <p class="text-gray-600 text-sm mb-4">Nomor kursi yang dipilih tidak dapat diubah setelah pembayaran.</p>
-
-                <!-- Selected seat box -->
-                <div class="mb-4 p-4 bg-gray-50 rounded-xl border border-gray-100">
-                <div class="text-sm text-gray-500">Kursi dipilih</div>
-                <div id="selected-seat" class="text-2xl font-semibold text-gray-800 mt-2">Tidak ada</div>
-                </div>
-
-                <div class="mb-4 bg-white rounded-xl border border-gray-100 p-4 shadow-sm flex-1 flex flex-col">
-                <h4 class="font-semibold text-gray-800 mb-2">Pilih Kursi</h4>
-                <p class="text-xs text-gray-400 mb-3">Nomor kursi yang dipilih tidak dapat diubah setelah pembayaran</p>
-
-                <form id="seat-form" class="space-y-3 flex-1 flex flex-col" onsubmit="return false;">
-                    <!-- Stasiun -->
-                    <div class="flex items-center gap-3 mb-2">
-                    <input type="radio" name="station" id="stg" value="Surabaya Gubeng" class="h-4 w-4 text-teal-600" checked onchange="onStationChange()">
-                    <label for="stg" class="text-sm text-gray-700">Surabaya Gubeng</label>
-
-                    <input type="radio" name="station" id="sol" value="Solo Balapan" class="h-4 w-4 text-teal-600 ml-4" onchange="onStationChange()">
-                    <label for="sol" class="text-sm text-gray-700">Solo Balapan</label>
-                    </div>
-
-                    <!-- Gerbong dropdown + legend -->
-                    <div class="mb-3">
-                    <label class="block text-xs text-gray-400 mb-2">Gerbong kereta</label>
-                    <select id="carriage-select" class="w-full border rounded-lg px-3 py-2 text-sm">
-                        <option>Premium 5 (72 kursi tersedia)</option>
-                        <option>Ekonomi 3 (60 kursi tersedia)</option>
-                    </select>
-                    </div>
-
-                    <div class="flex items-center gap-3 text-xs text-gray-500 mb-3">
-                    <div class="flex items-center gap-2"><div class="w-3 h-3 rounded-sm bg-gradient-to-r from-teal-600 to-emerald-400 border"></div> Dipilih</div>
-                    <div class="flex items-center gap-2"><div class="w-3 h-3 rounded-sm border bg-white"></div> Tersedia</div>
-                    <div class="flex items-center gap-2"><div class="w-3 h-3 rounded-sm bg-gray-200 border"></div> Tidak tersedia</div>
-                    </div>
-
-                    <!-- Seat map container (flex-1 supaya mengisi ruang yang tersisa) -->
-                    <div class="mt-2 border rounded-lg p-4 bg-white flex-1 flex flex-col">
-                    <div class="w-full h-56 overflow-auto bg-gray-50 rounded-md flex items-center justify-center p-4">
-                        <!-- Seat grid (generated by JS) -->
-                        <div id="seat-grid" class="inline-block"></div>
-                    </div>
-
-                    <!-- status -->
-                    <div class="mt-4 flex items-center justify-between">
-                        <div class="text-sm text-gray-500">Pilih satu kursi</div>
-                        <div class="text-sm text-gray-500">Status: <span id="seat-status" class="font-medium text-gray-700 ml-1">Belum dipilih</span></div>
-                    </div>
-                    </div>
-
-                    <!-- Simpan button -->
-                    <div class="mt-4">
-                    <button id="save-seat-btn" type="button" onclick="saveSeat()"
-                            class="w-full py-3 rounded-lg font-semibold text-white bg-gradient-to-r from-teal-600 to-emerald-400 hover:from-teal-700 hover:to-emerald-500 transition">
-                        Simpan kursi
-                    </button>
-                    </div>
-                </form>
-                </div>
-
-            </div>
+              </div>
             </div>
         </div>
         </div>
@@ -215,263 +136,20 @@
             label.textContent = name;
         }
 
-        // ----- seat map interaction (sama seperti sebelumnya) -----
-        const rows = 9;
-        const leftCols = ['A','B'];
-        const rightCols = ['C','D'];
-        const unavailableSeats = new Set(['B3','C5','A7','D2']); // contoh, bisa dari backend
-        let currentlySelected = null;
-
-        const seatGrid = () => document.getElementById('seat-grid');
-        const selectedSeatEl = () => document.getElementById('selected-seat');
-        const seatStatusEl = () => document.getElementById('seat-status');
-
-        function buildSeatGrid() {
-            const container = document.createElement('div');
-            container.className = 'inline-block px-2 py-3';
-
-            for (let r = 1; r <= rows; r++) {
-            const rowWrap = document.createElement('div');
-            rowWrap.className = 'flex items-center justify-center gap-6 mb-2';
-
-            const leftWrap = document.createElement('div');
-            leftWrap.className = 'flex flex-col gap-2 items-end';
-            leftCols.forEach(col => leftWrap.appendChild(createSeatButton(col + r)));
-
-            const rowNum = document.createElement('div');
-            rowNum.className = 'w-6 text-center text-sm text-gray-500';
-            rowNum.textContent = r;
-
-            const rightWrap = document.createElement('div');
-            rightWrap.className = 'flex flex-col gap-2 items-start';
-            rightCols.forEach(col => rightWrap.appendChild(createSeatButton(col + r)));
-
-            rowWrap.appendChild(leftWrap);
-            rowWrap.appendChild(rowNum);
-            rowWrap.appendChild(rightWrap);
-            container.appendChild(rowWrap);
-            }
-
-            const g = seatGrid();
-            g.innerHTML = '';
-            g.appendChild(container);
-        }
-
-        function createSeatButton(seatId) {
-            const btn = document.createElement('button');
-            btn.type = 'button';
-            btn.setAttribute('data-seat', seatId);
-            btn.className = ['w-9','h-9','rounded-md','flex','items-center','justify-center','text-xs','font-medium','border'].join(' ');
-            btn.classList.add('bg-white','border-gray-300','text-gray-600','hover:shadow');
-            btn.textContent = '';
-            if (unavailableSeats.has(seatId)) {
-            btn.classList.remove('bg-white');
-            btn.classList.add('bg-gray-200','border-gray-200','text-gray-400','cursor-not-allowed','opacity-80');
-            btn.setAttribute('aria-disabled','true');
-            } else {
-            btn.addEventListener('click', () => onSeatClick(seatId, btn));
-            }
-            btn.title = 'Kursi ' + seatId + (unavailableSeats.has(seatId) ? ' (Tidak tersedia)' : '');
-            return btn;
-        }
-
-        function onSeatClick(seatId, btnEl) {
-            if (currentlySelected === seatId) { deselectCurrent(); return; }
-            deselectCurrent();
-            currentlySelected = seatId;
-            btnEl.classList.remove('bg-white','border-gray-300','text-gray-600','hover:shadow');
-            btnEl.classList.add('selected-seat','text-white','border-transparent');
-            btnEl.style.background = 'linear-gradient(90deg,#0ea5a3,#34d399)';
-            btnEl.style.boxShadow = '0 2px 10px rgba(16,185,129,0.12)';
-            selectedSeatEl().textContent = seatId;
-            seatStatusEl().textContent = 'Dipilih: ' + seatId;
-        }
-
-        function deselectCurrent() {
-            if (!currentlySelected) return;
-            const oldBtn = seatGrid().querySelector('[data-seat="'+currentlySelected+'"]');
-            if (oldBtn) {
-            oldBtn.classList.remove('selected-seat','text-white','border-transparent');
-            oldBtn.style.background = '';
-            oldBtn.style.boxShadow = '';
-            oldBtn.classList.add('bg-white','border-gray-300','text-gray-600','hover:shadow');
-            }
-            currentlySelected = null;
-            selectedSeatEl().textContent = 'Tidak ada';
-            seatStatusEl().textContent = 'Belum dipilih';
-        }
-
-        function saveSeat() {
-            if (!currentlySelected) { alert('Silakan pilih kursi terlebih dahulu.'); return; }
-            alert('Kursi ' + currentlySelected + ' berhasil disimpan.');
-            unavailableSeats.add(currentlySelected);
-            const btn = seatGrid().querySelector('[data-seat="'+currentlySelected+'"]');
-            if (btn) {
-            btn.removeEventListener('click', () => {});
-            btn.classList.remove('selected-seat','text-white','border-transparent','hover:shadow');
-            btn.style.background = '';
-            btn.style.boxShadow = '';
-            btn.classList.add('bg-gray-200','border-gray-200','text-gray-400','cursor-not-allowed','opacity-80');
-            btn.setAttribute('aria-disabled','true');
-            }
-            seatStatusEl().textContent = 'Tersimpan: ' + currentlySelected;
-        }
-
-        function onStationChange() {
-            const station = document.querySelector('input[name="station"]:checked').value;
-            seatStatusEl().textContent = (currentlySelected ? 'Dipilih: ' + currentlySelected : 'Belum dipilih') + ' (' + station + ')';
-        }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            buildSeatGrid();
-            onStationChange();
-        });
+        // (Seat selection removed)
         </script>
 
 
         <!-- Submit Button -->
         <div class="text-center">
-            <button type="submit" 
+            <button type="submit" id="checkout-submit"
                      class="w-full max-w-md bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white font-bold py-4 px-8 rounded-xl hover:from-[#156b8a] hover:to-[#2d9a6b] transition-all duration-200 transform hover:scale-105 shadow-lg mt-10">
                  SUBMIT
             </button>
-            <!-- Modal konfirmasi (paste di bawah seat map / sebelum </body>) -->
-            <div id="confirm-overlay" class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center hidden opacity-0 transition-opacity duration-200 ease-out">
-              <div id="confirm-dialog" role="dialog" aria-modal="true" aria-labelledby="confirm-title"
-                   class="relative bg-white rounded-2xl w-full max-w-md mx-4 shadow-2xl transform scale-95 opacity-0 transition-all duration-300 ease-out">
-                <!-- Close button -->
-                <button type="button" aria-label="Tutup" onclick="hideConfirmation()"
-                        class="absolute top-3 right-3 text-gray-400 hover:text-gray-600 transition p-2 rounded-full hover:bg-gray-100">
-                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
-
-                <div class="p-6 sm:p-8 text-center">
-                  <!-- Icon -->
-                  <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-gradient-to-r from-[#187499] to-[#36AE7E] flex items-center justify-center shadow-md">
-                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-
-                  <!-- Title & Subtitle -->
-                  <h3 id="confirm-title" class="text-2xl sm:text-xl font-extrabold text-gray-900 mb-2">Apakah Anda yakin?</h3>
-                  <p id="confirm-sub" class="text-xs sm:text-sm text-gray-600 mb-6">Anda tidak dapat mengubah data setelah disubmit.</p>
-
-                  <!-- Actions -->
-                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <!-- Tombol 'tidak' -->
-                    <button id="confirm-no" onclick="hideConfirmation()"
-                            class="py-3 rounded-xl border border-gray-200 text-gray-700 hover:bg-gray-50 hover:border-gray-300 font-semibold transition">
-                      Tidak
-                    </button>
-
-                    <!-- Tombol 'iya' -->
-                    <button id="confirm-yes" onclick="confirmYes()"
-                            class="py-3 rounded-xl text-white font-semibold shadow-md hover:shadow-lg transition"
-                            style="background: linear-gradient(90deg,#187499,#36AE7E);">
-                      Iya, Lanjutkan
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <!-- (Seat confirmation modal removed) -->
 
             <script>
-            // overlay element
-            const overlay = document.getElementById('confirm-overlay');
-
-            // ubah saveSeat() sehingga memunculkan modal konfirmasi terlebih dahulu
-            // jika belum ada kursi yang dipilih -> tampilkan alert
-            function saveSeat() {
-                if (!currentlySelected) {
-                alert('Silakan pilih kursi terlebih dahulu.');
-                return;
-                }
-                // tampilkan modal konfirmasi dan fokus ke tombol 'iya'
-                showConfirmation();
-            }
-
-            function showConfirmation() {
-                const dialog = document.getElementById('confirm-dialog');
-                overlay.classList.remove('hidden');
-                // animate in
-                requestAnimationFrame(() => {
-                    overlay.classList.remove('opacity-0');
-                    dialog.classList.remove('scale-95','opacity-0');
-                });
-                document.documentElement.style.overflow = 'hidden'; // disable scroll
-                // fokus ke tombol iya
-                const yesBtn = document.getElementById('confirm-yes');
-                if (yesBtn) yesBtn.focus();
-                // opsional: tampilkan info kursi di modal subtitle
-                const sub = document.getElementById('confirm-sub');
-                if (sub) sub.textContent = 'Kursi yang akan disimpan: ' + currentlySelected;
-            }
-
-            function hideConfirmation() {
-                const dialog = document.getElementById('confirm-dialog');
-                // animate out
-                overlay.classList.add('opacity-0');
-                dialog.classList.add('scale-95','opacity-0');
-                setTimeout(() => {
-                    overlay.classList.add('hidden');
-                    document.documentElement.style.overflow = '';
-                }, 220);
-            }
-
-            // ketika user tekan 'iya' -> jalankan performSave() lalu tutup modal
-            function confirmYes() {
-                performSave();
-                hideConfirmation();
-            }
-
-            // fungsi penyimpanan nyata (ambil logika lama saveSeat() Anda)
-            function performSave() {
-                // currentlySelected pasti ada karena showConfirmation hanya dipanggil bila ada selection
-                if (!currentlySelected) {
-                alert('Tidak ada kursi yang dipilih.');
-                return;
-                }
-
-                // Demo: tandai kursi sebagai tidak tersedia dan disable tombolnya
-                unavailableSeats.add(currentlySelected);
-                const btn = document.querySelector('[data-seat="'+currentlySelected+'"]');
-                if (btn) {
-                // hapus event listener (safe approach: clone node)
-                const clone = btn.cloneNode(true);
-                clone.classList.remove('selected-seat','text-white','border-transparent','hover:shadow');
-                clone.style.background = '';
-                clone.style.boxShadow = '';
-                clone.classList.add('bg-gray-200','border-gray-200','text-gray-400','cursor-not-allowed','opacity-80');
-                clone.setAttribute('aria-disabled','true');
-                btn.parentNode.replaceChild(clone, btn);
-                }
-
-                // update UI
-                const seatStatus = document.getElementById('seat-status');
-                if (seatStatus) seatStatus.textContent = 'Tersimpan: ' + currentlySelected;
-                const selectedSeatEl = document.getElementById('selected-seat');
-                if (selectedSeatEl) selectedSeatEl.textContent = currentlySelected;
-
-                // optional: beri notifikasi
-                // alert('Kursi ' + currentlySelected + ' berhasil disimpan.');
-                // jika Anda ingin "mengunci" selected state (tidak men-deselect)
-                // currentlySelected = null; // atau biarkan agar user bisa lihat kursi tersimpan
-            }
-
-            // close modal saat klik backdrop
-            overlay.addEventListener('click', function(e) {
-                if (e.target === overlay) hideConfirmation();
-            });
-
-            // tutup modal dengan Esc
-            document.addEventListener('keydown', function(e) {
-                if (!overlay.classList.contains('hidden') && e.key === 'Escape') {
-                hideConfirmation();
-                }
-            });
+            // (Seat confirmation logic removed)
             </script>
 
         </div>
@@ -564,22 +242,21 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Form validation and submission
+    // Form validation and submission (scope only to this page's submit)
     const form = document.querySelector('form');
-    const submitBtn = document.querySelector('button[type="submit"]');
+    const submitBtn = document.getElementById('checkout-submit');
     
-    submitBtn.addEventListener('click', function(e) {
+    if (submitBtn) submitBtn.addEventListener('click', function(e) {
         e.preventDefault();
         
         // Basic validation
         const nama = document.getElementById('nama').value;
         const telepon = document.getElementById('telepon').value;
         const email = document.getElementById('email').value;
-        const kursi = document.getElementById('kursi').value;
         const ktp = document.getElementById('ktp').files[0];
         const suratDinas = document.getElementById('surat_dinas').files[0];
         
-        if (!nama || !telepon || !email || !kursi || !ktp || !suratDinas) {
+        if (!nama || !telepon || !email || !ktp || !suratDinas) {
             alert('Mohon lengkapi semua data yang diperlukan');
             return;
         }
@@ -606,4 +283,4 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 
-
+@include('partials.footer')

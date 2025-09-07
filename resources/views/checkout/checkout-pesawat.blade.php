@@ -188,7 +188,7 @@
 
         <!-- Submit Button -->
         <div class="text-center">
-            <button type="submit" 
+            <button type="submit" id="checkout-submit"
                     class="w-full max-w-md bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white font-bold py-4 px-8 rounded-xl hover:from-[#156b8a] hover:to-[#2d9a6b] transition-all duration-200 transform hover:scale-105 shadow-lg">
                 SUBMIT
             </button>
@@ -315,10 +315,10 @@
             });
         });
         
-        // Form validation and submission
-        const submitBtn = document.querySelector('button[type="submit"]');
+        // Form validation and submission (scope only to this page's submit)
+        const submitBtn = document.getElementById('checkout-submit');
         
-        submitBtn.addEventListener('click', function(e) {
+        if (submitBtn) submitBtn.addEventListener('click', function(e) {
             e.preventDefault();
             
             const nama = document.getElementById('nama').value;
