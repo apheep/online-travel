@@ -139,7 +139,7 @@
                     <!-- Popular Departure Cities -->
                     <div class="mb-6">
                         <h4 class="text-sm font-semibold text-gray-900 mb-3">Kota Populer</h4>
-                        <div class="grid grid-cols-3 gap-2 h-32 overflow-y-auto">
+                        <div class="grid grid-cols-3 gap-2">
                             <button onclick="selectDeparturePopularLocation('Jakarta')" class="p-3 border border-gray-300 rounded-lg hover:bg-gradient-to-r hover:from-[#187499] hover:to-[#36AE7E] hover:text-white hover:border-transparent transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out text-sm font-medium text-gray-700">
                                 Jakarta
                             </button>
@@ -228,7 +228,7 @@
                     <!-- Popular Destinations -->
                     <div class="mb-6">
                         <h4 class="text-sm font-semibold text-gray-900 mb-3">Destinasi Populer</h4>
-                        <div class="grid grid-cols-3 gap-2 h-32 overflow-y-auto">
+                        <div class="grid grid-cols-3 gap-2">
                             <button onclick="selectArrivalPopularLocation('Denpasar-Bali')" class="p-3 border border-gray-300 rounded-lg hover:bg-gradient-to-r hover:from-[#187499] hover:to-[#36AE7E] hover:text-white hover:border-transparent transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out text-sm font-medium text-gray-700">
                                 Denpasar-Bali
                             </button>
@@ -318,77 +318,202 @@
         </div>
 
         <!-- Date and Price Selector -->
-        <div class="mb-8 date-cards-container">
+        <div class="mb-8">
+            <!-- Date Cards Container -->
             <div class="relative">
                 <!-- Left Arrow Button -->
-                <button onclick="scrollDateCards('left')" class="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white border border-gray-200 rounded-full p-2 shadow-sm hover:bg-gray-50 transition-colors duration-150 -ml-10 hidden md:block">
+                <button id="scrollLeft" class="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-white border border-gray-200 rounded-full p-2 shadow-md hover:bg-gray-50 transition-colors duration-150 hidden lg:flex items-center justify-center">
                     <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                     </svg>
                 </button>
                 
                 <!-- Right Arrow Button -->
-                <button onclick="scrollDateCards('right')" class="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white border border-gray-200 rounded-full p-2 shadow-sm hover:bg-gray-50 transition-colors duration-150 -mr-10 hidden md:block">
+                <button id="scrollRight" class="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-white border border-gray-200 rounded-full p-2 shadow-md hover:bg-gray-50 transition-colors duration-150 hidden lg:flex items-center justify-center">
                     <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                     </svg>
                 </button>
                 
-                <!-- Scrollable Date Cards Container -->
-                <div id="dateCardsContainer" class="flex space-x-3 overflow-x-auto scrollbar-hide scroll-smooth cursor-grab active:cursor-grabbing" style="scrollbar-width: none; -ms-overflow-style: none;">
-                    <!-- Date Cards -->
-                    <div class="bg-white rounded-lg border border-gray-200 p-4 text-center shadow-sm flex-shrink-0 min-w-[140px]">
-                        <div class="text-sm text-gray-600 mb-2">Sen, 1 Sep 2025</div>
-                        <div class="text-lg font-bold text-red-600">IDR 600.000</div>
+                <div id="dateContainer" class="overflow-x-auto scrollbar-hide lg:mx-12">
+                    <div class="flex space-x-3 px-4 pb-4" style="scrollbar-width: none; -ms-overflow-style: none;">
+                    
+                    <!-- Date Card 1 -->
+                    <div class="flex-shrink-0 bg-white border border-gray-200 rounded-2xl p-4 min-w-[120px] hover:border-[#187499] hover:shadow-md transition-all duration-200 cursor-pointer group">
+                        <div class="text-center">
+                            <div class="text-xs text-gray-500 font-medium mb-1">SEN</div>
+                            <div class="text-xl font-bold text-gray-900 mb-1">1</div>
+                            <div class="text-xs text-gray-500 mb-3">Sep 2025</div>
+                            <div class="bg-blue-100 text-blue-700 px-3 py-1.5 rounded-lg text-sm font-medium">600K</div>
+                        </div>
                     </div>
-                    <div class="bg-white rounded-lg border border-gray-200 p-4 text-center shadow-sm flex-shrink-0 min-w-[140px]">
-                        <div class="text-sm text-gray-600 mb-2">Sel, 2 Sep 2025</div>
-                        <div class="text-lg font-bold text-red-600">IDR 650.000</div>
+
+                    <!-- Date Card 2 -->
+                    <div class="flex-shrink-0 bg-white border border-gray-200 rounded-2xl p-4 min-w-[120px] hover:border-[#187499] hover:shadow-md transition-all duration-200 cursor-pointer group">
+                        <div class="text-center">
+                            <div class="text-xs text-gray-500 font-medium mb-1">SEL</div>
+                            <div class="text-xl font-bold text-gray-900 mb-1">2</div>
+                            <div class="text-xs text-gray-500 mb-3">Sep 2025</div>
+                            <div class="bg-red-100 text-red-700 px-3 py-1.5 rounded-lg text-sm font-medium">650K</div>
+                        </div>
                     </div>
-                    <div class="bg-white rounded-lg border border-gray-200 p-4 text-center shadow-sm flex-shrink-0 min-w-[140px]">
-                        <div class="text-sm text-gray-600 mb-2">Rab, 3 Sep 2025</div>
-                        <div class="text-lg font-bold text-red-600">IDR 580.000</div>
+
+                    <!-- Date Card 3 -->
+                    <div class="flex-shrink-0 bg-white border border-gray-200 rounded-2xl p-4 min-w-[120px] hover:border-[#187499] hover:shadow-md transition-all duration-200 cursor-pointer group">
+                        <div class="text-center">
+                            <div class="text-xs text-gray-500 font-medium mb-1">RAB</div>
+                            <div class="text-xl font-bold text-gray-900 mb-1">3</div>
+                            <div class="text-xs text-gray-500 mb-3">Sep 2025</div>
+                            <div class="bg-green-100 text-green-700 px-3 py-1.5 rounded-lg text-sm font-medium">580K</div>
+                        </div>
                     </div>
-                    <div class="bg-white rounded-lg border border-gray-200 p-4 text-center shadow-sm flex-shrink-0 min-w-[140px]">
-                        <div class="text-sm text-gray-600 mb-2">Kam, 4 Sep 2025</div>
-                        <div class="text-lg font-bold text-red-600">IDR 620.000</div>
+
+                    <!-- Date Card 4 -->
+                    <div class="flex-shrink-0 bg-white border border-gray-200 rounded-2xl p-4 min-w-[120px] hover:border-[#187499] hover:shadow-md transition-all duration-200 cursor-pointer group">
+                        <div class="text-center">
+                            <div class="text-xs text-gray-500 font-medium mb-1">KAM</div>
+                            <div class="text-xl font-bold text-gray-900 mb-1">4</div>
+                            <div class="text-xs text-gray-500 mb-3">Sep 2025</div>
+                            <div class="bg-blue-100 text-blue-700 px-3 py-1.5 rounded-lg text-sm font-medium">620K</div>
+                        </div>
                     </div>
-                    <div class="bg-white rounded-lg border border-gray-200 p-4 text-center shadow-sm flex-shrink-0 min-w-[140px]">
-                        <div class="text-sm text-gray-600 mb-2">Jum, 5 Sep 2025</div>
-                        <div class="text-lg font-bold text-red-600">IDR 700.000</div>
+
+                    <!-- Date Card 5 -->
+                    <div class="flex-shrink-0 bg-white border border-gray-200 rounded-2xl p-4 min-w-[120px] hover:border-[#187499] hover:shadow-md transition-all duration-200 cursor-pointer group">
+                        <div class="text-center">
+                            <div class="text-xs text-gray-500 font-medium mb-1">JUM</div>
+                            <div class="text-xl font-bold text-gray-900 mb-1">5</div>
+                            <div class="text-xs text-gray-500 mb-3">Sep 2025</div>
+                            <div class="bg-red-100 text-red-700 px-3 py-1.5 rounded-lg text-sm font-medium">700K</div>
+                        </div>
                     </div>
-                    <div class="bg-white rounded-lg border border-gray-200 p-4 text-center shadow-sm flex-shrink-0 min-w-[140px]">
-                        <div class="text-sm text-gray-600 mb-2">Sab, 6 Sep 2025</div>
-                        <div class="text-lg font-bold text-red-600">IDR 750.000</div>
+
+                    <!-- Date Card 6 -->
+                    <div class="flex-shrink-0 bg-white border border-gray-200 rounded-2xl p-4 min-w-[120px] hover:border-[#187499] hover:shadow-md transition-all duration-200 cursor-pointer group">
+                        <div class="text-center">
+                            <div class="text-xs text-gray-500 font-medium mb-1">SAB</div>
+                            <div class="text-xl font-bold text-gray-900 mb-1">6</div>
+                            <div class="text-xs text-gray-500 mb-3">Sep 2025</div>
+                            <div class="bg-red-100 text-red-700 px-3 py-1.5 rounded-lg text-sm font-medium">750K</div>
+                        </div>
                     </div>
-                    <div class="bg-white rounded-lg border border-gray-200 p-4 text-center shadow-sm flex-shrink-0 min-w-[140px]">
-                        <div class="text-sm text-gray-600 mb-2">Min, 7 Sep 2025</div>
-                        <div class="text-lg font-bold text-red-600">IDR 680.000</div>
+
+                    <!-- Date Card 7 -->
+                    <div class="flex-shrink-0 bg-white border border-gray-200 rounded-2xl p-4 min-w-[120px] hover:border-[#187499] hover:shadow-md transition-all duration-200 cursor-pointer group">
+                        <div class="text-center">
+                            <div class="text-xs text-gray-500 font-medium mb-1">MIN</div>
+                            <div class="text-xl font-bold text-gray-900 mb-1">7</div>
+                            <div class="text-xs text-gray-500 mb-3">Sep 2025</div>
+                            <div class="bg-blue-100 text-blue-700 px-3 py-1.5 rounded-lg text-sm font-medium">680K</div>
+                        </div>
                     </div>
-                    <!-- Additional dates for more scrolling -->
-                    <div class="bg-white rounded-lg border border-gray-200 p-4 text-center shadow-sm flex-shrink-0 min-w-[140px]">
-                        <div class="text-sm text-gray-600 mb-2">Sen, 8 Sep 2025</div>
-                        <div class="text-lg font-bold text-red-600">IDR 720.000</div>
+
+                    <!-- Date Card 8 -->
+                    <div class="flex-shrink-0 bg-white border border-gray-200 rounded-2xl p-4 min-w-[120px] hover:border-[#187499] hover:shadow-md transition-all duration-200 cursor-pointer group">
+                        <div class="text-center">
+                            <div class="text-xs text-gray-500 font-medium mb-1">SEL</div>
+                            <div class="text-xl font-bold text-gray-900 mb-1">8</div>
+                            <div class="text-xs text-gray-500 mb-3">Sep 2025</div>
+                            <div class="bg-red-100 text-red-700 px-3 py-1.5 rounded-lg text-sm font-medium">720K</div>
+                        </div>
                     </div>
-                    <div class="bg-white rounded-lg border border-gray-200 p-4 text-center shadow-sm flex-shrink-0 min-w-[140px]">
-                        <div class="text-sm text-gray-600 mb-2">Sel, 9 Sep 2025</div>
-                        <div class="text-lg font-bold text-red-600">IDR 690.000</div>
+
+                    <!-- Date Card 9 -->
+                    <div class="flex-shrink-0 bg-white border border-gray-200 rounded-2xl p-4 min-w-[120px] hover:border-[#187499] hover:shadow-md transition-all duration-200 cursor-pointer group">
+                        <div class="text-center">
+                            <div class="text-xs text-gray-500 font-medium mb-1">RAB</div>
+                            <div class="text-xl font-bold text-gray-900 mb-1">9</div>
+                            <div class="text-xs text-gray-500 mb-3">Sep 2025</div>
+                            <div class="bg-green-100 text-green-700 px-3 py-1.5 rounded-lg text-sm font-medium">590K</div>
+                        </div>
                     </div>
-                    <div class="bg-white rounded-lg border border-gray-200 p-4 text-center shadow-sm flex-shrink-0 min-w-[140px]">
-                        <div class="text-sm text-gray-600 mb-2">Rab, 10 Sep 2025</div>
-                        <div class="text-lg font-bold text-red-600">IDR 640.000</div>
+
+                    <!-- Date Card 10 -->
+                    <div class="flex-shrink-0 bg-white border border-gray-200 rounded-2xl p-4 min-w-[120px] hover:border-[#187499] hover:shadow-md transition-all duration-200 cursor-pointer group">
+                        <div class="text-center">
+                            <div class="text-xs text-gray-500 font-medium mb-1">KAM</div>
+                            <div class="text-xl font-bold text-gray-900 mb-1">10</div>
+                            <div class="text-xs text-gray-500 mb-3">Sep 2025</div>
+                            <div class="bg-blue-100 text-blue-700 px-3 py-1.5 rounded-lg text-sm font-medium">610K</div>
+                        </div>
                     </div>
+
+                    <!-- Date Card 11 -->
+                    <div class="flex-shrink-0 bg-white border border-gray-200 rounded-2xl p-4 min-w-[120px] hover:border-[#187499] hover:shadow-md transition-all duration-200 cursor-pointer group">
+                        <div class="text-center">
+                            <div class="text-xs text-gray-500 font-medium mb-1">JUM</div>
+                            <div class="text-xl font-bold text-gray-900 mb-1">11</div>
+                            <div class="text-xs text-gray-500 mb-3">Sep 2025</div>
+                            <div class="bg-red-100 text-red-700 px-3 py-1.5 rounded-lg text-sm font-medium">780K</div>
+                        </div>
+                    </div>
+
+                    <!-- Date Card 12 -->
+                    <div class="flex-shrink-0 bg-white border border-gray-200 rounded-2xl p-4 min-w-[120px] hover:border-[#187499] hover:shadow-md transition-all duration-200 cursor-pointer group">
+                        <div class="text-center">
+                            <div class="text-xs text-gray-500 font-medium mb-1">SAB</div>
+                            <div class="text-xl font-bold text-gray-900 mb-1">12</div>
+                            <div class="text-xs text-gray-500 mb-3">Sep 2025</div>
+                            <div class="bg-red-100 text-red-700 px-3 py-1.5 rounded-lg text-sm font-medium">800K</div>
+                        </div>
+                    </div>
+
                 </div>
-                
-                <!-- Scroll Indicators -->
-                <div class="flex justify-center mt-4 space-x-2">
-                    <div class="w-2 h-2 bg-gray-300 rounded-full scroll-indicator active cursor-pointer" onclick="scrollToIndicator(0)"></div>
-                    <div class="w-2 h-2 bg-gray-300 rounded-full scroll-indicator cursor-pointer" onclick="scrollToIndicator(1)"></div>
-                    <div class="w-2 h-2 bg-gray-300 rounded-full scroll-indicator cursor-pointer" onclick="scrollToIndicator(2)"></div>
-                    <div class="w-2 h-2 bg-gray-300 rounded-full scroll-indicator cursor-pointer" onclick="scrollToIndicator(3)"></div>
+                </div>
+            </div>
+            
+            <!-- Price Legend -->
+            <div class="flex justify-center items-center space-x-6 mt-4 text-xs text-gray-500">
+                <div class="flex items-center space-x-2">
+                    <div class="w-3 h-3 bg-green-100 rounded"></div>
+                    <span>Terbaik</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <div class="w-3 h-3 bg-blue-100 rounded"></div>
+                    <span>Normal</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <div class="w-3 h-3 bg-red-100 rounded"></div>
+                    <span>Tinggi</span>
                 </div>
             </div>
         </div>
+
+        <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('dateContainer');
+            const scrollLeftBtn = document.getElementById('scrollLeft');
+            const scrollRightBtn = document.getElementById('scrollRight');
+            
+            if (container && scrollLeftBtn && scrollRightBtn) {
+                scrollLeftBtn.addEventListener('click', function() {
+                    container.scrollBy({
+                        left: -200,
+                        behavior: 'smooth'
+                    });
+                });
+                
+                scrollRightBtn.addEventListener('click', function() {
+                    container.scrollBy({
+                        left: 200,
+                        behavior: 'smooth'
+                    });
+                });
+                
+                // Update arrow visibility based on scroll position
+                function updateArrows() {
+                    const scrollLeft = container.scrollLeft;
+                    const maxScroll = container.scrollWidth - container.clientWidth;
+                    
+                    scrollLeftBtn.style.opacity = scrollLeft > 0 ? '1' : '0.5';
+                    scrollRightBtn.style.opacity = scrollLeft < maxScroll ? '1' : '0.5';
+                }
+                
+                container.addEventListener('scroll', updateArrows);
+                updateArrows(); // Initial check
+            }
+        });
+        </script>
 
         @include('partials.flight-result')
 

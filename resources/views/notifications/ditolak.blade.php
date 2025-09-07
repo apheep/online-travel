@@ -4,7 +4,7 @@
 
 @include('partials.navigation')
 <body class="font-poppins">
-<div class="min-h-screen bg-gray-50">
+<div class="min-h-screen bg-[F4F7FE]">
     <!-- Main Content -->
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <!-- Header -->
