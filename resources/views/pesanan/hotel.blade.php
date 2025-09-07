@@ -1132,7 +1132,7 @@ function selectDuration(nights) {
         selectedCheckoutDate = checkoutDate;
         updateCheckoutDisplay();
     } else {
-        alert('Silakan pilih tanggal check-in terlebih dahulu');
+        showValidationNotification(['Silakan pilih tanggal check-in terlebih dahulu']);
     }
 }
 
@@ -1218,7 +1218,7 @@ function selectCheckinDate(date) {
 
 function selectCheckoutDate(date) {
     if (selectedCheckinDate && date <= selectedCheckinDate) {
-        alert('Tanggal check-out harus setelah tanggal check-in');
+        showValidationNotification(['Tanggal check-out harus setelah tanggal check-in']);
         return;
     }
     
@@ -1678,7 +1678,7 @@ function createHotelCard(hotel) {
                 </div>
                 <p class="text-sm text-gray-600 mb-4">${hotel.description}</p>
                 <div class="flex justify-end items-center">
-                    <button class="px-6 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-all duration-200 transform hover:scale-105">
+                    <button class="px-6 py-2 text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg bg-gradient-to-r from-[#187499] to-[#36AE7E]">
                         Pilih Kamar
                     </button>
                 </div>
@@ -1729,11 +1729,11 @@ function searchHotels() {
         errors.push('Pilih lokasi terlebih dahulu');
     }
     
-    if (!checkinDate || checkinDate === 'Check-in: -') {
+    if (!checkinDate || checkinDate === 'Pilih Tanggal') {
         errors.push('Pilih tanggal check-in');
     }
     
-    if (!checkoutDate || checkoutDate === 'Check-out: -') {
+    if (!checkoutDate || checkoutDate === 'Pilih Tanggal') {
         errors.push('Pilih tanggal check-out');
     }
     

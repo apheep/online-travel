@@ -1,42 +1,47 @@
         <!-- Date Selection Modal -->
-        <div id="dateModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4">
-            <div class="bg-white rounded-2xl shadow-xl max-w-md w-full">
-                <div class="p-6">
+        <div id="dateModal" class="fixed inset-0 bg-black bg-opacity-50 hidden z-50 flex items-center justify-center p-4 transition-all duration-300 ease-out">
+            <div class="bg-white rounded-2xl shadow-xl max-w-sm w-full max-h-[85vh] flex flex-col transform scale-95 opacity-0 transition-all duration-500 ease-out" id="dateModalContent">
+                <!-- Sticky Header -->
+                <div class="sticky top-0 bg-white rounded-t-2xl border-b border-gray-100 p-4 z-10">
                     <!-- Header -->
-                    <div class="flex justify-between items-center mb-6">
+                    <div class="flex justify-between items-center mb-4">
                         <div>
-                            <h3 class="text-xl font-bold text-gray-900 mb-1">Pilih Tanggal</h3>
-                            <p class="text-gray-500 text-sm">Tentukan tanggal keberangkatan Anda</p>
+                            <h3 class="text-lg font-bold text-gray-900 mb-1">Pilih Tanggal</h3>
+                            <p class="text-gray-500 text-xs">Tentukan tanggal keberangkatan Anda</p>
                         </div>
-                        <button onclick="closeDateModal()" class="text-gray-400 hover:text-gray-600 transition duration-200 p-2 hover:bg-gray-100 rounded-full">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <button onclick="closeDateModal()" class="text-gray-400 hover:text-gray-600 transition duration-200 p-1.5 hover:bg-gray-100 rounded-full">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                             </svg>
                         </button>
                     </div>
                     
                     <!-- Trip Type Options -->
-                    <div class="mb-6">
-                        <div class="flex space-x-3">
-                            <button id="oneWayBtn" onclick="switchTripType('oneWay')" class="flex-1 py-3 px-4 text-center font-medium rounded-lg border border-gray-300 transition duration-200" style="background: linear-gradient(135deg, #187499 0%, #36AE7E 100%); color: white;">
+                    <div>
+                        <div class="flex space-x-2">
+                            <button id="oneWayBtn" onclick="switchTripType('oneWay')" class="flex-1 py-2 px-3 text-center text-sm font-medium rounded-lg border border-gray-300 transition-all duration-300 ease-out transform hover:scale-105 active:scale-95" style="background: linear-gradient(135deg, #187499 0%, #36AE7E 100%); color: white;">
                                 Sekali jalan
                             </button>
-                            <button id="roundTripBtn" onclick="switchTripType('roundTrip')" class="flex-1 py-3 px-4 text-center font-medium rounded-lg border border-gray-300 transition duration-200 text-gray-700 hover:bg-gray-50">
+                            <button id="roundTripBtn" onclick="switchTripType('roundTrip')" class="flex-1 py-2 px-3 text-center text-sm font-medium rounded-lg border border-gray-300 transition-all duration-300 ease-out transform hover:scale-105 active:scale-95 text-gray-700 hover:bg-gray-50">
                                 Pulang pergi
                             </button>
                         </div>
                     </div>
+                </div>
+                
+                <!-- Scrollable Content -->
+                <div class="flex-1 overflow-y-auto p-4">
                     
                     <!-- Calendar -->
-                    <div class="mb-6">
+                    <div class="mb-4">
                         <!-- Month Navigation -->
-                        <div class="flex justify-between items-center mb-4">
+                        <div class="flex justify-between items-center mb-3">
                             <button onclick="previousMonth()" class="p-1 hover:bg-gray-100 rounded transition duration-200">
                                 <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                                 </svg>
                             </button>
-                            <h4 class="text-lg font-semibold text-gray-900" id="currentMonth">August 2025</h4>
+                            <h4 class="text-base font-semibold text-gray-900" id="currentMonth">September 2025</h4>
                             <button onclick="nextMonth()" class="p-1 hover:bg-gray-100 rounded transition duration-200">
                                 <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -46,13 +51,13 @@
                         
                         <!-- Day Headers -->
                         <div class="grid grid-cols-7 gap-1 mb-2">
-                            <div class="text-center text-sm font-medium text-gray-500 py-2">Mo</div>
-                            <div class="text-center text-sm font-medium text-gray-500 py-2">Tu</div>
-                            <div class="text-center text-sm font-medium text-gray-500 py-2">We</div>
-                            <div class="text-center text-sm font-medium text-gray-500 py-2">Th</div>
-                            <div class="text-center text-sm font-medium text-gray-500 py-2">Fr</div>
-                            <div class="text-center text-sm font-medium text-gray-500 py-2">Sa</div>
-                            <div class="text-center text-sm font-medium text-gray-500 py-2">Su</div>
+                            <div class="text-center text-xs font-medium text-gray-500 py-1">Mo</div>
+                            <div class="text-center text-xs font-medium text-gray-500 py-1">Tu</div>
+                            <div class="text-center text-xs font-medium text-gray-500 py-1">We</div>
+                            <div class="text-center text-xs font-medium text-gray-500 py-1">Th</div>
+                            <div class="text-center text-xs font-medium text-gray-500 py-1">Fr</div>
+                            <div class="text-center text-xs font-medium text-gray-500 py-1">Sa</div>
+                            <div class="text-center text-xs font-medium text-gray-500 py-1">Su</div>
                         </div>
                         
                         <!-- Calendar Days -->
@@ -62,17 +67,17 @@
                     </div>
                     
                     <!-- Selected Dates Display -->
-                    <div id="selectedDatesDisplay" class="mb-6 p-4 bg-gray-50 rounded-lg">
-                        <div class="grid grid-cols-2 gap-4">
+                    <div id="selectedDatesDisplay" class="mb-4 p-3 bg-gray-50 rounded-lg">
+                        <div class="grid grid-cols-1 gap-3">
                             <div>
-                                <label class="block text-sm font-semibold text-gray-700 mb-2">Tanggal Keberangkatan</label>
-                                <div id="departureDateDisplay" class="p-3 bg-white border border-gray-300 rounded-lg text-gray-500">
+                                <label class="block text-xs font-semibold text-gray-700 mb-1">Tanggal Keberangkatan</label>
+                                <div id="departureDateDisplay" class="p-2 bg-white border border-gray-300 rounded-lg text-gray-500 text-sm">
                                     Pilih tanggal keberangkatan
                                 </div>
                             </div>
                             <div id="returnDateSection">
-                                <label class="block text-sm font-semibold text-gray-700 mb-2">Tanggal Pulang</label>
-                                <div id="returnDateDisplay" class="p-3 bg-white border border-gray-300 rounded-lg text-gray-500">
+                                <label class="block text-xs font-semibold text-gray-700 mb-1">Tanggal Pulang</label>
+                                <div id="returnDateDisplay" class="p-2 bg-white border border-gray-300 rounded-lg text-gray-500 text-sm">
                                     Pilih tanggal pulang
                                 </div>
                             </div>
@@ -81,7 +86,7 @@
                     
                     <!-- Save Button -->
                     <div class="flex justify-end">
-                        <button onclick="saveDate()" class="px-6 py-2 text-white rounded-lg font-medium transition duration-200 shadow-md hover:shadow-lg" style="background: linear-gradient(135deg, #187499 0%, #36AE7E 100%);">
+                        <button onclick="saveDate()" class="px-4 py-2 text-white rounded-lg text-sm font-medium transition duration-200 shadow-md hover:shadow-lg" style="background: linear-gradient(135deg, #187499 0%, #36AE7E 100%);">
                             Simpan
                         </button>
                     </div>
