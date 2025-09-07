@@ -50,10 +50,10 @@
               </td>
               <td class="px-6 py-5 whitespace-nowrap text-center">
                 <div class="flex items-center justify-center">
-                  <button class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg hover:from-[#156b8a] hover:to-[#2d9a6e] transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                  <a href="{{ route('check.detail-kereta') }}" class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg hover:from-[#156b8a] hover:to-[#2d9a6e] transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
                     <i class="fas fa-eye mr-2"></i>
                     Detail
-                  </button>
+                  </a>
                 </div>
               </td>
               <td class="px-6 py-5 whitespace-nowrap">
@@ -134,10 +134,10 @@
               </td>
               <td class="px-6 py-5 whitespace-nowrap text-center">
                 <div class="flex items-center justify-center">
-                  <button class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg hover:from-[#156b8a] hover:to-[#2d9a6e] transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                <a href="{{ route('check.detail-hotel') }}" class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg hover:from-[#156b8a] hover:to-[#2d9a6e] transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
                     <i class="fas fa-eye mr-2"></i>
                     Detail
-                  </button>
+                  </a>
                 </div>
               </td>
               <td class="px-6 py-5 whitespace-nowrap">
@@ -237,7 +237,7 @@
             <div class="text-xs text-gray-500">Kontak</div>
             <div class="text-sm text-gray-900">+62 812-3456-7890 (WhatsApp)</div>
           </div>
-          <button class="ml-3 px-3 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg shadow-md">Detail</button>
+          <a href="{{ url('/check/detail-kereta') }}" class="ml-3 px-3 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg shadow-md">Detail</a>
         </div>
       </div>
 
@@ -265,7 +265,7 @@
             <div class="text-xs text-gray-500">Kontak</div>
             <div class="text-sm text-gray-900">+62 813-9876-5432 (WhatsApp)</div>
           </div>
-          <button class="ml-3 px-3 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg shadow-md">Detail</button>
+          <a href="{{ route('check.detail') }}" class="ml-3 px-3 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg shadow-md">Detail</a>
         </div>
       </div>
 
@@ -293,7 +293,7 @@
             <div class="text-xs text-gray-500">Kontak</div>
             <div class="text-sm text-gray-900">+62 814-1234-5678 (WhatsApp)</div>
           </div>
-          <button class="ml-3 px-3 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg shadow-md">Detail</button>
+          <a href="{{ url('/check/detail-hotel') }}" class="ml-3 px-3 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg shadow-md">Detail</a>
         </div>
       </div>
 

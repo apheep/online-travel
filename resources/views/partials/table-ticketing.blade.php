@@ -506,15 +506,44 @@
     <script>
       (function () {
         // Delegated click handler for all `.btn-open-detail` buttons (desktop & mobile)
+        function detectTicketType(scopeEl) {
+          if (!scopeEl) return null;
+          // Search common badge containers inside the same row/card
+          const badge = scopeEl.querySelector('span');
+          const spans = Array.from(scopeEl.querySelectorAll('span'));
+          let text = '';
+          for (const sp of spans) {
+            const t = (sp.textContent || '').trim().toLowerCase();
+            if (t === 'kereta' || t === 'pesawat' || t === 'hotel') {
+              text = t; break;
+            }
+          }
+          return text || null;
+        }
+
         function onOpenDetailClick(event) {
           event.preventDefault();
-          try {
-            if (typeof openDetail === 'function') {
-              openDetail();
-            } else if (window.openDetail) {
-              window.openDetail();
-            }
-          } catch (_) { /* no-op */ }
+          // Find the nearest row or card to read its ticket type badge
+          const btn = event.target.closest('.btn-open-detail');
+          const scope = btn.closest('tr') || btn.closest('.order-card') || document;
+          let type = detectTicketType(scope);
+          // If not found next to button, try reading from entire row's siblings
+          if (!type) {
+            const row = btn.closest('tr');
+            if (row) type = detectTicketType(row);
+          }
+          if (!type) type = 'kereta'; // default fallback
+
+          // Call specific global functions exposed by overlay-detail-ticket.blade.php
+          const fnMap = {
+            'kereta': window.openDetailKereta,
+            'pesawat': window.openDetailPesawat,
+            'hotel': window.openDetailHotel
+          };
+          const fn = fnMap[type];
+          if (typeof fn === 'function') {
+            fn();
+          }
         }
 
         document.addEventListener('click', function (e) {

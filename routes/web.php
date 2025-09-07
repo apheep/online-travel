@@ -91,6 +91,14 @@ Route::middleware(['auth'])->group(function () {
         return view('check.detail-pesanan');
     })->name('check.detail');
 
+    Route::get('/check/detail-kereta', function () {
+        return view('check.detail-kereta');
+    })->name('check.detail-kereta');
+
+    Route::get('/check/detail-hotel', function () {
+        return view('check.detail-hotel');
+    })->name('check.detail-hotel');
+
 });
 
 
