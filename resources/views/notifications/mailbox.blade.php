@@ -3,7 +3,7 @@
 @section('title', 'Mailbox - Online Travel')
 
 @include('partials.navigation')
-    
+<body class="font-poppins">
 <div class="min-h-screen bg-gray-50">
     <!-- Main Content -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -124,7 +124,8 @@
                 </button>
             </div>
         </div>
-
+    </div>
+</body>
         <script>
         document.addEventListener('DOMContentLoaded', function() {
             const tabButtons = document.querySelectorAll('.tab-button');
