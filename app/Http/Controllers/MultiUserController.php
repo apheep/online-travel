@@ -13,6 +13,6 @@ class MultiUserController extends Controller
 
     public function ticketing()
     {
-        return view('tiket');
+        return view('ticket.tiket');
     }
 }
