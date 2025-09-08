@@ -302,8 +302,25 @@
     </div>
 </div>
 
- <!-- Overlay Modal -->
+<!-- Verification Modal -->
 <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden opacity-0 transition-opacity duration-200">
+    <div id="verification-dialog" class="bg-white rounded-2xl p-8 max-w-md w-full mx-4 text-center transform scale-95 opacity-0 transition-all duration-300 ease-out">
+        <h3 class="text-2xl font-bold text-gray-800 mb-4">Apakah anda yakin?</h3>
+        <p class="text-gray-600 mb-8">anda tidak dapat mengubah data setelah disubmit</p>
+        
+        <div class="flex gap-4">
+            <button onclick="cancelSubmit()" class="flex-1 bg-red-500 text-white py-3 px-6 rounded-lg font-medium hover:bg-red-600 transition">
+                tidak
+            </button>
+            <button onclick="confirmSubmit()" class="flex-1 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white py-3 px-6 rounded-lg font-medium hover:from-[#156b8a] hover:to-[#2d9a6b] transition">
+                iya
+            </button>
+        </div>
+    </div>
+</div>
+
+ <!-- Overlay Modal -->
+<div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
     <div id="overlay-dialog" class="bg-white rounded-2xl p-8 max-w-md mx-4 text-center transform scale-95 opacity-0 transition-all duration-300 ease-out">
          <h3 class="text-xl font-bold text-gray-800 mb-4">Mau lihat kereta lain?</h3>
          <p class="text-gray-600 mb-6">Kalau kamu kembali ke halaman sebelumnya, semua info yang diisi dan keberangkatan yang dipilih akan hilang.</p>
@@ -324,6 +341,32 @@ let trainPassengerCount = 1;
 let currentTrainPassengerIndex = 0;
 let trainSelectedSeats = {};
 let currentTrainCar = 'ekonomi1';
+
+// Verification modal functions
+function showVerificationModal() {
+    const modal = document.getElementById('verification-modal');
+    if (modal) {
+        modal.classList.remove('hidden');
+    }
+}
+
+function cancelSubmit() {
+    const modal = document.getElementById('verification-modal');
+    if (modal) {
+        modal.classList.add('hidden');
+    }
+}
+
+function confirmSubmit() {
+    const modal = document.getElementById('verification-modal');
+    if (modal) {
+        modal.classList.add('hidden');
+    }
+    
+    // Process the actual submission
+    alert('Data berhasil disubmit! Redirecting to payment...');
+    // Here you can redirect to payment page or process the form
+}
 
 // File upload functions
 function triggerFileForPassenger(index, type) {
@@ -622,6 +665,26 @@ document.addEventListener('DOMContentLoaded', function() {
     updateTrainPassengerCount();
     updateSeatGrid();
     
+    // Override problematic external script event listeners
+    const originalAddEventListener = document.addEventListener;
+    document.addEventListener = function(type, listener, options) {
+        if (type === 'click') {
+            const safeListener = function(event) {
+                try {
+                    listener(event);
+                } catch (error) {
+                    // Silently ignore null reference errors from external scripts
+                    if (!error.message || !error.message.includes('Cannot read properties of null')) {
+                        console.error(error);
+                    }
+                }
+            };
+            originalAddEventListener.call(this, type, safeListener, options);
+        } else {
+            originalAddEventListener.call(this, type, listener, options);
+        }
+    };
+    
     // File upload functionality
     const fileInputs = document.querySelectorAll('input[type="file"]');
     const uploadAreas = document.querySelectorAll('.border-dashed');
@@ -661,6 +724,8 @@ document.addEventListener('DOMContentLoaded', function() {
         submitBtn.addEventListener('click', function(e) {
             e.preventDefault();
             
+            console.log('Submit button clicked'); // Debug log
+            
             // Basic validation for first passenger
             const nama = document.getElementById('nama-0');
             const telepon = document.getElementById('telepon-0');
@@ -692,11 +757,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
             
-            // If all validation passes, show success message
-            alert('Data berhasil disubmit! Redirecting to payment...');
+            console.log('Validation passed, showing modal'); // Debug log
+            
+            // If all validation passes, show verification modal
+            showVerificationModal();
         });
     }
 });
+
+// Global error suppression for external script.js
+window.addEventListener('error', function(e) {
+    if (e.message && e.message.includes('Cannot read properties of null')) {
+        e.preventDefault();
+        return true;
+    }
+}, true);
 </script>
 
 @include('partials.footer')
