@@ -61,108 +61,254 @@
         </div>
 
         <!-- BAWAH: dua kolom (kiri = detail pemesanan, kanan = dokumen pendukung) -->
-        <div class="flex flex-col lg:flex-row gap-6 items-stretch">
-            <!-- KIRI: Detail Pemesanan -->
-            <div class="w-full lg:w-1/2">
-              <div class="bg-white rounded-2xl shadow-lg p-6 h-full">
-                <h2 class="text-2xl font-bold text-gray-800 mb-2">Detail Pemesanan</h2>
-                <p class="text-gray-600 text-sm mb-6">Detail kontak ini akan digunakan untuk pengiriman e-tiket</p>
-
-                <form id="booking-form">
-                  <div class="space-y-4">
-                    <div>
-                      <label for="nama" class="block text-sm font-medium text-gray-700 mb-2">Nama Lengkap</label>
-                      <input type="text" id="nama" name="nama" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-200 transition" placeholder="Masukkan nama lengkap">
-                    </div>
-                    <div>
-                      <label for="telepon" class="block text-sm font-medium text-gray-700 mb-2">Nomor Telpon</label>
-                      <input type="tel" id="telepon" name="telepon" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-200 transition" placeholder="Masukkan nomor telepon">
-                    </div>
-                    <div>
-                      <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Alamat Email</label>
-                      <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-200 transition" placeholder="Masukkan alamat email">
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-
-            <!-- KANAN: Dokumen Pendukung -->
-            <div class="w-full lg:w-1/2">
-              <div class="bg-white rounded-2xl shadow-lg p-6 h-full">
-                <h2 class="text-2xl font-bold text-gray-800 mb-2">Dokumen Pendukung</h2>
-                <p class="text-gray-600 text-sm mb-6">KTP dan surat dinas diperlukan untuk memproses e-tiket Anda</p>
-
-                <div class="space-y-4">
-                  <!-- Upload KTP -->
-                  <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Upload KTP</label>
-                    <div class="upload-box border-2 border-dashed border-gray-200 rounded-xl p-4 hover:border-blue-300 transition-colors duration-200 cursor-pointer flex items-center gap-4" onclick="triggerFile('ktp')">
-                      <img src="{{ asset('folder.png') }}" alt="icon" class="w-8 h-8">
-                      <div class="flex-1 text-left">
-                        <div class="text-gray-700">Klik untuk upload atau tarik file ke sini</div>
-                        <div id="ktp-filename" class="text-sm text-gray-400">Format: PDF (maks 5MB)</div>
-                      </div>
-                      <input type="file" id="ktp" name="ktp" accept=".pdf" class="hidden" onchange="handleFileChange(event, 'ktp-filename')">
-                    </div>
-                  </div>
-
-                  <!-- Upload Surat Dinas -->
-                  <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-2">Upload Surat Dinas</label>
-                    <div class="upload-box border-2 border-dashed border-gray-200 rounded-xl p-4 hover:border-blue-300 transition-colors duration-200 cursor-pointer flex items-center gap-4" onclick="triggerFile('surat_dinas')">
-                      <img src="{{ asset('folder.png') }}" alt="icon" class="w-8 h-8">
-                      <div class="flex-1 text-left">
-                        <div class="text-gray-700">Klik untuk upload atau tarik file ke sini</div>
-                        <div id="surat_dinas-filename" class="text-sm text-gray-400">Format: PDF (maks 5MB)</div>
-                      </div>
-                      <input type="file" id="surat_dinas" name="surat_dinas" accept=".pdf" class="hidden" onchange="handleFileChange(event, 'surat_dinas-filename')">
-                    </div>
-                  </div>
+            <!-- PASSENGERS SECTION HEADER -->
+            <div class="flex items-center justify-between mb-4">
+                <h2 class="text-xl font-bold text-gray-800">Detail Penumpang</h2>
+                <div class="flex items-center gap-2">
+                    <button id="add-passenger-btn" onclick="addPassenger()"
+                        class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white rounded-lg hover:from-[#156b8a] hover:to-[#2d9a6b] transition">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+                        Tambah Penumpang?
+                    </button>
+                    <div id="passenger-count" class="text-sm text-gray-500">1 / 4</div>
                 </div>
-              </div>
             </div>
-        </div>
-        </div>
 
-        <!-- JS (file upload + seat map interactions) -->
-        <script>
-        function triggerFile(id) { document.getElementById(id).click(); }
-        function handleFileChange(e, labelId) {
-            const file = e.target.files[0];
-            const label = document.getElementById(labelId);
-            if (!file) { label.textContent = e.target.accept === '.pdf' ? 'Format: PDF (maks 5MB)' : ''; return; }
-            const name = file.name.length > 40 ? file.name.slice(0,37) + '...' : file.name;
-            label.textContent = name;
-        }
+            <!-- Passengers container: each passenger card is a single white rectangle with left/right columns -->
+            <div id="passengers-container" class="space-y-6">
+                <!-- Passenger template (will be cloned by JS). Keep one initial passenger (index 0) -->
+                <div class="passenger-card bg-white rounded-2xl shadow-lg p-6 relative" data-index="0" id="passenger-0">
+                    <!-- Header with passenger label and remove (hidden for first) -->
+                    <div class="flex items-start justify-between mb-4">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-800">Penumpang 1</h3>
+                            <p class="text-sm text-gray-500">Informasi pemesanan & dokumen pendukung</p>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span id="selected-seat-badge-0" class="text-sm text-gray-600 mr-2">Kursi: <strong class="text-gray-800">-</strong></span>
+                            <!-- Remove button (hidden for first) -->
+                            <button onclick="removePassenger(0)" class="remove-btn hidden text-red-500 hover:text-red-700" title="Hapus penumpang">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                            </button>
+                        </div>
+                    </div>
 
-        // (Seat selection removed)
-        </script>
+                    <!-- MAIN: two-column layout inside same rectangle -->
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                        <!-- LEFT: Detail Pemesanan -->
+                        <div>
+                            <form class="space-y-4 passenger-form" data-index="0">
+                                <div>
+                                  <label for="nama-0" class="block text-sm font-medium text-gray-700 mb-2">Nama Lengkap</label>
+                                  <input type="text" id="nama-0" name="nama[]" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-200 transition" placeholder="Masukkan nama lengkap">
+                                </div>
+                                <div>
+                                  <label for="telepon-0" class="block text-sm font-medium text-gray-700 mb-2">Nomor Telpon</label>
+                                  <input type="tel" id="telepon-0" name="telepon[]" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-200 transition" placeholder="Masukkan nomor telepon">
+                                </div>
+                                <div>
+                                  <label for="email-0" class="block text-sm font-medium text-gray-700 mb-2">Alamat Email</label>
+                                  <input type="email" id="email-0" name="email[]" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-200 transition" placeholder="Masukkan alamat email">
+                                </div>
+                            </form>
+                        </div>
 
+                        <!-- RIGHT: Dokumen Pendukung -->
+                        <div>
+                            <div class="space-y-4">
+                              <!-- Upload KTP -->
+                              <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Upload KTP</label>
+                                <div class="upload-box border-2 border-dashed border-gray-200 rounded-xl p-4 hover:border-blue-300 transition-colors duration-200 cursor-pointer flex items-center gap-4" onclick="triggerFileForPassenger(0,'ktp')">
+                                  <img src="{{ asset('folder.png') }}" alt="icon" class="w-8 h-8">
+                                  <div class="flex-1 text-left">
+                                    <div class="text-gray-700">Klik untuk upload atau tarik file ke sini</div>
+                                    <div id="ktp-filename-0" class="text-sm text-gray-400">Format: PDF (maks 5MB)</div>
+                                  </div>
+                                  <input type="file" id="ktp-0" name="ktp[]" accept=".pdf" class="hidden" onchange="handleFileChange(event, 'ktp-filename-0')">
+                                </div>
+                              </div>
 
+                              <!-- Upload Surat Dinas -->
+                              <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Upload Surat Dinas</label>
+                                <div class="upload-box border-2 border-dashed border-gray-200 rounded-xl p-4 hover:border-blue-300 transition-colors duration-200 cursor-pointer flex items-center gap-4" onclick="triggerFileForPassenger(0,'surat')">
+                                  <img src="{{ asset('folder.png') }}" alt="icon" class="w-8 h-8">
+                                  <div class="flex-1 text-left">
+                                    <div class="text-gray-700">Klik untuk upload atau tarik file ke sini</div>
+                                    <div id="surat-filename-0" class="text-sm text-gray-400">Format: PDF (maks 5MB)</div>
+                                  </div>
+                                  <input type="file" id="surat-0" name="surat[]" accept=".pdf" class="hidden" onchange="handleFileChange(event, 'surat-filename-0')">
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- BOTTOM: pilih kursi button (pojok bawah kanan) -->
+                    <div class="absolute bottom-6 right-6">
+                        <button onclick="openSeatModal(0)"
+                                class="px-4 py-2 bg-white border border-gray-200 rounded-lg shadow hover:shadow-md flex items-center gap-2">
+                            <svg class="w-4 h-4 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7h16M4 12h16M4 17h16"/></svg>
+                            Pilih Kursi
+                        </button>
+                    </div>
+                </div>
+            </div>
         <!-- Submit Button -->
         <div class="text-center">
             <button type="submit" id="checkout-submit"
                      class="w-full max-w-md bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white font-bold py-4 px-8 rounded-xl hover:from-[#156b8a] hover:to-[#2d9a6b] transition-all duration-200 transform hover:scale-105 shadow-lg mt-10">
                  SUBMIT
             </button>
-            <!-- (Seat confirmation modal removed) -->
-
-            <script>
-            // (Seat confirmation logic removed)
-            </script>
-
         </div>
      </div>
  </div>
- 
+
+<!-- Seat Selection Modal -->
+<div id="seat-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
+    <div class="bg-white rounded-2xl p-6 max-w-md w-full mx-4 max-h-[90vh] overflow-y-auto">
+        <!-- Modal Header -->
+        <div class="flex items-center justify-between mb-4">
+            <h3 class="text-xl font-bold text-gray-800">Pilih Kursi</h3>
+            <button onclick="closeSeatModal()" class="text-gray-400 hover:text-gray-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Route Info -->
+        <div class="text-center mb-4">
+            <div class="text-sm text-gray-600">SURABAYA GUBENG → MADIUN • 1 Dewasa</div>
+            <div class="text-sm text-gray-600">PASUNDAN • Ekonomi (CA)</div>
+            <div class="text-sm text-gray-600">Sel, 9 Sep 2025</div>
+        </div>
+
+        <!-- Passenger Info -->
+        <div class="bg-white rounded-lg p-3 mb-4">
+            <div class="flex items-center">
+                <div class="bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white rounded px-2 py-1 text-sm font-medium mr-3"></div>
+                <div>
+                    <div class="font-medium text-gray-800" id="modal-passenger-name">WILDAN ANWAR</div>
+                    <div class="text-sm text-gray-600" id="modal-passenger-seat">Ekonomi I / Kursi 2A</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Legend -->
+        <div class="flex justify-center gap-4 mb-4 text-xs">
+            <div class="flex items-center gap-1">
+                <div class="w-4 h-4 bg-gray-200 rounded border"></div>
+                <span>Tersedia</span>
+            </div>
+            <div class="flex items-center gap-1">
+                <div class="w-4 h-4 bg-gradient-to-r from-[#187499] to-[#36AE7E] rounded border"></div>
+                <span>Dipilih</span>
+            </div>
+            <div class="flex items-center gap-1">
+                <div class="w-4 h-4 bg-gray-400 rounded border"></div>
+                <span>Terisi</span>
+            </div>
+        </div>
+
+        <!-- Seat Map -->
+        <div class="space-y-4">
+            <!-- Car Tabs -->
+            <div class="flex justify-center">
+                <div class="flex bg-gray-100 rounded-lg p-1">
+                    <button onclick="switchCar('ekonomi1')" class="car-tab px-3 py-1 rounded text-sm font-medium bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white" data-car="ekonomi1">Ekonomi 1</button>
+                    <button onclick="switchCar('ekonomi2')" class="car-tab px-3 py-1 rounded text-sm font-medium text-gray-600" data-car="ekonomi2">Ekonomi 2</button>
+                    <button onclick="switchCar('ekonomi3')" class="car-tab px-3 py-1 rounded text-sm font-medium text-gray-600" data-car="ekonomi3">Ekonomi 3</button>
+                </div>
+            </div>
+
+            <!-- Seat Grid -->
+            <div class="seat-map">
+                <!-- Column Headers -->
+                <div class="grid grid-cols-5 gap-2 mb-2 text-center text-sm font-medium text-gray-600">
+                    <div></div>
+                    <div>A</div>
+                    <div>B</div>
+                    <div>C</div>
+                    <div>D</div>
+                </div>
+
+                <!-- Seat Rows -->
+                <div id="seat-grid" class="space-y-2">
+                    <!-- Row 1 -->
+                    <div class="grid grid-cols-5 gap-2 items-center">
+                        <div class="text-sm font-medium text-gray-600 text-center">1</div>
+                        <button class="seat-btn w-8 h-8 bg-gray-400 rounded border text-xs font-medium text-white" data-seat="1A" data-status="occupied"></button>
+                        <button class="seat-btn w-8 h-8 bg-gray-400 rounded border text-xs font-medium text-white" data-seat="1B" data-status="occupied"></button>
+                        <button class="seat-btn w-8 h-8 bg-gray-200 rounded border text-xs font-medium text-gray-700 hover:bg-gray-300" data-seat="1C" data-status="available" onclick="selectSeat('1C')"></button>
+                        <button class="seat-btn w-8 h-8 bg-gray-200 rounded border text-xs font-medium text-gray-700 hover:bg-gray-300" data-seat="1D" data-status="available" onclick="selectSeat('1D')"></button>
+                    </div>
+
+                    <!-- Row 2 -->
+                    <div class="grid grid-cols-5 gap-2 items-center">
+                        <div class="text-sm font-medium text-gray-600 text-center">2</div>
+                        <button class="seat-btn w-8 h-8 bg-gradient-to-r from-[#187499] to-[#36AE7E] rounded border text-xs font-medium text-white" data-seat="2A" data-status="selected" onclick="selectSeat('2A')"></button>
+                        <button class="seat-btn w-8 h-8 bg-gray-200 rounded border text-xs font-medium text-gray-700 hover:bg-gray-300" data-seat="2B" data-status="available" onclick="selectSeat('2B')"></button>
+                        <button class="seat-btn w-8 h-8 bg-gray-200 rounded border text-xs font-medium text-gray-700 hover:bg-gray-300" data-seat="2C" data-status="available" onclick="selectSeat('2C')"></button>
+                        <button class="seat-btn w-8 h-8 bg-gray-400 rounded border text-xs font-medium text-white" data-seat="2D" data-status="occupied"></button>
+                    </div>
+
+                    <!-- Row 3 -->
+                    <div class="grid grid-cols-5 gap-2 items-center">
+                        <div class="text-sm font-medium text-gray-600 text-center">3</div>
+                        <button class="seat-btn w-8 h-8 bg-gray-200 rounded border text-xs font-medium text-gray-700 hover:bg-gray-300" data-seat="3A" data-status="available" onclick="selectSeat('3A')"></button>
+                        <button class="seat-btn w-8 h-8 bg-gray-200 rounded border text-xs font-medium text-gray-700 hover:bg-gray-300" data-seat="3B" data-status="available" onclick="selectSeat('3B')"></button>
+                        <button class="seat-btn w-8 h-8 bg-gray-200 rounded border text-xs font-medium text-gray-700 hover:bg-gray-300" data-seat="3C" data-status="available" onclick="selectSeat('3C')"></button>
+                        <button class="seat-btn w-8 h-8 bg-gray-400 rounded border text-xs font-medium text-white" data-seat="3D" data-status="occupied"></button>
+                    </div>
+
+                    <!-- Row 4 -->
+                    <div class="grid grid-cols-5 gap-2 items-center">
+                        <div class="text-sm font-medium text-gray-600 text-center">4</div>
+                        <button class="seat-btn w-8 h-8 bg-gray-200 rounded border text-xs font-medium text-gray-700 hover:bg-gray-300" data-seat="4A" data-status="available" onclick="selectSeat('4A')"></button>
+                        <button class="seat-btn w-8 h-8 bg-gray-200 rounded border text-xs font-medium text-gray-700 hover:bg-gray-300" data-seat="4B" data-status="available" onclick="selectSeat('4B')"></button>
+                        <button class="seat-btn w-8 h-8 bg-gray-200 rounded border text-xs font-medium text-gray-700 hover:bg-gray-300" data-seat="4C" data-status="available" onclick="selectSeat('4C')"></button>
+                        <button class="seat-btn w-8 h-8 bg-gray-200 rounded border text-xs font-medium text-gray-700 hover:bg-gray-300" data-seat="4D" data-status="available" onclick="selectSeat('4D')"></button>
+                    </div>
+
+                    <!-- Row 5 -->
+                    <div class="grid grid-cols-5 gap-2 items-center">
+                        <div class="text-sm font-medium text-gray-600 text-center">5</div>
+                        <button class="seat-btn w-8 h-8 bg-gray-200 rounded border text-xs font-medium text-gray-700 hover:bg-gray-300" data-seat="5A" data-status="available" onclick="selectSeat('5A')"></button>
+                        <button class="seat-btn w-8 h-8 bg-gray-200 rounded border text-xs font-medium text-gray-700 hover:bg-gray-300" data-seat="5B" data-status="available" onclick="selectSeat('5B')"></button>
+                        <button class="seat-btn w-8 h-8 bg-gray-200 rounded border text-xs font-medium text-gray-700 hover:bg-gray-300" data-seat="5C" data-status="available" onclick="selectSeat('5C')"></button>
+                        <button class="seat-btn w-8 h-8 bg-gray-200 rounded border text-xs font-medium text-gray-700 hover:bg-gray-300" data-seat="5D" data-status="available" onclick="selectSeat('5D')"></button>
+                    </div>
+
+                    <!-- Row 6 -->
+                    <div class="grid grid-cols-5 gap-2 items-center">
+                        <div class="text-sm font-medium text-gray-600 text-center">6</div>
+                        <button class="seat-btn w-8 h-8 bg-gray-200 rounded border text-xs font-medium text-gray-700 hover:bg-gray-300" data-seat="6A" data-status="available" onclick="selectSeat('6A')"></button>
+                        <button class="seat-btn w-8 h-8 bg-gray-200 rounded border text-xs font-medium text-gray-700 hover:bg-gray-300" data-seat="6B" data-status="available" onclick="selectSeat('6B')"></button>
+                        <button class="seat-btn w-8 h-8 bg-gray-200 rounded border text-xs font-medium text-gray-700 hover:bg-gray-300" data-seat="6C" data-status="available" onclick="selectSeat('6C')"></button>
+                        <button class="seat-btn w-8 h-8 bg-gray-400 rounded border text-xs font-medium text-white" data-seat="6D" data-status="occupied"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Save Button -->
+        <div class="mt-6">
+            <button onclick="saveSeatSelection()" class="w-full bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white py-3 rounded-lg font-medium hover:bg-gradient-to-r from-[#187499] to-[#36AE7E] transition">
+                SIMPAN
+            </button>
+        </div>
+    </div>
+</div>
+
  <!-- Overlay Modal -->
- <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden opacity-0 transition-opacity duration-200 ease-out">
+<div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden opacity-0 transition-opacity duration-200">
     <div id="overlay-dialog" class="bg-white rounded-2xl p-8 max-w-md mx-4 text-center transform scale-95 opacity-0 transition-all duration-300 ease-out">
          <h3 class="text-xl font-bold text-gray-800 mb-4">Mau lihat kereta lain?</h3>
          <p class="text-gray-600 mb-6">Kalau kamu kembali ke halaman sebelumnya, semua info yang diisi dan keberangkatan yang dipilih akan hilang.</p>
          <div class="flex flex-col space-y-3">
-              <button onclick="viewOtherFlights()" class="w-full px-6 py-3 bg-gradient-to-r from-blue-50 to-blue-100 text-[#36AE7E] rounded-xl hover:from-blue-100 hover:to-blue-200 transition-all duration-200 font-medium">
+              <button onclick="window.location.href='{{ url('pesanan/kereta') }}'" class="w-full px-6 py-3 bg-gradient-to-r from-blue-50 to-blue-100 text-[#36AE7E] rounded-xl hover:from-blue-100 hover:to-blue-200 transition-all duration-200 font-medium">
                   Lihat Kereta Lain
               </button>
              <button onclick="completeBooking()" class="w-full px-6 py-3 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white rounded-xl hover:from-[#156b8a] hover:to-[#2d9a6b] transition-all duration-200 font-medium">
@@ -171,49 +317,311 @@
          </div>
      </div>
  </div>
- 
- <script>
- // Back navigation function
- function goBack() {
-     // Show overlay
-     showOverlay();
- }
- 
- // Overlay functions
- function showOverlay() {
-    const overlay = document.getElementById('overlay');
-    const dialog = document.getElementById('overlay-dialog');
-    overlay.classList.remove('hidden');
-    requestAnimationFrame(() => {
-        overlay.classList.remove('opacity-0');
-        dialog.classList.remove('scale-95','opacity-0');
-    });
- }
- 
- function hideOverlay() {
-    const overlay = document.getElementById('overlay');
-    const dialog = document.getElementById('overlay-dialog');
-    if (overlay && dialog) {
-        overlay.classList.add('opacity-0');
-        dialog.classList.add('scale-95','opacity-0');
-        setTimeout(() => overlay.classList.add('hidden'), 220);
-    }
- }
- 
- function viewOtherFlights() {
-      // Hide overlay and redirect to flight search page
-      hideOverlay();
-      alert('Redirecting to flight search page...');
-      // window.location.href = '/search-flights'; // Uncomment this to actually redirect
- }
-  
-  function completeBooking() {
-      // Hide overlay and stay on current page to complete booking
-      hideOverlay();
-      // User stays on current page to complete the booking
+
+<script>
+// Global variables
+let trainPassengerCount = 1;
+let currentTrainPassengerIndex = 0;
+let trainSelectedSeats = {};
+let currentTrainCar = 'ekonomi1';
+
+// File upload functions
+function triggerFileForPassenger(index, type) {
+    document.getElementById(`${type}-${index}`).click();
 }
 
+function handleFileChange(e, labelId) {
+    const file = e.target.files[0];
+    const label = document.getElementById(labelId);
+    if (!file) { 
+        label.textContent = e.target.accept === '.pdf' ? 'Format: PDF (maks 5MB)' : ''; 
+        return; 
+    }
+    const name = file.name.length > 40 ? file.name.slice(0,37) + '...' : file.name;
+    label.textContent = name;
+}
+
+// Seat selection functions
+function openSeatModal(passengerIndex) {
+    currentTrainPassengerIndex = passengerIndex;
+    const modal = document.getElementById('seat-modal');
+    const passengerName = document.getElementById(`nama-${passengerIndex}`).value || `Penumpang ${passengerIndex + 1}`;
+    document.getElementById('modal-passenger-name').textContent = passengerName.toUpperCase();
+    document.getElementById('modal-passenger-seat').textContent = `Ekonomi I / Kursi -`;
+    modal.classList.remove('hidden');
+}
+
+function closeSeatModal() {
+    const modal = document.getElementById('seat-modal');
+    modal.classList.add('hidden');
+}
+
+function switchCar(carName) {
+    currentTrainCar = carName;
+    // Update tab appearance
+    document.querySelectorAll('.car-tab').forEach(tab => {
+        tab.classList.remove('bg-gradient-to-r');
+        tab.classList.remove('from-[#187499]');
+        tab.classList.remove('to-[#36AE7E]');
+        tab.classList.remove('text-white');
+        tab.classList.add('text-gray-600');
+    });
+    const selectedTab = document.querySelector(`[data-car="${carName}"]`);
+    selectedTab.classList.add('bg-gradient-to-r');
+    selectedTab.classList.add('from-[#187499]');
+    selectedTab.classList.add('to-[#36AE7E]');
+    selectedTab.classList.add('text-white');
+    selectedTab.classList.remove('text-gray-600');
+    
+    // Reset seat selection for new car
+    updateSeatGrid();
+}
+
+function updateSeatGrid() {
+    // Reset all seats to available (except some occupied ones for demo)
+    const occupiedSeats = ['1A', '1B', '2D', '3D', '6D'];
+    document.querySelectorAll('.seat-btn').forEach(btn => {
+        const seatId = btn.dataset.seat;
+        if (occupiedSeats.includes(seatId)) {
+            btn.className = 'seat-btn w-8 h-8 bg-gray-400 rounded border text-xs font-medium text-white';
+            btn.dataset.status = 'occupied';
+            btn.onclick = null;
+        } else {
+            btn.className = 'seat-btn w-8 h-8 bg-gray-200 rounded border text-xs font-medium text-gray-700 hover:bg-gray-300';
+            btn.dataset.status = 'available';
+            btn.onclick = () => selectSeat(seatId);
+            btn.textContent = '';
+        }
+    });
+}
+
+function selectSeat(seatId) {
+    // Clear previous selection for this passenger
+    document.querySelectorAll('.seat-btn').forEach(btn => {
+        if (btn.dataset.status === 'selected') {
+            btn.className = 'seat-btn w-8 h-8 bg-gray-200 rounded border text-xs font-medium text-gray-700 hover:bg-gray-300';
+            btn.dataset.status = 'available';
+            btn.textContent = '';
+        }
+    });
+
+    // Select new seat
+    const seatBtn = document.querySelector(`[data-seat="${seatId}"]`);
+    seatBtn.className = 'seat-btn w-8 h-8 bg-gradient-to-r from-[#187499] to-[#36AE7E] rounded border text-xs font-medium text-white';
+    seatBtn.dataset.status = 'selected';
+    seatBtn.textContent = '';
+    
+    trainSelectedSeats[currentTrainPassengerIndex] = {
+        seat: seatId,
+        car: currentTrainCar
+    };
+    
+    // Update passenger info in modal dynamically
+    updateModalPassengerInfo();
+}
+
+function updateModalPassengerInfo() {
+    if (trainSelectedSeats[currentTrainPassengerIndex]) {
+        const seatInfo = trainSelectedSeats[currentTrainPassengerIndex];
+        const carDisplay = seatInfo.car.replace('ekonomi', 'Ekonomi ');
+        const passengerInfoDiv = document.getElementById('modal-passenger-seat');
+        if (passengerInfoDiv) {
+            passengerInfoDiv.textContent = `${carDisplay} / Kursi ${seatInfo.seat}`;
+        }
+    } else {
+        // Default display when no seat selected
+        const passengerInfoDiv = document.getElementById('modal-passenger-seat');
+        if (passengerInfoDiv) {
+            passengerInfoDiv.textContent = `Ekonomi I / Kursi -`;
+        }
+    }
+}
+
+function saveSeatSelection() {
+    if (trainSelectedSeats[currentTrainPassengerIndex]) {
+        const seatInfo = trainSelectedSeats[currentTrainPassengerIndex];
+        const badge = document.getElementById(`selected-seat-badge-${currentTrainPassengerIndex}`);
+        badge.innerHTML = `Kursi: <strong class="text-gray-800">${seatInfo.car.toUpperCase().replace('EKONOMI', 'Ekonomi ')} - ${seatInfo.seat}</strong>`;
+    }
+    closeSeatModal();
+}
+
+// Passenger management functions
+function addPassenger() {
+    if (trainPassengerCount >= 4) {
+        alert('Maksimal 4 penumpang');
+        return;
+    }
+
+    trainPassengerCount++;
+    const container = document.getElementById('passengers-container');
+    const template = document.getElementById('passenger-0');
+    const newPassenger = template.cloneNode(true);
+    
+    // Update IDs and attributes
+    newPassenger.id = `passenger-${trainPassengerCount - 1}`;
+    newPassenger.dataset.index = trainPassengerCount - 1;
+    
+    // Update passenger title
+    newPassenger.querySelector('h3').textContent = `Penumpang ${trainPassengerCount}`;
+    
+    // Update form elements
+    const form = newPassenger.querySelector('.passenger-form');
+    form.dataset.index = trainPassengerCount - 1;
+    
+    // Update input IDs and names
+    const inputs = newPassenger.querySelectorAll('input, label');
+    inputs.forEach(input => {
+        if (input.tagName === 'LABEL') {
+            const forAttr = input.getAttribute('for');
+            if (forAttr) {
+                input.setAttribute('for', forAttr.replace(/(-)\d+$/, `$1${trainPassengerCount - 1}`));
+            }
+        } else {
+            const id = input.id;
+            const name = input.name;
+            if (id) input.id = id.replace('-0', `-${trainPassengerCount - 1}`);
+            if (name) input.name = name;
+            input.value = ''; // Clear values
+        }
+    });
+
+    // Update file upload elements
+    const uploadBoxes = newPassenger.querySelectorAll('.upload-box');
+    uploadBoxes.forEach((box, index) => {
+        const type = index === 0 ? 'ktp' : 'surat';
+        box.onclick = () => triggerFileForPassenger(trainPassengerCount - 1, type);
+    });
+
+    // Update filename display elements
+    const filenameElements = newPassenger.querySelectorAll('[id*="filename"]');
+    filenameElements.forEach(el => {
+        el.id = el.id.replace('-0', `-${trainPassengerCount - 1}`);
+        el.textContent = 'Format: PDF (maks 5MB)';
+    });
+
+    // Update seat badge
+    const seatBadge = newPassenger.querySelector('[id*="selected-seat-badge"]');
+    seatBadge.id = `selected-seat-badge-${trainPassengerCount - 1}`;
+    seatBadge.innerHTML = `Kursi: <strong class="text-gray-800">-</strong>`;
+
+    // Update pilih kursi button
+    const seatButton = newPassenger.querySelector('button[onclick*="openSeatModal"]');
+    seatButton.onclick = () => openSeatModal(trainPassengerCount - 1);
+
+    // Update remove button
+    const removeBtn = newPassenger.querySelector('.remove-btn');
+    removeBtn.classList.remove('hidden');
+    removeBtn.onclick = () => removePassenger(trainPassengerCount - 1);
+
+    container.appendChild(newPassenger);
+    updateTrainPassengerCount();
+}
+
+function removePassenger(index) {
+    if (trainPassengerCount <= 1) return;
+    
+    const passenger = document.getElementById(`passenger-${index}`);
+    passenger.remove();
+    
+    // Remove seat selection
+    delete trainSelectedSeats[index];
+    
+    trainPassengerCount--;
+    updateTrainPassengerCount();
+    
+    // Renumber remaining passengers
+    renumberTrainPassengers();
+}
+
+function renumberTrainPassengers() {
+    const passengers = document.querySelectorAll('.passenger-card');
+    passengers.forEach((passenger, index) => {
+        passenger.id = `passenger-${index}`;
+        passenger.dataset.index = index;
+        passenger.querySelector('h3').textContent = `Penumpang ${index + 1}`;
+        
+        // Update all IDs and references
+        const elements = passenger.querySelectorAll('[id], [for], [onclick]');
+        elements.forEach(el => {
+            if (el.id) {
+                el.id = el.id.replace(/(-)\d+$/, `$1${index}`);
+            }
+            if (el.getAttribute('for')) {
+                const forAttr = el.getAttribute('for');
+                el.setAttribute('for', forAttr.replace(/(-)\d+$/, `$1${index}`));
+            }
+        });
+        
+        // Update button onclick handlers
+        const seatButton = passenger.querySelector('button[onclick*="openSeatModal"]');
+        if (seatButton) seatButton.onclick = () => openSeatModal(index);
+        
+        const removeBtn = passenger.querySelector('.remove-btn');
+        if (removeBtn) {
+            removeBtn.onclick = () => removePassenger(index);
+            if (index === 0) {
+                removeBtn.classList.add('hidden');
+            } else {
+                removeBtn.classList.remove('hidden');
+            }
+        }
+    });
+}
+
+function updateTrainPassengerCount() {
+    document.getElementById('passenger-count').textContent = `${trainPassengerCount} / 4`;
+    const addBtn = document.getElementById('add-passenger-btn');
+    if (trainPassengerCount >= 4) {
+        addBtn.disabled = true;
+        addBtn.classList.add('opacity-50', 'cursor-not-allowed');
+    } else {
+        addBtn.disabled = false;
+        addBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+    }
+}
+
+// Back navigation function
+function goBack() {
+    showOverlay();
+}
+
+// Overlay functions
+function showOverlay() {
+   const overlay = document.getElementById('overlay');
+   const dialog = document.getElementById('overlay-dialog');
+   overlay.classList.remove('hidden');
+   requestAnimationFrame(() => {
+       overlay.classList.remove('opacity-0');
+       dialog.classList.remove('scale-95','opacity-0');
+   });
+}
+
+function hideOverlay() {
+   const overlay = document.getElementById('overlay');
+   const dialog = document.getElementById('overlay-dialog');
+   if (overlay && dialog) {
+       overlay.classList.add('opacity-0');
+       dialog.classList.add('scale-95','opacity-0');
+       setTimeout(() => overlay.classList.add('hidden'), 220);
+   }
+}
+
+function viewOtherFlights() {
+     hideOverlay();
+     alert('Redirecting to flight search page...');
+}
+ 
+function completeBooking() {
+     hideOverlay();
+}
+
+// Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
+    // Initialize passenger and seat functionality
+    updateTrainPassengerCount();
+    updateSeatGrid();
+    
     // File upload functionality
     const fileInputs = document.querySelectorAll('input[type="file"]');
     const uploadAreas = document.querySelectorAll('.border-dashed');
@@ -221,66 +629,74 @@ document.addEventListener('DOMContentLoaded', function() {
     fileInputs.forEach((input, index) => {
         const uploadArea = uploadAreas[index];
         
-        uploadArea.addEventListener('click', () => {
-            input.click();
-        });
+        if (uploadArea) {
+            uploadArea.addEventListener('click', () => {
+                input.click();
+            });
+        }
         
         input.addEventListener('change', (e) => {
             if (e.target.files.length > 0) {
                 const fileName = e.target.files[0].name;
-                uploadArea.innerHTML = `
-                    <div class="flex flex-col items-center">
-                        <svg class="w-8 h-8 text-green-500 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                        </svg>
-                        <span class="text-green-600 text-sm">${fileName}</span>
-                    </div>
-                `;
-                uploadArea.classList.remove('border-gray-300', 'hover:border-blue-400');
-                uploadArea.classList.add('border-green-400', 'bg-green-50');
+                if (uploadArea) {
+                    uploadArea.innerHTML = `
+                        <div class="flex flex-col items-center">
+                            <svg class="w-8 h-8 text-green-500 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-green-600 text-sm">${fileName}</span>
+                        </div>
+                    `;
+                    uploadArea.classList.remove('border-gray-300', 'hover:border-blue-400');
+                    uploadArea.classList.add('border-green-400', 'bg-green-50');
+                }
             }
         });
     });
     
-    // Form validation and submission (scope only to this page's submit)
-    const form = document.querySelector('form');
+    // Form validation and submission
     const submitBtn = document.getElementById('checkout-submit');
     
-    if (submitBtn) submitBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        // Basic validation
-        const nama = document.getElementById('nama').value;
-        const telepon = document.getElementById('telepon').value;
-        const email = document.getElementById('email').value;
-        const ktp = document.getElementById('ktp').files[0];
-        const suratDinas = document.getElementById('surat_dinas').files[0];
-        
-        if (!nama || !telepon || !email || !ktp || !suratDinas) {
-            alert('Mohon lengkapi semua data yang diperlukan');
-            return;
-        }
-        
-        // Email validation
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            alert('Format email tidak valid');
-            return;
-        }
-        
-        // Phone validation
-        const phoneRegex = /^[0-9+\-\s()]+$/;
-        if (!phoneRegex.test(telepon)) {
-            alert('Format nomor telepon tidak valid');
-            return;
-        }
-        
-        // If all validation passes, show success message
-        alert('Data berhasil disubmit! Redirecting to payment...');
-        // Here you can redirect to payment page or process the form
-    });
+    if (submitBtn) {
+        submitBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Basic validation for first passenger
+            const nama = document.getElementById('nama-0');
+            const telepon = document.getElementById('telepon-0');
+            const email = document.getElementById('email-0');
+            const ktp = document.getElementById('ktp-0');
+            const suratDinas = document.getElementById('surat-0');
+            
+            if (!nama || !telepon || !email || !ktp || !suratDinas) {
+                alert('Mohon lengkapi semua data yang diperlukan');
+                return;
+            }
+            
+            if (!nama.value || !telepon.value || !email.value || !ktp.files[0] || !suratDinas.files[0]) {
+                alert('Mohon lengkapi semua data yang diperlukan');
+                return;
+            }
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email.value)) {
+                alert('Format email tidak valid');
+                return;
+            }
+            
+            // Phone validation
+            const phoneRegex = /^[0-9+\-\s()]+$/;
+            if (!phoneRegex.test(telepon.value)) {
+                alert('Format nomor telepon tidak valid');
+                return;
+            }
+            
+            // If all validation passes, show success message
+            alert('Data berhasil disubmit! Redirecting to payment...');
+        });
+    }
 });
 </script>
-
 
 @include('partials.footer')
