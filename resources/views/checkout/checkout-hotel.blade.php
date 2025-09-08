@@ -156,7 +156,7 @@
 
 		<!-- Submit Button -->
 		<div class="text-center">
-			<button type="submit" 
+			<button type="submit" id="checkout-submit"
 					class="w-full max-w-md bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white font-bold py-4 px-8 rounded-xl hover:from-[#156b8a] hover:to-[#2d9a6b] transition-all duration-200 transform hover:scale-105 shadow-lg">
 				SUBMIT
 			</button>
@@ -282,17 +282,17 @@
             });
         });
         
-        // Form validation and submission
-        const submitBtn = document.querySelector('button[type="submit"]');
-        
-        submitBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const nama = document.getElementById('nama').value;
-            const telepon = document.getElementById('telepon').value;
-            const email = document.getElementById('email').value;
-            const ktp = document.getElementById('ktp').files[0];
-            const suratDinas = document.getElementById('surat_dinas').files[0];
+        // Form validation and submission (scope only to this page's submit)
+		const submitBtn = document.getElementById('checkout-submit');
+		
+		if (submitBtn) submitBtn.addEventListener('click', function(e) {
+			e.preventDefault();
+			
+			const nama = document.getElementById('nama').value;
+			const telepon = document.getElementById('telepon').value;
+			const email = document.getElementById('email').value;
+			const ktp = document.getElementById('ktp').files[0];
+			const suratDinas = document.getElementById('surat_dinas').files[0];
             
             if (!nama || !telepon || !email || !ktp || !suratDinas) {
                 alert('Mohon lengkapi semua data yang diperlukan');
@@ -312,7 +312,7 @@
             }
             
             alert('Data berhasil disubmit! Redirecting to payment...');
-            // redirect ke halaman payment
-        });
+			// redirect ke halaman payment
+		});
     });
 </script>
