@@ -50,14 +50,14 @@
               </td>
               <td class="px-6 py-5 whitespace-nowrap text-center">
                 <div class="flex items-center justify-center">
-                  <a href="{{ route('check.detail-kereta') }}" class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg hover:from-[#156b8a] hover:to-[#2d9a6e] transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                  <a href="{{ route('check.detail-kereta') }}" class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs font-semibold rounded-lg  transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
                     <i class="fas fa-eye mr-2"></i>
                     Detail
                   </a>
                 </div>
               </td>
               <td class="px-6 py-5 whitespace-nowrap">
-                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-teal-50 text-teal-700 border border-teal-200">Kereta</span>
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold text-teal-700 ">Kereta</span>
               </td>
               <td class="px-6 py-5 whitespace-nowrap">
                 <div class="text-sm font-semibold text-gray-900">15 Jan 2024</div>
@@ -74,7 +74,7 @@
                 <div class="text-xs text-gray-500">WhatsApp</div>
               </td>
               <td class="px-6 py-5 whitespace-nowrap">
-                <span class="inline-flex items-center px-3 py-2 rounded-full text-xs font-semibold bg-gradient-to-r from-yellow-100 to-orange-100 text-yellow-800 border border-yellow-200 shadow-sm">
+                <span class="inline-flex items-center px-3 py-2 rounded-full text-xs font-semibold text-yellow-800">
                   <div class="h-2 w-2 bg-yellow-500 rounded-full mr-2 animate-pulse"></div>
                   Request
                 </span>
@@ -92,14 +92,14 @@
               </td>
               <td class="px-6 py-5 whitespace-nowrap text-center">
                 <div class="flex items-center justify-center">
-                  <button class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg hover:from-[#156b8a] hover:to-[#2d9a6e] transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                  <button class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs font-semibold rounded-lg  transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
                     <i class="fas fa-eye mr-2"></i>
                     Detail
                   </button>
                 </div>
               </td>
               <td class="px-6 py-5 whitespace-nowrap">
-                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">Pesawat</span>
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold text-blue-700 ">Pesawat</span>
               </td>
               <td class="px-6 py-5 whitespace-nowrap">
                 <div class="text-sm font-semibold text-gray-900">14 Jan 2024</div>
@@ -116,7 +116,7 @@
                 <div class="text-xs text-gray-500">WhatsApp</div>
               </td>
               <td class="px-6 py-5 whitespace-nowrap">
-                <span class="inline-flex items-center px-3 py-2 rounded-full text-xs font-semibold bg-gradient-to-r from-red-100 to-red-200 text-red-800 border border-red-200 shadow-sm">
+                <span class="inline-flex items-center px-3 py-2 rounded-full text-xs font-semibold text-red-800">
                   <div class="h-2 w-2 bg-red-500 rounded-full mr-2"></div>
                   Reject
                 </span>
@@ -134,14 +134,14 @@
               </td>
               <td class="px-6 py-5 whitespace-nowrap text-center">
                 <div class="flex items-center justify-center">
-                <a href="{{ route('check.detail-hotel') }}" class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg hover:from-[#156b8a] hover:to-[#2d9a6e] transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                <a href="{{ route('check.detail-hotel') }}" class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs font-semibold rounded-lg  transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
                     <i class="fas fa-eye mr-2"></i>
                     Detail
                   </a>
                 </div>
               </td>
               <td class="px-6 py-5 whitespace-nowrap">
-                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">Hotel</span>
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold text-emerald-700 ">Hotel</span>
               </td>
               <td class="px-6 py-5 whitespace-nowrap">
                 <div class="text-sm font-semibold text-gray-900">13 Jan 2024</div>
@@ -158,7 +158,7 @@
                 <div class="text-xs text-gray-500">WhatsApp</div>
               </td>
               <td class="px-6 py-5 whitespace-nowrap">
-                <span class="inline-flex items-center px-3 py-2 rounded-full text-xs font-semibold bg-gradient-to-r from-green-100 to-emerald-100 text-green-800 border border-green-200 shadow-sm">
+                <span class="inline-flex items-center px-3 py-2 rounded-full text-xs font-semibold text-green-800">
                   <div class="h-2 w-2 bg-green-500 rounded-full mr-2"></div>
                   Approve
                 </span>
@@ -176,14 +176,14 @@
               </td>
               <td class="px-6 py-5 whitespace-nowrap text-center">
                 <div class="flex items-center justify-center">
-                  <a href="{{ route('check.detail') }}" class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg hover:from-[#156b8a] hover:to-[#2d9a6e] transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                  <a href="{{ route('check.detail') }}" class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs font-semibold rounded-lg  transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
                     <i class="fas fa-eye mr-2"></i>
                     Detail
                   </a>
                 </div>
               </td>
               <td class="px-6 py-5 whitespace-nowrap">
-                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">Pesawat</span>
+                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold text-blue-700">Pesawat</span>
               </td>
               <td class="px-6 py-5 whitespace-nowrap">
                 <div class="text-sm font-semibold text-gray-900">12 Jan 2024</div>
@@ -200,7 +200,7 @@
                 <div class="text-xs text-gray-500">WhatsApp</div>
               </td>
               <td class="px-6 py-5 whitespace-nowrap">
-                <span class="inline-flex items-center px-3 py-2 rounded-full text-xs font-semibold bg-gradient-to-r from-red-100 to-red-200 text-red-800 border border-red-200 shadow-sm">
+                <span class="inline-flex items-center px-3 py-2 rounded-full text-xs font-semibold text-red-800">
                   <div class="h-2 w-2 bg-red-500 rounded-full mr-2"></div>
                   Reject
                 </span>
@@ -220,7 +220,7 @@
             <div class="text-sm font-medium text-gray-900">#001</div>
             <div class="text-xs text-gray-500">15 Jan 2024 • 10:30</div>
           </div>
-          <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold bg-yellow-100 text-yellow-800">
+          <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold text-yellow-800">
             <div class="w-1.5 h-1.5 bg-yellow-500 rounded-full mr-1 animate-pulse"></div>
             Request
           </span>
@@ -237,7 +237,7 @@
             <div class="text-xs text-gray-500">Kontak</div>
             <div class="text-sm text-gray-900">+62 812-3456-7890 (WhatsApp)</div>
           </div>
-          <a href="{{ url('/check/detail-kereta') }}" class="ml-3 px-3 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg shadow-md">Detail</a>
+          <a href="{{ url('/check/detail-kereta') }}" class="ml-3 px-3 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs font-semibold rounded-lg shadow-md">Detail</a>
         </div>
       </div>
 
@@ -248,7 +248,7 @@
             <div class="text-sm font-medium text-gray-900">#002</div>
             <div class="text-xs text-gray-500">14 Jan 2024 • 09:15</div>
           </div>
-          <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold bg-red-100 text-red-800">
+          <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold text-red-800">
             <div class="w-1.5 h-1.5 bg-red-500 rounded-full mr-1"></div>
             Reject
           </span>
@@ -265,7 +265,7 @@
             <div class="text-xs text-gray-500">Kontak</div>
             <div class="text-sm text-gray-900">+62 813-9876-5432 (WhatsApp)</div>
           </div>
-          <a href="{{ route('check.detail') }}" class="ml-3 px-3 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg shadow-md">Detail</a>
+          <a href="{{ route('check.detail') }}" class="ml-3 px-3 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs font-semibold rounded-lg shadow-md">Detail</a>
         </div>
       </div>
 
@@ -276,7 +276,7 @@
             <div class="text-sm font-medium text-gray-900">#003</div>
             <div class="text-xs text-gray-500">13 Jan 2024 • 14:20</div>
           </div>
-          <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-800">
+          <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold text-green-800">
             <div class="w-1.5 h-1.5 bg-green-500 rounded-full mr-1"></div>
             Approve
           </span>
@@ -293,7 +293,7 @@
             <div class="text-xs text-gray-500">Kontak</div>
             <div class="text-sm text-gray-900">+62 814-1234-5678 (WhatsApp)</div>
           </div>
-          <a href="{{ url('/check/detail-hotel') }}" class="ml-3 px-3 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg shadow-md">Detail</a>
+          <a href="{{ url('/check/detail-hotel') }}" class="ml-3 px-3 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs font-semibold rounded-lg shadow-md">Detail</a>
         </div>
       </div>
 
@@ -304,7 +304,7 @@
             <div class="text-sm font-medium text-gray-900">#004</div>
             <div class="text-xs text-gray-500">12 Jan 2024 • 16:45</div>
           </div>
-          <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold bg-red-100 text-red-800">
+          <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold text-red-800">
             <div class="w-1.5 h-1.5 bg-red-500 rounded-full mr-1"></div>
             Reject
           </span>
@@ -321,7 +321,7 @@
             <div class="text-xs text-gray-500">Kontak</div>
             <div class="text-sm text-gray-900">+62 815-5678-9012 (WhatsApp)</div>
           </div>
-          <a href="{{ route('check.detail') }}" class="ml-3 px-3 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg shadow-md">Detail</a>
+          <a href="{{ route('check.detail') }}" class="ml-3 px-3 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs font-semibold rounded-lg shadow-md">Detail</a>
         </div>
       </div>
     </div>
@@ -384,7 +384,7 @@
           btn.type = 'button';
           btn.className = [
             'px-3 py-2 text-sm rounded-md transition',
-            active ? 'bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white' : 'text-gray-700 hover:bg-gray-100 hover:text-[#187499]',
+            active ? 'bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white' : 'text-gray-700 hover:bg-gray-100 hover:text-[#FE0004]',
             disabled ? 'text-gray-400 cursor-not-allowed opacity-50 hover:bg-transparent hover:text-gray-400' : '',
           ].join(' ');
           btn.innerHTML = label;

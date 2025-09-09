@@ -42,7 +42,7 @@
 									<div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
 										<!-- Kolom kiri: Badge + fasilitas -->
 										<div class="col-span-1 sm:col-span-2">
-										<span class="bg-gradient-to-r from-[#187499] to-[#36AE7E] text-xs font-medium px-2 sm:px-3 py-1 rounded-md text-white">Sarapan (1pax)
+										<span class="bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-xs font-medium px-2 sm:px-3 py-1 rounded-md text-white">Sarapan (1pax)
 											</span>
 											<ul class="mt-3 text-xs sm:text-sm text-gray-700 space-y-1 sm:space-y-2">
 												<li class="flex items-start gap-2">
@@ -190,7 +190,7 @@
 		<!-- Submit Button -->
 		<div class="text-center">
 			<button type="submit" id="checkout-submit"
-					class="w-full max-w-md bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white font-bold py-4 px-8 rounded-xl hover:from-[#156b8a] hover:to-[#2d9a6b] transition-all duration-200 transform hover:scale-105 shadow-lg">
+					class="w-full max-w-md bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white font-bold py-4 px-8 rounded-xl hover:from-[#156b8a] hover:to-[#2d9a6b] transition-all duration-200 transform hover:scale-105 shadow-lg">
 				SUBMIT
 			</button>
 		</div>
@@ -203,8 +203,8 @@
         <h3 class="text-xl font-bold text-gray-800 mb-3">Kirim Pemesanan?</h3>
         <p class="text-gray-600 mb-6">Pastikan semua data pemesanan sudah benar. Lanjutkan kirim pemesanan sekarang?</p>
         <div class="flex flex-col space-y-3">
-            <button id="confirm-cancel" class="w-full px-6 py-3 bg-gradient-to-r from-blue-50 to-blue-100 text-[#36AE7E] rounded-xl hover:from-blue-100 hover:to-blue-200 transition-all duration-200 font-medium">Tidak, Periksa Lagi</button>
-            <button id="confirm-yes" class="w-full px-6 py-3 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white rounded-xl hover:from-[#156b8a] hover:to-[#2d9a6b] transition-all duration-200 font-medium">Ya, Kirim Sekarang</button>
+            <button id="confirm-cancel" class="w-full px-6 py-3 bg-gradient-to-r from-blue-50 to-blue-100 text-[#F6B101] rounded-xl hover:from-blue-100 hover:to-blue-200 transition-all duration-200 font-medium">Tidak, Periksa Lagi</button>
+            <button id="confirm-yes" class="w-full px-6 py-3 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white rounded-xl hover:from-[#156b8a] hover:to-[#2d9a6b] transition-all duration-200 font-medium">Ya, Kirim Sekarang</button>
         </div>
     </div>
     </div>
@@ -237,11 +237,11 @@
         <!-- Actions -->
         <div class="flex flex-col space-y-3">
             <button onclick="viewOtherHotels()" 
-                    class="w-full px-6 py-3 bg-gradient-to-r from-blue-50 to-blue-100 text-[#36AE7E] rounded-xl hover:from-blue-100 hover:to-blue-200 transition-all duration-200 font-medium">
+                    class="w-full px-6 py-3 bg-gradient-to-r from-blue-50 to-blue-100 text-[#F6B101] rounded-xl hover:from-blue-100 hover:to-blue-200 transition-all duration-200 font-medium">
                 Lihat Penginapan Lain
             </button>
             <button onclick="completeBooking()" 
-                    class="w-full px-6 py-3 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white rounded-xl hover:from-[#156b8a] hover:to-[#2d9a6b] transition-all duration-200 font-medium">
+                    class="w-full px-6 py-3 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white rounded-xl hover:from-[#156b8a] hover:to-[#2d9a6b] transition-all duration-200 font-medium">
                 Selesaikan Pemesananmu
             </button>
         </div>

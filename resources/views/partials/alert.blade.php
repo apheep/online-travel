@@ -10,9 +10,9 @@
        role="alert"
        class="mb-6 opacity-0 -translate-y-2 transition-all duration-300 ease-out">
     <div class="relative overflow-hidden rounded-2xl border border-green-200 bg-gradient-to-r from-green-50 to-emerald-50 shadow">
-      <div class="absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-[#187499] to-[#36AE7E]"></div>
+      <div class="absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-[#FE0004] to-[#F6B101]"></div>
       <div class="p-4 pl-6 pr-12 flex items-start gap-3">
-        <div class="h-8 w-8 rounded-lg bg-gradient-to-r from-[#187499] to-[#36AE7E] flex items-center justify-center text-white shrink-0">
+        <div class="h-8 w-8 rounded-lg bg-gradient-to-r from-[#FE0004] to-[#F6B101] flex items-center justify-center text-white shrink-0">
           <i class="fas fa-check"></i>
         </div>
         <div>

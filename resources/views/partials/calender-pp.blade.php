@@ -19,10 +19,10 @@
                     <!-- Trip Type Options -->
                     <div>
                         <div class="flex space-x-2">
-                            <button id="oneWayBtn" onclick="switchTripType('oneWay')" class="flex-1 py-2 px-3 text-center text-sm font-medium rounded-lg border border-gray-300 transition-all duration-300 ease-out transform hover:scale-105 active:scale-95" style="background: linear-gradient(135deg, #187499 0%, #36AE7E 100%); color: white;">
+                            <button id="oneWayBtn" onclick="switchTripType('oneWay')" class="flex-1 py-2 px-3 text-center text-sm font-medium rounded-lg border border-gray-300 transition-all duration-300 ease-out transform hover:scale-105 active:scale-95 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white">
                                 Sekali jalan
                             </button>
-                            <button id="roundTripBtn" onclick="switchTripType('roundTrip')" class="flex-1 py-2 px-3 text-center text-sm font-medium rounded-lg border border-gray-300 transition-all duration-300 ease-out transform hover:scale-105 active:scale-95 text-gray-700 hover:bg-gray-50">
+                            <button id="roundTripBtn" onclick="switchTripType('roundTrip')" class="flex-1 py-2 px-3 text-center text-sm font-medium rounded-lg border border-gray-300 transition-all duration-300 ease-out transform hover:scale-105 active:scale-95 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white">
                                 Pulang pergi
                             </button>
                         </div>
@@ -86,7 +86,7 @@
                     
                     <!-- Save Button -->
                     <div class="flex justify-end">
-                        <button onclick="saveDate()" class="px-4 py-2 text-white rounded-lg text-sm font-medium transition duration-200 shadow-md hover:shadow-lg" style="background: linear-gradient(135deg, #187499 0%, #36AE7E 100%);">
+                        <button onclick="saveDate()" class="px-4 py-2 text-white rounded-lg text-sm font-medium transition duration-200 shadow-md bg-gradient-to-r from-[#FE0004] to-[#F6B101] hover:shadow-lg hover:scale-105">
                             Simpan
                         </button>
                     </div>
