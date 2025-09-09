@@ -11,7 +11,7 @@
         <!-- Header Section -->
         <div class="mb-8 flex items-center justify-between">
             <div class="flex items-center space-x-4">
-                <div class="p-3 rounded-full bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white">
+                <div class="p-3 rounded-full bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                     </svg>
@@ -26,7 +26,7 @@
                     <span class="text-gray-600">15 Diterima</span>
                 </div>
                 <div class="flex items-center space-x-2">
-                    <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                    <div class="w-3 h-3 bg-[#FE0004] rounded-full"></div>
                     <span class="text-gray-600">15 Ditolak</span>
                 </div>
                 <div class="flex items-center space-x-2">
@@ -38,43 +38,47 @@
         
         <!-- Tabs -->
         <div class="mb-8">
-            <div class="flex space-x-4">
-                <button id="tab-all" class="tab-button bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white px-8 py-3 rounded-full text-sm font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+            <div class="flex space-x-2 sm:space-x-4">
+                <button id="tab-all" class="tab-button bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white px-4 py-2 sm:px-8 sm:py-3 rounded-full text-xs sm:text-sm font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
                     All
                 </button>
-                <button id="tab-diterima" class="tab-button bg-white text-gray-700 px-8 py-3 rounded-full text-sm font-semibold shadow-lg hover:bg-gray-50 transition-all duration-300 transform hover:scale-105">
+                <button id="tab-diterima" class="tab-button bg-white text-gray-700 px-4 py-2 sm:px-8 sm:py-3 rounded-full text-xs sm:text-sm font-semibold shadow-lg hover:bg-gray-50 transition-all duration-300 transform hover:scale-105">
                     Diterima
                 </button>
-                <button id="tab-ditolak" class="tab-button bg-white text-gray-700 px-8 py-3 rounded-full text-sm font-semibold shadow-lg hover:bg-gray-50 transition-all duration-300 transform hover:scale-105">
+                <button id="tab-ditolak" class="tab-button bg-white text-gray-700 px-4 py-2 sm:px-8 sm:py-3 rounded-full text-xs sm:text-sm font-semibold shadow-lg hover:bg-gray-50 transition-all duration-300 transform hover:scale-105">
                     Ditolak
                 </button>
             </div>
         </div>
         
-        <!-- Search Bar -->
-        <div class="mb-8">
-            <div class="relative w-80">
+        <!-- Search & Date Filter -->
+        <div class="mb-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div class="relative w-full md:w-80">
                 <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                     <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
                     </svg>
                 </div>
-                <input type="text" class="block w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 text-sm shadow-lg transition-all duration-300" placeholder="Search">
+                <input id="search-input" type="text" class="block w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 text-sm shadow-lg transition-all duration-300" placeholder="Search">
             </div>
+            <!-- Trigger calendar modal -->
+            <button id="open-calendar" class="px-4 py-3 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white rounded-xl text-sm font-semibold shadow hover:shadow-md transition">Pilih Tanggal</button>
+            @include('partials.calender')
         </div>
         
         <!-- Mail Table -->
         <div class="bg-white rounded-lg shadow-sm border border-gray-200">
-            <div class="overflow-x-auto">
+            <div class="overflow-x-hidden">
                 <div class="overflow-y-auto" style="max-height: 400px;">
-                    <table class="min-w-full table-fixed" style="width: 800px;">
+                    <table class="w-full table-auto" style="width: 100%;">
                         <thead class="bg-gray-50 sticky top-0 z-20">
                             <tr>
-                                <th class="w-20 px-4 py-4 text-center text-xs font-medium text-gray-500 uppercase tracking-wider border-r border-gray-200">NO</th>
-                                <th class="w-32 px-4 py-4 text-center text-xs font-medium text-gray-500 uppercase tracking-wider border-r border-gray-200">AKSI</th>
-                                <th class="w-32 px-4 py-4 text-center text-xs font-medium text-gray-500 uppercase tracking-wider border-r border-gray-200">STATUS</th>
-                                <th class="px-4 py-4 text-center text-xs font-medium text-gray-500 uppercase tracking-wider border-r border-gray-200" style="width: 300px;">JENIS PESANAN</th>
-                                <th class="w-32 px-4 py-4 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">TANGGAL</th>
+                                <th class="w-12 sm:w-20 px-2 sm:px-4 py-3 sm:py-4 text-center text-[10px] sm:text-xs font-medium text-gray-500 uppercase tracking-wider border-r border-gray-200">NO</th>
+                                <th class="w-20 sm:w-28 px-2 sm:px-4 py-3 sm:py-4 text-center text-[10px] sm:text-xs font-medium text-gray-500 uppercase tracking-wider border-r border-gray-200">AKSI</th>
+                                <th class="w-20 sm:w-28 px-2 sm:px-4 py-3 sm:py-4 text-center text-[10px] sm:text-xs font-medium text-gray-500 uppercase tracking-wider border-r border-gray-200">STATUS</th>
+                                <th class="px-2 sm:px-4 py-3 sm:py-4 text-left text-[10px] sm:text-xs font-medium text-gray-500 uppercase tracking-wider border-r border-gray-200 whitespace-normal break-words">JENIS PESANAN</th>
+                                <th class="px-2 sm:px-4 py-3 sm:py-4 text-left text-[10px] sm:text-xs font-medium text-gray-500 uppercase tracking-wider border-r border-gray-200 whitespace-normal break-words">KETERANGAN DINAS</th>
+                                <th class="w-24 sm:w-28 px-2 sm:px-4 py-3 sm:py-4 text-center text-[10px] sm:text-xs font-medium text-gray-500 uppercase tracking-wider">TANGGAL</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-100 bg-white" id="table-body">
@@ -104,7 +108,7 @@
                 
                 <!-- Page Numbers -->
                 <div id="page-numbers" class="flex items-center space-x-1">
-                    <button class="page-btn px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-[#187499] to-[#36AE7E] rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105" data-page="1">
+                    <button class="page-btn px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-[#FE0004] to-[#F6B101] rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105" data-page="1">
                         1
                     </button>
                     <button class="page-btn px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 hover:text-gray-900 transition-all duration-200 transform hover:scale-105" data-page="2">
@@ -143,13 +147,13 @@
                 button.addEventListener('click', function() {
                     // Remove active class from all buttons
                     tabButtons.forEach(btn => {
-                        btn.classList.remove('bg-gradient-to-r', 'from-[#187499]', 'to-[#36AE7E]', 'text-white');
+                        btn.classList.remove('bg-gradient-to-r', 'from-[#FE0004]', 'to-[#F6B101]', 'text-white');
                         btn.classList.add('bg-white', 'text-gray-700');
                     });
                     
                     // Add active class to clicked button
                     this.classList.remove('bg-white', 'text-gray-700');
-                    this.classList.add('bg-gradient-to-r', 'from-[#187499]', 'to-[#36AE7E]', 'text-white');
+                    this.classList.add('bg-gradient-to-r', 'from-[#FE0004]', 'to-[#F6B101]', 'text-white');
                     
                     const filter = this.id.replace('tab-', '');
                     
@@ -197,9 +201,9 @@
                     const page = parseInt(btn.getAttribute('data-page'));
                     if (page === currentPage) {
                         btn.classList.remove('text-gray-700', 'bg-white', 'border', 'border-gray-300');
-                        btn.classList.add('text-white', 'bg-gradient-to-r', 'from-[#187499]', 'to-[#36AE7E]', 'shadow-lg');
+                        btn.classList.add('text-white', 'bg-gradient-to-r', 'from-[#FE0004]', 'to-[#F6B101]', 'shadow-lg');
                     } else {
-                        btn.classList.remove('text-white', 'bg-gradient-to-r', 'from-[#187499]', 'to-[#36AE7E]', 'shadow-lg');
+                        btn.classList.remove('text-white', 'bg-gradient-to-r', 'from-[#FE0004]', 'to-[#F6B101]', 'shadow-lg');
                         btn.classList.add('text-gray-700', 'bg-white', 'border', 'border-gray-300');
                     }
                 });
@@ -207,6 +211,7 @@
                 // Simulate page content change
                 const tableBody = document.getElementById('table-body');
                 tableBody.innerHTML = generateTableRows(currentPage, currentFilter);
+                applyFilters();
             }
             
             // Global variables for filtering
@@ -217,6 +222,7 @@
                 currentFilter = filter;
                 const tableBody = document.getElementById('table-body');
                 tableBody.innerHTML = generateTableRows(currentPage, filter);
+                applyFilters();
             }
 
             function generateTableRows(page, filter = 'all') {
@@ -230,12 +236,38 @@
                     { type: 'Kereta', icon: '🚆', color: 'bg-purple-100 text-purple-800' }
                 ];
                 
+                // Sample descriptions for keterangan dinas
+                const descriptions = [
+                    'Perjalanan dinas ke Jakarta - Rapat klien',
+                    'Monitoring proyek cabang Surabaya',
+                    'Workshop internal departemen IT',
+                    'Kunjungan kerja ke Yogyakarta',
+                    'Rapat koordinasi dengan vendor',
+                    'Audit rutin cabang Bandung',
+                    'Pelatihan karyawan baru',
+                    'Presentasi proposal di kantor pusat'
+                ];
+                
+                // Case: dua pemesanan pada tanggal yang sama namun keterangan dinas berbeda
+                // Kita pakai indeks global 7 dan 8 sebagai pasangan contoh
+                const duplicatePairStart = 7; // menghasilkan baris 7 dan 8 (global)
+                const duplicateDate = '12 Jan 2024';
+                
                 let addedRows = 0;
                 let rowNumber = startIndex;
                 
                 while (addedRows < itemsPerPage && rowNumber < totalItems) {
                     rowNumber++;
                     const status = rowNumber % 2 === 0 ? 'ditolak' : 'diterima';
+                    // Tentukan keterangan khusus untuk pasangan tanggal yang sama
+                    let keterangan;
+                    if (rowNumber === duplicatePairStart) {
+                        keterangan = descriptions[0];
+                    } else if (rowNumber === duplicatePairStart + 1) {
+                        keterangan = descriptions[1];
+                    } else {
+                        keterangan = descriptions[rowNumber % descriptions.length];
+                    }
                     
                     // Skip rows that don't match the filter
                     if (filter !== 'all' && status !== filter) {
@@ -270,13 +302,18 @@
                     `).join('');
                     
                     const detailButton = status === 'diterima' 
-                        ? `<a href="/notifications/diterima/${rowNumber}" class="bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white px-2 py-1 rounded text-xs font-medium hover:shadow-lg transition-shadow duration-200 w-full inline-block text-center">
+                        ? `<a href="/notifications/diterima/${rowNumber}" class="bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white px-2 py-1 rounded-xl text-xs font-medium hover:shadow-lg transition-shadow duration-200 w-full inline-block text-center">
                                Lihat Detail
                            </a>`
-                        : `<a href="/notifications/ditolak/${rowNumber}" class="bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white px-2 py-1 rounded text-xs font-medium hover:shadow-lg transition-shadow duration-200 w-full inline-block text-center">
+                        : `<a href="/notifications/ditolak/${rowNumber}" class="bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white px-2 py-1 rounded-xl text-xs font-medium hover:shadow-lg transition-shadow duration-200 w-full inline-block text-center">
                                Lihat Detail
                            </a>`;
                     
+                    // Tanggal: samakan untuk baris pasangan, selain itu fallback default
+                    const dateText = (rowNumber === duplicatePairStart || rowNumber === duplicatePairStart + 1)
+                        ? duplicateDate
+                        : `Jan ${10 + rowNumber}, 2024`;
+
                     rows.push(`
                         <tr class="table-row hover:bg-gray-50 transition-colors duration-200 relative" data-status="${status}" style="min-height: 80px;">
                             <td class="w-20 px-4 py-4 text-sm text-gray-900 text-center align-middle border-r border-gray-100">${rowNumber}</td>
@@ -290,21 +327,130 @@
                                     </span>
                                 </div>
                             </td>
-                            <td class="px-4 py-4 align-middle border-r border-gray-100 relative z-10" style="width: 300px;">
+                            <td class="px-4 py-4 align-middle border-r border-gray-100 relative z-10 whitespace-normal break-words" style="width: 300px;">
                                 <div class="space-y-1 relative">
                                     ${orderTypesHTML}
                                 </div>
                             </td>
-                            <td class="w-32 px-4 py-4 text-sm text-gray-900 text-center align-middle border-r border-gray-100">
-                                <div class="text-xs text-gray-500">Jan ${10 + rowNumber}, 2024</div>
+                            <td class="px-4 py-4 align-middle border-r border-gray-100 whitespace-normal break-words" style="width: 280px;">
+                                <div class="text-sm text-gray-700 whitespace-normal break-words">${keterangan}</div>
+                            </td>
+                            <td class="w-32 px-4 py-4 text-sm text-gray-900 text-center align-middle border-r border-gray-100" data-date="${dateText}">
+                                <div class="text-xs text-gray-500">${dateText}</div>
                             </td>
                         </tr>
                     `);
-                    
+                
                     addedRows++;
                 }
                 
                 return rows.join('');
+            }
+            
+            // Apply search and date range filters on current table rows
+            function applyFilters() {
+                const q = (document.getElementById('search-input')?.value || '').toLowerCase().trim();
+                const from = document.getElementById('date-from')?.value || ''; // yyyy-mm-dd
+                const to = document.getElementById('date-to')?.value || ''; // yyyy-mm-dd
+
+                document.querySelectorAll('#table-body tr').forEach(tr => {
+                    let show = true;
+
+                    // Search text in keterangan + jenis pesanan columns
+                    if (q) {
+                        const text = tr.textContent.toLowerCase();
+                        if (!text.includes(q)) show = false;
+                    }
+
+                    // Date filter: parse the displayed date text into yyyy-mm-dd
+                    if (show && (from || to)) {
+                        const td = tr.querySelector('td:last-child');
+                        const dateText = td ? td.getAttribute('data-date') || td.textContent.trim() : '';
+                        const parsed = parseDateToISO(dateText); // yyyy-mm-dd
+                        if (from && parsed < from) show = false;
+                        if (to && parsed > to) show = false;
+                    }
+
+                    tr.style.display = show ? '' : 'none';
+                });
+            }
+
+            // Helper: convert various dateText like "12 Jan 2024" or "Jan 17, 2024" to yyyy-mm-dd
+            function parseDateToISO(s) {
+                // Normalize commas
+                s = s.replace(',', '');
+                const months = {Jan:'01',Feb:'02',Mar:'03',Apr:'04',May:'05',Jun:'06',Jul:'07',Aug:'08',Sep:'09',Oct:'10',Nov:'11',Dec:'12'};
+                const parts = s.split(/\s+/);
+                let d, m, y;
+                if (parts.length === 3 && isNaN(parts[0])) { // Jan 17 2024
+                    m = months[parts[0]]; d = parts[1].padStart(2,'0'); y = parts[2];
+                } else if (parts.length === 3) { // 12 Jan 2024
+                    d = parts[0].padStart(2,'0'); m = months[parts[1]]; y = parts[2];
+                } else {
+                    return '';
+                }
+                return `${y}-${m}-${d}`;
+            }
+
+            // Hook up UI events
+            const df = document.getElementById('date-from');
+            const dt = document.getElementById('date-to');
+            if (df) df.addEventListener('change', applyFilters);
+            if (dt) dt.addEventListener('change', applyFilters);
+            document.querySelectorAll('.preset-range')?.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const range = btn.getAttribute('data-range');
+                    const today = new Date();
+                    const yyyy = today.getFullYear();
+                    const mm = String(today.getMonth()+1).padStart(2,'0');
+                    const dd = String(today.getDate()).padStart(2,'0');
+                    let fromISO = `${yyyy}-${mm}-${dd}`;
+                    let toISO = `${yyyy}-${mm}-${dd}`;
+                    if (range === '7') {
+                        const past = new Date(today);
+                        past.setDate(past.getDate()-6);
+                        const pm = String(past.getMonth()+1).padStart(2,'0');
+                        const pd = String(past.getDate()).padStart(2,'0');
+                        fromISO = `${past.getFullYear()}-${pm}-${pd}`;
+                    } else if (range === 'month') {
+                        const start = new Date(yyyy, today.getMonth(), 1);
+                        const end = new Date(yyyy, today.getMonth()+1, 0);
+                        const sm = String(start.getMonth()+1).padStart(2,'0');
+                        const sd = String(start.getDate()).padStart(2,'0');
+                        const em = String(end.getMonth()+1).padStart(2,'0');
+                        const ed = String(end.getDate()).padStart(2,'0');
+                        fromISO = `${start.getFullYear()}-${sm}-${sd}`;
+                        toISO = `${end.getFullYear()}-${em}-${ed}`;
+                    }
+                    document.getElementById('date-from').value = fromISO;
+                    document.getElementById('date-to').value = toISO;
+                    applyFilters();
+                });
+            });
+
+            document.getElementById('clear-date-filter')?.addEventListener('click', () => {
+                const dfrom = document.getElementById('date-from');
+                const dto = document.getElementById('date-to');
+                if (dfrom) dfrom.value = '';
+                if (dto) dto.value = '';
+                applyFilters();
+            });
+            document.getElementById('search-input').addEventListener('input', applyFilters);
+
+            // Calendar modal open/close glue
+            document.getElementById('open-calendar')?.addEventListener('click', () => {
+                const modal = document.getElementById('dateModal');
+                const content = document.getElementById('dateModalContent');
+                if (!modal || !content) return;
+                modal.classList.remove('hidden');
+                setTimeout(() => { content.classList.remove('scale-95','opacity-0'); content.classList.add('scale-100','opacity-100'); }, 10);
+            });
+            window.closeDateModal = function() {
+                const modal = document.getElementById('dateModal');
+                const content = document.getElementById('dateModalContent');
+                if (!modal || !content) return;
+                content.classList.add('scale-95','opacity-0');
+                setTimeout(() => { modal.classList.add('hidden'); }, 150);
             }
             
             // Previous button click

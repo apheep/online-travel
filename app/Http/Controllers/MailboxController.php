@@ -21,6 +21,7 @@ class MailboxController extends Controller
             'customer_phone' => '+62 812-3456-7890',
             'division' => 'IT Department',
             'status' => 'diterima',
+            'keterangan_dinas' => 'Perjalanan dinas ke Jakarta - Rapat klien',
             'flight_details' => [
                 'airline' => 'Garuda Indonesia',
                 'route' => 'Jakarta → Bali',
@@ -48,6 +49,7 @@ class MailboxController extends Controller
             'customer_phone' => '+62 821-9876-5432',
             'division' => 'Marketing Department',
             'status' => 'ditolak',
+            'keterangan_dinas' => 'Kunjungan kerja ke Yogyakarta untuk koordinasi event',
             'rejection_reason' => 'Budget tidak mencukupi untuk permintaan tiket business class. Silakan ajukan kembali dengan kelas ekonomi atau tunggu approval budget tambahan dari finance department.'
         ];
 
