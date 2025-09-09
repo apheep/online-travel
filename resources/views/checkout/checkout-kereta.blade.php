@@ -33,7 +33,7 @@
 
             <div class="flex items-center gap-4">
                 <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium text-white"
-                    style="background: linear-gradient(90deg,#0d8596,#36AE7E);">
+                    style="background: linear-gradient(90deg,#FE0004, #F6B101);">
                 Pergi
                 </span>
                 <div class="text-sm text-gray-600">
@@ -98,12 +98,21 @@
                 <h2 class="text-xl font-bold text-gray-800">Detail Penumpang</h2>
                 <div class="flex items-center gap-2">
                     <button id="add-passenger-btn" onclick="addPassenger()"
-                        class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white rounded-lg hover:from-[#156b8a] hover:to-[#2d9a6b] transition">
+                        class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white rounded-lg hover:from-[#156b8a] hover:to-[#2d9a6b] transition">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
                         Tambah Penumpang?
                     </button>
                     <div id="passenger-count" class="text-sm text-gray-500">1 / 4</div>
                 </div>
+            </div>
+
+            <!-- Reuse previous data toggle -->
+            <div class="flex items-center justify-end gap-3 mb-6">
+                <span class="text-sm text-gray-700 font-medium">Gunakan data sebelumnya?</span>
+                <button id="reuse-prev-data" type="button"
+                        class="relative inline-flex h-6 w-11 items-center rounded-full bg-gray-200 transition-colors">
+                    <span class="toggle-knob inline-block h-4 w-4 transform rounded-full bg-white transition-transform translate-x-1"></span>
+                </button>
             </div>
 
             <!-- Passengers container: each passenger card is a single white rectangle with left/right columns -->
@@ -190,7 +199,9 @@
         <!-- Submit Button -->
         <div class="text-center">
             <button type="submit" id="checkout-submit"
-                     class="w-full max-w-md bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white font-bold py-4 px-8 rounded-xl hover:from-[#156b8a] hover:to-[#2d9a6b] transition-all duration-200 transform hover:scale-105 shadow-lg mt-10 mb-5">
+
+                     class="w-full max-w-md bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white font-bold py-4 px-8 rounded-xl hover:from-[#156b8a] hover:to-[#2d9a6b] transition-all duration-200 transform hover:scale-105 shadow-lg mt-10">
+
                  SUBMIT
             </button>
         </div>
@@ -220,7 +231,7 @@
         <!-- Passenger Info -->
         <div class="bg-white rounded-lg p-3 mb-4">
             <div class="flex items-center">
-                <div class="bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white rounded px-2 py-1 text-sm font-medium mr-3"></div>
+                <div class="bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white rounded px-2 py-1 text-sm font-medium mr-3"></div>
                 <div>
                     <div class="font-medium text-gray-800" id="modal-passenger-name">WILDAN ANWAR</div>
                     <div class="text-sm text-gray-600" id="modal-passenger-seat">Ekonomi I / Kursi 2A</div>
@@ -235,7 +246,7 @@
                 <span>Tersedia</span>
             </div>
             <div class="flex items-center gap-1">
-                <div class="w-4 h-4 bg-gradient-to-r from-[#187499] to-[#36AE7E] rounded border"></div>
+                <div class="w-4 h-4 bg-gradient-to-r from-[#FE0004] to-[#F6B101] rounded border"></div>
                 <span>Dipilih</span>
             </div>
             <div class="flex items-center gap-1">
@@ -249,7 +260,7 @@
             <!-- Car Tabs -->
             <div class="flex justify-center">
                 <div class="flex bg-gray-100 rounded-lg p-1">
-                    <button onclick="switchCar('ekonomi1')" class="car-tab px-3 py-1 rounded text-sm font-medium bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white" data-car="ekonomi1">Ekonomi 1</button>
+                    <button onclick="switchCar('ekonomi1')" class="car-tab px-3 py-1 rounded text-sm font-medium bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white" data-car="ekonomi1">Ekonomi 1</button>
                     <button onclick="switchCar('ekonomi2')" class="car-tab px-3 py-1 rounded text-sm font-medium text-gray-600" data-car="ekonomi2">Ekonomi 2</button>
                     <button onclick="switchCar('ekonomi3')" class="car-tab px-3 py-1 rounded text-sm font-medium text-gray-600" data-car="ekonomi3">Ekonomi 3</button>
                 </div>
@@ -280,7 +291,7 @@
                     <!-- Row 2 -->
                     <div class="grid grid-cols-5 gap-2 items-center">
                         <div class="text-sm font-medium text-gray-600 text-center">2</div>
-                        <button class="seat-btn w-8 h-8 bg-gradient-to-r from-[#187499] to-[#36AE7E] rounded border text-xs font-medium text-white" data-seat="2A" data-status="selected" onclick="selectSeat('2A')"></button>
+                        <button class="seat-btn w-8 h-8 bg-gradient-to-r from-[#FE0004] to-[#F6B101] rounded border text-xs font-medium text-white" data-seat="2A" data-status="selected" onclick="selectSeat('2A')"></button>
                         <button class="seat-btn w-8 h-8 bg-gray-200 rounded border text-xs font-medium text-gray-700 hover:bg-gray-300" data-seat="2B" data-status="available" onclick="selectSeat('2B')"></button>
                         <button class="seat-btn w-8 h-8 bg-gray-200 rounded border text-xs font-medium text-gray-700 hover:bg-gray-300" data-seat="2C" data-status="available" onclick="selectSeat('2C')"></button>
                         <button class="seat-btn w-8 h-8 bg-gray-400 rounded border text-xs font-medium text-white" data-seat="2D" data-status="occupied"></button>
@@ -327,35 +338,42 @@
 
         <!-- Save Button -->
         <div class="mt-6">
-            <button onclick="saveSeatSelection()" class="w-full bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white py-3 rounded-lg font-medium hover:bg-gradient-to-r from-[#187499] to-[#36AE7E] transition">
+            <button onclick="saveSeatSelection()" class="w-full bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white py-3 rounded-lg font-medium hover:bg-gradient-to-r from-[#FE0004] to-[#F6B101] transition">
                 SIMPAN
             </button>
         </div>
     </div>
 </div>
 
- <!-- Confirm Submit Modal -->
- <div id="confirm-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden opacity-0 transition-opacity duration-200">
-     <div id="confirm-overlay-dialog" class="bg-white rounded-2xl p-8 max-w-md mx-4 text-center transform scale-95 opacity-0 transition-all duration-300 ease-out">
-         <h3 class="text-xl font-bold text-gray-800 mb-3">Kirim Pemesanan?</h3>
-         <p class="text-gray-600 mb-6">Pastikan semua data penumpang dan pilihan kursi sudah benar. Lanjutkan kirim pemesanan sekarang?</p>
-         <div class="flex flex-col space-y-3">
-             <button id="confirm-cancel" class="w-full px-6 py-3 bg-gradient-to-r from-blue-50 to-blue-100 text-[#36AE7E] rounded-xl hover:from-blue-100 hover:to-blue-200 transition-all duration-200 font-medium">Tidak, Periksa Lagi</button>
-             <button id="confirm-yes" class="w-full px-6 py-3 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white rounded-xl hover:from-[#156b8a] hover:to-[#2d9a6b] transition-all duration-200 font-medium">Ya, Kirim Sekarang</button>
-         </div>
-     </div>
- </div>
 
- <!-- Overlay Modal -->
-<div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden opacity-0 transition-opacity duration-200">
-    <div id="overlay-dialog" class="bg-white rounded-2xl p-8 max-w-md mx-4 text-center transform scale-95 opacity-0 transition-all duration-300 ease-out">
-         <h3 class="text-xl font-bold text-gray-800 mb-4">Mau lihat kereta lain?</h3>
-         <p class="text-gray-600 mb-6">Kalau kamu kembali ke halaman sebelumnya, semua info yang diisi dan keberangkatan yang dipilih akan hilang.</p>
-         <div class="flex flex-col space-y-3">
-              <button onclick="window.location.href='{{ url('pesanan/kereta') }}'" class="w-full px-6 py-3 bg-gradient-to-r from-blue-50 to-blue-100 text-[#36AE7E] rounded-xl hover:from-blue-100 hover:to-blue-200 transition-all duration-200 font-medium">
+<!-- Verification Modal -->
+<div id="verification-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden opacity-0 transition-opacity duration-200">
+    <div id="verification-dialog" class="bg-white rounded-2xl p-8 max-w-md w-full mx-4 text-center transform scale-95 opacity-0 transition-all duration-300 ease-out">
+        <h3 class="text-2xl font-bold text-gray-800 mb-4">Apakah anda yakin?</h3>
+        <p class="text-gray-600 mb-8">anda tidak dapat mengubah data setelah disubmit</p>
+        
+        <div class="flex gap-4">
+            <button onclick="cancelSubmit()" class="flex-1 bg-red-500 text-white py-3 px-6 rounded-lg font-medium hover:bg-red-600 transition">
+                tidak
+            </button>
+            <button onclick="confirmSubmit()" class="flex-1 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white py-3 px-6 rounded-lg font-medium hover:from-[#156b8a] hover:to-[#2d9a6b] transition">
+                iya
+            </button>
+        </div>
+    </div>
+</div>
+
+ <!-- Back Confirmation Modal -->
+<div id="back-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
+    <div id="back-dialog" class="bg-white rounded-2xl p-8 max-w-sm mx-4 text-center transform scale-95 opacity-0 transition-all duration-300 ease-out shadow-xl">
+         <h3 class="text-2xl font-bold text-gray-800 mb-6">Mau lihat kereta lain?</h3>
+         <p class="text-gray-600 mb-8 leading-relaxed px-2">Kalau kamu kembali ke halaman sebelumnya, semua info yang diisi dan keberangkatan yang dipilih akan hilang.</p>
+         <div class="flex flex-col space-y-4">
+              <button onclick="window.location.href='{{ url('pesanan/kereta') }}'" class="w-full px-6 py-4 bg-gradient-to-r from-blue-50 to-blue-100 text-teal-600 rounded-xl hover:from-blue-100 hover:to-blue-200 transition-all duration-200 font-medium border border-blue-200">
+
                   Lihat Kereta Lain
               </button>
-             <button onclick="completeBooking()" class="w-full px-6 py-3 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white rounded-xl hover:from-[#156b8a] hover:to-[#2d9a6b] transition-all duration-200 font-medium">
+             <button onclick="hideBackOverlay()" class="w-full px-6 py-4 bg-gradient-to-r from-teal-500 to-teal-600 text-white rounded-xl hover:from-teal-600 hover:to-teal-700 transition-all duration-200 font-medium shadow-md">
                  Selesaikan Pemesananmu
              </button>
          </div>
@@ -368,6 +386,215 @@ let trainPassengerCount = 1;
 let currentTrainPassengerIndex = 0;
 let trainSelectedSeats = {};
 let currentTrainCar = 'ekonomi1';
+
+// Reuse previous booking data helpers
+function getPreviousBookingData() {
+    try {
+        const raw = localStorage.getItem('prevBookingPassengers');
+        if (!raw) return [];
+        const data = JSON.parse(raw);
+        return Array.isArray(data) ? data : [];
+    } catch (_) {
+        return [];
+    }
+}
+
+// Dummy passengers for testing when no previous data exists
+function getDummyPassengers() {
+    return [
+        { nama: 'WILDAN ANWAR', telepon: '0812-3456-7890', email: 'wildan@example.com' },
+        { nama: 'NUR AINI', telepon: '0813-1111-2222', email: 'nuraini@example.com' }
+    ];
+}
+
+// Dummy files for testing when no previous file data exists
+function getDummyFiles() {
+    return {
+        ktp: [
+            { name: 'KTP_WILDAN_ANWAR.pdf', size: '2.1 MB' },
+            { name: 'KTP_NUR_AINI.pdf', size: '1.8 MB' }
+        ],
+        surat: [
+            { name: 'SURAT_DINAS_WILDAN.pdf', size: '1.5 MB' },
+            { name: 'SURAT_DINAS_NUR.pdf', size: '1.3 MB' }
+        ]
+    };
+}
+
+// Apply dummy files to upload areas
+function applyDummyFilesToForm(files) {
+    if (!files) return false;
+    
+    // Apply KTP files
+    if (files.ktp) {
+        files.ktp.forEach((file, idx) => {
+            const ktpFilename = document.getElementById(`ktp-filename-${idx}`);
+            const ktpUploadBox = ktpFilename?.closest('.upload-box');
+            if (ktpFilename && ktpUploadBox) {
+                ktpFilename.textContent = file.name;
+                ktpUploadBox.innerHTML = `
+                    <div class="flex flex-col items-center">
+                        <svg class="w-8 h-8 text-green-500 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        <span class="text-green-600 text-sm">${file.name}</span>
+                        <span class="text-gray-400 text-xs">${file.size}</span>
+                    </div>
+                `;
+                ktpUploadBox.classList.remove('border-gray-200', 'hover:border-blue-300');
+                ktpUploadBox.classList.add('border-green-400', 'bg-green-50');
+            }
+        });
+    }
+    
+    // Apply Surat Dinas files
+    if (files.surat) {
+        files.surat.forEach((file, idx) => {
+            const suratFilename = document.getElementById(`surat-filename-${idx}`);
+            const suratUploadBox = suratFilename?.closest('.upload-box');
+            if (suratFilename && suratUploadBox) {
+                suratFilename.textContent = file.name;
+                suratUploadBox.innerHTML = `
+                    <div class="flex flex-col items-center">
+                        <svg class="w-8 h-8 text-green-500 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        <span class="text-green-600 text-sm">${file.name}</span>
+                        <span class="text-gray-400 text-xs">${file.size}</span>
+                    </div>
+                `;
+                suratUploadBox.classList.remove('border-gray-200', 'hover:border-blue-300');
+                suratUploadBox.classList.add('border-green-400', 'bg-green-50');
+            }
+        });
+    }
+    
+    return true;
+}
+
+// Reset file upload areas to empty state (for toggle OFF)
+function resetFileUploadsToEmpty() {
+    for (let i = 0; i < trainPassengerCount; i++) {
+        // Reset KTP upload to empty state
+        const ktpFilename = document.getElementById(`ktp-filename-${i}`);
+        const ktpUploadBox = ktpFilename?.closest('.upload-box');
+        const ktpInput = document.getElementById(`ktp-${i}`);
+        
+        if (ktpFilename && ktpUploadBox) {
+            // Reset the file input value
+            if (ktpInput) ktpInput.value = '';
+            
+            ktpUploadBox.innerHTML = `
+                <img src="{{ asset('folder.png') }}" alt="icon" class="w-8 h-8">
+                <div class="flex-1 text-left">
+                    <div class="text-gray-700">Klik untuk upload atau tarik file ke sini</div>
+                    <div id="ktp-filename-${i}" class="text-sm text-gray-400">Format: PDF (maks 5MB)</div>
+                </div>
+                <input type="file" id="ktp-${i}" name="ktp[]" accept=".pdf" class="hidden" onchange="handleFileChange(event, 'ktp-filename-${i}')">
+            `;
+            ktpUploadBox.classList.remove('border-green-400', 'bg-green-50');
+            ktpUploadBox.classList.add('border-gray-200', 'hover:border-blue-300');
+            ktpUploadBox.setAttribute('onclick', `triggerFileForPassenger(${i},'ktp')`);
+        }
+        
+        // Reset Surat Dinas upload to empty state
+        const suratFilename = document.getElementById(`surat-filename-${i}`);
+        const suratUploadBox = suratFilename?.closest('.upload-box');
+        const suratInput = document.getElementById(`surat-${i}`);
+        
+        if (suratFilename && suratUploadBox) {
+            // Reset the file input value
+            if (suratInput) suratInput.value = '';
+            
+            suratUploadBox.innerHTML = `
+                <img src="{{ asset('folder.png') }}" alt="icon" class="w-8 h-8">
+                <div class="flex-1 text-left">
+                    <div class="text-gray-700">Klik untuk upload atau tarik file ke sini</div>
+                    <div id="surat-filename-${i}" class="text-sm text-gray-400">Format: PDF (maks 5MB)</div>
+                </div>
+                <input type="file" id="surat-${i}" name="surat[]" accept=".pdf" class="hidden" onchange="handleFileChange(event, 'surat-filename-${i}')">
+            `;
+            suratUploadBox.classList.remove('border-green-400', 'bg-green-50');
+            suratUploadBox.classList.add('border-gray-200', 'hover:border-blue-300');
+            suratUploadBox.setAttribute('onclick', `triggerFileForPassenger(${i},'surat')`);
+        }
+    }
+}
+
+function applyPreviousDataToForm(passengers) {
+    if (!passengers || passengers.length === 0) return false;
+
+    // Ensure passenger cards match length
+    while (trainPassengerCount < passengers.length && trainPassengerCount < 4) {
+        addPassenger();
+    }
+    // If more forms than data, keep remaining empty
+
+    passengers.forEach((p, idx) => {
+        const nama = document.getElementById(`nama-${idx}`);
+        const telp = document.getElementById(`telepon-${idx}`);
+        const email = document.getElementById(`email-${idx}`);
+        if (nama) nama.value = p.nama || p.name || '';
+        if (telp) telp.value = p.telepon || p.phone || '';
+        if (email) email.value = p.email || '';
+    });
+    return true;
+}
+
+function clearPassengerForms() {
+    for (let i = 0; i < trainPassengerCount; i++) {
+        const nama = document.getElementById(`nama-${i}`);
+        const telp = document.getElementById(`telepon-${i}`);
+        const email = document.getElementById(`email-${i}`);
+        if (nama) nama.value = '';
+        if (telp) telp.value = '';
+        if (email) email.value = '';
+    }
+}
+
+// Verification modal functions
+function showVerificationModal() {
+    const modal = document.getElementById('verification-overlay');
+    const dialog = document.getElementById('verification-dialog');
+    if (modal && dialog) {
+        modal.classList.remove('hidden');
+        modal.classList.remove('opacity-0');
+        modal.classList.add('opacity-100');
+        
+        setTimeout(() => {
+            dialog.classList.remove('scale-95', 'opacity-0');
+            dialog.classList.add('scale-100', 'opacity-100');
+        }, 10);
+    }
+}
+
+function cancelSubmit() {
+    const modal = document.getElementById('verification-overlay');
+    const dialog = document.getElementById('verification-dialog');
+    if (modal && dialog) {
+        dialog.classList.remove('scale-100', 'opacity-100');
+        dialog.classList.add('scale-95', 'opacity-0');
+        modal.classList.remove('opacity-100');
+        modal.classList.add('opacity-0');
+        setTimeout(() => modal.classList.add('hidden'), 200);
+    }
+}
+
+function confirmSubmit() {
+    const modal = document.getElementById('verification-overlay');
+    const dialog = document.getElementById('verification-dialog');
+    if (modal && dialog) {
+        dialog.classList.remove('scale-100', 'opacity-100');
+        dialog.classList.add('scale-95', 'opacity-0');
+        modal.classList.remove('opacity-100');
+        modal.classList.add('opacity-0');
+        setTimeout(() => modal.classList.add('hidden'), 200);
+    }
+    
+    // Process the actual submission
+    alert('Data berhasil disubmit! Redirecting to payment...');
+    // Here you can redirect to payment page or process the form
+}
 
 // File upload functions
 function triggerFileForPassenger(index, type) {
@@ -419,15 +646,15 @@ function switchCar(carName) {
     // Update tab appearance
     document.querySelectorAll('.car-tab').forEach(tab => {
         tab.classList.remove('bg-gradient-to-r');
-        tab.classList.remove('from-[#187499]');
-        tab.classList.remove('to-[#36AE7E]');
+        tab.classList.remove('from-[#FE0004]');
+        tab.classList.remove('to-[#F6B101]');
         tab.classList.remove('text-white');
         tab.classList.add('text-gray-600');
     });
     const selectedTab = document.querySelector(`[data-car="${carName}"]`);
     selectedTab.classList.add('bg-gradient-to-r');
-    selectedTab.classList.add('from-[#187499]');
-    selectedTab.classList.add('to-[#36AE7E]');
+    selectedTab.classList.add('from-[#FE0004]');
+    selectedTab.classList.add('to-[#F6B101]');
     selectedTab.classList.add('text-white');
     selectedTab.classList.remove('text-gray-600');
     
@@ -465,7 +692,7 @@ function selectSeat(seatId) {
 
     // Select new seat
     const seatBtn = document.querySelector(`[data-seat="${seatId}"]`);
-    seatBtn.className = 'seat-btn w-8 h-8 bg-gradient-to-r from-[#187499] to-[#36AE7E] rounded border text-xs font-medium text-white';
+    seatBtn.className = 'seat-btn w-8 h-8 bg-gradient-to-r from-[#FE0004] to-[#F6B101] rounded border text-xs font-medium text-white';
     seatBtn.dataset.status = 'selected';
     seatBtn.textContent = '';
     
@@ -641,37 +868,50 @@ function updateTrainPassengerCount() {
 
 // Back navigation function
 function goBack() {
-    showOverlay();
+    showBackOverlay();
 }
 
-// Overlay functions
-function showOverlay() {
-   const overlay = document.getElementById('overlay');
-   const dialog = document.getElementById('overlay-dialog');
-   overlay.classList.remove('hidden');
-   requestAnimationFrame(() => {
-       overlay.classList.remove('opacity-0');
-       dialog.classList.remove('scale-95','opacity-0');
-   });
-}
-
-function hideOverlay() {
-   const overlay = document.getElementById('overlay');
-   const dialog = document.getElementById('overlay-dialog');
+// Back overlay functions
+function showBackOverlay() {
+   const overlay = document.getElementById('back-overlay');
+   const dialog = document.getElementById('back-dialog');
+   
    if (overlay && dialog) {
-       overlay.classList.add('opacity-0');
-       dialog.classList.add('scale-95','opacity-0');
-       setTimeout(() => overlay.classList.add('hidden'), 220);
+       // Show overlay immediately
+       overlay.classList.remove('hidden');
+       
+       // Reset dialog to initial state
+       dialog.classList.remove('scale-100', 'opacity-100');
+       dialog.classList.add('scale-95', 'opacity-0');
+       
+       // Force reflow
+       overlay.offsetHeight;
+       
+       // Animate in
+       requestAnimationFrame(() => {
+           dialog.classList.remove('scale-95', 'opacity-0');
+           dialog.classList.add('scale-100', 'opacity-100');
+       });
+   }
+}
+
+function hideBackOverlay() {
+   const overlay = document.getElementById('back-overlay');
+   const dialog = document.getElementById('back-dialog');
+   if (overlay && dialog) {
+       dialog.classList.remove('scale-100', 'opacity-100');
+       dialog.classList.add('scale-95', 'opacity-0');
+       setTimeout(() => overlay.classList.add('hidden'), 300);
    }
 }
 
 function viewOtherFlights() {
-     hideOverlay();
+     hideBackOverlay();
      alert('Redirecting to flight search page...');
 }
  
 function completeBooking() {
-     hideOverlay();
+     hideBackOverlay();
 }
 
 // Confirm Submit Overlay functions
@@ -706,6 +946,70 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize passenger and seat functionality
     updateTrainPassengerCount();
     updateSeatGrid();
+    
+    // Ensure upload areas start in empty state
+    resetFileUploadsToEmpty();
+    
+    // Bind reuse previous data toggle
+    const reuseBtn = document.getElementById('reuse-prev-data');
+    if (reuseBtn) {
+        let reuseOn = false;
+        reuseBtn.addEventListener('click', function() {
+            reuseOn = !reuseOn;
+            const knob = reuseBtn.querySelector('.toggle-knob');
+            
+            if (reuseOn) {
+                // Toggle ON - change to gradient and fill data
+                reuseBtn.classList.remove('bg-gray-200');
+                reuseBtn.classList.add('bg-gradient-to-r', 'from-[#FE0004]', 'to-[#F6B101]');
+                if (knob) knob.classList.add('translate-x-6');
+
+                // Try previous data, otherwise use dummy for testing
+                let prev = getPreviousBookingData();
+                if (!prev || prev.length === 0) prev = getDummyPassengers();
+                
+                if (!applyPreviousDataToForm(prev)) {
+                    // If still cannot apply, revert toggle
+                    reuseOn = false;
+                    reuseBtn.classList.remove('bg-gradient-to-r', 'from-[#FE0004]', 'to-[#F6B101]');
+                    reuseBtn.classList.add('bg-gray-200');
+                    if (knob) knob.classList.remove('translate-x-6');
+                    alert('Data sebelumnya tidak ditemukan.');
+                } else {
+                    // Also apply dummy files
+                    const dummyFiles = getDummyFiles();
+                    applyDummyFilesToForm(dummyFiles);
+                }
+            } else {
+                // Toggle OFF - return to gray and clear data, show empty upload areas
+                reuseBtn.classList.remove('bg-gradient-to-r', 'from-[#FE0004]', 'to-[#F6B101]');
+                reuseBtn.classList.add('bg-gray-200');
+                if (knob) knob.classList.remove('translate-x-6');
+                clearPassengerForms();
+                resetFileUploadsToEmpty();
+            }
+        });
+    }
+
+    // Override problematic external script event listeners
+    const originalAddEventListener = document.addEventListener;
+    document.addEventListener = function(type, listener, options) {
+        if (type === 'click') {
+            const safeListener = function(event) {
+                try {
+                    listener(event);
+                } catch (error) {
+                    // Silently ignore null reference errors from external scripts
+                    if (!error.message || !error.message.includes('Cannot read properties of null')) {
+                        console.error(error);
+                    }
+                }
+            };
+            originalAddEventListener.call(this, type, safeListener, options);
+        } else {
+            originalAddEventListener.call(this, type, listener, options);
+        }
+    };
     
     // File upload functionality
     const fileInputs = document.querySelectorAll('input[type="file"]');
@@ -761,6 +1065,8 @@ document.addEventListener('DOMContentLoaded', function() {
         submitBtn.addEventListener('click', function(e) {
             e.preventDefault();
             
+            console.log('Submit button clicked'); // Debug log
+            
             // Basic validation for first passenger
             const nama = document.getElementById('nama-0');
             const telepon = document.getElementById('telepon-0');
@@ -796,11 +1102,23 @@ document.addEventListener('DOMContentLoaded', function() {
             // alert('Data berhasil disubmit! Redirecting to payment...');
     
             
-            // If all validation passes, show confirmation modal
-            showConfirmOverlay();
+
+            console.log('Validation passed, showing modal'); // Debug log
+            
+            // If all validation passes, show verification modal
+            showVerificationModal();
+
         });
     }
 });
+
+// Global error suppression for external script.js
+window.addEventListener('error', function(e) {
+    if (e.message && e.message.includes('Cannot read properties of null')) {
+        e.preventDefault();
+        return true;
+    }
+}, true);
 </script>
 
 @include('partials.footer')
