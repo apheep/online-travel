@@ -55,6 +55,10 @@ Route::post('/checkout/process', [PesawatController::class, 'processCheckout']);
 Route::get('/checkout/available-seats', [PesawatController::class, 'getAvailableSeats']);
 
 
+Route::get('/check/report', function () {
+    return view('check.report');
+});
+
 // Checkout hotel route
 Route::get('/checkout/checkout-hotel', function () {
     return view('checkout.checkout-hotel');
