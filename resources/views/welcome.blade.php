@@ -37,7 +37,7 @@
         </div>
         
         <div class="relative group">
-          <a href="#" class="bg-gradient-to-r from-[#187499] to-[#36AE7E] px-6 py-3 rounded-full font-medium hover:from-[#156b8a] hover:to-[#2d9a6e] transition-all duration-300 shadow-lg flex items-center justify-center gap-3 text-white cursor-pointer">
+          <a href="#" class="bg-gradient-to-r from-[#FE0004] to-[#F6B101] px-6 py-3 rounded-full font-medium  transition-all duration-300 shadow-lg flex items-center justify-center gap-3 text-white cursor-pointer hover:scale-105">
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
             </svg>
@@ -55,7 +55,7 @@
               <div class="py-2">
                     <form action="{{ route('logout') }}" method="POST" class="inline">
                     @csrf
-                    <button type="submit" class="w-full flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-gradient-to-r hover:from-[#187499] hover:to-[#36AE7E] hover:text-white rounded-lg transition-all duration-200 group/item">
+                    <button type="submit" class="w-full flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-gradient-to-r  hover:from-[#FE0004] hover:to-[#F6B101] hover:text-white rounded-lg transition-all duration-200 group/item">
                       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
                       </svg>
@@ -96,7 +96,7 @@
           <!-- Mobile User Profile -->
           <div class="mb-6">
             <!-- User Info Card -->
-            <div class="bg-gradient-to-r from-[#187499] to-[#36AE7E] rounded-2xl p-4 text-white shadow-lg">
+            <div class="bg-gradient-to-r from-[#FE0004] to-[#F6B101] rounded-2xl p-4 text-white shadow-lg ">
               <div class="flex items-center gap-3 mb-3">
                 <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
                   <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
@@ -125,7 +125,7 @@
           <!-- Mobile Action Buttons -->
           <div class="mb-4 grid grid-cols-2 gap-3">
             <!-- History Button -->
-            <button class="bg-white border-2 border-gray-100 hover:border-[#187499] text-gray-700 hover:text-[#187499] py-4 px-4 rounded-2xl font-medium transition-all duration-300 flex flex-col items-center gap-2 shadow-sm hover:shadow-md">
+            <button class="bg-white border-2 border-gray-100 hover:border-[#FE0004] text-gray-700 hover:text-[#FE0004] py-4 px-4 rounded-2xl font-medium transition-all duration-300 flex flex-col items-center gap-2 shadow-sm hover:shadow-md">
               <div class=" flex items-center justify-center">
                 <img src="/history.png" alt="History" class="w-4 h-5">
               </div>
@@ -133,7 +133,7 @@
             </button>
             
             <!-- Notification Button -->
-            <a href="{{ route('notifications.mailbox') }}" class="bg-white border-2 border-gray-100 hover:border-[#36AE7E] text-gray-700 hover:text-[#36AE7E] py-4 px-4 rounded-2xl font-medium transition-all duration-300 flex flex-col items-center gap-2 shadow-sm hover:shadow-md relative">
+            <a href="{{ route('notifications.mailbox') }}" class="bg-white border-2 border-gray-100 hover:border-[#F6B101] text-gray-700 hover:text-[#F6B101] py-4 px-4 rounded-2xl font-medium transition-all duration-300 flex flex-col items-center gap-2 shadow-sm hover:shadow-md relative">
               <div class="flex items-center justify-center">
                 <img src="/notif.png" alt="Notifications" class="w-4 h-5">
               </div>
@@ -161,7 +161,7 @@
         <!-- Tab Navigation -->
         <div class="bg-white rounded-2xl p-2.5 shadow-lg">
           <div class="flex space-x-1">
-            <button onclick="switchTab(this, 'hotel')" class="tab-btn flex-1 flex items-center justify-center space-x-2 bg-green-50 text-green-600 py-2 px-2.5 rounded-lg font-medium  hover:bg-gray-100 text-sm transition-all duration-200" data-tab="hotel">
+            <button onclick="switchTab(this, 'hotel')" class="tab-btn flex-1 flex items-center justify-center space-x-2 bg-rose-50 text-rose-600 py-2 px-2.5 rounded-lg font-medium  hover:bg-gray-100 text-sm transition-all duration-200" data-tab="hotel">
               <img src="/ri_hotel-fill.png" alt="Hotel" class="w-4 h-4">
               <span>Hotel</span>
             </button>
@@ -314,7 +314,7 @@
             </div>
           </div>
 
-          <button onclick="handleSearch()" class="w-full bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white py-3 px-6 rounded-lg font-semibold text-sm hover:from-[#156b8a] hover:to-[#2d9a6e] transition-all duration-300 shadow-md mt-5">
+          <button onclick="handleSearch()" class="w-full bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white py-3 px-6 rounded-xl font-semibold text-sm  transition-all duration-300 shadow-md mt-5 hover:scale-105">
             Ayo cari!
           </button>
         </div>
@@ -415,13 +415,13 @@
         // Remove active state from all tabs
         const allTabs = document.querySelectorAll('.tab-btn');
         allTabs.forEach(tab => {
-          tab.classList.remove('bg-green-50', 'text-green-600');
+          tab.classList.remove('bg-rose-50', 'text-rose-600');
           tab.classList.add('text-gray-500');
         });
         
         // Add active state to clicked tab
         clickedTab.classList.remove('text-gray-500');
-        clickedTab.classList.add('bg-green-50', 'text-green-600');
+        clickedTab.classList.add('bg-rose-50', 'text-rose-600');
         
         // Hide all forms
         document.getElementById('hotel-form').classList.add('hidden');
@@ -436,11 +436,11 @@
       function toggleRoundTrip(type) {
         const toggle = document.getElementById(type + '-toggle');
         const returnField = document.getElementById(type + '-return');
-        const isActive = toggle.classList.contains('bg-green-500');
+        const isActive = toggle.classList.contains('bg-rose-500');
         
         if (isActive) {
           // Turn off round trip
-          toggle.classList.remove('bg-green-500');
+          toggle.classList.remove('bg-rose-500');
           toggle.classList.add('bg-gray-200');
           toggle.querySelector('span').classList.remove('translate-x-6');
           toggle.querySelector('span').classList.add('translate-x-1');
@@ -448,7 +448,7 @@
         } else {
           // Turn on round trip
           toggle.classList.remove('bg-gray-200');
-          toggle.classList.add('bg-green-500');
+          toggle.classList.add('bg-rose-500');
           toggle.querySelector('span').classList.remove('translate-x-1');
           toggle.querySelector('span').classList.add('translate-x-6');
           returnField.classList.remove('hidden');

@@ -34,7 +34,7 @@
                 
                 <!-- Date and Trip Type -->
                 <div class="flex flex-col sm:flex-row items-center justify-center mb-6 sm:mb-8 space-y-2 sm:space-y-0">
-                    <span class="bg-gradient-to-r from-[#187499] to-[#36AE7E] text-sm font-medium px-3 sm:px-4 py-2 rounded-full sm:mr-4 text-white">
+                    <span class="bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-sm font-medium px-3 sm:px-4 py-2 rounded-full sm:mr-4 text-white">
                         Pergi
                     </span>
                     <span class="font-semibold text-gray-800 text-base sm:text-lg">
@@ -85,10 +85,10 @@
                 </div>
             </div>
 
-            <!-- Additional Details Section -->
+            <!--  Additional Details Section -->
             <div class="bg-white rounded-2xl shadow-lg p-4 sm:p-6 mb-4 sm:mb-6">
                 <div class="flex flex-col sm:flex-row gap-6">
-                    <!-- Detail Pekerjaan -->
+                     <!-- Detail Pekerjaan -->
                     <div class="flex gap-4 flex-1">
                         <img src="{{ asset('detailpekerjaan.png') }}" 
                             alt="Detail Pekerjaan" 
@@ -114,7 +114,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> 
             <!-- Booking Details and Supporting Documents Section -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
                 <!-- Booking Details Section -->
@@ -188,13 +188,25 @@
 
         <!-- Submit Button -->
         <div class="text-center">
-            <button type="submit" 
-                    class="w-full max-w-md bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white font-bold py-4 px-8 rounded-xl hover:from-[#156b8a] hover:to-[#2d9a6b] transition-all duration-200 transform hover:scale-105 shadow-lg">
+            <button type="submit" id="checkout-submit"
+                    class="w-full max-w-md bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white font-bold py-4 px-8 rounded-xl hover:from-[#156b8a] hover:to-[#2d9a6b] transition-all duration-200 transform hover:scale-105 shadow-lg">
                 SUBMIT
             </button>
         </div>
     </div>
 </body>
+
+<!-- Confirm Submit Modal -->
+<div id="confirm-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden opacity-0 transition-opacity duration-200">
+    <div id="confirm-overlay-dialog" class="bg-white rounded-2xl p-8 max-w-md mx-4 text-center transform scale-95 opacity-0 transition-all duration-300 ease-out">
+        <h3 class="text-xl font-bold text-gray-800 mb-3">Kirim Pemesanan?</h3>
+        <p class="text-gray-600 mb-6">Pastikan semua data pemesanan sudah benar. Lanjutkan kirim pemesanan sekarang?</p>
+        <div class="flex flex-col space-y-3">
+            <button id="confirm-cancel" class="w-full px-6 py-3 bg-gradient-to-r from-blue-50 to-blue-100 text-[#F6B101] rounded-xl hover:from-blue-100 hover:to-blue-200 transition-all duration-200 font-medium">Tidak, Periksa Lagi</button>
+            <button id="confirm-yes" class="w-full px-6 py-3 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white rounded-xl hover:from-[#156b8a] hover:to-[#2d9a6b] transition-all duration-200 font-medium">Ya, Kirim Sekarang</button>
+        </div>
+    </div>
+</div>
 
 <!-- Overlay Modal -->
 <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden opacity-0 transition-opacity duration-300 ease-out">
@@ -224,11 +236,11 @@
         <!-- Actions -->
         <div class="flex flex-col space-y-3">
             <button onclick="viewOtherFlights()" 
-                    class="w-full px-6 py-3 bg-gradient-to-r from-blue-50 to-blue-100 text-[#36AE7E] rounded-xl hover:from-blue-100 hover:to-blue-200 transition-all duration-200 font-medium">
+                    class="w-full px-6 py-3 bg-gradient-to-r from-blue-50 to-blue-100 text-[#F6B101] rounded-xl hover:from-blue-100 hover:to-blue-200 transition-all duration-200 font-medium">
                 Lihat Penerbangan Lain
             </button>
             <button onclick="completeBooking()" 
-                    class="w-full px-6 py-3 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white rounded-xl hover:from-[#156b8a] hover:to-[#2d9a6b] transition-all duration-200 font-medium">
+                    class="w-full px-6 py-3 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white rounded-xl hover:from-[#156b8a] hover:to-[#2d9a6b] transition-all duration-200 font-medium">
                 Selesaikan Pemesananmu
             </button>
         </div>
@@ -286,6 +298,32 @@
         // Stay on current page
     }
 
+    // Confirm Submit Overlay functions
+    function showConfirmOverlay() {
+        const overlay = document.getElementById('confirm-overlay');
+        const dialog = document.getElementById('confirm-overlay-dialog');
+        if (!overlay || !dialog) return;
+        overlay.classList.remove('hidden');
+        requestAnimationFrame(() => {
+            overlay.classList.remove('opacity-0');
+            dialog.classList.remove('scale-95','opacity-0');
+        });
+    }
+
+    function hideConfirmOverlay() {
+        const overlay = document.getElementById('confirm-overlay');
+        const dialog = document.getElementById('confirm-overlay-dialog');
+        if (!overlay || !dialog) return;
+        overlay.classList.add('opacity-0');
+        dialog.classList.add('scale-95','opacity-0');
+        setTimeout(() => overlay.classList.add('hidden'), 220);
+    }
+
+    function handleConfirmSubmit() {
+        hideConfirmOverlay();
+        window.location.href = "{{ url('receipt/pesawatreceipt') }}";
+    }
+
     document.addEventListener('DOMContentLoaded', function() {
         // File upload functionality
         const fileInputs = document.querySelectorAll('input[type="file"]');
@@ -315,10 +353,25 @@
             });
         });
         
-        // Form validation and submission
-        const submitBtn = document.querySelector('button[type="submit"]');
+        // Confirm modal button events
+        const confirmCancel = document.getElementById('confirm-cancel');
+        if (confirmCancel) {
+            confirmCancel.addEventListener('click', function() {
+                hideConfirmOverlay();
+            });
+        }
+
+        const confirmYes = document.getElementById('confirm-yes');
+        if (confirmYes) {
+            confirmYes.addEventListener('click', function() {
+                handleConfirmSubmit();
+            });
+        }
+
+        // Form validation and submission (scope only to this page's submit)
+        const submitBtn = document.getElementById('checkout-submit');
         
-        submitBtn.addEventListener('click', function(e) {
+        if (submitBtn) submitBtn.addEventListener('click', function(e) {
             e.preventDefault();
             
             const nama = document.getElementById('nama').value;
@@ -327,25 +380,25 @@
             const ktp = document.getElementById('ktp').files[0];
             const suratDinas = document.getElementById('surat_dinas').files[0];
             
-            if (!nama || !telepon || !email || !ktp || !suratDinas) {
-                alert('Mohon lengkapi semua data yang diperlukan');
-                return;
-            }
+            // if (!nama || !telepon || !email || !ktp || !suratDinas) {
+            //     alert('Mohon lengkapi semua data yang diperlukan');
+            //     return;
+            // }
             
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                alert('Format email tidak valid');
-                return;
-            }
+            // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            // if (!emailRegex.test(email)) {
+            //     alert('Format email tidak valid');
+            //     return;
+            // }
             
-            const phoneRegex = /^[0-9+\-\s()]+$/;
-            if (!phoneRegex.test(telepon)) {
-                alert('Format nomor telepon tidak valid');
-                return;
-            }
+            // const phoneRegex = /^[0-9+\-\s()]+$/;
+            // if (!phoneRegex.test(telepon)) {
+            //     alert('Format nomor telepon tidak valid');
+            //     return;
+            // }
             
-            alert('Data berhasil disubmit! Redirecting to payment...');
-            // redirect ke halaman payment
+            // Tampilkan modal konfirmasi setelah validasi lolos
+            showConfirmOverlay();
         });
     });
 </script>
