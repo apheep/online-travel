@@ -4,7 +4,7 @@
 
 @include('partials.navbarcheck')
 
-<body class="bg-[F4F7FE] min-h-screen font-poppins">
+<body class="bg-gray-50 min-h-screen font-poppins">
   <!-- Main Content -->
   <main id="page-main" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 opacity-0 translate-y-2 transition-all duration-500 ease-out">
 
@@ -20,7 +20,7 @@
   <div class="w-full sm:max-w-sm">
     <div class="relative">
       <input type="text" placeholder="Search"
-             class="w-full pl-3 pr-10 py-2 border-2 border-gray-200 rounded-full text-sm focus:outline-none focus:ring-0 hover:border-[#187499] focus:border-[#36AE7E] transition-all duration-200">
+             class="w-full pl-3 pr-10 py-2 border-2 border-gray-200 rounded-full text-sm focus:outline-none focus:ring-0 hover:border-[#FE0004] focus:border-[#F6B101] transition-all duration-200">
       <button class="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700 transition-colors duration-200">
         <i class="fas fa-search"></i>
       </button>
@@ -31,10 +31,10 @@
   <div class="flex flex-col sm:flex-row sm:items-center gap-3 w-full sm:w-auto">
     <div class="flex items-center gap-2 w-full sm:w-auto">
       <input type="date"
-             class="flex-1 px-4 py-2 border-2 border-gray-200 rounded-full text-gray-700 focus:outline-none focus:ring-0 focus:border-[#36AE7E] transition-all duration-200">
+             class="flex-1 px-4 py-2 border-2 border-gray-200 rounded-full text-gray-700 focus:outline-none focus:ring-0 focus:border-[#F6B101] transition-all duration-200">
       <span class="text-gray-500 text-sm text-center">to</span>
       <input type="date"
-             class="flex-1 px-4 py-2 border-2 border-gray-200 rounded-full text-gray-700 focus:outline-none focus:ring-0 focus:border-[#36AE7E] transition-all duration-200">
+             class="flex-1 px-4 py-2 border-2 border-gray-200 rounded-full text-gray-700 focus:outline-none focus:ring-0 focus:border-[#F6B101] transition-all duration-200">
     </div>
     <button class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-full transition-colors duration-200 flex items-center justify-center space-x-2 focus:outline-none w-full sm:w-auto">
       <i class="fas fa-filter text-sm"></i>
@@ -71,7 +71,7 @@
             btn.className = 'px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-300 transition';
           }
         });
-        clicked.className = 'px-4 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white rounded-full text-sm font-medium';
+        clicked.className = 'px-4 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white rounded-full text-sm font-medium';
       }
 
       function applyFilter(filterLabel) {

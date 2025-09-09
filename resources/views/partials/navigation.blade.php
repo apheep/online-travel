@@ -25,7 +25,7 @@
         </div>
         
         <div class="relative">
-          <button id="user-menu-btn" class="bg-gradient-to-r from-[#187499] to-[#36AE7E] px-6 py-3 rounded-full font-medium hover:from-[#156b8a] hover:to-[#2d9a6e] transition-all duration-300 shadow-lg flex items-center justify-center gap-3 text-white cursor-pointer">
+          <button id="user-menu-btn" class="bg-gradient-to-r from-[#FE0004] to-[#F6B101] px-6 py-3 rounded-full font-medium  transition-all duration-300 shadow-lg flex items-center justify-center gap-3 text-white cursor-pointer hover:scale-105">
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
             </svg>
@@ -34,7 +34,7 @@
               <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path>
             </svg>
           </button>
-          <div id="user-dropdown" class="absolute right-0 mt-3 w-56 bg-white rounded-xl shadow-2xl opacity-0 invisible transition-all duration-300 z-50 border border-gray-100 transform scale-95 origin-top-right">
+          <div id="user-dropdown" class="absolute right-0 mt-3 w-56 bg-white rounded-xl shadow-2xl opacity-0 invisible transition-all duration-300 z-50 border border-gray-100 transform scale-95 origin-top-right hover:scale-105">
             <div class="p-2">
               <div class="px-4 py-3 border-b border-gray-100">
                 <p class="text-sm font-medium text-gray-900">Hi, {{ Auth::user()->name }}</p>
@@ -43,7 +43,7 @@
               <div class="py-2">
                     <form action="{{ route('logout') }}" method="POST" class="inline">
                     @csrf
-                    <button type="submit" class="w-full flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-gradient-to-r hover:from-[#187499] hover:to-[#36AE7E] hover:text-white rounded-lg transition-all duration-200 group/item">
+                    <button type="submit" class="w-full flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-gradient-to-r hover:from-[#F6B101] hover:to-[#FE0004] hover:text-white rounded-lg transition-all duration-200 group/item">
                       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
                       </svg>
@@ -84,7 +84,7 @@
           <!-- Mobile User Profile -->
           <div class="mb-6">
             <!-- User Info Card -->
-            <div class="bg-gradient-to-r from-[#187499] to-[#36AE7E] rounded-2xl p-4 text-white shadow-lg">
+            <div class="bg-gradient-to-r from-[#FE0004] to-[#F6B101] rounded-2xl p-4 text-white shadow-lg">
               <div class="flex items-center gap-3 mb-3">
                 <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
                   <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
@@ -113,7 +113,7 @@
           <!-- Mobile Action Buttons -->
           <div class="mb-4 grid grid-cols-2 gap-3">
             <!-- History Button -->
-            <a href="{{ route('history') }}" class="bg-white border-2 border-gray-100 hover:border-[#187499] text-gray-700 hover:text-[#187499] py-4 px-4 rounded-2xl font-medium transition-all duration-300 flex flex-col items-center gap-2 shadow-sm hover:shadow-md">
+            <a href="{{ route('history') }}" class="bg-white border-2 border-gray-100 hover:border-[#FE0004] text-gray-700 hover:text-[#FE0004] py-4 px-4 rounded-2xl font-medium transition-all duration-300 flex flex-col items-center gap-2 shadow-sm hover:shadow-md">
               <div class=" flex items-center justify-center">
                 <img src="/history.png" alt="History" class="w-4 h-5">
               </div>
@@ -121,7 +121,7 @@
             </a>
             
             <!-- Notification Button -->
-            <a href="{{ route('notifications.mailbox') }}" class="bg-white border-2 border-gray-100 hover:border-[#36AE7E] text-gray-700 hover:text-[#36AE7E] py-4 px-4 rounded-2xl font-medium transition-all duration-300 flex flex-col items-center gap-2 shadow-sm hover:shadow-md relative">
+            <a href="{{ route('notifications.mailbox') }}" class="bg-white border-2 border-gray-100 hover:border-[#FE0004] text-gray-700 hover:text-[#FE0004] py-4 px-4 rounded-2xl font-medium transition-all duration-300 flex flex-col items-center gap-2 shadow-sm hover:shadow-md relative">
               <div class="flex items-center justify-center">
                 <img src="/notif.png" alt="Notifications" class="w-4 h-5">
               </div>

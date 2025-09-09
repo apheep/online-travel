@@ -454,7 +454,7 @@ function switchTripType(type) {
     returnDateSection.style.transition = 'all 0.4s ease-out';
     
     if (type === 'oneWay') {
-        oneWayBtn.style.background = 'linear-gradient(135deg, #187499 0%, #36AE7E 100%)';
+        oneWayBtn.style.background = 'linear-gradient(135deg, #FE0004 0%, #F6B101 100%)';
         oneWayBtn.style.color = 'white';
         oneWayBtn.style.transform = 'scale(1)';
         
@@ -473,7 +473,7 @@ function switchTripType(type) {
         oneWayBtn.style.color = '#374151';
         oneWayBtn.style.transform = 'scale(1)';
         
-        roundTripBtn.style.background = 'linear-gradient(135deg, #187499 0%, #36AE7E 100%)';
+        roundTripBtn.style.background = 'linear-gradient(135deg, #FE0004 0%, #F6B101 100%)';
         roundTripBtn.style.color = 'white';
         roundTripBtn.style.transform = 'scale(1)';
         
@@ -535,7 +535,7 @@ function generateCalendarDays(month, year) {
                 dayClass += ' shadow-md';
                 dayClass += ' transition-all duration-200';
                 dayClass += ' transform scale-105';
-                dayClass += ' bg-gradient-to-r from-[#187499] to-[#36AE7E]';
+                dayClass += ' bg-gradient-to-r from-[#FE0004] to-[#F6B101]';
             } else if (isToday) {
                 dayClass += ' text-blue-600 font-semibold';
             } else {

@@ -72,7 +72,7 @@
 
             <!-- Search Button -->
             <div class="sm:ml-auto">
-              <button onclick="searchFlights()" class="w-full sm:w-auto text-white px-6 py-2 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95 text-sm sm:text-base" style="background: linear-gradient(90deg, #187499 0%, #36AE7E 100%);">
+              <button onclick="searchFlights()" class="w-full sm:w-auto text-white px-6 py-2 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95 text-sm sm:text-base bg-gradient-to-r from-[#FE0004] to-[#F6B101]">
                 <span class="flex items-center justify-center space-x-2">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
@@ -140,22 +140,22 @@
                     <div class="mb-6">
                         <h4 class="text-sm font-semibold text-gray-900 mb-3">Kota Populer</h4>
                         <div class="grid grid-cols-3 gap-2">
-                            <button onclick="selectDeparturePopularLocation('Jakarta')" class="p-3 border border-gray-300 rounded-lg hover:bg-gradient-to-r hover:from-[#187499] hover:to-[#36AE7E] hover:text-white hover:border-transparent transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out text-sm font-medium text-gray-700">
+                            <button onclick="selectDeparturePopularLocation('Jakarta')" class="p-3 border border-gray-300 rounded-lg hover:bg-gradient-to-r  hover:text-white hover:border-transparent transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out text-sm font-medium text-gray-700">
                                 Jakarta
                             </button>
-                            <button onclick="selectDeparturePopularLocation('Surabaya')" class="p-3 border border-gray-300 rounded-lg hover:bg-gradient-to-r hover:from-[#187499] hover:to-[#36AE7E] hover:text-white hover:border-transparent transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out text-sm font-medium text-gray-700">
+                            <button onclick="selectDeparturePopularLocation('Surabaya')" class="p-3 border border-gray-300 rounded-lg hover:bg-gradient-to-r  hover:text-white hover:border-transparent transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out text-sm font-medium text-gray-700">
                                 Surabaya
                             </button>
-                            <button onclick="selectDeparturePopularLocation('Medan')" class="p-3 border border-gray-300 rounded-lg hover:bg-gradient-to-r hover:from-[#187499] hover:to-[#36AE7E] hover:text-white hover:border-transparent transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out text-sm font-medium text-gray-700">
+                            <button onclick="selectDeparturePopularLocation('Medan')" class="p-3 border border-gray-300 rounded-lg hover:bg-gradient-to-r  hover:text-white hover:border-transparent transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out text-sm font-medium text-gray-700">
                                 Medan
                             </button>
-                            <button onclick="selectDeparturePopularLocation('Makassar')" class="p-3 border border-gray-300 rounded-lg hover:bg-gradient-to-r hover:from-[#187499] hover:to-[#36AE7E] hover:text-white hover:border-transparent transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out text-sm font-medium text-gray-700">
+                            <button onclick="selectDeparturePopularLocation('Makassar')" class="p-3 border border-gray-300 rounded-lg hover:bg-gradient-to-r  hover:text-white hover:border-transparent transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out text-sm font-medium text-gray-700">
                                 Makassar
                             </button>
-                            <button onclick="selectDeparturePopularLocation('Yogyakarta')" class="p-3 border border-gray-300 rounded-lg hover:bg-gradient-to-r hover:from-[#187499] hover:to-[#36AE7E] hover:text-white hover:border-transparent transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out text-sm font-medium text-gray-700">
+                            <button onclick="selectDeparturePopularLocation('Yogyakarta')" class="p-3 border border-gray-300 rounded-lg hover:bg-gradient-to-r  hover:text-white hover:border-transparent transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out text-sm font-medium text-gray-700">
                                 Yogyakarta
                             </button>
-                            <button onclick="selectDeparturePopularLocation('Balikpapan')" class="p-3 border border-gray-300 rounded-lg hover:bg-gradient-to-r hover:from-[#187499] hover:to-[#36AE7E] hover:text-white hover:border-transparent transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out text-sm font-medium text-gray-700">
+                            <button onclick="selectDeparturePopularLocation('Balikpapan')" class="p-3 border border-gray-300 rounded-lg hover:bg-gradient-to-r  hover:text-white hover:border-transparent transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out text-sm font-medium text-gray-700">
                                 Balikpapan
                             </button>
                         </div>
@@ -229,22 +229,22 @@
                     <div class="mb-6">
                         <h4 class="text-sm font-semibold text-gray-900 mb-3">Destinasi Populer</h4>
                         <div class="grid grid-cols-3 gap-2">
-                            <button onclick="selectArrivalPopularLocation('Denpasar-Bali')" class="p-3 border border-gray-300 rounded-lg hover:bg-gradient-to-r hover:from-[#187499] hover:to-[#36AE7E] hover:text-white hover:border-transparent transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out text-sm font-medium text-gray-700">
+                            <button onclick="selectArrivalPopularLocation('Denpasar-Bali')" class="p-3 border border-gray-300 rounded-lg hover:bg-gradient-to-r  hover:text-white hover:border-transparent transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out text-sm font-medium text-gray-700">
                                 Denpasar-Bali
                             </button>
-                            <button onclick="selectArrivalPopularLocation('Surabaya')" class="p-3 border border-gray-300 rounded-lg hover:bg-gradient-to-r hover:from-[#187499] hover:to-[#36AE7E] hover:text-white hover:border-transparent transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out text-sm font-medium text-gray-700">
+                            <button onclick="selectArrivalPopularLocation('Surabaya')" class="p-3 border border-gray-300 rounded-lg hover:bg-gradient-to-r  hover:text-white hover:border-transparent transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out text-sm font-medium text-gray-700">
                                 Surabaya
                             </button>
-                            <button onclick="selectArrivalPopularLocation('Medan')" class="p-3 border border-gray-300 rounded-lg hover:bg-gradient-to-r hover:from-[#187499] hover:to-[#36AE7E] hover:text-white hover:border-transparent transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out text-sm font-medium text-gray-700">
+                            <button onclick="selectArrivalPopularLocation('Medan')" class="p-3 border border-gray-300 rounded-lg hover:bg-gradient-to-r  hover:text-white hover:border-transparent transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out text-sm font-medium text-gray-700">
                                 Medan
                             </button>
-                            <button onclick="selectArrivalPopularLocation('Makassar')" class="p-3 border border-gray-300 rounded-lg hover:bg-gradient-to-r hover:from-[#187499] hover:to-[#36AE7E] hover:text-white hover:border-transparent transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out text-sm font-medium text-gray-700">
+                            <button onclick="selectArrivalPopularLocation('Makassar')" class="p-3 border border-gray-300 rounded-lg hover:bg-gradient-to-r  hover:text-white hover:border-transparent transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out text-sm font-medium text-gray-700">
                                 Makassar
                             </button>
-                            <button onclick="selectArrivalPopularLocation('Yogyakarta')" class="p-3 border border-gray-300 rounded-lg hover:bg-gradient-to-r hover:from-[#187499] hover:to-[#36AE7E] hover:text-white hover:border-transparent transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out text-sm font-medium text-gray-700">
+                            <button onclick="selectArrivalPopularLocation('Yogyakarta')" class="p-3 border border-gray-300 rounded-lg hover:bg-gradient-to-r  hover:text-white hover:border-transparent transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out text-sm font-medium text-gray-700">
                                 Yogyakarta
                             </button>
-                            <button onclick="selectArrivalPopularLocation('Balikpapan')" class="p-3 border border-gray-300 rounded-lg hover:bg-gradient-to-r hover:from-[#187499] hover:to-[#36AE7E] hover:text-white hover:border-transparent transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out text-sm font-medium text-gray-700">
+                            <button onclick="selectArrivalPopularLocation('Balikpapan')" class="p-3 border border-gray-300 rounded-lg hover:bg-gradient-to-r  hover:text-white hover:border-transparent transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out text-sm font-medium text-gray-700">
                                 Balikpapan
                             </button>
                         </div>
@@ -360,7 +360,7 @@
                     <div class="flex space-x-3 px-4 pb-4" style="scrollbar-width: none; -ms-overflow-style: none;">
                     
                     <!-- Date Card 1 -->
-                    <div class="flex-shrink-0 bg-white border border-gray-200 rounded-2xl p-4 min-w-[120px] hover:border-[#187499] hover:shadow-md transition-all duration-200 cursor-pointer group">
+                    <div class="flex-shrink-0 bg-white border border-gray-200 rounded-2xl p-4 min-w-[120px] hover:border-[#FE0004] hover:shadow-md transition-all duration-200 cursor-pointer group">
                         <div class="text-center">
                             <div class="text-xs text-gray-500 font-medium mb-1">SEN</div>
                             <div class="text-xl font-bold text-gray-900 mb-1">1</div>
@@ -370,7 +370,7 @@
                     </div>
 
                     <!-- Date Card 2 -->
-                    <div class="flex-shrink-0 bg-white border border-gray-200 rounded-2xl p-4 min-w-[120px] hover:border-[#187499] hover:shadow-md transition-all duration-200 cursor-pointer group">
+                    <div class="flex-shrink-0 bg-white border border-gray-200 rounded-2xl p-4 min-w-[120px] hover:border-[#FE0004] hover:shadow-md transition-all duration-200 cursor-pointer group">
                         <div class="text-center">
                             <div class="text-xs text-gray-500 font-medium mb-1">SEL</div>
                             <div class="text-xl font-bold text-gray-900 mb-1">2</div>
@@ -380,7 +380,7 @@
                     </div>
 
                     <!-- Date Card 3 -->
-                    <div class="flex-shrink-0 bg-white border border-gray-200 rounded-2xl p-4 min-w-[120px] hover:border-[#187499] hover:shadow-md transition-all duration-200 cursor-pointer group">
+                    <div class="flex-shrink-0 bg-white border border-gray-200 rounded-2xl p-4 min-w-[120px] hover:border-[#FE0004] hover:shadow-md transition-all duration-200 cursor-pointer group">
                         <div class="text-center">
                             <div class="text-xs text-gray-500 font-medium mb-1">RAB</div>
                             <div class="text-xl font-bold text-gray-900 mb-1">3</div>
@@ -390,7 +390,7 @@
                     </div>
 
                     <!-- Date Card 4 -->
-                    <div class="flex-shrink-0 bg-white border border-gray-200 rounded-2xl p-4 min-w-[120px] hover:border-[#187499] hover:shadow-md transition-all duration-200 cursor-pointer group">
+                    <div class="flex-shrink-0 bg-white border border-gray-200 rounded-2xl p-4 min-w-[120px] hover:border-[#FE0004] hover:shadow-md transition-all duration-200 cursor-pointer group">
                         <div class="text-center">
                             <div class="text-xs text-gray-500 font-medium mb-1">KAM</div>
                             <div class="text-xl font-bold text-gray-900 mb-1">4</div>
@@ -400,7 +400,7 @@
                     </div>
 
                     <!-- Date Card 5 -->
-                    <div class="flex-shrink-0 bg-white border border-gray-200 rounded-2xl p-4 min-w-[120px] hover:border-[#187499] hover:shadow-md transition-all duration-200 cursor-pointer group">
+                    <div class="flex-shrink-0 bg-white border border-gray-200 rounded-2xl p-4 min-w-[120px] hover:border-[#FE0004] hover:shadow-md transition-all duration-200 cursor-pointer group">
                         <div class="text-center">
                             <div class="text-xs text-gray-500 font-medium mb-1">JUM</div>
                             <div class="text-xl font-bold text-gray-900 mb-1">5</div>
@@ -410,7 +410,7 @@
                     </div>
 
                     <!-- Date Card 6 -->
-                    <div class="flex-shrink-0 bg-white border border-gray-200 rounded-2xl p-4 min-w-[120px] hover:border-[#187499] hover:shadow-md transition-all duration-200 cursor-pointer group">
+                    <div class="flex-shrink-0 bg-white border border-gray-200 rounded-2xl p-4 min-w-[120px] hover:border-[#FE0004] hover:shadow-md transition-all duration-200 cursor-pointer group">
                         <div class="text-center">
                             <div class="text-xs text-gray-500 font-medium mb-1">SAB</div>
                             <div class="text-xl font-bold text-gray-900 mb-1">6</div>
@@ -420,7 +420,7 @@
                     </div>
 
                     <!-- Date Card 7 -->
-                    <div class="flex-shrink-0 bg-white border border-gray-200 rounded-2xl p-4 min-w-[120px] hover:border-[#187499] hover:shadow-md transition-all duration-200 cursor-pointer group">
+                    <div class="flex-shrink-0 bg-white border border-gray-200 rounded-2xl p-4 min-w-[120px] hover:border-[#FE0004] hover:shadow-md transition-all duration-200 cursor-pointer group">
                         <div class="text-center">
                             <div class="text-xs text-gray-500 font-medium mb-1">MIN</div>
                             <div class="text-xl font-bold text-gray-900 mb-1">7</div>
@@ -430,7 +430,7 @@
                     </div>
 
                     <!-- Date Card 8 -->
-                    <div class="flex-shrink-0 bg-white border border-gray-200 rounded-2xl p-4 min-w-[120px] hover:border-[#187499] hover:shadow-md transition-all duration-200 cursor-pointer group">
+                    <div class="flex-shrink-0 bg-white border border-gray-200 rounded-2xl p-4 min-w-[120px] hover:border-[#FE0004] hover:shadow-md transition-all duration-200 cursor-pointer group">
                         <div class="text-center">
                             <div class="text-xs text-gray-500 font-medium mb-1">SEL</div>
                             <div class="text-xl font-bold text-gray-900 mb-1">8</div>
@@ -440,7 +440,7 @@
                     </div>
 
                     <!-- Date Card 9 -->
-                    <div class="flex-shrink-0 bg-white border border-gray-200 rounded-2xl p-4 min-w-[120px] hover:border-[#187499] hover:shadow-md transition-all duration-200 cursor-pointer group">
+                    <div class="flex-shrink-0 bg-white border border-gray-200 rounded-2xl p-4 min-w-[120px] hover:border-[#FE0004] hover:shadow-md transition-all duration-200 cursor-pointer group">
                         <div class="text-center">
                             <div class="text-xs text-gray-500 font-medium mb-1">RAB</div>
                             <div class="text-xl font-bold text-gray-900 mb-1">9</div>
@@ -450,7 +450,7 @@
                     </div>
 
                     <!-- Date Card 10 -->
-                    <div class="flex-shrink-0 bg-white border border-gray-200 rounded-2xl p-4 min-w-[120px] hover:border-[#187499] hover:shadow-md transition-all duration-200 cursor-pointer group">
+                    <div class="flex-shrink-0 bg-white border border-gray-200 rounded-2xl p-4 min-w-[120px] hover:border-[#FE0004] hover:shadow-md transition-all duration-200 cursor-pointer group">
                         <div class="text-center">
                             <div class="text-xs text-gray-500 font-medium mb-1">KAM</div>
                             <div class="text-xl font-bold text-gray-900 mb-1">10</div>
@@ -460,7 +460,7 @@
                     </div>
 
                     <!-- Date Card 11 -->
-                    <div class="flex-shrink-0 bg-white border border-gray-200 rounded-2xl p-4 min-w-[120px] hover:border-[#187499] hover:shadow-md transition-all duration-200 cursor-pointer group">
+                    <div class="flex-shrink-0 bg-white border border-gray-200 rounded-2xl p-4 min-w-[120px] hover:border-[#FE0004] hover:shadow-md transition-all duration-200 cursor-pointer group">
                         <div class="text-center">
                             <div class="text-xs text-gray-500 font-medium mb-1">JUM</div>
                             <div class="text-xl font-bold text-gray-900 mb-1">11</div>
@@ -470,7 +470,7 @@
                     </div>
 
                     <!-- Date Card 12 -->
-                    <div class="flex-shrink-0 bg-white border border-gray-200 rounded-2xl p-4 min-w-[120px] hover:border-[#187499] hover:shadow-md transition-all duration-200 cursor-pointer group">
+                    <div class="flex-shrink-0 bg-white border border-gray-200 rounded-2xl p-4 min-w-[120px] hover:border-[#FE0004] hover:shadow-md transition-all duration-200 cursor-pointer group">
                         <div class="text-center">
                             <div class="text-xs text-gray-500 font-medium mb-1">SAB</div>
                             <div class="text-xl font-bold text-gray-900 mb-1">12</div>

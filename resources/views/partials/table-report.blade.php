@@ -103,12 +103,12 @@
 
             <!-- Filter tahun (server-side GET) -->
             <form method="GET" action="{{ url()->current() }}" class="flex items-center gap-2 mb-1 w-full sm:w-auto">
-                <select name="year" class="h-9 px-3 rounded-xl border-2 border-gray-200 text-sm focus:border-[#36AE7E] focus:outline-none bg-white shrink-0 min-w-[100px]">
+                <select name="year" class="h-9 px-3 rounded-xl border-2 border-gray-200 text-sm focus:border-[#F6B101] focus:outline-none bg-white shrink-0 min-w-[100px]">
                     @for ($y = now()->year - 3; $y <= now()->year + 1; $y++)
                         <option value="{{ $y }}" {{ (int) request('year', $year) === (int) $y ? 'selected' : '' }}>{{ $y }}</option>
                     @endfor
                 </select>
-                <button class="inline-flex items-center justify-center h-9 px-4 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white rounded-xl text-sm shrink-0">Terapkan</button>
+                <button class="inline-flex items-center justify-center h-9 px-4 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white rounded-xl text-sm shrink-0 hover:scale-105 transition-all duration-200">Terapkan</button>
             </form>
         </div>
     </div>

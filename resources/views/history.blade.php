@@ -13,7 +13,7 @@
         <!-- Header Section -->
         <div class="relative z-10 text-center text-white py-16 px-6">
             <h1 class="text-4xl md:text-5xl font-bold mb-4">
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#187499] to-[#36AE7E]">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#FE0004] to-[#F6B101]">
                     Riwayat Pesanan
                 </span>
             </h1>
@@ -94,7 +94,7 @@
                         <span id="selectedDate" class="text-gray-700">Pilih tanggal</span>
                         <span id="tripType" class="text-xs text-gray-500"></span>
                     </button>
-                    <button class="px-6 py-3 bg-gradient-to-r from-[#187499] to-[#36AE7E]  text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105">
+                    <button class="px-6 py-3 bg-gradient-to-r from-[#FE0004] to-[#F6B101]  text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105">
                         Filter
                     </button>
                 </div>
@@ -106,7 +106,7 @@
 
         <!-- Back Button -->
         <div class="mb-6">
-            <button onclick="history.back()" class="inline-flex items-center gap-2 px-4 py-2 text-[#187499] hover:text-white hover:bg-gradient-to-r hover:from-[#187499] hover:to-[#36AE7E] rounded-lg transition-all duration-200">
+            <button onclick="history.back()" class="inline-flex items-center gap-2 px-4 py-2 text-[#FE0004] hover:text-white hover:bg-gradient-to-r  rounded-lg transition-all duration-200">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                 </svg>
@@ -403,7 +403,7 @@
                 <button class="px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed" disabled>
                     Sebelumnya
                 </button>
-                <button class="px-3 py-2 text-sm font-medium text-white bg-gradient-to-r from-[#187499] to-[#36AE7E] rounded-lg">
+                <button class="px-3 py-2 text-sm font-medium text-white bg-gradient-to-r from-[#FE0004] to-[#F6B101] rounded-lg">
                     1
                 </button>
                 <button class="px-3 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50">
