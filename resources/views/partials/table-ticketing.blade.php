@@ -56,14 +56,14 @@
             <tr class="hover:bg-gradient-to-r hover:from-teal-50 hover:to-blue-50 transition-all duration-200 group">
               <td class="px-6 py-5 whitespace-nowrap">
                 <div class="flex items-center">
-                  <div class="h-10 w-10 bg-gradient-to-br from-teal-100 to-teal-200 rounded-xl flex items-center justify-center shadow-sm">
-                    <span class="text-teal-700 font-bold text-sm">001</span>
+                  <div class="h-10 w-10 flex items-center justify-center ">
+                    <span class=" font-bold text-sm">1</span>
                   </div>
                 </div>
               </td>
               <td class="px-6 py-5 whitespace-nowrap text-center">
                 <div class="flex items-center justify-center">
-                  <button class="btn-open-detail inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg hover:from-[#156b8a] hover:to-[#2d9a6e] transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                  <button class="btn-open-detail inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs font-semibold rounded-lg  transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
                     <i class="fas fa-eye mr-2"></i>
                     Detail
                   </button>
@@ -71,7 +71,7 @@
               </td>
               <td class="px-6 py-5 whitespace-nowrap text-center">
                 <input type="file" class="hidden upload-input" accept=".pdf,.jpg,.jpeg,.png" />
-                <button type="button" class="upload-trigger inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg  transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                <button type="button" class="upload-trigger inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs font-semibold rounded-lg  transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
                   <i class="fas fa-upload mr-2"></i>
                   Upload
                 </button>
@@ -101,14 +101,14 @@
             <tr class="hover:bg-gradient-to-r hover:from-red-50 hover:to-pink-50 transition-all duration-200 group">
               <td class="px-6 py-5 whitespace-nowrap">
                 <div class="flex items-center">
-                  <div class="h-10 w-10 bg-gradient-to-br from-red-100 to-red-200 rounded-xl flex items-center justify-center shadow-sm">
-                    <span class="text-red-700 font-bold text-sm">002</span>
+                <div class="h-10 w-10 flex items-center justify-center ">
+                <span class=" font-bold text-sm">2</span>
                   </div>
                 </div>
               </td>
               <td class="px-6 py-5 whitespace-nowrap text-center">
                 <div class="flex items-center justify-center">
-                  <button class="btn-open-detail inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg hover:from-[#156b8a] hover:to-[#2d9a6e] transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                  <button class="btn-open-detail inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs font-semibold rounded-lg  transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
                     <i class="fas fa-eye mr-2"></i>
                      Detail
                   </button>
@@ -116,7 +116,7 @@
               </td>
               <td class="px-6 py-5 whitespace-nowrap text-center">
                 <input type="file" class="hidden upload-input" accept=".pdf,.jpg,.jpeg,.png" />
-                <button type="button" class="upload-trigger inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg hover:from-[#156b8a] hover:to-[#2d9a6e] transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                <button type="button" class="upload-trigger inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs font-semibold rounded-lg  transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
                   <i class="fas fa-upload mr-2"></i>
                   Upload
                 </button>
@@ -146,14 +146,14 @@
             <tr class="hover:bg-gradient-to-r hover:from-green-50 hover:to-emerald-50 transition-all duration-200 group">
               <td class="px-6 py-5 whitespace-nowrap">
                 <div class="flex items-center">
-                  <div class="h-10 w-10 bg-gradient-to-br from-green-100 to-green-200 rounded-xl flex items-center justify-center shadow-sm">
-                    <span class="text-green-700 font-bold text-sm">003</span>
+                <div class="h-10 w-10 flex items-center justify-center ">
+                <span class=" font-bold text-sm">3</span>
                   </div>
                 </div>
               </td>
               <td class="px-6 py-5 whitespace-nowrap text-center">
                 <div class="flex items-center justify-center">
-                  <button class="btn-open-detail inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg hover:from-[#156b8a] hover:to-[#2d9a6e] transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                  <button class="btn-open-detail inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs font-semibold rounded-lg  transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
                     <i class="fas fa-eye mr-2"></i>
                      Detail
                   </button>
@@ -161,7 +161,7 @@
               </td>
               <td class="px-6 py-5 whitespace-nowrap text-center">
                 <input type="file" class="hidden upload-input" accept=".pdf,.jpg,.jpeg,.png" />
-                <button type="button" class="upload-trigger inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg hover:from-[#156b8a] hover:to-[#2d9a6e] transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                <button type="button" class="upload-trigger inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs font-semibold rounded-lg  transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
                   <i class="fas fa-upload mr-2"></i>
                   Upload
                 </button>
@@ -191,14 +191,14 @@
             <tr class="hover:bg-gradient-to-r hover:from-purple-50 hover:to-pink-50 transition-all duration-200 group">
               <td class="px-6 py-5 whitespace-nowrap">
                 <div class="flex items-center">
-                  <div class="h-10 w-10 bg-gradient-to-br from-purple-100 to-purple-200 rounded-xl flex items-center justify-center shadow-sm">
-                    <span class="text-purple-700 font-bold text-sm">004</span>
+                <div class="h-10 w-10 flex items-center justify-center ">
+                <span class="font-bold text-sm">4</span>
                   </div>
                 </div>
               </td>
               <td class="px-6 py-5 whitespace-nowrap text-center">
                 <div class="flex items-center justify-center">
-                  <button type="button" class="btn-open-detail inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg hover:from-[#156b8a] hover:to-[#2d9a6e] transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                  <button type="button" class="btn-open-detail inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs font-semibold rounded-lg  transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
                     <i class="fas fa-eye mr-2"></i>
                      Detail
                   </button>
@@ -206,7 +206,7 @@
               </td>
               <td class="px-6 py-5 whitespace-nowrap text-center">
                 <input type="file" class="hidden upload-input" accept=".pdf,.jpg,.jpeg,.png" />
-                <button type="button" class="upload-trigger inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg hover:from-[#156b8a] hover:to-[#2d9a6e] transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                <button type="button" class="upload-trigger inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs font-semibold rounded-lg  transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
                   <i class="fas fa-upload mr-2"></i>
                   Upload
                 </button>
@@ -241,12 +241,12 @@
       <div class="order-card p-6 border-b border-gray-200">
         <div class="flex items-start justify-between mb-4">
           <div>
-            <div class="text-sm font-medium text-gray-900">#001</div>
+            <div class="text-sm font-medium text-gray-900">1</div>
           </div>
           <div class="flex items-center space-x-2">
-            <button class="btn-open-detail px-3 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg shadow-md">Detail</button>
+            <button class="btn-open-detail px-3 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs font-semibold rounded-lg shadow-md">Detail</button>
             <input type="file" class="hidden upload-input" accept=".pdf,.jpg,.jpeg,.png" />
-            <button type="button" class="upload-trigger px-3 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg shadow-md">
+            <button type="button" class="upload-trigger px-3 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs font-semibold rounded-lg shadow-md">
               <i class="fas fa-upload mr-2"></i>Upload
             </button>
           </div>
@@ -278,12 +278,12 @@
       <div class="order-card p-6 border-b border-gray-200">
         <div class="flex items-start justify-between mb-4">
           <div>
-            <div class="text-sm font-medium text-gray-900">#002</div>
+            <div class="text-sm font-medium text-gray-900">2</div>
           </div>
           <div class="flex items-center space-x-2">
-            <button class="btn-open-detail px-3 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg shadow-md">Detail</button>
+            <button class="btn-open-detail px-3 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs font-semibold rounded-lg shadow-md">Detail</button>
             <input type="file" class="hidden upload-input" accept=".pdf,.jpg,.jpeg,.png" />
-            <button type="button" class="upload-trigger px-3 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg shadow-md">
+            <button type="button" class="upload-trigger px-3 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs font-semibold rounded-lg shadow-md">
               <i class="fas fa-upload mr-2"></i>Upload
             </button>
           </div>
@@ -315,12 +315,12 @@
       <div class="order-card p-6 border-b border-gray-200">
         <div class="flex items-start justify-between mb-4">
           <div>
-            <div class="text-sm font-medium text-gray-900">#003</div>
+            <div class="text-sm font-medium text-gray-900">3</div>
           </div>
           <div class="flex items-center space-x-2">
-            <button class="btn-open-detail px-3 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg shadow-md">Detail</button>
+            <button class="btn-open-detail px-3 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs font-semibold rounded-lg shadow-md">Detail</button>
             <input type="file" class="hidden upload-input" accept=".pdf,.jpg,.jpeg,.png" />
-            <button type="button" class="upload-trigger px-3 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg shadow-md">
+            <button type="button" class="upload-trigger px-3 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs font-semibold rounded-lg shadow-md">
               <i class="fas fa-upload mr-2"></i>Upload
             </button>
           </div>
@@ -352,12 +352,12 @@
       <div class="order-card p-6">
         <div class="flex items-start justify-between mb-4">
           <div>
-            <div class="text-sm font-medium text-gray-900">#004</div>
+            <div class="text-sm font-medium text-gray-900">4</div>
           </div>
           <div class="flex items-center space-x-2">
-            <button type="button" class="btn-open-detail px-3 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg shadow-md">Detail</button>
+            <button type="button" class="btn-open-detail px-3 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs font-semibold rounded-lg shadow-md">Detail</button>
             <input type="file" class="hidden upload-input" accept=".pdf,.jpg,.jpeg,.png" />
-            <button type="button" class="upload-trigger px-3 py-2 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white text-xs font-semibold rounded-lg shadow-md">
+            <button type="button" class="upload-trigger px-3 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs font-semibold rounded-lg shadow-md">
               <i class="fas fa-upload mr-2"></i>Upload
             </button>
           </div>
@@ -444,7 +444,7 @@
           btn.type = 'button';
           btn.className = [
             'px-3 py-2 text-sm rounded-md transition',
-            active ? 'bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white' : 'text-gray-700 hover:bg-gray-100 hover:text-[#187499]',
+            active ? 'bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white' : 'text-gray-700',
             disabled ? 'text-gray-400 cursor-not-allowed opacity-50 hover:bg-transparent hover:text-gray-400' : '',
           ].join(' ');
           btn.innerHTML = label;
@@ -572,8 +572,8 @@
               if (input.files && input.files.length > 0) {
                 // Visual uploaded state only (no backend logic)
                 btn.innerHTML = '<i class="fas fa-check mr-2"></i> Uploaded';
-                btn.classList.remove('from-blue-600', 'to-emerald-600');
-                btn.classList.add('from-emerald-600', 'to-emerald-600');
+                btn.classList.remove('from-[#F6B101]', 'to-[#F6B101]');
+                btn.classList.add('from-[#F6B101]', 'to-[#F6B101]');
                 btn.disabled = true;
                 btn.classList.add('opacity-90', 'cursor-default');
               }

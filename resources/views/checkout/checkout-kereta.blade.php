@@ -60,6 +60,38 @@
             </div>
         </div>
 
+                    <!--  Additional Details Section -->
+                    <div class="bg-white rounded-2xl shadow-lg p-4 sm:p-6 mb-4 sm:mb-6">
+                <div class="flex flex-col sm:flex-row gap-6">
+                     <!-- Detail Pekerjaan -->
+                    <div class="flex gap-4 flex-1">
+                        <img src="{{ asset('detailpekerjaan.png') }}" 
+                            alt="Detail Pekerjaan" 
+                            class="w-12 h-12 self-center">
+                        <div class="flex flex-col w-full">
+                            <label class="block text-gray-800 font-medium mb-2">Detail Pekerjaan</label>
+                            <input type="text" 
+                                class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                                placeholder="Masukkan detail pekerjaan">
+                        </div>
+                    </div>
+
+                    <!-- Detail Dinas -->
+                    <div class="flex gap-4 flex-1">
+                        <img src="{{ asset('detaildinas.png') }}" 
+                            alt="Detail Dinas" 
+                            class="w-12 h-12 self-center">
+                        <div class="flex flex-col w-full">
+                            <label class="block text-gray-800 font-medium mb-2">Detail Dinas</label>
+                            <input type="text" 
+                                class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                                placeholder="Masukkan detail dinas">
+                        </div>
+                    </div>
+                </div>
+            </div> 
+
+
         <!-- BAWAH: dua kolom (kiri = detail pemesanan, kanan = dokumen pendukung) -->
             <!-- PASSENGERS SECTION HEADER -->
             <div class="flex items-center justify-between mb-4">
@@ -167,7 +199,9 @@
         <!-- Submit Button -->
         <div class="text-center">
             <button type="submit" id="checkout-submit"
+
                      class="w-full max-w-md bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white font-bold py-4 px-8 rounded-xl hover:from-[#156b8a] hover:to-[#2d9a6b] transition-all duration-200 transform hover:scale-105 shadow-lg mt-10">
+
                  SUBMIT
             </button>
         </div>
@@ -175,8 +209,8 @@
  </div>
 
 <!-- Seat Selection Modal -->
-<div id="seat-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden">
-    <div class="bg-white rounded-2xl p-6 max-w-md w-full mx-4 max-h-[90vh] overflow-y-auto">
+<div id="seat-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden opacity-0 transition-opacity duration-200">
+    <div id="seat-dialog" class="bg-white rounded-2xl p-6 max-w-md w-full mx-4 max-h-[90vh] overflow-y-auto transform scale-95 opacity-0 transition-all duration-300 ease-out">
         <!-- Modal Header -->
         <div class="flex items-center justify-between mb-4">
             <h3 class="text-xl font-bold text-gray-800">Pilih Kursi</h3>
@@ -311,6 +345,7 @@
     </div>
 </div>
 
+
 <!-- Verification Modal -->
 <div id="verification-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden opacity-0 transition-opacity duration-200">
     <div id="verification-dialog" class="bg-white rounded-2xl p-8 max-w-md w-full mx-4 text-center transform scale-95 opacity-0 transition-all duration-300 ease-out">
@@ -335,6 +370,7 @@
          <p class="text-gray-600 mb-8 leading-relaxed px-2">Kalau kamu kembali ke halaman sebelumnya, semua info yang diisi dan keberangkatan yang dipilih akan hilang.</p>
          <div class="flex flex-col space-y-4">
               <button onclick="window.location.href='{{ url('pesanan/kereta') }}'" class="w-full px-6 py-4 bg-gradient-to-r from-blue-50 to-blue-100 text-teal-600 rounded-xl hover:from-blue-100 hover:to-blue-200 transition-all duration-200 font-medium border border-blue-200">
+
                   Lihat Kereta Lain
               </button>
              <button onclick="hideBackOverlay()" class="w-full px-6 py-4 bg-gradient-to-r from-teal-500 to-teal-600 text-white rounded-xl hover:from-teal-600 hover:to-teal-700 transition-all duration-200 font-medium shadow-md">
@@ -580,15 +616,29 @@ function handleFileChange(e, labelId) {
 function openSeatModal(passengerIndex) {
     currentTrainPassengerIndex = passengerIndex;
     const modal = document.getElementById('seat-modal');
+    const dialog = document.getElementById('seat-dialog');
     const passengerName = document.getElementById(`nama-${passengerIndex}`).value || `Penumpang ${passengerIndex + 1}`;
     document.getElementById('modal-passenger-name').textContent = passengerName.toUpperCase();
     document.getElementById('modal-passenger-seat').textContent = `Ekonomi I / Kursi -`;
     modal.classList.remove('hidden');
+    // Smooth fade/scale in
+    requestAnimationFrame(() => {
+        modal.classList.remove('opacity-0');
+        if (dialog) {
+            dialog.classList.remove('scale-95','opacity-0');
+        }
+    });
 }
 
 function closeSeatModal() {
     const modal = document.getElementById('seat-modal');
-    modal.classList.add('hidden');
+    const dialog = document.getElementById('seat-dialog');
+    // Smooth fade/scale out then hide
+    modal.classList.add('opacity-0');
+    if (dialog) {
+        dialog.classList.add('scale-95','opacity-0');
+    }
+    setTimeout(() => modal.classList.add('hidden'), 220);
 }
 
 function switchCar(carName) {
@@ -864,6 +914,33 @@ function completeBooking() {
      hideBackOverlay();
 }
 
+// Confirm Submit Overlay functions
+function showConfirmOverlay() {
+   const overlay = document.getElementById('confirm-overlay');
+   const dialog = document.getElementById('confirm-overlay-dialog');
+   overlay.classList.remove('hidden');
+   requestAnimationFrame(() => {
+       overlay.classList.remove('opacity-0');
+       dialog.classList.remove('scale-95','opacity-0');
+   });
+}
+
+function hideConfirmOverlay() {
+   const overlay = document.getElementById('confirm-overlay');
+   const dialog = document.getElementById('confirm-overlay-dialog');
+   if (overlay && dialog) {
+       overlay.classList.add('opacity-0');
+       dialog.classList.add('scale-95','opacity-0');
+       setTimeout(() => overlay.classList.add('hidden'), 220);
+   }
+}
+
+function handleConfirmSubmit() {
+    // Navigate to kereta receipt page
+    hideConfirmOverlay();
+    window.location.href = "{{ url('receipt/keretareceipt') }}";
+}
+
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize passenger and seat functionality
@@ -966,6 +1043,21 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
+    // Confirm modal button events
+    const confirmCancel = document.getElementById('confirm-cancel');
+    if (confirmCancel) {
+        confirmCancel.addEventListener('click', function() {
+            hideConfirmOverlay();
+        });
+    }
+
+    const confirmYes = document.getElementById('confirm-yes');
+    if (confirmYes) {
+        confirmYes.addEventListener('click', function() {
+            handleConfirmSubmit();
+        });
+    }
+
     // Form validation and submission
     const submitBtn = document.getElementById('checkout-submit');
     
@@ -981,35 +1073,41 @@ document.addEventListener('DOMContentLoaded', function() {
             const email = document.getElementById('email-0');
             const ktp = document.getElementById('ktp-0');
             const suratDinas = document.getElementById('surat-0');
+
+            // if (!nama || !telepon || !email || !ktp || !suratDinas) {
+            //     alert('Mohon lengkapi semua data yang diperlukan');
+            //     return;
+            // }
             
-            if (!nama || !telepon || !email || !ktp || !suratDinas) {
-                alert('Mohon lengkapi semua data yang diperlukan');
-                return;
-            }
+            // if (!nama.value || !telepon.value || !email.value || !ktp.files[0] || !suratDinas.files[0]) {
+            //     alert('Mohon lengkapi semua data yang diperlukan');
+            //     return;
+            // }
             
-            if (!nama.value || !telepon.value || !email.value || !ktp.files[0] || !suratDinas.files[0]) {
-                alert('Mohon lengkapi semua data yang diperlukan');
-                return;
-            }
+            // // Email validation
+            // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            // if (!emailRegex.test(email.value)) {
+            //     alert('Format email tidak valid');
+            //     return;
+            // }
             
-            // Email validation
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email.value)) {
-                alert('Format email tidak valid');
-                return;
-            }
+            // // Phone validation
+            // const phoneRegex = /^[0-9+\-\s()]+$/;
+            // if (!phoneRegex.test(telepon.value)) {
+            //     alert('Format nomor telepon tidak valid');
+            //     return;
+            // }
             
-            // Phone validation
-            const phoneRegex = /^[0-9+\-\s()]+$/;
-            if (!phoneRegex.test(telepon.value)) {
-                alert('Format nomor telepon tidak valid');
-                return;
-            }
+            // // If all validation passes, show success message
+            // alert('Data berhasil disubmit! Redirecting to payment...');
+    
             
+
             console.log('Validation passed, showing modal'); // Debug log
             
             // If all validation passes, show verification modal
             showVerificationModal();
+
         });
     }
 });

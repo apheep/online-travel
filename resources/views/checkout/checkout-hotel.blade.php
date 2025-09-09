@@ -42,7 +42,7 @@
 									<div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
 										<!-- Kolom kiri: Badge + fasilitas -->
 										<div class="col-span-1 sm:col-span-2">
-										<span class="bg-gradient-to-r from-[#187499] to-[#36AE7E] text-xs font-medium px-2 sm:px-3 py-1 rounded-md text-white">Sarapan (1pax)
+										<span class="bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-xs font-medium px-2 sm:px-3 py-1 rounded-md text-white">Sarapan (1pax)
 											</span>
 											<ul class="mt-3 text-xs sm:text-sm text-gray-700 space-y-1 sm:space-y-2">
 												<li class="flex items-start gap-2">
@@ -84,6 +84,39 @@
 					</div>
 				</div>
 			</div>
+
+
+			                    <!--  Additional Details Section -->
+								<div class="bg-white rounded-2xl shadow-lg p-4 sm:p-6 mb-4 sm:mb-6">
+                <div class="flex flex-col sm:flex-row gap-6">
+                     <!-- Detail Pekerjaan -->
+                    <div class="flex gap-4 flex-1">
+                        <img src="{{ asset('detailpekerjaan.png') }}" 
+                            alt="Detail Pekerjaan" 
+                            class="w-12 h-12 self-center">
+                        <div class="flex flex-col w-full">
+                            <label class="block text-gray-800 font-medium mb-2">Detail Pekerjaan</label>
+                            <input type="text" 
+                                class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                                placeholder="Masukkan detail pekerjaan">
+                        </div>
+                    </div>
+
+                    <!-- Detail Dinas -->
+                    <div class="flex gap-4 flex-1">
+                        <img src="{{ asset('detaildinas.png') }}" 
+                            alt="Detail Dinas" 
+                            class="w-12 h-12 self-center">
+                        <div class="flex flex-col w-full">
+                            <label class="block text-gray-800 font-medium mb-2">Detail Dinas</label>
+                            <input type="text" 
+                                class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                                placeholder="Masukkan detail dinas">
+                        </div>
+                    </div>
+                </div>
+            </div> 
+
 			<!-- Booking Details and Supporting Documents Section -->
 			<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
 				<!-- Booking Details Section -->
@@ -157,12 +190,24 @@
 		<!-- Submit Button -->
 		<div class="text-center">
 			<button type="submit" id="checkout-submit"
-					class="w-full max-w-md bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white font-bold py-4 px-8 rounded-xl hover:from-[#156b8a] hover:to-[#2d9a6b] transition-all duration-200 transform hover:scale-105 shadow-lg">
+					class="w-full max-w-md bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white font-bold py-4 px-8 rounded-xl hover:from-[#156b8a] hover:to-[#2d9a6b] transition-all duration-200 transform hover:scale-105 shadow-lg">
 				SUBMIT
 			</button>
 		</div>
 	</div>
 </body>
+
+<!-- Confirm Submit Modal -->
+<div id="confirm-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden opacity-0 transition-opacity duration-200">
+    <div id="confirm-overlay-dialog" class="bg-white rounded-2xl p-8 max-w-md mx-4 text-center transform scale-95 opacity-0 transition-all duration-300 ease-out">
+        <h3 class="text-xl font-bold text-gray-800 mb-3">Kirim Pemesanan?</h3>
+        <p class="text-gray-600 mb-6">Pastikan semua data pemesanan sudah benar. Lanjutkan kirim pemesanan sekarang?</p>
+        <div class="flex flex-col space-y-3">
+            <button id="confirm-cancel" class="w-full px-6 py-3 bg-gradient-to-r from-blue-50 to-blue-100 text-[#F6B101] rounded-xl hover:from-blue-100 hover:to-blue-200 transition-all duration-200 font-medium">Tidak, Periksa Lagi</button>
+            <button id="confirm-yes" class="w-full px-6 py-3 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white rounded-xl hover:from-[#156b8a] hover:to-[#2d9a6b] transition-all duration-200 font-medium">Ya, Kirim Sekarang</button>
+        </div>
+    </div>
+    </div>
 
 <!-- Overlay Modal -->
 <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden opacity-0 transition-opacity duration-300 ease-out px-4">
@@ -192,11 +237,11 @@
         <!-- Actions -->
         <div class="flex flex-col space-y-3">
             <button onclick="viewOtherHotels()" 
-                    class="w-full px-6 py-3 bg-gradient-to-r from-blue-50 to-blue-100 text-[#36AE7E] rounded-xl hover:from-blue-100 hover:to-blue-200 transition-all duration-200 font-medium">
+                    class="w-full px-6 py-3 bg-gradient-to-r from-blue-50 to-blue-100 text-[#F6B101] rounded-xl hover:from-blue-100 hover:to-blue-200 transition-all duration-200 font-medium">
                 Lihat Penginapan Lain
             </button>
             <button onclick="completeBooking()" 
-                    class="w-full px-6 py-3 bg-gradient-to-r from-[#187499] to-[#36AE7E] text-white rounded-xl hover:from-[#156b8a] hover:to-[#2d9a6b] transition-all duration-200 font-medium">
+                    class="w-full px-6 py-3 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white rounded-xl hover:from-[#156b8a] hover:to-[#2d9a6b] transition-all duration-200 font-medium">
                 Selesaikan Pemesananmu
             </button>
         </div>
@@ -253,6 +298,32 @@
         // Stay on current page
     }
 
+    // Confirm Submit Overlay functions
+    function showConfirmOverlay() {
+        const overlay = document.getElementById('confirm-overlay');
+        const dialog = document.getElementById('confirm-overlay-dialog');
+        if (!overlay || !dialog) return;
+        overlay.classList.remove('hidden');
+        requestAnimationFrame(() => {
+            overlay.classList.remove('opacity-0');
+            dialog.classList.remove('scale-95','opacity-0');
+        });
+    }
+
+    function hideConfirmOverlay() {
+        const overlay = document.getElementById('confirm-overlay');
+        const dialog = document.getElementById('confirm-overlay-dialog');
+        if (!overlay || !dialog) return;
+        overlay.classList.add('opacity-0');
+        dialog.classList.add('scale-95','opacity-0');
+        setTimeout(() => overlay.classList.add('hidden'), 220);
+    }
+
+    function handleConfirmSubmit() {
+        hideConfirmOverlay();
+        window.location.href = "{{ url('receipt/hotelreceipt') }}";
+    }
+
     document.addEventListener('DOMContentLoaded', function() {
         // File upload functionality
         const fileInputs = document.querySelectorAll('input[type="file"]');
@@ -282,6 +353,21 @@
             });
         });
         
+        // Confirm modal button events
+        const confirmCancel = document.getElementById('confirm-cancel');
+        if (confirmCancel) {
+            confirmCancel.addEventListener('click', function() {
+                hideConfirmOverlay();
+            });
+        }
+
+        const confirmYes = document.getElementById('confirm-yes');
+        if (confirmYes) {
+            confirmYes.addEventListener('click', function() {
+                handleConfirmSubmit();
+            });
+        }
+
         // Form validation and submission (scope only to this page's submit)
 		const submitBtn = document.getElementById('checkout-submit');
 		
@@ -294,25 +380,25 @@
 			const ktp = document.getElementById('ktp').files[0];
 			const suratDinas = document.getElementById('surat_dinas').files[0];
             
-            if (!nama || !telepon || !email || !ktp || !suratDinas) {
-                alert('Mohon lengkapi semua data yang diperlukan');
-                return;
-            }
+            // if (!nama || !telepon || !email || !ktp || !suratDinas) {
+            //     alert('Mohon lengkapi semua data yang diperlukan');
+            //     return;
+            // }
             
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(email)) {
-                alert('Format email tidak valid');
-                return;
-            }
+            // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            // if (!emailRegex.test(email)) {
+            //     alert('Format email tidak valid');
+            //     return;
+            // }
             
-            const phoneRegex = /^[0-9+\-\s()]+$/;
-            if (!phoneRegex.test(telepon)) {
-                alert('Format nomor telepon tidak valid');
-                return;
-            }
+            // const phoneRegex = /^[0-9+\-\s()]+$/;
+            // if (!phoneRegex.test(telepon)) {
+            //     alert('Format nomor telepon tidak valid');
+            //     return;
+            // }
             
-            alert('Data berhasil disubmit! Redirecting to payment...');
-			// redirect ke halaman payment
+            // Tampilkan modal konfirmasi setelah validasi lolos
+			showConfirmOverlay();
 		});
     });
 </script>

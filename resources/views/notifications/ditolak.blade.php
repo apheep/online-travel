@@ -59,6 +59,18 @@
             </div>
         </div>
 
+        <!-- Keterangan Dinas Section -->
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 mb-6">
+            <div class="px-6 py-4 border-b border-gray-200">
+                <h2 class="text-lg font-semibold text-gray-900">Keterangan Dinas</h2>
+            </div>
+            <div class="px-6 py-6">
+                <div class="text-sm text-gray-900 bg-gray-50 px-4 py-3 rounded-lg">
+                    {{ $booking->keterangan_dinas ?? '-' }}
+                </div>
+            </div>
+        </div>
+
         <!-- Info Tiket Section -->
         <div class="bg-white rounded-lg shadow-sm border border-gray-200 mb-6">
             <div class="px-6 py-4 border-b border-gray-200">

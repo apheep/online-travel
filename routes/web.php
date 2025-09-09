@@ -36,11 +36,28 @@ Route::get('checkout/informasi-hotel', function () {
     return view('checkout.informasi-hotel');
 });
 
+// Receipt
+Route::get('receipt/hotelreceipt', function () {
+    return view('receipt.hotelreceipt');
+});
+
+Route::get('receipt/keretareceipt', function () {
+    return view('receipt.keretareceipt');
+});
+Route::get('receipt/pesawatreceipt', function () {
+    return view('receipt.pesawatreceipt');
+});
+
+
 
 Route::get('/checkout/checkout-pesawat', [PesawatController::class, 'checkout']);
 Route::post('/checkout/process', [PesawatController::class, 'processCheckout']);
 Route::get('/checkout/available-seats', [PesawatController::class, 'getAvailableSeats']);
 
+
+Route::get('/check/report', function () {
+    return view('check.report');
+});
 
 // Checkout hotel route
 Route::get('/checkout/checkout-hotel', function () {
