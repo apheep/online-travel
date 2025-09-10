@@ -108,6 +108,48 @@
               </li>
             </ul>
           </section>
+          
+          <!-- Upload E-Tiket (Hotel) -->
+          <section class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
+            <div class="flex items-start justify-between mb-4">
+              <h2 class="text-lg font-semibold text-gray-900">4. Upload E‑Tiket</h2>
+            </div>
+            <div id="eticket-upload-hotel" class="group">
+              <!-- Dropzone -->
+              <label class="block relative border-2 border-dashed rounded-2xl p-6 text-center cursor-pointer transition shadow-sm border-gray-200 hover:border-rose-300 hover:bg-rose-50/30" id="eticket-label-hotel">
+                <input id="eticket-input-hotel" type="file" class="sr-only" accept=".pdf,.jpg,.jpeg,.png" />
+
+                <!-- Instruction State -->
+                <div id="eticket-instruction-hotel" class="flex flex-col items-center gap-2">
+                  <div class="h-12 w-12 rounded-xl bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white flex items-center justify-center shadow-md">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                    </svg>
+                  </div>
+                  <p class="text-sm font-medium text-gray-900">Tarik & letakkan file di sini, atau <span class="text-rose-600">pilih file</span></p>
+                  <p class="text-xs text-gray-500">PDF, JPG, PNG • Maks 5 MB</p>
+                </div>
+
+                <!-- Success State -->
+                <div id="eticket-success-hotel" class="hidden flex flex-col items-center gap-2">
+                  <div class="h-12 w-12 rounded-full bg-green-500/90 text-white flex items-center justify-center shadow-md">
+                    <svg class="w-7 h-7" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-7.25 7.25a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414l2.293 2.293 6.543-6.543a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                  </div>
+                  <p class="text-sm font-semibold text-green-700">E‑tiket berhasil diupload</p>
+                  <p class="text-xs text-green-700/80"><span id="eticket-success-name-hotel">e-ticket.pdf</span> • <span id="eticket-success-size-hotel">0 KB</span></p>
+                  <button type="button" id="eticket-reset-hotel" class="mt-1 text-xs text-green-700 hover:text-green-800 underline">Ganti file</button>
+                </div>
+              </label>
+
+              <!-- Tips -->
+              <ul class="mt-3 text-xs text-gray-500 space-y-1">
+                <li>• Pastikan data pada e‑tiket terbaca jelas.</li>
+                <li>• Jika lebih dari satu file, gabungkan ke PDF.</li>
+              </ul>
+            </div>
+          </section>
         </div>
       </div>
 
@@ -405,6 +447,67 @@
   const keretaCtrl = makeModalController('modal-detail-kereta');
   const pesawatCtrl = makeModalController('modal-detail-pesawat');
   const hotelCtrl = makeModalController('modal-detail-hotel');
+
+  // --- Simple Upload UI Helpers ---
+  function formatBytes(bytes) {
+    if (bytes === 0) return '0 KB';
+    const k = 1024;
+    const sizes = ['B','KB','MB','GB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+  }
+
+  function initUploadArea(prefix) {
+    const root = document.getElementById(`eticket-upload-${prefix}`);
+    if (!root) return;
+    const input = document.getElementById(`eticket-input-${prefix}`);
+    const labelEl = document.getElementById(`eticket-label-${prefix}`);
+    const instruction = document.getElementById(`eticket-instruction-${prefix}`);
+    const success = document.getElementById(`eticket-success-${prefix}`);
+    const successName = document.getElementById(`eticket-success-name-${prefix}`);
+    const successSize = document.getElementById(`eticket-success-size-${prefix}`);
+    const resetBtn = document.getElementById(`eticket-reset-${prefix}`);
+
+    // Click label opens file dialog (default by label/input association)
+    (labelEl || root).addEventListener('dragover', (e) => {
+      e.preventDefault();
+      (labelEl || root).classList.add('ring-2','ring-rose-300','bg-rose-50/30');
+    });
+    (labelEl || root).addEventListener('dragleave', () => {
+      (labelEl || root).classList.remove('ring-2','ring-rose-300','bg-rose-50/30');
+    });
+    (labelEl || root).addEventListener('drop', (e) => {
+      e.preventDefault();
+      (labelEl || root).classList.remove('ring-2','ring-rose-300','bg-rose-50/30');
+      if (e.dataTransfer?.files?.length) {
+        input.files = e.dataTransfer.files;
+        handleFile();
+      }
+    });
+
+    input.addEventListener('change', handleFile);
+    resetBtn?.addEventListener('click', (e) => {
+      e.preventDefault();
+      input.value = '';
+      success.classList.add('hidden');
+      instruction.classList.remove('hidden');
+      (labelEl || root).classList.remove('border-green-400','bg-green-50/40');
+    });
+
+    function handleFile() {
+      const file = input.files && input.files[0];
+      if (!file) return;
+      successName.textContent = file.name;
+      successSize.textContent = formatBytes(file.size);
+      // Switch UI to success state
+      instruction.classList.add('hidden');
+      success.classList.remove('hidden');
+      (labelEl || root).classList.add('border-green-400','bg-green-50/40');
+    }
+  }
+
+  // Initialize for hotel modal
+  initUploadArea('hotel');
 
   function openDetailKereta() { keretaCtrl.open(); }
   function closeDetailKereta() { keretaCtrl.close(); }
