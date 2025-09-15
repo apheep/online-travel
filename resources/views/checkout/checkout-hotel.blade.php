@@ -4,7 +4,96 @@
 
 @include('partials.navigation')
 
+<!-- Page Transition Loading CSS -->
+<style>
+    .page-transition-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(8px);
+        z-index: 9999;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    
+    .page-transition-overlay.active {
+        display: flex;
+    }
+    
+    .loading-spinner {
+        width: 60px;
+        height: 60px;
+        border: 4px solid #f3f4f6;
+        border-top: 4px solid #FE0004;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin-bottom: 20px;
+    }
+    
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    
+    .loading-text {
+        color: #374151;
+        font-size: 18px;
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: 8px;
+    }
+    
+    .loading-progress {
+        width: 250px;
+        height: 6px;
+        background: #e5e7eb;
+        border-radius: 3px;
+        margin-top: 16px;
+        overflow: hidden;
+    }
+    
+    .loading-progress-bar {
+        width: 0%;
+        height: 100%;
+        background: linear-gradient(90deg, #FE0004, #F6B101);
+        border-radius: 3px;
+        transition: width 0.5s ease;
+    }
+    
+    .loading-steps {
+        margin-top: 12px;
+        font-size: 14px;
+        color: #6b7280;
+        text-align: center;
+    }
+</style>
+
+<!-- Simple Lazy Loading CSS -->
+<style>
+    img[loading="lazy"] {
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    img[loading="lazy"].loaded {
+        opacity: 1;
+    }
+</style>
+
 <body class="bg-[F4F7FE] font-poppins">
+	<!-- Page Transition Loading Overlay -->
+	<div id="page-transition-overlay" class="page-transition-overlay">
+		<div class="loading-spinner"></div>
+		<div class="loading-text" id="loading-text">Memproses pemesanan...</div>
+		<div class="loading-progress">
+			<div class="loading-progress-bar" id="loading-progress-bar"></div>
+		</div>
+	</div>
 	<div class="min-h-screen py-4 sm:py-8 px-3 sm:px-4">
 		<div class="max-w-6xl mx-auto">
 
@@ -23,7 +112,7 @@
 			<div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 mb-4 sm:mb-6">	
 				<!-- Left image -->
 				<div class="md:col-span-1 bg-gray-50 rounded-xl sm:rounded-2xl shadow overflow-hidden h-48 sm:h-auto">
-					<img src="{{ asset('pesananhotel.png') }}" alt="Hotel" class="w-full h-full object-cover">
+					<img src="{{ asset('pesananhotel.png') }}" alt="Hotel" class="w-full h-full object-cover" loading="lazy">
 				</div>
 				<!-- Right summary card -->
 				<div class="md:col-span-2 bg-gray-50 rounded-xl sm:rounded-2xl shadow p-4 sm:p-5">
@@ -86,8 +175,8 @@
 			</div>
 
 
-			                    <!--  Additional Details Section -->
-								<div class="bg-white rounded-2xl shadow-lg p-4 sm:p-6 mb-4 sm:mb-6">
+			    <!--  Additional Details Section -->
+				<div class="bg-white rounded-2xl shadow-lg p-4 sm:p-6 mb-4 sm:mb-6">
                 <div class="flex flex-col sm:flex-row gap-6">
                      <!-- Detail Pekerjaan -->
                     <div class="flex gap-4 flex-1">
@@ -165,7 +254,7 @@
 							<div class="border-2 border-dashed border-gray-300 rounded-xl p-6 text-center hover:border-blue-400 transition-colors duration-200 cursor-pointer">
 								<input type="file" id="ktp" name="ktp" class="hidden" accept=".pdf">
 								<div class="flex flex-col items-center">
-									<img src="{{ asset('folder.png') }}" alt="Upload Icon" class="w-8 h-8 mb-2">
+									<img src="{{ asset('folder.png') }}" alt="Upload Icon" class="w-8 h-8 mb-2" loading="lazy">
 									<span class="text-gray-600">Upload KTP (PDF)</span>
 								</div>
 							</div>
@@ -177,7 +266,7 @@
 							<div class="border-2 border-dashed border-gray-300 rounded-xl p-6 text-center hover:border-blue-400 transition-colors duration-200 cursor-pointer">
 								<input type="file" id="surat_dinas" name="surat_dinas" class="hidden" accept=".pdf">
 								<div class="flex flex-col items-center">
-									<img src="{{ asset('folder.png') }}" alt="Upload Icon" class="w-8 h-8 mb-2">
+									<img src="{{ asset('folder.png') }}" alt="Upload Icon" class="w-8 h-8 mb-2" loading="lazy">
 									<span class="text-gray-600">Upload Surat Dinas (PDF)</span>
 								</div>
 							</div>
@@ -190,8 +279,8 @@
 		<!-- Submit Button -->
 		<div class="text-center">
 			<button type="submit" id="checkout-submit"
-					class="w-full max-w-md bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white font-bold py-4 px-8 rounded-xl hover:from-[#156b8a] hover:to-[#2d9a6b] transition-all duration-200 transform hover:scale-105 shadow-lg">
-				SUBMIT
+					class="w-full max-w-md bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white font-bold py-4 px-8 rounded-xl hover:from-[#FE0004] hover:to-[#FFD700] transition-all duration-200 transform hover:scale-105 shadow-lg">
+				SUBMIT  
 			</button>
 		</div>
 	</div>
@@ -204,7 +293,7 @@
         <p class="text-gray-600 mb-6">Pastikan semua data pemesanan sudah benar. Lanjutkan kirim pemesanan sekarang?</p>
         <div class="flex flex-col space-y-3">
             <button id="confirm-cancel" class="w-full px-6 py-3 bg-gradient-to-r from-blue-50 to-blue-100 text-[#F6B101] rounded-xl hover:from-blue-100 hover:to-blue-200 transition-all duration-200 font-medium">Tidak, Periksa Lagi</button>
-            <button id="confirm-yes" class="w-full px-6 py-3 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white rounded-xl hover:from-[#156b8a] hover:to-[#2d9a6b] transition-all duration-200 font-medium">Ya, Kirim Sekarang</button>
+            <button id="confirm-yes" class="w-full px-6 py-3 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white rounded-xl hover:from-[#FE0004] hover:to-[#FFD700] transition-all duration-200  transform hover:scale-105 shadow-lg font-medium">Ya, Kirim Sekarang</button>
         </div>
     </div>
     </div>
@@ -241,7 +330,7 @@
                 Lihat Penginapan Lain
             </button>
             <button onclick="completeBooking()" 
-                    class="w-full px-6 py-3 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white rounded-xl hover:from-[#156b8a] hover:to-[#2d9a6b] transition-all duration-200 font-medium">
+                    class="w-full px-6 py-3 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white rounded-xl hover:from-[#FE0004] hover:to-[#FFD700] transition-all duration-200 font-medium">
                 Selesaikan Pemesananmu
             </button>
         </div>
@@ -251,6 +340,35 @@
 @include('partials.footer')
 
 <script>
+    // Simple JavaScript for file uploads
+    function initializeFileUploads() {
+        const fileInputs = document.querySelectorAll('input[type="file"]');
+        
+        fileInputs.forEach(input => {
+            const uploadArea = input.closest('.border-dashed');
+            if (!uploadArea) return;
+            
+            uploadArea.addEventListener('click', () => input.click());
+            
+            input.addEventListener('change', (e) => {
+                if (e.target.files.length > 0) {
+                    const fileName = e.target.files[0].name;
+                    const uploadContent = uploadArea.querySelector('.flex');
+                    if (uploadContent) {
+                        uploadContent.innerHTML = `
+                            <svg class="w-8 h-8 text-green-500 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                            </svg>
+                            <span class="text-green-600 text-sm">${fileName}</span>
+                        `;
+                        uploadArea.classList.remove('border-gray-300', 'hover:border-blue-400');
+                        uploadArea.classList.add('border-green-400', 'bg-green-50');
+                    }
+                }
+            });
+        });
+    }
+
     // Back navigation function
     function goBack() {
         showOverlay();
@@ -290,7 +408,7 @@
     
     function viewOtherHotels() {
         hideOverlay();
-        window.location.href = '/pesanan/hotel';
+        showPageTransitionForNavigation('Mencari hotel lain...', '/pesanan/hotel');
     }
     
     function completeBooking() {
@@ -321,37 +439,91 @@
 
     function handleConfirmSubmit() {
         hideConfirmOverlay();
-        window.location.href = "{{ url('receipt/hotelreceipt') }}";
+        showPageTransition();
+    }
+    
+    // Page Transition Loading
+    function showPageTransition() {
+        const overlay = document.getElementById('page-transition-overlay');
+        const loadingText = document.getElementById('loading-text');
+        const progressBar = document.getElementById('loading-progress-bar');
+        
+        if (!overlay) return;
+        
+        overlay.classList.add('active');
+        
+        // Simulate loading steps
+        const steps = [
+            { text: 'Memproses data pemesanan...', progress: 20, duration: 800 },
+            { text: 'Memvalidasi dokumen...', progress: 40, duration: 1000 },
+            { text: 'Mengirim ke sistem hotel...', progress: 60, duration: 1200 },
+            { text: 'Membuat e-tiket...', progress: 80, duration: 800 },
+            { text: 'Menyelesaikan pemesanan...', progress: 100, duration: 600 }
+        ];
+        
+        let currentStep = 0;
+        
+        function executeStep() {
+            if (currentStep < steps.length) {
+                const step = steps[currentStep];
+                loadingText.textContent = step.text;
+                progressBar.style.width = step.progress + '%';
+                
+                setTimeout(() => {
+                    currentStep++;
+                    executeStep();
+                }, step.duration);
+            } else {
+                // Navigate to receipt page
+                setTimeout(() => {
+                    window.location.href = "{{ url('receipt/hotelreceipt') }}";
+                }, 500);
+            }
+        }
+        
+        executeStep();
+    }
+    
+    // Page Transition for Navigation
+    function showPageTransitionForNavigation(message, url) {
+        const overlay = document.getElementById('page-transition-overlay');
+        const loadingText = document.getElementById('loading-text');
+        const progressBar = document.getElementById('loading-progress-bar');
+        
+        if (!overlay) return;
+        
+        overlay.classList.add('active');
+        loadingText.textContent = message;
+        
+        // Quick loading animation
+        let progress = 0;
+        const interval = setInterval(() => {
+            progress += 10;
+            progressBar.style.width = progress + '%';
+            
+            if (progress >= 100) {
+                clearInterval(interval);
+                setTimeout(() => {
+                    window.location.href = url;
+                }, 200);
+            }
+        }, 100);
     }
 
     document.addEventListener('DOMContentLoaded', function() {
-        // File upload functionality
-        const fileInputs = document.querySelectorAll('input[type="file"]');
-        const uploadAreas = document.querySelectorAll('.border-dashed');
-        
-        fileInputs.forEach((input, index) => {
-            const uploadArea = uploadAreas[index];
-            
-            uploadArea.addEventListener('click', () => {
-                input.click();
+        // Simple lazy loading for images
+        const images = document.querySelectorAll('img[loading="lazy"]');
+        images.forEach(img => {
+            img.addEventListener('load', function() {
+                this.style.opacity = '1';
             });
-            
-            input.addEventListener('change', (e) => {
-                if (e.target.files.length > 0) {
-                    const fileName = e.target.files[0].name;
-                    uploadArea.innerHTML = `
-                        <div class="flex flex-col items-center">
-                            <svg class="w-8 h-8 text-green-500 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            <span class="text-green-600 text-sm">${fileName}</span>
-                        </div>
-                    `;
-                    uploadArea.classList.remove('border-gray-300', 'hover:border-blue-400');
-                    uploadArea.classList.add('border-green-400', 'bg-green-50');
-                }
-            });
+            if (img.complete) {
+                img.style.opacity = '1';
+            }
         });
+        
+        // Initialize file uploads
+        initializeFileUploads();
         
         // Confirm modal button events
         const confirmCancel = document.getElementById('confirm-cancel');
@@ -368,37 +540,11 @@
             });
         }
 
-        // Form validation and submission (scope only to this page's submit)
-		const submitBtn = document.getElementById('checkout-submit');
-		
-		if (submitBtn) submitBtn.addEventListener('click', function(e) {
-			e.preventDefault();
-			
-			const nama = document.getElementById('nama').value;
-			const telepon = document.getElementById('telepon').value;
-			const email = document.getElementById('email').value;
-			const ktp = document.getElementById('ktp').files[0];
-			const suratDinas = document.getElementById('surat_dinas').files[0];
-            
-            // if (!nama || !telepon || !email || !ktp || !suratDinas) {
-            //     alert('Mohon lengkapi semua data yang diperlukan');
-            //     return;
-            // }
-            
-            // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            // if (!emailRegex.test(email)) {
-            //     alert('Format email tidak valid');
-            //     return;
-            // }
-            
-            // const phoneRegex = /^[0-9+\-\s()]+$/;
-            // if (!phoneRegex.test(telepon)) {
-            //     alert('Format nomor telepon tidak valid');
-            //     return;
-            // }
-            
-            // Tampilkan modal konfirmasi setelah validasi lolos
-			showConfirmOverlay();
-		});
+        // Form submission
+        const submitBtn = document.getElementById('checkout-submit');
+        if (submitBtn) submitBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            showConfirmOverlay();
+        });
     });
 </script>
