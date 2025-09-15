@@ -4,7 +4,7 @@
 
 
 
-<body class="relative bg-white font-poppins opacity-0 transition-opacity duration-700 h-[100dvh] overflow-hidden">
+<body class="relative bg-white font-poppins opacity-0 transition-opacity duration-700 h-[100dvh] overflow-auto md:overflow-hidden">
 
   <!-- Background Section -->
   <section class="relative shadow-2xl min-h-[100dvh]">
