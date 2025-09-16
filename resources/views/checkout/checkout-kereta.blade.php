@@ -98,7 +98,7 @@
                 <h2 class="text-xl font-bold text-gray-800">Detail Penumpang</h2>
                 <div class="flex items-center gap-2">
                     <button id="add-passenger-btn" onclick="addPassenger()"
-                        class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white rounded-lg hover:from-[#156b8a] hover:to-[#2d9a6b] transition">
+                        class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white rounded-lg hover:from-[#FE0004] hover:to-[#F6B101] transition">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
                         Tambah Penumpang?
                     </button>
@@ -200,7 +200,7 @@
         <div class="text-center">
             <button type="submit" id="checkout-submit"
 
-                     class="w-full max-w-md bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white font-bold py-4 px-8 rounded-xl hover:from-[#156b8a] hover:to-[#2d9a6b] transition-all duration-200 transform hover:scale-105 shadow-lg mt-10">
+                     class="w-full max-w-md bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white font-bold py-4 px-8 rounded-xl hover:from-[#FE0004] hover:to-[#F6B101] transition-all duration-200 transform hover:scale-105 shadow-lg mt-10">
 
                  SUBMIT
             </button>
@@ -356,7 +356,7 @@
             <button onclick="cancelSubmit()" class="flex-1 bg-red-500 text-white py-3 px-6 rounded-lg font-medium hover:bg-red-600 transition">
                 tidak
             </button>
-            <button onclick="confirmSubmit()" class="flex-1 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white py-3 px-6 rounded-lg font-medium hover:from-[#156b8a] hover:to-[#2d9a6b] transition">
+            <button onclick="confirmSubmit()" class="flex-1 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white py-3 px-6 rounded-lg font-medium hover:from-[#FE0004] hover:to-[#F6B101] transition">
                 iya
             </button>
         </div>
@@ -369,11 +369,11 @@
          <h3 class="text-2xl font-bold text-gray-800 mb-6">Mau lihat kereta lain?</h3>
          <p class="text-gray-600 mb-8 leading-relaxed px-2">Kalau kamu kembali ke halaman sebelumnya, semua info yang diisi dan keberangkatan yang dipilih akan hilang.</p>
          <div class="flex flex-col space-y-4">
-              <button onclick="window.location.href='{{ url('pesanan/kereta') }}'" class="w-full px-6 py-4 bg-gradient-to-r from-blue-50 to-blue-100 text-teal-600 rounded-xl hover:from-blue-100 hover:to-blue-200 transition-all duration-200 font-medium border border-blue-200">
+              <button onclick="window.location.href='{{ url('pesanan/kereta') }}'" class="w-full px-6 py-4 bg-gradient-to-r from-red-50 to-red-100 text-red-600 rounded-xl hover:from-red-100 hover:to-red-200 transition-all duration-200 font-medium border border-blue-200">
 
                   Lihat Kereta Lain
               </button>
-             <button onclick="hideBackOverlay()" class="w-full px-6 py-4 bg-gradient-to-r from-teal-500 to-teal-600 text-white rounded-xl hover:from-teal-600 hover:to-teal-700 transition-all duration-200 font-medium shadow-md">
+             <button onclick="hideBackOverlay()" class="w-full px-6 py-4 bg-gradient-to-r from-red-600 to-yellow-400 text-white rounded-xl hover:from-red-700 hover:to-yellow-400 transition-all duration-200 font-medium shadow-md">
                  Selesaikan Pemesananmu
              </button>
          </div>
@@ -441,7 +441,7 @@ function applyDummyFilesToForm(files) {
                         <span class="text-gray-400 text-xs">${file.size}</span>
                     </div>
                 `;
-                ktpUploadBox.classList.remove('border-gray-200', 'hover:border-blue-300');
+                ktpUploadBox.classList.remove('border-gray-200', 'hover:border-red-300');
                 ktpUploadBox.classList.add('border-green-400', 'bg-green-50');
             }
         });
@@ -463,7 +463,7 @@ function applyDummyFilesToForm(files) {
                         <span class="text-gray-400 text-xs">${file.size}</span>
                     </div>
                 `;
-                suratUploadBox.classList.remove('border-gray-200', 'hover:border-blue-300');
+                suratUploadBox.classList.remove('border-gray-200', 'hover:border-red-300');
                 suratUploadBox.classList.add('border-green-400', 'bg-green-50');
             }
         });
@@ -493,7 +493,7 @@ function resetFileUploadsToEmpty() {
                 <input type="file" id="ktp-${i}" name="ktp[]" accept=".pdf" class="hidden" onchange="handleFileChange(event, 'ktp-filename-${i}')">
             `;
             ktpUploadBox.classList.remove('border-green-400', 'bg-green-50');
-            ktpUploadBox.classList.add('border-gray-200', 'hover:border-blue-300');
+            ktpUploadBox.classList.add('border-gray-200', 'hover:border-red-300');
             ktpUploadBox.setAttribute('onclick', `triggerFileForPassenger(${i},'ktp')`);
         }
         
@@ -515,7 +515,7 @@ function resetFileUploadsToEmpty() {
                 <input type="file" id="surat-${i}" name="surat[]" accept=".pdf" class="hidden" onchange="handleFileChange(event, 'surat-filename-${i}')">
             `;
             suratUploadBox.classList.remove('border-green-400', 'bg-green-50');
-            suratUploadBox.classList.add('border-gray-200', 'hover:border-blue-300');
+            suratUploadBox.classList.add('border-gray-200', 'hover:border-red-300');
             suratUploadBox.setAttribute('onclick', `triggerFileForPassenger(${i},'surat')`);
         }
     }
@@ -1036,7 +1036,7 @@ document.addEventListener('DOMContentLoaded', function() {
                             <span class="text-green-600 text-sm">${fileName}</span>
                         </div>
                     `;
-                    uploadArea.classList.remove('border-gray-300', 'hover:border-blue-400');
+                    uploadArea.classList.remove('border-gray-300', 'hover:border-red-400');
                     uploadArea.classList.add('border-green-400', 'bg-green-50');
                 }
             }
