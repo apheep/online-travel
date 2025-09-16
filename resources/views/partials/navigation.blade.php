@@ -1,4 +1,4 @@
-    <!-- NavBar -->
+<!-- NavBar -->
     <nav id="main-navbar" class="sticky top-0 z-50 w-full bg-[F4F7FE] text-white">
   <div class="flex items-center justify-between max-w-7xl mx-auto px-10 py-6">
     <a href="{{ route('welcome') }}" 
@@ -16,12 +16,46 @@
         </div>
         
         <!-- Notification Icon -->
-        <div class="relative">
+        <div class="relative group">
           <a href="{{ route('notifications.mailbox') }}" class="p-2 text-white hover:bg-white/10 rounded-full transition-all duration-300 block">
             <img src="/notif.png" alt="Notifications" class="w-5 h-6">
           </a>
           <!-- Notification badge -->
           <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-medium">3</span>
+
+          <!-- Hover Dropdown Preview -->
+          <div class="absolute right-0 mt-3 w-80 bg-white rounded-xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform scale-95 group-hover:scale-100 z-50 border border-gray-100 overflow-hidden">
+            <div class="px-4 py-3 border-b border-gray-100">
+              <p class="text-sm font-semibold text-gray-900">Notifikasi Terbaru</p>
+            </div>
+            <ul class="max-h-80 overflow-auto divide-y divide-gray-100">
+              <li class="flex items-start gap-3 px-4 py-3 hover:bg-gray-50 transition">
+                <div class="mt-0.5 h-2 w-2 rounded-full bg-red-500 shrink-0"></div>
+                <div class="min-w-0">
+                  <p class="text-sm font-medium text-gray-900 truncate">Promo Hotel 20% untuk akhir pekan ini!</p>
+                  <p class="text-xs text-gray-500 truncate">Jangan lewatkan penawaran terbatas.</p>
+                  <span class="text-[11px] text-gray-400">Baru saja</span>
+                </div>
+              </li>
+              <li class="flex items-start gap-3 px-4 py-3 hover:bg-gray-50 transition">
+                <div class="mt-0.5 h-2 w-2 rounded-full bg-yellow-400 shrink-0"></div>
+                <div class="min-w-0">
+                  <p class="text-sm font-medium text-gray-900 truncate">Status pesanan kereta kamu diperbarui</p>
+                  <p class="text-xs text-gray-500 truncate">E-ticket siap diunduh.</p>
+                  <span class="text-[11px] text-gray-400">10 mnt lalu</span>
+                </div>
+              </li>
+              <li class="flex items-start gap-3 px-4 py-3 hover:bg-gray-50 transition">
+                <div class="mt-0.5 h-2 w-2 rounded-full bg-blue-500 shrink-0"></div>
+                <div class="min-w-0">
+                  <p class="text-sm font-medium text-gray-900 truncate">Pengingat: Check-in hotel besok</p>
+                  <p class="text-xs text-gray-500 truncate">Siapkan dokumen perjalananmu.</p>
+                  <span class="text-[11px] text-gray-400">1 jam lalu</span>
+                </div>
+              </li>
+            </ul>
+            <a href="{{ route('notifications.mailbox') }}" class="block text-center text-sm font-medium text-rose-600 hover:text-rose-700 py-3">Lihat semua</a>
+          </div>
         </div>
         
         <div class="relative">
@@ -69,7 +103,7 @@
     </nav>
 
     <!-- Mobile Sidebar -->
-    <div id="mobile-sidebar" class="fixed top-0 right-0 h-full w-64 bg-white shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out z-50">
+    <div id="mobile-sidebar" class="fixed top-0 right-0 h-full w-64 bg-white shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out z-50 overflow-y-auto">
       <div class="flex items-center justify-between p-6 border-b">
         <h3 class="text-lg font-semibold text-gray-800">Menu</h3>
         <button onclick="closeSidebar()" class="text-gray-500 hover:text-gray-700">
@@ -129,6 +163,46 @@
               <!-- Notification badge -->
               <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-medium">3</span>
             </a>
+          </div>
+
+          <!-- Recent Notifications (Mobile) -->
+          <div class="bg-white border border-gray-100 rounded-2xl shadow-sm overflow-hidden">
+            <div class="flex items-center justify-between px-4 py-3 border-b border-gray-100">
+              <p class="text-sm font-semibold text-gray-900">Notifikasi Terbaru</p>
+              <a href="{{ route('notifications.mailbox') }}" class="text-xs font-medium text-rose-600 hover:text-rose-700">Lihat semua</a>
+            </div>
+            <ul class="divide-y divide-gray-100">
+              <li class="px-4 py-3">
+                <div class="flex items-start gap-3">
+                  <span class="mt-1 h-2 w-2 rounded-full bg-red-500"></span>
+                  <div class="min-w-0">
+                    <p class="text-sm font-medium text-gray-900">Promo Hotel 20% untuk akhir pekan ini!</p>
+                    <p class="text-xs text-gray-500 truncate">Jangan lewatkan penawaran terbatas.</p>
+                    <span class="text-[11px] text-gray-400">Baru saja</span>
+                  </div>
+                </div>
+              </li>
+              <li class="px-4 py-3">
+                <div class="flex items-start gap-3">
+                  <span class="mt-1 h-2 w-2 rounded-full bg-yellow-400"></span>
+                  <div class="min-w-0">
+                    <p class="text-sm font-medium text-gray-900">Status pesanan kereta kamu diperbarui</p>
+                    <p class="text-xs text-gray-500 truncate">E-ticket siap diunduh.</p>
+                    <span class="text-[11px] text-gray-400">10 mnt lalu</span>
+                  </div>
+                </div>
+              </li>
+              <li class="px-4 py-3">
+                <div class="flex items-start gap-3">
+                  <span class="mt-1 h-2 w-2 rounded-full bg-blue-500"></span>
+                  <div class="min-w-0">
+                    <p class="text-sm font-medium text-gray-900">Pengingat: Check-in hotel besok</p>
+                    <p class="text-xs text-gray-500 truncate">Siapkan dokumen perjalananmu.</p>
+                    <span class="text-[11px] text-gray-400">1 jam lalu</span>
+                  </div>
+                </div>
+              </li>
+            </ul>
           </div>
 
         </div>
