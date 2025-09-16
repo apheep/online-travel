@@ -1,4 +1,4 @@
-    <!-- NavBar -->
+<!-- NavBar -->
     <nav id="main-navbar" class="sticky top-0 z-50 w-full bg-[F4F7FE] text-white">
   <div class="flex items-center justify-between max-w-7xl mx-auto px-10 py-6">
     <a href="{{ route('welcome') }}" 
