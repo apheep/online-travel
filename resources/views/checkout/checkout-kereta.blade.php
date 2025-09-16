@@ -4,6 +4,16 @@
 
 @include('partials.navigation')
 <body class="font-poppins">
+    <!-- Page Transition Loading Overlay -->
+    <div id="page-transition-overlay" class="fixed inset-0 bg-white/95 backdrop-blur-md z-[9999] hidden">
+        <div class="w-full h-full flex flex-col items-center justify-center">
+            <div class="w-16 h-16 border-4 border-gray-200 border-t-[#FE0004] rounded-full animate-spin mb-5"></div>
+            <div id="loading-text" class="text-gray-700 text-lg font-semibold text-center mb-2">Memproses pemesanan kereta...</div>
+            <div class="w-64 h-1.5 bg-gray-200 rounded mt-4 overflow-hidden">
+                <div id="loading-progress-bar" class="w-0 h-full bg-gradient-to-r from-[#FE0004] to-[#F6B101] transition-[width] duration-500 ease-linear rounded"></div>
+            </div>
+        </div>
+    </div>
 <div class="min-h-screen bg-[F4F7FE] py-4 sm:py-8 px-3 sm:px-4">
     <div class="max-w-6xl mx-auto">
         <!-- Back Navigation -->
@@ -23,7 +33,7 @@
         <div class="relative bg-white rounded-2xl shadow-lg p-4 sm:p-6 lg:p-8 mb-6">
             <div class="flex flex-col items-center">
             <div class="flex items-center space-x-3">
-                <img src="/KAI.png" alt="KAI Logo" class="w-12 h-auto">
+                <img src="/KAI.png" alt="KAI Logo" class="w-12 h-auto" loading="lazy">
                 <h2 class="text-lg sm:text-xl font-semibold text-gray-500">Sancaka 81</h2>
                 <span class="text-lg sm:text-xl font-semibold text-gray-500">•</span>
                 <span class="text-lg sm:text-xl font-semibold text-gray-500">Ekonomi</span>
@@ -67,7 +77,7 @@
                     <div class="flex gap-4 flex-1">
                         <img src="{{ asset('detailpekerjaan.png') }}" 
                             alt="Detail Pekerjaan" 
-                            class="w-12 h-12 self-center">
+                            class="w-12 h-12 self-center" loading="lazy">
                         <div class="flex flex-col w-full">
                             <label class="block text-gray-800 font-medium mb-2">Detail Pekerjaan</label>
                             <input type="text" 
@@ -80,7 +90,7 @@
                     <div class="flex gap-4 flex-1">
                         <img src="{{ asset('detaildinas.png') }}" 
                             alt="Detail Dinas" 
-                            class="w-12 h-12 self-center">
+                            class="w-12 h-12 self-center" loading="lazy">
                         <div class="flex flex-col w-full">
                             <label class="block text-gray-800 font-medium mb-2">Detail Dinas</label>
                             <input type="text" 
@@ -161,7 +171,7 @@
                               <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-2">Upload KTP</label>
                                 <div class="upload-box border-2 border-dashed border-gray-200 rounded-xl p-4 hover:border-blue-300 transition-colors duration-200 cursor-pointer flex items-center gap-4" onclick="triggerFileForPassenger(0,'ktp')">
-                                  <img src="{{ asset('folder.png') }}" alt="icon" class="w-8 h-8">
+                                  <img src="{{ asset('folder.png') }}" alt="icon" class="w-8 h-8" loading="lazy">
                                   <div class="flex-1 text-left">
                                     <div class="text-gray-700">Klik untuk upload atau tarik file ke sini</div>
                                     <div id="ktp-filename-0" class="text-sm text-gray-400">Format: PDF (maks 5MB)</div>
@@ -174,7 +184,7 @@
                               <div>
                                 <label class="block text-sm font-medium text-gray-700 mb-2">Upload Surat Dinas</label>
                                 <div class="upload-box border-2 border-dashed border-gray-200 rounded-xl p-4 hover:border-blue-300 transition-colors duration-200 cursor-pointer flex items-center gap-4" onclick="triggerFileForPassenger(0,'surat')">
-                                  <img src="{{ asset('folder.png') }}" alt="icon" class="w-8 h-8">
+                                  <img src="{{ asset('folder.png') }}" alt="icon" class="w-8 h-8" loading="lazy">
                                   <div class="flex-1 text-left">
                                     <div class="text-gray-700">Klik untuk upload atau tarik file ke sini</div>
                                     <div id="surat-filename-0" class="text-sm text-gray-400">Format: PDF (maks 5MB)</div>
@@ -1119,6 +1129,136 @@ window.addEventListener('error', function(e) {
         return true;
     }
 }, true);
+
+// Page Transition Loading for Train
+function showPageTransition() {
+    const overlay = document.getElementById('page-transition-overlay');
+    const loadingText = document.getElementById('loading-text');
+    const progressBar = document.getElementById('loading-progress-bar');
+    
+    if (!overlay) return;
+    
+    overlay.classList.remove('hidden');
+    
+    // Train-specific loading steps
+    const steps = [
+        { text: 'Memproses data kereta...', progress: 20, duration: 800 },
+        { text: 'Memvalidasi kursi dan dokumen...', progress: 40, duration: 1000 },
+        { text: 'Mengirim ke sistem KAI...', progress: 60, duration: 1200 },
+        { text: 'Membuat e-tiket kereta...', progress: 80, duration: 800 },
+        { text: 'Menyelesaikan reservasi...', progress: 100, duration: 600 }
+    ];
+    
+    let currentStep = 0;
+    
+    function executeStep() {
+        if (currentStep < steps.length) {
+            const step = steps[currentStep];
+            loadingText.textContent = step.text;
+            progressBar.style.width = step.progress + '%';
+            
+            setTimeout(() => {
+                currentStep++;
+                executeStep();
+            }, step.duration);
+        } else {
+            // Navigate to receipt page
+            setTimeout(() => {
+                window.location.href = "{{ url('receipt/keretareceipt') }}";
+            }, 500);
+        }
+    }
+    
+    executeStep();
+}
+
+// Page Transition for Navigation
+function showPageTransitionForNavigation(message, url) {
+    const overlay = document.getElementById('page-transition-overlay');
+    const loadingText = document.getElementById('loading-text');
+    const progressBar = document.getElementById('loading-progress-bar');
+    
+    if (!overlay) return;
+    
+    overlay.classList.remove('hidden');
+    loadingText.textContent = message;
+    
+    // Quick loading animation
+    let progress = 0;
+    const interval = setInterval(() => {
+        progress += 10;
+        progressBar.style.width = progress + '%';
+        
+        if (progress >= 100) {
+            clearInterval(interval);
+            setTimeout(() => {
+                window.location.href = url;
+            }, 200);
+        }
+    }, 100);
+}
+
+// Back navigation with page transition
+function goBack() {
+    showBackOverlay();
+}
+
+function showBackOverlay() {
+    const overlay = document.getElementById('back-overlay');
+    if (!overlay) return;
+    const dialog = overlay.querySelector('#back-dialog');
+    overlay.classList.remove('hidden');
+    void overlay.offsetWidth; // trigger reflow
+    if (dialog) {
+        setTimeout(() => {
+            dialog.classList.remove('scale-95', 'opacity-0');
+            dialog.classList.add('scale-100', 'opacity-100');
+        }, 10);
+    }
+}
+
+function hideBackOverlay() {
+    const overlay = document.getElementById('back-overlay');
+    if (!overlay) return;
+    const dialog = overlay.querySelector('#back-dialog');
+    if (dialog) {
+        dialog.classList.add('scale-95', 'opacity-0');
+        dialog.classList.remove('scale-100', 'opacity-100');
+    }
+    setTimeout(() => {
+        overlay.classList.add('hidden');
+    }, 300);
+}
+
+// Update confirmSubmit function to use page transition
+function confirmSubmit() {
+    const modal = document.getElementById('verification-overlay');
+    const dialog = document.getElementById('verification-dialog');
+    if (modal && dialog) {
+        dialog.classList.remove('scale-100', 'opacity-100');
+        dialog.classList.add('scale-95', 'opacity-0');
+        modal.classList.remove('opacity-100');
+        modal.classList.add('opacity-0');
+        setTimeout(() => modal.classList.add('hidden'), 200);
+    }
+    
+    // Process the actual submission with page transition
+    showPageTransition();
+}
+
+// Initialize lazy loading when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+    // Simple lazy loading for images
+    const images = document.querySelectorAll('img[loading="lazy"]');
+    images.forEach(img => {
+        img.addEventListener('load', function() {
+            this.classList.add('loaded');
+        });
+        if (img.complete) {
+            img.classList.add('loaded');
+        }
+    });
+});
 </script>
 
 @include('partials.footer')
