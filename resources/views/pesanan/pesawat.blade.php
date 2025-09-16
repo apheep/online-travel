@@ -140,22 +140,22 @@
                     <div class="mb-6">
                         <h4 class="text-sm font-semibold text-gray-900 mb-3">Kota Populer</h4>
                         <div class="grid grid-cols-3 gap-2">
-                            <button onclick="selectDeparturePopularLocation('Jakarta')" class="p-3 border border-gray-300 rounded-lg hover:bg-gradient-to-r  hover:text-white hover:border-transparent transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out text-sm font-medium text-gray-700">
+                            <button onclick="selectDeparturePopularLocation('Jakarta')" class="p-3 border border-gray-300 rounded-lg hover:bg-rose-100 hover:text-gray-900 hover:border-transparent transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out text-sm font-medium text-gray-700">
                                 Jakarta
                             </button>
-                            <button onclick="selectDeparturePopularLocation('Surabaya')" class="p-3 border border-gray-300 rounded-lg hover:bg-gradient-to-r  hover:text-white hover:border-transparent transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out text-sm font-medium text-gray-700">
+                            <button onclick="selectDeparturePopularLocation('Surabaya')" class="p-3 border border-gray-300 rounded-lg hover:bg-rose-100 hover:text-gray-900 hover:border-transparent transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out text-sm font-medium text-gray-700">
                                 Surabaya
                             </button>
-                            <button onclick="selectDeparturePopularLocation('Medan')" class="p-3 border border-gray-300 rounded-lg hover:bg-gradient-to-r  hover:text-white hover:border-transparent transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out text-sm font-medium text-gray-700">
+                            <button onclick="selectDeparturePopularLocation('Medan')" class="p-3 border border-gray-300 rounded-lg hover:bg-rose-100 hover:text-gray-900 hover:border-transparent transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out text-sm font-medium text-gray-700">
                                 Medan
                             </button>
-                            <button onclick="selectDeparturePopularLocation('Makassar')" class="p-3 border border-gray-300 rounded-lg hover:bg-gradient-to-r  hover:text-white hover:border-transparent transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out text-sm font-medium text-gray-700">
+                            <button onclick="selectDeparturePopularLocation('Makassar')" class="p-3 border border-gray-300 rounded-lg hover:bg-rose-100 hover:text-gray-900 hover:border-transparent transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out text-sm font-medium text-gray-700">
                                 Makassar
                             </button>
-                            <button onclick="selectDeparturePopularLocation('Yogyakarta')" class="p-3 border border-gray-300 rounded-lg hover:bg-gradient-to-r  hover:text-white hover:border-transparent transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out text-sm font-medium text-gray-700">
+                            <button onclick="selectDeparturePopularLocation('Yogyakarta')" class="p-3 border border-gray-300 rounded-lg hover:bg-rose-100 hover:text-gray-900 hover:border-transparent transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out text-sm font-medium text-gray-700">
                                 Yogyakarta
                             </button>
-                            <button onclick="selectDeparturePopularLocation('Balikpapan')" class="p-3 border border-gray-300 rounded-lg hover:bg-gradient-to-r  hover:text-white hover:border-transparent transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out text-sm font-medium text-gray-700">
+                            <button onclick="selectDeparturePopularLocation('Balikpapan')" class="p-3 border border-gray-300 rounded-lg hover:bg-rose-100 hover:text-gray-900 hover:border-transparent transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out text-sm font-medium text-gray-700">
                                 Balikpapan
                             </button>
                         </div>
@@ -165,7 +165,7 @@
                         <button onclick="closeDepartureModal()" class="flex-1 px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition duration-200 font-medium">
                             Batal
                         </button>
-                        <button onclick="saveDepartureLocation()" class="flex-1 px-4 py-2 text-white rounded-lg font-medium transition duration-200 shadow-md hover:shadow-lg" style="background: linear-gradient(135deg, #187499 0%, #36AE7E 100%);">
+                        <button onclick="saveDepartureLocation()" class="flex-1 px-4 py-2 text-white rounded-lg font-medium transition duration-200 shadow-md hover:shadow-lg bg-gradient-to-r from-[#FE0004] to-[#F6B101]" >
                             Simpan
                         </button>
                     </div>
@@ -229,22 +229,22 @@
                     <div class="mb-6">
                         <h4 class="text-sm font-semibold text-gray-900 mb-3">Destinasi Populer</h4>
                         <div class="grid grid-cols-3 gap-2">
-                            <button onclick="selectArrivalPopularLocation('Denpasar-Bali')" class="p-3 border border-gray-300 rounded-lg hover:bg-gradient-to-r  hover:text-white hover:border-transparent transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out text-sm font-medium text-gray-700">
+                            <button onclick="selectArrivalPopularLocation('Denpasar-Bali')" class="p-3 border border-gray-300 rounded-lg hover:bg-rose-100 hover:text-gray-900 hover:border-transparent transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out text-sm font-medium text-gray-700">
                                 Denpasar-Bali
                             </button>
-                            <button onclick="selectArrivalPopularLocation('Surabaya')" class="p-3 border border-gray-300 rounded-lg hover:bg-gradient-to-r  hover:text-white hover:border-transparent transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out text-sm font-medium text-gray-700">
+                            <button onclick="selectArrivalPopularLocation('Surabaya')" class="p-3 border border-gray-300 rounded-lg hover:bg-rose-100 hover:text-gray-900 hover:border-transparent transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out text-sm font-medium text-gray-700">
                                 Surabaya
                             </button>
-                            <button onclick="selectArrivalPopularLocation('Medan')" class="p-3 border border-gray-300 rounded-lg hover:bg-gradient-to-r  hover:text-white hover:border-transparent transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out text-sm font-medium text-gray-700">
+                            <button onclick="selectArrivalPopularLocation('Medan')" class="p-3 border border-gray-300 rounded-lg hover:bg-rose-100 hover:text-gray-900 hover:border-transparent transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out text-sm font-medium text-gray-700">
                                 Medan
                             </button>
-                            <button onclick="selectArrivalPopularLocation('Makassar')" class="p-3 border border-gray-300 rounded-lg hover:bg-gradient-to-r  hover:text-white hover:border-transparent transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out text-sm font-medium text-gray-700">
+                            <button onclick="selectArrivalPopularLocation('Makassar')" class="p-3 border border-gray-300 rounded-lg hover:bg-rose-100 hover:text-gray-900 hover:border-transparent transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out text-sm font-medium text-gray-700">
                                 Makassar
                             </button>
-                            <button onclick="selectArrivalPopularLocation('Yogyakarta')" class="p-3 border border-gray-300 rounded-lg hover:bg-gradient-to-r  hover:text-white hover:border-transparent transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out text-sm font-medium text-gray-700">
+                            <button onclick="selectArrivalPopularLocation('Yogyakarta')" class="p-3 border border-gray-300 rounded-lg hover:bg-rose-100 hover:text-gray-900 hover:border-transparent transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out text-sm font-medium text-gray-700">
                                 Yogyakarta
                             </button>
-                            <button onclick="selectArrivalPopularLocation('Balikpapan')" class="p-3 border border-gray-300 rounded-lg hover:bg-gradient-to-r  hover:text-white hover:border-transparent transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out text-sm font-medium text-gray-700">
+                            <button onclick="selectArrivalPopularLocation('Balikpapan')" class="p-3 border border-gray-300 rounded-lg hover:bg-rose-100 hover:text-gray-900 hover:border-transparent transform hover:scale-105 active:scale-95 transition-all duration-300 ease-out text-sm font-medium text-gray-700">
                                 Balikpapan
                             </button>
                         </div>
@@ -254,7 +254,7 @@
                         <button onclick="closeArrivalModal()" class="flex-1 px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition duration-200 font-medium">
                             Batal
                         </button>
-                        <button onclick="saveArrivalLocation()" class="flex-1 px-4 py-2 text-white rounded-lg font-medium transition duration-200 shadow-md hover:shadow-lg" style="background: linear-gradient(135deg, #187499 0%, #36AE7E 100%);">
+                        <button onclick="saveArrivalLocation()" class="flex-1 px-4 py-2 text-white rounded-lg font-medium transition duration-200 shadow-md hover:shadow-lg bg-gradient-to-r from-[#FE0004] to-[#F6B101]">
                             Simpan
                         </button>
                     </div>
@@ -330,7 +330,7 @@
                         <button onclick="closePassengerModal()" class="flex-1 px-6 py-3 border-2 border-gray-300 rounded-xl text-gray-700 hover:bg-gray-50 transition duration-200 font-semibold">
                             Batal
                         </button>
-                        <button onclick="savePassenger()" class="flex-1 px-6 py-3 text-white rounded-xl font-semibold transition duration-200 shadow-lg hover:shadow-xl" style="background: linear-gradient(135deg, #187499 0%, #36AE7E 100%);">
+                        <button onclick="savePassenger()" class="flex-1 px-6 py-3 text-white rounded-xl font-semibold transition duration-200 shadow-lg hover:shadow-xl bg-gradient-to-r from-[#FE0004] to-[#F6B101]">
                             Simpan
                         </button>
                     </div>
