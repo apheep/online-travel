@@ -10,6 +10,12 @@
                   <i class="fas fa-sort text-gray-400 text-xs"></i>
                 </div>
               </th>
+              <th class="px-6 py-5 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
+                <div class="flex items-center space-x-1">
+                  <span>Status</span>
+                  <i class="fas fa-sort text-gray-400 text-xs"></i>
+                </div>
+              </th>
               <th class="px-6 py-5 text-center text-xs font-bold text-gray-700 uppercase tracking-wider">Detail</th>
               <th class="px-6 py-5 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
                 <div class="flex items-center space-x-1">
@@ -30,12 +36,6 @@
                 </div>
               </th>
               <th class="px-6 py-5 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">Kontak</th>
-              <th class="px-6 py-5 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
-                <div class="flex items-center space-x-1">
-                  <span>Status</span>
-                  <i class="fas fa-sort text-gray-400 text-xs"></i>
-                </div>
-              </th>
             </tr>
           </thead>
           <tbody id="orders-tbody" class="divide-y divide-gray-100 bg-white">
@@ -47,6 +47,12 @@
                     <span class="text-teal-700 font-bold text-sm">001</span>
                   </div>
                 </div>
+              </td>
+              <td class="px-6 py-5 whitespace-nowrap">
+                <span class="inline-flex items-center px-3 py-2 rounded-full text-xs font-semibold text-yellow-800">
+                  <div class="h-2 w-2 bg-yellow-500 rounded-full mr-2 animate-pulse"></div>
+                  Request
+                </span>
               </td>
               <td class="px-6 py-5 whitespace-nowrap text-center">
                 <div class="flex items-center justify-center">
@@ -73,12 +79,6 @@
                 <div class="text-sm text-gray-900">+62 812-3456-7890</div>
                 <div class="text-xs text-gray-500">WhatsApp</div>
               </td>
-              <td class="px-6 py-5 whitespace-nowrap">
-                <span class="inline-flex items-center px-3 py-2 rounded-full text-xs font-semibold text-yellow-800">
-                  <div class="h-2 w-2 bg-yellow-500 rounded-full mr-2 animate-pulse"></div>
-                  Request
-                </span>
-              </td>
             </tr>
 
             <!-- Sample Row 2 -->
@@ -89,6 +89,12 @@
                     <span class="text-red-700 font-bold text-sm">002</span>
                   </div>
                 </div>
+              </td>
+              <td class="px-6 py-5 whitespace-nowrap">
+                <span class="inline-flex items-center px-3 py-2 rounded-full text-xs font-semibold text-red-800">
+                  <div class="h-2 w-2 bg-red-500 rounded-full mr-2"></div>
+                  Reject
+                </span>
               </td>
               <td class="px-6 py-5 whitespace-nowrap text-center">
                 <div class="flex items-center justify-center">
@@ -115,12 +121,6 @@
                 <div class="text-sm text-gray-900">+62 813-9876-5432</div>
                 <div class="text-xs text-gray-500">WhatsApp</div>
               </td>
-              <td class="px-6 py-5 whitespace-nowrap">
-                <span class="inline-flex items-center px-3 py-2 rounded-full text-xs font-semibold text-red-800">
-                  <div class="h-2 w-2 bg-red-500 rounded-full mr-2"></div>
-                  Reject
-                </span>
-              </td>
             </tr>
 
             <!-- Sample Row 3 -->
@@ -131,6 +131,12 @@
                     <span class="text-green-700 font-bold text-sm">003</span>
                   </div>
                 </div>
+              </td>
+              <td class="px-6 py-5 whitespace-nowrap">
+                <span class="inline-flex items-center px-3 py-2 rounded-full text-xs font-semibold text-green-800">
+                  <div class="h-2 w-2 bg-green-500 rounded-full mr-2"></div>
+                  Approve
+                </span>
               </td>
               <td class="px-6 py-5 whitespace-nowrap text-center">
                 <div class="flex items-center justify-center">
@@ -157,12 +163,6 @@
                 <div class="text-sm text-gray-900">+62 814-1234-5678</div>
                 <div class="text-xs text-gray-500">WhatsApp</div>
               </td>
-              <td class="px-6 py-5 whitespace-nowrap">
-                <span class="inline-flex items-center px-3 py-2 rounded-full text-xs font-semibold text-green-800">
-                  <div class="h-2 w-2 bg-green-500 rounded-full mr-2"></div>
-                  Approve
-                </span>
-              </td>
             </tr>
 
             <!-- Sample Row 4 -->
@@ -173,6 +173,12 @@
                     <span class="text-purple-700 font-bold text-sm">004</span>
                   </div>
                 </div>
+              </td>
+              <td class="px-6 py-5 whitespace-nowrap">
+                <span class="inline-flex items-center px-3 py-2 rounded-full text-xs font-semibold text-red-800">
+                  <div class="h-2 w-2 bg-red-500 rounded-full mr-2"></div>
+                  Reject
+                </span>
               </td>
               <td class="px-6 py-5 whitespace-nowrap text-center">
                 <div class="flex items-center justify-center">
@@ -198,12 +204,6 @@
               <td class="px-6 py-5 whitespace-nowrap">
                 <div class="text-sm text-gray-900">+62 815-5678-9012</div>
                 <div class="text-xs text-gray-500">WhatsApp</div>
-              </td>
-              <td class="px-6 py-5 whitespace-nowrap">
-                <span class="inline-flex items-center px-3 py-2 rounded-full text-xs font-semibold text-red-800">
-                  <div class="h-2 w-2 bg-red-500 rounded-full mr-2"></div>
-                  Reject
-                </span>
               </td>
             </tr>
           </tbody>

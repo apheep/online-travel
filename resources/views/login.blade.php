@@ -1,13 +1,5 @@
-{{-- resources/views/auth/login.blade.php --}}
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Login</title>
 
-  {{-- Tailwind CDN (untuk prototyping cepat) --}}
-  <script src="https://cdn.tailwindcss.com"></script>
+@include('partials.head')
 
   <style>
     /* frame style di sekitar gambar (border biru-teal seperti contoh) */
@@ -23,8 +15,8 @@
       background: linear-gradient(90deg, #1e6ea6, #2fb78b);
     }
   </style>
-</head>
-<body class="min-h-screen flex items-center justify-center bg-white">
+
+<body class="min-h-screen flex items-center justify-center bg-white font-poppins">
   <div class="container mx-auto px-6">
     <div class="flex flex-col lg:flex-row items-center justify-center gap-10">
 

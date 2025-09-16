@@ -131,7 +131,7 @@
                 <button onclick="window.location.href='/pesanan/hotel'" class="px-8 py-4 border-2 border-gray-300 rounded-xl text-gray-700 hover:bg-gray-50 transition duration-200 font-semibold">
                     Kembali ke Pemesanan
                 </button>
-                <button onclick="window.location.href='/welcome'" class="px-8 py-4 text-white rounded-xl font-semibold transition duration-200 shadow-lg hover:shadow-xl" style="background: linear-gradient(135deg, #FE0004 0%, #F6B101 100%);">
+                <button onclick="window.location.href='/welcome'" class="px-8 py-4 text-white rounded-xl font-semibold bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white font-bold py-4 px-8 rounded-xl hover:from-[#FE0004] hover:to-[#FFD700] transition-all duration-200 transform hover:scale-105 shadow-lg">
                     Kembali ke Beranda
                 </button>
             </div>
