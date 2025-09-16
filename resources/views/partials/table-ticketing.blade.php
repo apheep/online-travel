@@ -11,7 +11,6 @@
                 </div>
               </th>
               <th class="px-6 py-5 text-center text-xs font-bold text-gray-700 uppercase tracking-wider">Detail</th>
-              <th class="px-6 py-5 text-center text-xs font-bold text-gray-700 uppercase tracking-wider">Aksi</th>
               <th class="px-6 py-5 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
                 <div class="flex items-center space-x-1">
                   <span>Jenis Tiket</span>
@@ -69,15 +68,8 @@
                   </button>
                 </div>
               </td>
-              <td class="px-6 py-5 whitespace-nowrap text-center">
-                <input type="file" class="hidden upload-input" accept=".pdf,.jpg,.jpeg,.png" />
-                <button type="button" class="upload-trigger inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs font-semibold rounded-lg  transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
-                  <i class="fas fa-upload mr-2"></i>
-                  Upload
-                </button>
-              </td>
               <td class="px-6 py-5 whitespace-nowrap">
-                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-teal-50 text-teal-700 border border-teal-200">Kereta</span>
+                <span class="inline-flex items-center px-3 py-1 text-xs font-semibold text-teal-700">Kereta</span>
               </td>
               <td class="px-6 py-5 whitespace-nowrap">
                 <div class="text-sm font-semibold text-gray-900">15 Jan 2024</div>
@@ -114,15 +106,8 @@
                   </button>
                 </div>
               </td>
-              <td class="px-6 py-5 whitespace-nowrap text-center">
-                <input type="file" class="hidden upload-input" accept=".pdf,.jpg,.jpeg,.png" />
-                <button type="button" class="upload-trigger inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs font-semibold rounded-lg  transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
-                  <i class="fas fa-upload mr-2"></i>
-                  Upload
-                </button>
-              </td>
               <td class="px-6 py-5 whitespace-nowrap">
-                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">Pesawat</span>
+                <span class="inline-flex items-center px-3 py-1 text-xs font-semibold text-blue-700">Pesawat</span>
               </td>
               <td class="px-6 py-5 whitespace-nowrap">
                 <div class="text-sm font-semibold text-gray-900">14 Jan 2024</div>
@@ -159,15 +144,8 @@
                   </button>
                 </div>
               </td>
-              <td class="px-6 py-5 whitespace-nowrap text-center">
-                <input type="file" class="hidden upload-input" accept=".pdf,.jpg,.jpeg,.png" />
-                <button type="button" class="upload-trigger inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs font-semibold rounded-lg  transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
-                  <i class="fas fa-upload mr-2"></i>
-                  Upload
-                </button>
-              </td>
               <td class="px-6 py-5 whitespace-nowrap">
-                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">Hotel</span>
+                <span class="inline-flex items-center px-3 py-1 text-xs font-semibold text-emerald-700">Hotel</span>
               </td>
               <td class="px-6 py-5 whitespace-nowrap">
                 <div class="text-sm font-semibold text-gray-900">13 Jan 2024</div>
@@ -204,15 +182,8 @@
                   </button>
                 </div>
               </td>
-              <td class="px-6 py-5 whitespace-nowrap text-center">
-                <input type="file" class="hidden upload-input" accept=".pdf,.jpg,.jpeg,.png" />
-                <button type="button" class="upload-trigger inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs font-semibold rounded-lg  transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
-                  <i class="fas fa-upload mr-2"></i>
-                  Upload
-                </button>
-              </td>
               <td class="px-6 py-5 whitespace-nowrap">
-                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200">Pesawat</span>
+                <span class="inline-flex items-center px-3 py-1 text-xs font-semibold text-blue-700">Pesawat</span>
               </td>
               <td class="px-6 py-5 whitespace-nowrap">
                 <div class="text-sm font-semibold text-gray-900">12 Jan 2024</div>
@@ -245,14 +216,10 @@
           </div>
           <div class="flex items-center space-x-2">
             <button class="btn-open-detail px-3 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs font-semibold rounded-lg shadow-md">Detail</button>
-            <input type="file" class="hidden upload-input" accept=".pdf,.jpg,.jpeg,.png" />
-            <button type="button" class="upload-trigger px-3 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs font-semibold rounded-lg shadow-md">
-              <i class="fas fa-upload mr-2"></i>Upload
-            </button>
           </div>
         </div>
         <div class="flex items-center mb-3">
-          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-teal-50 text-teal-700 border border-teal-200 mr-3">Kereta</span>
+          <span class="inline-flex items-center px-3 py-1 text-xs font-semibold text-teal-700 mr-3">Kereta</span>
           <div>
             <div class="text-sm font-medium text-gray-900">John Doe</div>
             <div class="text-xs text-gray-500">john.doe@email.com</div>
@@ -282,14 +249,10 @@
           </div>
           <div class="flex items-center space-x-2">
             <button class="btn-open-detail px-3 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs font-semibold rounded-lg shadow-md">Detail</button>
-            <input type="file" class="hidden upload-input" accept=".pdf,.jpg,.jpeg,.png" />
-            <button type="button" class="upload-trigger px-3 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs font-semibold rounded-lg shadow-md">
-              <i class="fas fa-upload mr-2"></i>Upload
-            </button>
           </div>
         </div>
         <div class="flex items-center mb-3">
-          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200 mr-3">Pesawat</span>
+          <span class="inline-flex items-center px-3 py-1 text-xs font-semibold text-blue-700 mr-3">Pesawat</span>
           <div>
             <div class="text-sm font-medium text-gray-900">Jane Smith</div>
             <div class="text-xs text-gray-500">jane.smith@email.com</div>
@@ -319,14 +282,10 @@
           </div>
           <div class="flex items-center space-x-2">
             <button class="btn-open-detail px-3 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs font-semibold rounded-lg shadow-md">Detail</button>
-            <input type="file" class="hidden upload-input" accept=".pdf,.jpg,.jpeg,.png" />
-            <button type="button" class="upload-trigger px-3 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs font-semibold rounded-lg shadow-md">
-              <i class="fas fa-upload mr-2"></i>Upload
-            </button>
           </div>
         </div>
         <div class="flex items-center mb-3">
-          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200 mr-3">Hotel</span>
+          <span class="inline-flex items-center px-3 py-1 text-xs font-semibold text-emerald-700 mr-3">Hotel</span>
           <div>
             <div class="text-sm font-medium text-gray-900">Ahmad Budi</div>
             <div class="text-xs text-gray-500">ahmad.budi@email.com</div>
@@ -356,14 +315,10 @@
           </div>
           <div class="flex items-center space-x-2">
             <button type="button" class="btn-open-detail px-3 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs font-semibold rounded-lg shadow-md">Detail</button>
-            <input type="file" class="hidden upload-input" accept=".pdf,.jpg,.jpeg,.png" />
-            <button type="button" class="upload-trigger px-3 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs font-semibold rounded-lg shadow-md">
-              <i class="fas fa-upload mr-2"></i>Upload
-            </button>
           </div>
         </div>
         <div class="flex items-center mb-3">
-          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-700 border border-blue-200 mr-3">Pesawat</span>
+          <span class="inline-flex items-center px-3 py-1 text-xs font-semibold text-blue-700 mr-3">Pesawat</span>
           <div>
             <div class="text-sm font-medium text-gray-900">Sari Rahayu</div>
             <div class="text-xs text-gray-500">sari.rahayu@email.com</div>

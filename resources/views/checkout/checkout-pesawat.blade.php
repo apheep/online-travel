@@ -4,87 +4,15 @@
 
 @include('partials.navigation')
 
-<!-- Page Transition Loading CSS -->
-<style>
-    .page-transition-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(8px);
-        z-index: 9999;
-        display: none;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-    }
-    
-    .page-transition-overlay.active {
-        display: flex;
-    }
-    
-    .loading-spinner {
-        width: 60px;
-        height: 60px;
-        border: 4px solid #f3f4f6;
-        border-top: 4px solid #FE0004;
-        border-radius: 50%;
-        animation: spin 1s linear infinite;
-        margin-bottom: 20px;
-    }
-    
-    @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-    }
-    
-    .loading-text {
-        color: #374151;
-        font-size: 18px;
-        font-weight: 600;
-        text-align: center;
-        margin-bottom: 8px;
-    }
-    
-    .loading-progress {
-        width: 250px;
-        height: 6px;
-        background: #e5e7eb;
-        border-radius: 3px;
-        margin-top: 16px;
-        overflow: hidden;
-    }
-    
-    .loading-progress-bar {
-        width: 0%;
-        height: 100%;
-        background: linear-gradient(90deg, #FE0004, #F6B101);
-        border-radius: 3px;
-        transition: width 0.5s ease;
-    }
-</style>
-
-<!-- Simple Lazy Loading CSS -->
-<style>
-    img[loading="lazy"] {
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
-    
-    img[loading="lazy"].loaded {
-        opacity: 1;
-    }
-</style>
-
 <body class="bg-[F4F7FE] font-poppins">
     <!-- Page Transition Loading Overlay -->
-    <div id="page-transition-overlay" class="page-transition-overlay">
-        <div class="loading-spinner"></div>
-        <div class="loading-text" id="loading-text">Memproses pemesanan penerbangan...</div>
-        <div class="loading-progress">
-            <div class="loading-progress-bar" id="loading-progress-bar"></div>
+    <div id="page-transition-overlay" class="fixed inset-0 bg-white/95 backdrop-blur-md z-[9999] hidden">
+        <div class="w-full h-full flex flex-col items-center justify-center">
+            <div class="w-16 h-16 border-4 border-gray-200 border-t-[#FE0004] rounded-full animate-spin mb-5"></div>
+            <div id="loading-text" class="text-gray-700 text-lg font-semibold text-center mb-2">Memproses pemesanan penerbangan...</div>
+            <div class="w-64 h-1.5 bg-gray-200 rounded mt-4 overflow-hidden">
+                <div id="loading-progress-bar" class="w-0 h-full bg-gradient-to-r from-[#FE0004] to-[#F6B101] transition-[width] duration-500 ease-linear rounded"></div>
+            </div>
         </div>
     </div>
     <div class="min-h-screen py-4 sm:py-8 px-3 sm:px-4">
@@ -442,7 +370,7 @@
         
         if (!overlay) return;
         
-        overlay.classList.add('active');
+        overlay.classList.remove('hidden');
         
         // Flight-specific loading steps
         const steps = [
@@ -484,7 +412,7 @@
         
         if (!overlay) return;
         
-        overlay.classList.add('active');
+        overlay.classList.remove('hidden');
         loadingText.textContent = message;
         
         // Quick loading animation
