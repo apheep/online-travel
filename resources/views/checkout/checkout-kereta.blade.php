@@ -10,7 +10,7 @@
             <div class="w-16 h-16 border-4 border-gray-200 border-t-[#FE0004] rounded-full animate-spin mb-5"></div>
             <div id="loading-text" class="text-gray-700 text-lg font-semibold text-center mb-2">Memproses pemesanan kereta...</div>
             <div class="w-64 h-1.5 bg-gray-200 rounded mt-4 overflow-hidden">
-                <div id="loading-progress-bar" class="w-0 h-full bg-gradient-to-r from-[#FE0004] to-[#F6B101] transition-[width] duration-500 ease-linear rounded"></div>
+                <div id="loading-progress-bar" class="w-0 h-full bg-gradient-to-r from-[#FE0004] to-[#FE0004] transition-[width] duration-500 ease-linear rounded"></div>
             </div>
         </div>
     </div>
@@ -43,7 +43,7 @@
 
             <div class="flex items-center gap-4">
                 <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium text-white"
-                    style="background: linear-gradient(90deg,#FE0004, #F6B101);">
+                    style="background: linear-gradient(90deg,#FE0004, #FE0004);">
                 Pergi
                 </span>
                 <div class="text-sm text-gray-600">
@@ -70,37 +70,8 @@
             </div>
         </div>
 
-                    <!--  Additional Details Section -->
-                    <div class="bg-white rounded-2xl shadow-lg p-4 sm:p-6 mb-4 sm:mb-6">
-                <div class="flex flex-col sm:flex-row gap-6">
-                     <!-- Detail Pekerjaan -->
-                    <div class="flex gap-4 flex-1">
-                        <img src="{{ asset('detailpekerjaan.png') }}" 
-                            alt="Detail Pekerjaan" 
-                            class="w-12 h-12 self-center" loading="lazy">
-                        <div class="flex flex-col w-full">
-                            <label class="block text-gray-800 font-medium mb-2">Detail Pekerjaan</label>
-                            <input type="text" 
-                                class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                                placeholder="Masukkan detail pekerjaan">
-                        </div>
-                    </div>
-
-                    <!-- Detail Dinas -->
-                    <div class="flex gap-4 flex-1">
-                        <img src="{{ asset('detaildinas.png') }}" 
-                            alt="Detail Dinas" 
-                            class="w-12 h-12 self-center" loading="lazy">
-                        <div class="flex flex-col w-full">
-                            <label class="block text-gray-800 font-medium mb-2">Detail Dinas</label>
-                            <input type="text" 
-                                class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                                placeholder="Masukkan detail dinas">
-                        </div>
-                    </div>
-                </div>
-            </div> 
-
+        <!--  Additional Details Section --> 
+        @include('partials.detail-work-nodin')
 
         <!-- BAWAH: dua kolom (kiri = detail pemesanan, kanan = dokumen pendukung) -->
             <!-- PASSENGERS SECTION HEADER -->
@@ -108,7 +79,7 @@
                 <h2 class="text-xl font-bold text-gray-800">Detail Penumpang</h2>
                 <div class="flex items-center gap-2">
                     <button id="add-passenger-btn" onclick="addPassenger()"
-                        class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white rounded-lg hover:from-[#FE0004] hover:to-[#F6B101] transition">
+                        class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#FE0004] to-[#FE0004] text-white rounded-lg hover:from-[#FE0004] hover:to-[#FE0004] transition">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
                         Tambah Penumpang?
                     </button>
@@ -131,11 +102,29 @@
                 <div class="passenger-card bg-white rounded-2xl shadow-lg p-6 relative" data-index="0" id="passenger-0">
                     <!-- Header with passenger label and remove (hidden for first) -->
                     <div class="flex items-start justify-between mb-4">
-                        <div>
-                            <h3 class="text-lg font-semibold text-gray-800">Penumpang 1</h3>
-                            <p class="text-sm text-gray-500">Informasi pemesanan & dokumen pendukung</p>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-800">Penumpang 1</h3>
+                                    <p class="text-sm text-gray-500">Informasi pemesanan & dokumen pendukung</p>
+                                </div>
+                                <!-- Search Bar (only for passengers 2-4) - Aligned with passenger title -->
+                                <div class="passenger-search-bar hidden">
+                                    <div class="w-64">
+                                        <div class="relative">
+                                            <input type="text" class="passenger-search-input w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 pr-8 text-sm" placeholder="Cari pengguna...">
+                                            <svg class="absolute right-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                                            </svg>
+                                            <div class="passenger-search-dropdown absolute top-full left-0 right-0 bg-white border border-gray-200 rounded-lg shadow-lg z-10 max-h-48 overflow-y-auto hidden mt-1">
+                                                <!-- Search results will appear here -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="flex items-center gap-2">
+                        <div class="flex items-center gap-2 ml-4">
                             <span id="selected-seat-badge-0" class="text-sm text-gray-600 mr-2">Kursi: <strong class="text-gray-800">-</strong></span>
                             <!-- Remove button (hidden for first) -->
                             <button onclick="removePassenger(0)" class="remove-btn hidden text-red-500 hover:text-red-700" title="Hapus penumpang">
@@ -151,15 +140,15 @@
                             <form class="space-y-4 passenger-form" data-index="0">
                                 <div>
                                   <label for="nama-0" class="block text-sm font-medium text-gray-700 mb-2">Nama Lengkap</label>
-                                  <input type="text" id="nama-0" name="nama[]" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-200 transition" placeholder="Masukkan nama lengkap">
+                                  <input type="text" id="nama-0" name="nama[]" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-200 transition" placeholder="Masukkan nama lengkap" value="{{ auth()->user()->name ?? '' }}">
                                 </div>
                                 <div>
                                   <label for="telepon-0" class="block text-sm font-medium text-gray-700 mb-2">Nomor Telpon</label>
-                                  <input type="tel" id="telepon-0" name="telepon[]" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-200 transition" placeholder="Masukkan nomor telepon">
+                                  <input type="tel" id="telepon-0" name="telepon[]" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-200 transition" placeholder="Masukkan nomor telepon" value="{{ auth()->user()->phone ?? '' }}">
                                 </div>
                                 <div>
                                   <label for="email-0" class="block text-sm font-medium text-gray-700 mb-2">Alamat Email</label>
-                                  <input type="email" id="email-0" name="email[]" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-200 transition" placeholder="Masukkan alamat email">
+                                  <input type="email" id="email-0" name="email[]" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-200 transition" placeholder="Masukkan alamat email" value="{{ auth()->user()->email ?? '' }}">
                                 </div>
                             </form>
                         </div>
@@ -182,8 +171,17 @@
 
                               <!-- Upload Surat Dinas -->
                               <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Upload Surat Dinas</label>
-                                <div class="upload-box border-2 border-dashed border-gray-200 rounded-xl p-4 hover:border-blue-300 transition-colors duration-200 cursor-pointer flex items-center gap-4" onclick="triggerFileForPassenger(0,'surat')">
+                                <div class="flex items-center justify-between mb-2">
+                                  <label class="text-sm font-medium text-gray-700">Upload Surat Dinas</label>
+                                  <div class="flex items-center gap-2">
+                                    <span class="text-xs text-gray-600">Gunakan surat dinas sebelumnya?</span>
+                                    <button id="surat-toggle-0" type="button"
+                                            class="relative inline-flex h-5 w-9 items-center rounded-full bg-gray-200 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                                      <span class="toggle-knob inline-block h-3 w-3 transform rounded-full bg-white transition-transform duration-200 translate-x-1 shadow-sm"></span>
+                                    </button>
+                                  </div>
+                                </div>
+                                <div class="upload-box border-2 border-dashed border-gray-200 rounded-xl p-4 hover:border-red-300 transition-colors duration-200 cursor-pointer flex items-center gap-4" onclick="triggerFileForPassenger(0,'surat')">
                                   <img src="{{ asset('folder.png') }}" alt="icon" class="w-8 h-8" loading="lazy">
                                   <div class="flex-1 text-left">
                                     <div class="text-gray-700">Klik untuk upload atau tarik file ke sini</div>
@@ -210,7 +208,7 @@
         <div class="text-center">
             <button type="submit" id="checkout-submit"
 
-                     class="w-full max-w-md bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white font-bold py-4 px-8 rounded-xl hover:from-[#FE0004] hover:to-[#F6B101] transition-all duration-200 transform hover:scale-105 shadow-lg mt-10">
+                     class="w-full max-w-md bg-gradient-to-r from-[#FE0004] to-[#FE0004] text-white font-bold py-4 px-8 rounded-xl hover:from-[#FE0004] hover:to-[#FE0004] transition-all duration-200 transform hover:scale-105 shadow-lg mt-10">
 
                  SUBMIT
             </button>
@@ -241,7 +239,7 @@
         <!-- Passenger Info -->
         <div class="bg-white rounded-lg p-3 mb-4">
             <div class="flex items-center">
-                <div class="bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white rounded px-2 py-1 text-sm font-medium mr-3"></div>
+                <div class="bg-gradient-to-r from-[#FE0004] to-[#FE0004] text-white rounded px-2 py-1 text-sm font-medium mr-3"></div>
                 <div>
                     <div class="font-medium text-gray-800" id="modal-passenger-name">WILDAN ANWAR</div>
                     <div class="text-sm text-gray-600" id="modal-passenger-seat">Ekonomi I / Kursi 2A</div>
@@ -256,7 +254,7 @@
                 <span>Tersedia</span>
             </div>
             <div class="flex items-center gap-1">
-                <div class="w-4 h-4 bg-gradient-to-r from-[#FE0004] to-[#F6B101] rounded border"></div>
+                <div class="w-4 h-4 bg-gradient-to-r from-[#FE0004] to-[#FE0004] rounded border"></div>
                 <span>Dipilih</span>
             </div>
             <div class="flex items-center gap-1">
@@ -270,7 +268,7 @@
             <!-- Car Tabs -->
             <div class="flex justify-center">
                 <div class="flex bg-gray-100 rounded-lg p-1">
-                    <button onclick="switchCar('ekonomi1')" class="car-tab px-3 py-1 rounded text-sm font-medium bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white" data-car="ekonomi1">Ekonomi 1</button>
+                    <button onclick="switchCar('ekonomi1')" class="car-tab px-3 py-1 rounded text-sm font-medium bg-gradient-to-r from-[#FE0004] to-[#FE0004] text-white" data-car="ekonomi1">Ekonomi 1</button>
                     <button onclick="switchCar('ekonomi2')" class="car-tab px-3 py-1 rounded text-sm font-medium text-gray-600" data-car="ekonomi2">Ekonomi 2</button>
                     <button onclick="switchCar('ekonomi3')" class="car-tab px-3 py-1 rounded text-sm font-medium text-gray-600" data-car="ekonomi3">Ekonomi 3</button>
                 </div>
@@ -301,7 +299,7 @@
                     <!-- Row 2 -->
                     <div class="grid grid-cols-5 gap-2 items-center">
                         <div class="text-sm font-medium text-gray-600 text-center">2</div>
-                        <button class="seat-btn w-8 h-8 bg-gradient-to-r from-[#FE0004] to-[#F6B101] rounded border text-xs font-medium text-white" data-seat="2A" data-status="selected" onclick="selectSeat('2A')"></button>
+                        <button class="seat-btn w-8 h-8 bg-gradient-to-r from-[#FE0004] to-[#FE0004] rounded border text-xs font-medium text-white" data-seat="2A" data-status="selected" onclick="selectSeat('2A')"></button>
                         <button class="seat-btn w-8 h-8 bg-gray-200 rounded border text-xs font-medium text-gray-700 hover:bg-gray-300" data-seat="2B" data-status="available" onclick="selectSeat('2B')"></button>
                         <button class="seat-btn w-8 h-8 bg-gray-200 rounded border text-xs font-medium text-gray-700 hover:bg-gray-300" data-seat="2C" data-status="available" onclick="selectSeat('2C')"></button>
                         <button class="seat-btn w-8 h-8 bg-gray-400 rounded border text-xs font-medium text-white" data-seat="2D" data-status="occupied"></button>
@@ -348,7 +346,7 @@
 
         <!-- Save Button -->
         <div class="mt-6">
-            <button onclick="saveSeatSelection()" class="w-full bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white py-3 rounded-lg font-medium hover:bg-gradient-to-r from-[#FE0004] to-[#F6B101] transition">
+            <button onclick="saveSeatSelection()" class="w-full bg-gradient-to-r from-[#FE0004] to-[#FE0004] text-white py-3 rounded-lg font-medium hover:bg-gradient-to-r from-[#FE0004] to-[#FE0004] transition">
                 SIMPAN
             </button>
         </div>
@@ -366,7 +364,7 @@
             <button onclick="cancelSubmit()" class="flex-1 bg-red-500 text-white py-3 px-6 rounded-lg font-medium hover:bg-red-600 transition">
                 tidak
             </button>
-            <button onclick="confirmSubmit()" class="flex-1 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white py-3 px-6 rounded-lg font-medium hover:from-[#FE0004] hover:to-[#F6B101] transition">
+            <button onclick="confirmSubmit()" class="flex-1 bg-gradient-to-r from-[#FE0004] to-[#FE0004] text-white py-3 px-6 rounded-lg font-medium hover:from-[#FE0004] hover:to-[#F6B101] transition">
                 iya
             </button>
         </div>
@@ -383,12 +381,13 @@
 
                   Lihat Kereta Lain
               </button>
-             <button onclick="hideBackOverlay()" class="w-full px-6 py-4 bg-gradient-to-r from-red-600 to-yellow-400 text-white rounded-xl hover:from-red-700 hover:to-yellow-400 transition-all duration-200 font-medium shadow-md">
+             <button onclick="hideBackOverlay()" class="w-full px-6 py-4 bg-gradient-to-r from-red-600 to-red-400 text-white rounded-xl hover:from-red-700 hover:to-red-400 transition-all duration-200 font-medium shadow-md">
                  Selesaikan Pemesananmu
              </button>
          </div>
      </div>
  </div>
+
 
 <script>
 // Global variables
@@ -528,6 +527,23 @@ function resetFileUploadsToEmpty() {
             suratUploadBox.classList.add('border-gray-200', 'hover:border-red-300');
             suratUploadBox.setAttribute('onclick', `triggerFileForPassenger(${i},'surat')`);
         }
+        
+        // Reset surat dinas toggle to OFF state
+        const suratToggle = document.getElementById(`surat-toggle-${i}`);
+        if (suratToggle) {
+            const knob = suratToggle.querySelector('.toggle-knob');
+            suratToggle.classList.remove('bg-red-500');
+            suratToggle.classList.add('bg-gray-200');
+            if (knob) {
+                knob.classList.remove('translate-x-5');
+                knob.classList.add('translate-x-1');
+            }
+            
+            // Reset state tracker
+            if (window.suratToggleStates) {
+                window.suratToggleStates[i] = false;
+            }
+        }
     }
 }
 
@@ -608,7 +624,186 @@ function confirmSubmit() {
 
 // File upload functions
 function triggerFileForPassenger(index, type) {
-    document.getElementById(`${type}-${index}`).click();
+    const fileInput = document.getElementById(`${type}-${index}`);
+    if (fileInput) {
+        fileInput.click();
+    } else {
+        console.error(`File input element ${type}-${index} not found`);
+        showNotification('Terjadi kesalahan saat membuka dialog file', 'error');
+    }
+}
+
+// Initialize surat dinas toggles for all passengers
+function initializeSuratDinasToggles() {
+    // Track toggle states for each passenger
+    const suratToggleStates = {};
+    
+    // Initialize toggle for existing passengers
+    for (let i = 0; i < trainPassengerCount; i++) {
+        initializeSuratDinasToggle(i, suratToggleStates);
+    }
+    
+    // Return states object for future use
+    return suratToggleStates;
+}
+
+// Initialize individual surat dinas toggle
+function initializeSuratDinasToggle(index, stateTracker) {
+    const toggle = document.getElementById(`surat-toggle-${index}`);
+    if (!toggle) return;
+    
+    // Initialize state
+    stateTracker[index] = false;
+    
+    // Remove any existing event listeners
+    toggle.replaceWith(toggle.cloneNode(true));
+    const newToggle = document.getElementById(`surat-toggle-${index}`);
+    
+    // Add event listener like the main toggle
+    newToggle.addEventListener('click', function() {
+        stateTracker[index] = !stateTracker[index];
+        const knob = newToggle.querySelector('.toggle-knob');
+        
+        console.log(`Surat toggle ${index} clicked. New state:`, stateTracker[index] ? 'ON' : 'OFF');
+        
+        if (stateTracker[index]) {
+            // Toggle ON - change to red and auto upload
+            newToggle.classList.remove('bg-gray-200');
+            newToggle.classList.add('bg-red-500');
+            if (knob) knob.classList.add('translate-x-5');
+            
+            // Auto upload previous surat dinas
+            const previousData = JSON.parse(localStorage.getItem('previousNotaDinas') || '{}');
+            
+            if (previousData.fileName) {
+                applySuratDinasToUploadBox(index, previousData);
+                showNotification('Surat dinas sebelumnya berhasil digunakan!', 'success');
+            } else {
+                // Create dummy data
+                const dummyData = {
+                    fileName: 'SURAT_DINAS_CONTOH.pdf',
+                    fileSize: '1.5 MB',
+                    uploadDate: new Date().toISOString()
+                };
+                localStorage.setItem('previousNotaDinas', JSON.stringify(dummyData));
+                applySuratDinasToUploadBox(index, dummyData);
+                showNotification('File contoh surat dinas berhasil digunakan!', 'success');
+            }
+            
+        } else {
+            // Toggle OFF - return to gray and reset
+            newToggle.classList.remove('bg-red-500');
+            newToggle.classList.add('bg-gray-200');
+            if (knob) knob.classList.remove('translate-x-5');
+            
+            // Reset upload box
+            resetSuratDinasUploadBox(index);
+            showNotification('Toggle dimatikan - Upload box direset ke kondisi awal', 'info');
+        }
+    });
+}
+
+// Apply surat dinas data to upload box
+function applySuratDinasToUploadBox(index, fileData) {
+    const suratFilename = document.getElementById(`surat-filename-${index}`);
+    const suratUploadBox = suratFilename?.closest('.upload-box');
+    
+    if (suratFilename && suratUploadBox) {
+        suratUploadBox.innerHTML = `
+            <div class="flex flex-col items-center">
+                <svg class="w-8 h-8 text-green-500 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span class="text-green-600 text-sm">${fileData.fileName}</span>
+                <span class="text-gray-400 text-xs">${fileData.fileSize}</span>
+                <span class="text-blue-500 text-xs mt-1">(Menggunakan file sebelumnya)</span>
+            </div>
+        `;
+        suratUploadBox.classList.remove('border-gray-200', 'hover:border-red-300', 'cursor-pointer');
+        suratUploadBox.classList.add('border-green-400', 'bg-green-50');
+        suratUploadBox.removeAttribute('onclick');
+    }
+}
+
+// Reset surat dinas upload box to normal state (complete reset)
+function resetSuratDinasUploadBox(index) {
+    console.log('Resetting surat dinas upload box for passenger', index);
+    
+    const suratFilename = document.getElementById(`surat-filename-${index}`);
+    const suratUploadBox = suratFilename?.closest('.upload-box');
+    const suratInput = document.getElementById(`surat-${index}`);
+    
+    if (suratFilename && suratUploadBox) {
+        // Complete reset: clear file input value
+        if (suratInput) {
+            suratInput.value = '';
+            suratInput.files = null;
+        }
+        
+        // Reset upload box HTML to original state
+        suratUploadBox.innerHTML = `
+            <img src="{{ asset('folder.png') }}" alt="icon" class="w-8 h-8" loading="lazy">
+            <div class="flex-1 text-left">
+                <div class="text-gray-700">Klik untuk upload atau tarik file ke sini</div>
+                <div id="surat-filename-${index}" class="text-sm text-gray-400">Format: PDF (maks 5MB)</div>
+            </div>
+            <input type="file" id="surat-${index}" name="surat[]" accept=".pdf" class="hidden" onchange="handleFileChange(event, 'surat-filename-${index}')">
+        `;
+        
+        // Reset all styling to original state
+        suratUploadBox.classList.remove('border-green-400', 'bg-green-50');
+        suratUploadBox.classList.add('border-gray-200', 'hover:border-red-300', 'cursor-pointer');
+        suratUploadBox.setAttribute('onclick', `triggerFileForPassenger(${index},'surat')`);
+        
+        console.log('Upload box reset complete for passenger', index);
+    }
+}
+
+// Show notification
+function showNotification(message, type = 'success') {
+    const notification = document.createElement('div');
+    notification.className = `fixed top-4 right-4 z-50 px-6 py-3 rounded-lg shadow-lg transition-all duration-300 transform translate-x-full`;
+    
+    if (type === 'success') {
+        notification.classList.add('bg-green-500', 'text-white');
+    } else if (type === 'info') {
+        notification.classList.add('bg-blue-500', 'text-white');
+    } else {
+        notification.classList.add('bg-red-500', 'text-white');
+    }
+    
+    let iconPath = '';
+    if (type === 'success') {
+        iconPath = 'M5 13l4 4L19 7'; // Checkmark icon
+    } else if (type === 'info') {
+        iconPath = 'M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z'; // Info icon
+    } else {
+        iconPath = 'M6 18L18 6M6 6l12 12'; // X icon for error
+    }
+    
+    notification.innerHTML = `
+        <div class="flex items-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="${iconPath}"/>
+            </svg>
+            <span>${message}</span>
+        </div>
+    `;
+    
+    document.body.appendChild(notification);
+    
+    // Animate in
+    setTimeout(() => {
+        notification.classList.remove('translate-x-full');
+    }, 100);
+    
+    // Auto remove after 3 seconds
+    setTimeout(() => {
+        notification.classList.add('translate-x-full');
+        setTimeout(() => {
+            document.body.removeChild(notification);
+        }, 300);
+    }, 3000);
 }
 
 function handleFileChange(e, labelId) {
@@ -620,6 +815,16 @@ function handleFileChange(e, labelId) {
     }
     const name = file.name.length > 40 ? file.name.slice(0,37) + '...' : file.name;
     label.textContent = name;
+    
+    // Save to localStorage for future reuse if it's a surat dinas
+    if (labelId.includes('surat-filename')) {
+        const fileData = {
+            fileName: file.name,
+            fileSize: (file.size / (1024 * 1024)).toFixed(1) + ' MB',
+            uploadDate: new Date().toISOString()
+        };
+        localStorage.setItem('previousNotaDinas', JSON.stringify(fileData));
+    }
 }
 
 // Seat selection functions
@@ -657,14 +862,14 @@ function switchCar(carName) {
     document.querySelectorAll('.car-tab').forEach(tab => {
         tab.classList.remove('bg-gradient-to-r');
         tab.classList.remove('from-[#FE0004]');
-        tab.classList.remove('to-[#F6B101]');
+        tab.classList.remove('to-[#FE0004]');
         tab.classList.remove('text-white');
         tab.classList.add('text-gray-600');
     });
     const selectedTab = document.querySelector(`[data-car="${carName}"]`);
     selectedTab.classList.add('bg-gradient-to-r');
     selectedTab.classList.add('from-[#FE0004]');
-    selectedTab.classList.add('to-[#F6B101]');
+    selectedTab.classList.add('to-[#FE0004]');
     selectedTab.classList.add('text-white');
     selectedTab.classList.remove('text-gray-600');
     
@@ -741,6 +946,282 @@ function saveSeatSelection() {
     closeSeatModal();
 }
 
+// Global user search functionality
+function initializeGlobalUserSearch() {
+    const searchInput = document.getElementById('global-user-search');
+    const dropdown = document.getElementById('global-search-dropdown');
+    let searchTimeout;
+    
+    if (!searchInput || !dropdown) return;
+    
+    searchInput.addEventListener('input', function() {
+        const query = this.value.trim();
+        
+        clearTimeout(searchTimeout);
+        
+        if (query.length < 2) {
+            dropdown.classList.add('hidden');
+            return;
+        }
+        
+        searchTimeout = setTimeout(() => {
+            fetch(`/api/search-users?q=${encodeURIComponent(query)}`)
+                .then(response => response.json())
+                .then(users => {
+                    dropdown.innerHTML = '';
+                    
+                    if (users.length === 0) {
+                        dropdown.innerHTML = '<div class="p-4 text-gray-500 text-center">Tidak ada pengguna ditemukan</div>';
+                    } else {
+                        users.forEach(user => {
+                            const item = document.createElement('div');
+                            item.className = 'p-4 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0';
+                            item.innerHTML = `
+                                <div class="flex items-center justify-between">
+                                    <div>
+                                        <div class="font-medium text-gray-800">${user.name}</div>
+                                        <div class="text-sm text-gray-500">${user.email}</div>
+                                        ${user.phone ? `<div class="text-sm text-gray-500">${user.phone}</div>` : ''}
+                                    </div>
+                                    <div class="text-sm text-blue-600 font-medium">Pilih →</div>
+                                </div>
+                            `;
+                            
+                            item.addEventListener('click', () => {
+                                showPassengerSelectionModal(user);
+                                dropdown.classList.add('hidden');
+                                searchInput.value = '';
+                            });
+                            
+                            dropdown.appendChild(item);
+                        });
+                    }
+                    
+                    dropdown.classList.remove('hidden');
+                })
+                .catch(error => {
+                    console.error('Error searching users:', error);
+                    dropdown.classList.add('hidden');
+                });
+        }, 300);
+    });
+    
+    // Hide dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!searchInput.parentNode.contains(e.target)) {
+            dropdown.classList.add('hidden');
+        }
+    });
+}
+
+// Show modal to select which passenger to fill
+function showPassengerSelectionModal(userData) {
+    // Create modal if it doesn't exist
+    let modal = document.getElementById('passenger-selection-modal');
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'passenger-selection-modal';
+        modal.className = 'fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center hidden';
+        modal.innerHTML = `
+            <div class="bg-white rounded-2xl p-6 max-w-sm w-full mx-4">
+                <h3 class="text-xl font-bold text-gray-800 mb-4 text-center">Pilih Penumpang</h3>
+                <p class="text-gray-600 mb-4 text-center">Data akan diisi untuk penumpang yang dipilih:</p>
+                <div class="space-y-2" id="passenger-selection-list">
+                    <!-- Passenger options will be populated here -->
+                </div>
+                <button onclick="hidePassengerSelectionModal()" class="w-full mt-4 px-4 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 transition">
+                    Batal
+                </button>
+            </div>
+        `;
+        document.body.appendChild(modal);
+    }
+    
+    // Populate passenger options
+    const passengerList = document.getElementById('passenger-selection-list');
+    passengerList.innerHTML = '';
+    
+    const passengers = document.querySelectorAll('.passenger-card');
+    passengers.forEach((passenger, index) => {
+        const button = document.createElement('button');
+        button.className = 'w-full p-3 text-left bg-gray-50 hover:bg-blue-50 rounded-lg transition border border-gray-200 hover:border-blue-300';
+        button.innerHTML = `
+            <div class="font-medium text-gray-800">Penumpang ${index + 1}</div>
+            <div class="text-sm text-gray-500">Klik untuk mengisi data</div>
+        `;
+        
+        button.addEventListener('click', () => {
+            fillPassengerData(index, userData);
+            hidePassengerSelectionModal();
+        });
+        
+        passengerList.appendChild(button);
+    });
+    
+    // Show modal
+    modal.classList.remove('hidden');
+}
+
+// Hide passenger selection modal
+function hidePassengerSelectionModal() {
+    const modal = document.getElementById('passenger-selection-modal');
+    if (modal) {
+        modal.classList.add('hidden');
+    }
+}
+
+// Fill passenger data with selected user
+function fillPassengerData(passengerIndex, userData) {
+    const nameInput = document.getElementById(`nama-${passengerIndex}`);
+    const phoneInput = document.getElementById(`telepon-${passengerIndex}`);
+    const emailInput = document.getElementById(`email-${passengerIndex}`);
+    
+    if (nameInput) nameInput.value = userData.name || '';
+    if (phoneInput) phoneInput.value = userData.phone || '';
+    if (emailInput) emailInput.value = userData.email || '';
+    
+    // Show success message
+    const successMsg = document.createElement('div');
+    successMsg.className = 'fixed top-4 right-4 bg-green-500 text-white px-4 py-2 rounded-lg shadow-lg z-50';
+    successMsg.textContent = `Data ${userData.name} berhasil diisi ke Penumpang ${passengerIndex + 1}`;
+    document.body.appendChild(successMsg);
+    
+    setTimeout(() => {
+        successMsg.remove();
+    }, 3000);
+}
+
+// Individual passenger search functionality
+function setupIndividualPassengerSearch(searchInput, dropdown, passengerIndex) {
+    let searchTimeout;
+    
+    searchInput.addEventListener('input', function() {
+        const query = this.value.trim();
+        
+        clearTimeout(searchTimeout);
+        
+        if (query.length < 2) {
+            dropdown.classList.add('hidden');
+            return;
+        }
+        
+        searchTimeout = setTimeout(() => {
+            fetch(`/api/search-users?q=${encodeURIComponent(query)}`)
+                .then(response => response.json())
+                .then(users => {
+                    dropdown.innerHTML = '';
+                    
+                    if (users.length === 0) {
+                        dropdown.innerHTML = '<div class="p-3 text-gray-500 text-sm">Tidak ada pengguna ditemukan</div>';
+                    } else {
+                        users.forEach(user => {
+                            const item = document.createElement('div');
+                            item.className = 'p-3 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0';
+                            item.innerHTML = `
+                                <div class="font-medium text-gray-800">${user.name}</div>
+                                <div class="text-sm text-gray-500">${user.email}</div>
+                                ${user.phone ? `<div class="text-sm text-gray-500">${user.phone}</div>` : ''}
+                            `;
+                            
+                            item.addEventListener('click', () => {
+                                // Fill the form with selected user data
+                                fillPassengerData(passengerIndex, user);
+                                dropdown.classList.add('hidden');
+                                searchInput.value = '';
+                            });
+                            
+                            dropdown.appendChild(item);
+                        });
+                    }
+                    
+                    dropdown.classList.remove('hidden');
+                })
+                .catch(error => {
+                    console.error('Error searching users:', error);
+                    dropdown.classList.add('hidden');
+                });
+        }, 300);
+    });
+    
+    // Hide dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!searchInput.parentNode.contains(e.target)) {
+            dropdown.classList.add('hidden');
+        }
+    });
+}
+
+// User search functionality
+function createUserSearchDropdown(inputElement, passengerIndex) {
+    const dropdown = document.createElement('div');
+    dropdown.className = 'absolute top-full left-0 right-0 bg-white border border-gray-200 rounded-lg shadow-lg z-10 max-h-48 overflow-y-auto hidden';
+    dropdown.id = `user-search-dropdown-${passengerIndex}`;
+    
+    inputElement.parentNode.style.position = 'relative';
+    inputElement.parentNode.appendChild(dropdown);
+    
+    let searchTimeout;
+    
+    inputElement.addEventListener('input', function() {
+        const query = this.value.trim();
+        
+        clearTimeout(searchTimeout);
+        
+        if (query.length < 2) {
+            dropdown.classList.add('hidden');
+            return;
+        }
+        
+        searchTimeout = setTimeout(() => {
+            fetch(`/api/search-users?q=${encodeURIComponent(query)}`)
+                .then(response => response.json())
+                .then(users => {
+                    dropdown.innerHTML = '';
+                    
+                    if (users.length === 0) {
+                        dropdown.innerHTML = '<div class="p-3 text-gray-500 text-sm">Tidak ada pengguna ditemukan</div>';
+                    } else {
+                        users.forEach(user => {
+                            const item = document.createElement('div');
+                            item.className = 'p-3 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0';
+                            item.innerHTML = `
+                                <div class="font-medium text-gray-800">${user.name}</div>
+                                <div class="text-sm text-gray-500">${user.email}</div>
+                                ${user.phone ? `<div class="text-sm text-gray-500">${user.phone}</div>` : ''}
+                            `;
+                            
+                            item.addEventListener('click', () => {
+                                // Fill the form with selected user data
+                                document.getElementById(`nama-${passengerIndex}`).value = user.name;
+                                document.getElementById(`email-${passengerIndex}`).value = user.email;
+                                if (user.phone) {
+                                    document.getElementById(`telepon-${passengerIndex}`).value = user.phone;
+                                }
+                                
+                                dropdown.classList.add('hidden');
+                            });
+                            
+                            dropdown.appendChild(item);
+                        });
+                    }
+                    
+                    dropdown.classList.remove('hidden');
+                })
+                .catch(error => {
+                    console.error('Error searching users:', error);
+                    dropdown.classList.add('hidden');
+                });
+        }, 300);
+    });
+    
+    // Hide dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!inputElement.parentNode.contains(e.target)) {
+            dropdown.classList.add('hidden');
+        }
+    });
+}
+
 // Passenger management functions
 function addPassenger() {
     if (trainPassengerCount >= 4) {
@@ -778,14 +1259,25 @@ function addPassenger() {
             if (id) input.id = id.replace('-0', `-${trainPassengerCount - 1}`);
             if (name) input.name = name;
             input.value = ''; // Clear values
+            input.removeAttribute('value'); // Remove default values for new passengers
         }
     });
+    
+    // Show search bar for passengers 2-4
+    const searchBar = newPassenger.querySelector('.passenger-search-bar');
+    if (searchBar && trainPassengerCount > 1) {
+        searchBar.classList.remove('hidden');
+    }
 
     // Update file upload elements
     const uploadBoxes = newPassenger.querySelectorAll('.upload-box');
     uploadBoxes.forEach((box, index) => {
         const type = index === 0 ? 'ktp' : 'surat';
-        box.onclick = () => triggerFileForPassenger(trainPassengerCount - 1, type);
+        if (type === 'surat') {
+            box.onclick = () => triggerFileForPassenger(trainPassengerCount - 1, type);
+        } else {
+            box.onclick = () => triggerFileForPassenger(trainPassengerCount - 1, type);
+        }
     });
 
     // Update filename display elements
@@ -794,6 +1286,29 @@ function addPassenger() {
         el.id = el.id.replace('-0', `-${trainPassengerCount - 1}`);
         el.textContent = 'Format: PDF (maks 5MB)';
     });
+
+    // Update surat dinas toggle
+    const suratToggle = newPassenger.querySelector('[id*="surat-toggle"]');
+    if (suratToggle) {
+        suratToggle.id = `surat-toggle-${trainPassengerCount - 1}`;
+        // Remove onclick attribute - will be handled by event listener
+        suratToggle.removeAttribute('onclick');
+        // Ensure toggle starts in OFF state
+        suratToggle.classList.remove('bg-red-500');
+        suratToggle.classList.add('bg-gray-200');
+        const knob = suratToggle.querySelector('.toggle-knob');
+        if (knob) {
+            knob.classList.remove('translate-x-5');
+            knob.classList.add('translate-x-1');
+        }
+        
+        // Initialize toggle for new passenger (will be done after DOM update)
+        setTimeout(() => {
+            if (window.suratToggleStates) {
+                initializeSuratDinasToggle(trainPassengerCount - 1, window.suratToggleStates);
+            }
+        }, 100);
+    }
 
     // Update seat badge
     const seatBadge = newPassenger.querySelector('[id*="selected-seat-badge"]');
@@ -810,6 +1325,16 @@ function addPassenger() {
     removeBtn.onclick = () => removePassenger(trainPassengerCount - 1);
 
     container.appendChild(newPassenger);
+    
+    // Add search functionality to the individual search bar for passengers 2-4
+    if (trainPassengerCount > 1) {
+        const searchInput = newPassenger.querySelector('.passenger-search-input');
+        const searchDropdown = newPassenger.querySelector('.passenger-search-dropdown');
+        if (searchInput && searchDropdown) {
+            setupIndividualPassengerSearch(searchInput, searchDropdown, trainPassengerCount - 1);
+        }
+    }
+    
     updateTrainPassengerCount();
 }
 
@@ -957,8 +1482,27 @@ document.addEventListener('DOMContentLoaded', function() {
     updateTrainPassengerCount();
     updateSeatGrid();
     
+    // Initialize global user search functionality
+    initializeGlobalUserSearch();
+    
+    // Initialize search functionality only for existing passenger forms
+    // Note: Only passenger 1 exists initially, passengers 2-4 are created dynamically
+    const existingPassengers = document.querySelectorAll('.passenger-card');
+    existingPassengers.forEach((passenger, index) => {
+        if (index > 0) { // Skip passenger 1 (index 0)
+            const nameInput = document.getElementById(`nama-${index}`);
+            if (nameInput) {
+                nameInput.placeholder = 'Ketik nama untuk mencari pengguna terdaftar...';
+                createUserSearchDropdown(nameInput, index);
+            }
+        }
+    });
+    
     // Ensure upload areas start in empty state
     resetFileUploadsToEmpty();
+    
+    // Initialize surat dinas toggles
+    window.suratToggleStates = initializeSuratDinasToggles();
     
     // Bind reuse previous data toggle
     const reuseBtn = document.getElementById('reuse-prev-data');
@@ -971,7 +1515,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (reuseOn) {
                 // Toggle ON - change to gradient and fill data
                 reuseBtn.classList.remove('bg-gray-200');
-                reuseBtn.classList.add('bg-gradient-to-r', 'from-[#FE0004]', 'to-[#F6B101]');
+                reuseBtn.classList.add('bg-gradient-to-r', 'from-[#FE0004]', 'to-[#FE0004]');
                 if (knob) knob.classList.add('translate-x-6');
 
                 // Try previous data, otherwise use dummy for testing
@@ -981,7 +1525,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (!applyPreviousDataToForm(prev)) {
                     // If still cannot apply, revert toggle
                     reuseOn = false;
-                    reuseBtn.classList.remove('bg-gradient-to-r', 'from-[#FE0004]', 'to-[#F6B101]');
+                    reuseBtn.classList.remove('bg-gradient-to-r', 'from-[#FE0004]', 'to-[#FE0004]');
                     reuseBtn.classList.add('bg-gray-200');
                     if (knob) knob.classList.remove('translate-x-6');
                     alert('Data sebelumnya tidak ditemukan.');
@@ -992,7 +1536,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             } else {
                 // Toggle OFF - return to gray and clear data, show empty upload areas
-                reuseBtn.classList.remove('bg-gradient-to-r', 'from-[#FE0004]', 'to-[#F6B101]');
+                reuseBtn.classList.remove('bg-gradient-to-r', 'from-[#FE0004]', 'to-[#FE0004]');
                 reuseBtn.classList.add('bg-gray-200');
                 if (knob) knob.classList.remove('translate-x-6');
                 clearPassengerForms();
