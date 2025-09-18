@@ -4,7 +4,7 @@
   <style>
     /* frame style di sekitar gambar (border biru-teal seperti contoh) */
     .img-frame {
-      border: 3px solid #0ea5a6; /* teal-500 */
+      border: 3px solid #FE0004; /* teal-500 */
       border-radius: 10px;
       overflow: hidden;
       box-shadow: 0 6px 18px rgba(0,0,0,0.08);
@@ -12,7 +12,7 @@
 
     /* gradient button */
     .btn-grad {
-      background: linear-gradient(90deg, #1e6ea6, #2fb78b);
+      background: linear-gradient(90deg, #FE0004, #F6B101);
     }
   </style>
 
@@ -45,14 +45,14 @@
           <div>
             <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
             <input id="email" name="email" type="email" value="{{ old('email') }}" required
-              class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-300"
+              class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-300"
               placeholder="Email">
           </div>
 
           <div class="relative">
             <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
             <input id="password" name="password" type="password" required
-              class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-300 pr-12"
+              class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-300 pr-12"
               placeholder="Password">
             {{-- tombol eye untuk toggle visibility --}}
             <button type="button" id="togglePassword" class="absolute right-3 top-10 -translate-y-1/2 text-gray-600">
