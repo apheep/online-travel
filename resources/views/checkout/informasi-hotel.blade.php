@@ -42,7 +42,7 @@
             </div>
 
             <!-- Search Button -->
-            <button class="w-full md:w-auto bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white px-6 py-3 rounded-xl text-sm font-medium transition-all duration-200 shadow-md hover:scale-105">
+            <button class="w-full md:w-auto bg-[#FE0004] text-white px-6 py-3 rounded-xl text-sm font-medium transition-all duration-200 shadow-md hover:scale-105">
                 Cari
             </button>
             </div>
@@ -99,7 +99,7 @@
                 <p class="text-gray-600 text-sm leading-relaxed">
                     Dengan menginap di Hotel Majapahit Surabaya, Anda akan berada di pusat kota Surabaya, hanya beberapa langkah dari pusat perbelanjaan Tunjungan Plaza dan dekat dengan Monumen Bambu Runcing. Hotel berpagar ini berjarak sekitar 2 km dari Stasiun Gubeng dan 26 menit berkendara dari Bandara Internasional Juanda.
                 </p>
-                <button class="flex items-center bg-gradient-to-r from-[#FE0004] to-[#F6B101] bg-clip-text text-transparent font-semibold text-sm mt-2 hover:underline">
+                <button class="flex items-center bg-[#FE0004] bg-clip-text text-transparent font-semibold text-sm mt-2 hover:underline">
                 Lebih banyak
                 <svg class="w-4 h-4 ml-1 text-[#F6B101]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
@@ -187,7 +187,7 @@
 
             <!-- Middle: Room Details -->
                            <div class="flex-1">
-                                <span class="bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs px-3 py-1 rounded mb-3 inline-block">
+                                <span class="bg-[#FE0004] text-white text-xs px-3 py-1 rounded mb-3 inline-block">
                                     Sarapan (1pax)
                                 </span>
                                 <div class="space-y-1.5">
@@ -227,7 +227,7 @@
                             <div class="flex flex-col justify-center items-center lg:items-end text-center lg:text-right">
                                 <div class="text-2xl font-bold text-red-500 mb-2">IDR 600.000</div>
                                 <button onclick="window.location.href='/checkout/checkout-hotel'" 
-                                        class="bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white px-6 py-2.5 rounded-lg hover:scale-105 text-sm font-medium  transition-all duration-200 w-full lg:w-auto lg:min-w-[120px]">
+                                        class="bg-[#FE0004] text-white px-6 py-2.5 rounded-lg hover:scale-105 text-sm font-medium  transition-all duration-200 w-full lg:w-auto lg:min-w-[120px]">
                                     Pesan
                                 </button>
                             </div>
@@ -254,7 +254,7 @@
 
                  <!-- Middle: Room Details -->
                            <div class="flex-1">
-                                <span class="bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs px-3 py-1 rounded mb-3 inline-block">
+                                <span class="bg-[#FE0004] text-white text-xs px-3 py-1 rounded mb-3 inline-block">
                                     Sarapan (1pax)
                                 </span>
                                 <div class="space-y-1.5">
@@ -294,7 +294,7 @@
                             <div class="flex flex-col justify-center items-center lg:items-end text-center lg:text-right">
                                 <div class="text-2xl font-bold text-red-500 mb-2">IDR 600.000</div>
                                 <button onclick="window.location.href='/checkout/checkout-hotel'" 
-                                        class="bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white px-6 py-2.5 rounded-lg text-sm font-medium  hover:scale-105 transition-all duration-200 w-full lg:w-auto lg:min-w-[120px]">
+                                    class="bg-[#FE0004] text-white px-6 py-2.5 rounded-lg hover:scale-105 text-sm font-medium  transition-all duration-200 w-full lg:w-auto lg:min-w-[120px]">
                                     Pesan
                                 </button>
                             </div>
@@ -321,7 +321,7 @@
 
                         <!-- Middle: Room Details -->
                            <div class="flex-1">
-                                <span class="bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs px-3 py-1 rounded mb-3 inline-block">
+                                <span class="bg-[#FE0004] text-white text-xs px-3 py-1 rounded mb-3 inline-block">
                                     Sarapan (1pax)
                                 </span>
                                 <div class="space-y-1.5">
@@ -361,7 +361,7 @@
                             <div class="flex flex-col justify-center items-center lg:items-end text-center lg:text-right">
                                 <div class="text-2xl font-bold text-red-500 mb-2">IDR 600.000</div>
                                 <button onclick="window.location.href='/checkout/checkout-hotel'" 
-                                        class="bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white px-6 py-2.5 rounded-lg text-sm font-medium hover:scale-105 transition-all duration-200 w-full lg:w-auto lg:min-w-[120px]">
+                                    class="bg-[#FE0004] text-white px-6 py-2.5 rounded-lg hover:scale-105 text-sm font-medium  transition-all duration-200 w-full lg:w-auto lg:min-w-[120px]">
                                     Pesan
                                 </button>
                             </div>
