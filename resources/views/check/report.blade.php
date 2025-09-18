@@ -7,6 +7,16 @@
 <body class="bg-[F4F7FE] min-h-screen font-poppins">
   <!-- Main Content -->
   <main id="page-main" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 opacity-0 translate-y-2 transition-all duration-500 ease-out">
+			<!-- Back Navigation -->
+      <div class="flex items-center mb-4 sm:mb-6">
+                <a href="{{ url()->previous() }}" 
+                        class="flex items-center text-blue-600 hover:text-blue-800 transition-colors duration-200">
+                    <svg class="w-5 h-5 mr-2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                    </svg>
+                    <span class="text-sm font-medium">Back</span>
+                </a>
+            </div>
 
   @include('partials.alert')
     <!-- Page Header -->

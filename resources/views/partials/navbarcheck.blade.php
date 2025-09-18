@@ -60,7 +60,7 @@
     </nav>
 
     <!-- Mobile Sidebar -->
-    <div id="mobile-sidebar" class="fixed top-0 right-0 h-full w-64 bg-white shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out z-50">
+    <div id="mobile-sidebar" class="fixed top-0 right-0 h-full w-64 bg-[F4F7FE] shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out z-50">
       <div class="flex items-center justify-between p-6 border-b">
         <h3 class="text-lg font-semibold text-gray-800">Menu</h3>
         <button onclick="closeSidebar()" class="text-gray-500 hover:text-gray-700">

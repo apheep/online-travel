@@ -4,7 +4,7 @@
 
 @include('partials.navbarcheck')
 
-<body class="bg-gray-50 min-h-screen font-poppins">
+<body class="bg-[F4F7FE] min-h-screen font-poppins">
   <!-- Main Content -->
   <main id="page-main" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 opacity-0 translate-y-2 transition-all duration-500 ease-out">
 
@@ -30,11 +30,21 @@
   <!-- Date Filter -->
   <div class="flex flex-col sm:flex-row sm:items-center gap-3 w-full sm:w-auto">
     <div class="flex items-center gap-2 w-full sm:w-auto">
-      <input type="date"
-             class="flex-1 px-4 py-2 border-2 border-gray-200 rounded-full text-gray-700 focus:outline-none focus:ring-0 focus:border-[#F6B101] transition-all duration-200">
+      <button type="button" onclick="openDateFor('ticketFrom')"
+              class="flex-1 min-w-[200px] px-4 py-2 border-2 border-gray-200 rounded-full text-gray-700 focus:outline-none focus:ring-0 focus:border-[#F6B101] transition-all duration-200 flex items-center gap-2">
+        <i class="fas fa-calendar-alt text-gray-500 text-sm shrink-0"></i>
+        <div class="flex-1 overflow-hidden">
+          <span id="ticketFromDateDisplay" class="text-gray-700 text-sm whitespace-nowrap truncate">Pilih tanggal</span>
+        </div>
+      </button>
       <span class="text-gray-500 text-sm text-center">to</span>
-      <input type="date"
-             class="flex-1 px-4 py-2 border-2 border-gray-200 rounded-full text-gray-700 focus:outline-none focus:ring-0 focus:border-[#F6B101] transition-all duration-200">
+      <button type="button" onclick="openDateFor('ticketTo')"
+              class="flex-1 min-w-[200px] px-4 py-2 border-2 border-gray-200 rounded-full text-gray-700 focus:outline-none focus:ring-0 focus:border-[#F6B101] transition-all duration-200 flex items-center gap-2">
+        <i class="fas fa-calendar-alt text-gray-500 text-sm shrink-0"></i>
+        <div class="flex-1 overflow-hidden">
+          <span id="ticketToDateDisplay" class="text-gray-700 text-sm whitespace-nowrap truncate">Pilih tanggal</span>
+        </div>
+      </button>
     </div>
     <button class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-full transition-colors duration-200 flex items-center justify-center space-x-2 focus:outline-none w-full sm:w-auto">
       <i class="fas fa-filter text-sm"></i>
@@ -47,6 +57,9 @@
 
 
 </main>
+
+  {{-- Calendar Modal Partial for date picking --}}
+  @include('partials.calender')
 
 @include('partials.overlay-detail-ticket')
 
@@ -106,6 +119,55 @@
       if (allBtn) {
         setActiveButton(allBtn);
         applyFilter('All');
+      }
+    })();
+
+    // Bridge calendar modal to this page's date fields (From/To)
+    (function(){
+      const dateDisplayMap = {
+        ticketFrom: 'ticketFromDateDisplay',
+        ticketTo: 'ticketToDateDisplay',
+      };
+
+      // Current target span to update
+      window._dateTarget = null;
+
+      // Open the shared calendar modal for a specific target
+      window.openDateFor = function(targetKey){
+        window._dateTarget = targetKey;
+        if (typeof switchTripType === 'function') {
+          try { switchTripType('oneWay'); } catch(e) {}
+        }
+        if (typeof openDateModal === 'function') {
+          openDateModal();
+        }
+      };
+
+      // Wrap global saveDate so selecting a date updates our display
+      if (typeof window.saveDate === 'function' && !window._origSaveDate_ticket) {
+        window._origSaveDate_ticket = window.saveDate;
+        window.saveDate = function(){
+          // Call original behavior safely
+          try { window._origSaveDate_ticket(); } catch(e) { /* ignore */ }
+          try {
+            const key = window._dateTarget;
+            if (key && dateDisplayMap[key]) {
+              const displayEl = document.getElementById(dateDisplayMap[key]);
+              if (displayEl) {
+                const depTextEl = document.getElementById('departureDateDisplay');
+                let text = depTextEl ? depTextEl.textContent : '';
+                if ((!text || text.trim().length === 0) && window.departureDate instanceof Date) {
+                  text = window.departureDate.toLocaleDateString('id-ID', { weekday: 'long', day: 'numeric', month: 'short', year: 'numeric' });
+                }
+                if (text && text.trim().length > 0) {
+                  displayEl.textContent = text;
+                }
+              }
+            }
+          } catch(e) { /* no-op */ }
+          try { if (typeof closeDateModal === 'function') closeDateModal(); } catch(e) {}
+          window._dateTarget = null;
+        };
       }
     })();
   </script>
