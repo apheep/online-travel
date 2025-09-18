@@ -12,7 +12,7 @@
 
     /* gradient button */
     .btn-grad {
-      background: linear-gradient(90deg, #FE0004, #F6B101);
+      background: #FE0004;
     }
   </style>
 
@@ -72,7 +72,7 @@
           </div>
 
           <div>
-            <button name="submit" type="submit" class="w-full py-3 rounded-md text-white font-semibold btn-grad shadow">
+            <button name="submit" type="submit" class="hover:scale-105 transition-all duration-200 w-full py-3 rounded-md text-white font-semibold btn-grad shadow">
               Masuk
             </button>
           </div>

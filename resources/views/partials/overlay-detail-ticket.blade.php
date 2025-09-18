@@ -11,6 +11,9 @@
       <div class="sticky top-0 z-10 px-6 py-5 border-b border-gray-100 bg-white/90 backdrop-blur-sm rounded-t-2xl">
         <div class="relative flex items-center justify-center">
           <h1 id="detail-title" class="text-2xl sm:text-2xl font-bold text-gray-900 tracking-tight">Detail Ticket</h1>
+          <button type="button" class="absolute right-0 top-1/2 -translate-y-1/2 p-2 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-rose-400" aria-label="Close" onclick="closeDetailKereta()">
+            <i class="fas fa-times"></i>
+          </button>
         </div>
       </div>
 
@@ -90,7 +93,7 @@
                 </div>
                 <div class="flex items-center gap-2">
                   <button class="px-3 py-2 text-xs bg-white border border-gray-200 text-gray-700 rounded-lg hover:bg-gray-100">Lihat</button>
-                  <button class="px-3 py-2 text-xs bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white rounded-lg">Download</button>
+                  <button class="px-3 py-2 text-xs bg-[#FE0004] text-white rounded-lg">Download</button>
                 </div>
               </li>
               <li class="flex items-center justify-between bg-gray-50 border border-gray-200 rounded-xl px-4 py-3">
@@ -103,25 +106,25 @@
                 </div>
                 <div class="flex items-center gap-2">
                   <button class="px-3 py-2 text-xs bg-white border border-gray-200 text-gray-700 rounded-lg hover:bg-gray-100">Lihat</button>
-                  <button class="px-3 py-2 text-xs bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white rounded-lg">Download</button>
+                  <button class="px-3 py-2 text-xs bg-[#FE0004] text-white rounded-lg">Download</button>
                 </div>
               </li>
             </ul>
           </section>
           
-          <!-- Upload E-Tiket (Hotel) -->
+          <!-- Upload E-Tiket (Kereta) -->
           <section class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
             <div class="flex items-start justify-between mb-4">
               <h2 class="text-lg font-semibold text-gray-900">4. Upload E‑Tiket</h2>
             </div>
-            <div id="eticket-upload-hotel" class="group">
+            <div id="eticket-upload-kereta" class="group">
               <!-- Dropzone -->
-              <label class="block relative border-2 border-dashed rounded-2xl p-6 text-center cursor-pointer transition shadow-sm border-gray-200 hover:border-rose-300 hover:bg-rose-50/30" id="eticket-label-hotel">
-                <input id="eticket-input-hotel" type="file" class="sr-only" accept=".pdf,.jpg,.jpeg,.png" />
+              <label class="block relative border-2 border-dashed rounded-2xl p-6 text-center cursor-pointer transition shadow-sm border-gray-200 hover:border-rose-300 hover:bg-rose-50/30" id="eticket-label-kereta">
+                <input id="eticket-input-kereta" type="file" class="sr-only" accept=".pdf,.jpg,.jpeg,.png" />
 
                 <!-- Instruction State -->
-                <div id="eticket-instruction-hotel" class="flex flex-col items-center gap-2">
-                  <div class="h-12 w-12 rounded-xl bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white flex items-center justify-center shadow-md">
+                <div id="eticket-instruction-kereta" class="flex flex-col items-center gap-2">
+                  <div class="h-12 w-12 rounded-xl bg-[#FE0004] text-white flex items-center justify-center shadow-md">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                     </svg>
@@ -131,15 +134,15 @@
                 </div>
 
                 <!-- Success State -->
-                <div id="eticket-success-hotel" class="hidden flex flex-col items-center gap-2">
+                <div id="eticket-success-kereta" class="hidden flex flex-col items-center gap-2">
                   <div class="h-12 w-12 rounded-full bg-green-500/90 text-white flex items-center justify-center shadow-md">
                     <svg class="w-7 h-7" viewBox="0 0 20 20" fill="currentColor">
                       <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-7.25 7.25a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414l2.293 2.293 6.543-6.543a1 1 0 011.414 0z" clip-rule="evenodd" />
                     </svg>
                   </div>
                   <p class="text-sm font-semibold text-green-700">E‑tiket berhasil diupload</p>
-                  <p class="text-xs text-green-700/80"><span id="eticket-success-name-hotel">e-ticket.pdf</span> • <span id="eticket-success-size-hotel">0 KB</span></p>
-                  <button type="button" id="eticket-reset-hotel" class="mt-1 text-xs text-green-700 hover:text-green-800 underline">Ganti file</button>
+                  <p class="text-xs text-green-700/80"><span id="eticket-success-name-kereta">e-ticket.pdf</span> • <span id="eticket-success-size-kereta">0 KB</span></p>
+                  <button type="button" id="eticket-reset-kereta" class="mt-1 text-xs text-green-700 hover:text-green-800 underline">Ganti file</button>
                 </div>
               </label>
 
@@ -155,8 +158,8 @@
 
       <!-- Footer -->
       <div class="flex items-center justify-end gap-3 px-6 py-4 border-t border-gray-100">
-        <button type="button" class="px-4 py-2 rounded-lg bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2" onclick="closeDetailKereta()">
-          Tutup
+        <button type="button" class="px-4 py-2 rounded-lg bg-[#FE0004] text-white hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2" onclick="closeDetailKereta()">
+          Simpan
         </button>
       </div>
     </div>
@@ -179,6 +182,9 @@
       <div class="sticky top-0 z-10 px-6 py-5 border-b border-gray-100 bg-white/90 backdrop-blur-sm rounded-t-2xl">
         <div class="relative flex items-center justify-center">
           <h1 id="detail-title" class="text-2xl sm:text-2xl font-bold text-gray-900 tracking-tight">Detail Ticket</h1>
+          <button type="button" class="absolute right-0 top-1/2 -translate-y-1/2 p-2 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-rose-400" aria-label="Close" onclick="closeDetailPesawat()">
+            <i class="fas fa-times"></i>
+          </button>
         </div>
       </div>
 
@@ -258,7 +264,7 @@
                 </div>
                 <div class="flex items-center gap-2">
                   <button class="px-3 py-2 text-xs bg-white border border-gray-200 text-gray-700 rounded-lg hover:bg-gray-100">Lihat</button>
-                  <button class="px-3 py-2 text-xs bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white rounded-lg">Download</button>
+                  <button class="px-3 py-2 text-xs bg-[#FE0004] text-white rounded-lg">Download</button>
                 </div>
               </li>
               <li class="flex items-center justify-between bg-gray-50 border border-gray-200 rounded-xl px-4 py-3">
@@ -271,18 +277,60 @@
                 </div>
                 <div class="flex items-center gap-2">
                   <button class="px-3 py-2 text-xs bg-white border border-gray-200 text-gray-700 rounded-lg hover:bg-gray-100">Lihat</button>
-                  <button class="px-3 py-2 text-xs bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white rounded-lg">Download</button>
+                  <button class="px-3 py-2 text-xs bg-[#FE0004] text-white rounded-lg">Download</button>
                 </div>
               </li>
             </ul>
           </section>
+                    <!-- Upload E-Tiket (Pesawat) -->
+                    <section class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
+            <div class="flex items-start justify-between mb-4">
+              <h2 class="text-lg font-semibold text-gray-900">4. Upload E‑Tiket</h2>
+            </div>
+            <div id="eticket-upload-pesawat" class="group">
+              <!-- Dropzone -->
+              <label class="block relative border-2 border-dashed rounded-2xl p-6 text-center cursor-pointer transition shadow-sm border-gray-200 hover:border-rose-300 hover:bg-rose-50/30" id="eticket-label-pesawat">
+                <input id="eticket-input-pesawat" type="file" class="sr-only" accept=".pdf,.jpg,.jpeg,.png" />
+
+                <!-- Instruction State -->
+                <div id="eticket-instruction-pesawat" class="flex flex-col items-center gap-2">
+                  <div class="h-12 w-12 rounded-xl bg-[#FE0004] text-white flex items-center justify-center shadow-md">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                    </svg>
+                  </div>
+                  <p class="text-sm font-medium text-gray-900">Tarik & letakkan file di sini, atau <span class="text-rose-600">pilih file</span></p>
+                  <p class="text-xs text-gray-500">PDF, JPG, PNG • Maks 5 MB</p>
+                </div>
+
+                <!-- Success State -->
+                <div id="eticket-success-pesawat" class="hidden flex flex-col items-center gap-2">
+                  <div class="h-12 w-12 rounded-full bg-green-500/90 text-white flex items-center justify-center shadow-md">
+                    <svg class="w-7 h-7" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-7.25 7.25a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414l2.293 2.293 6.543-6.543a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                  </div>
+                  <p class="text-sm font-semibold text-green-700">E‑tiket berhasil diupload</p>
+                  <p class="text-xs text-green-700/80"><span id="eticket-success-name-pesawat">e-ticket.pdf</span> • <span id="eticket-success-size-pesawat">0 KB</span></p>
+                  <button type="button" id="eticket-reset-pesawat" class="mt-1 text-xs text-green-700 hover:text-green-800 underline">Ganti file</button>
+                </div>
+              </label>
+
+              <!-- Tips -->
+              <ul class="mt-3 text-xs text-gray-500 space-y-1">
+                <li>• Pastikan data pada e‑tiket terbaca jelas.</li>
+                <li>• Jika lebih dari satu file, gabungkan ke PDF.</li>
+              </ul>
+            </div>
+          </section>
+
         </div>
       </div>
 
       <!-- Footer -->
       <div class="flex items-center justify-end gap-3 px-6 py-4 border-t border-gray-100">
-        <button type="button" class="px-4 py-2 rounded-lg bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2" onclick="closeDetailPesawat()">
-          Tutup
+        <button type="button" class="px-4 py-2 rounded-lg bg-[#FE0004] text-white hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2" onclick="closeDetailPesawat()">
+          Simpan
         </button>
       </div>
     </div>
@@ -301,6 +349,9 @@
       <div class="sticky top-0 z-10 px-6 py-5 border-b border-gray-100 bg-white/90 backdrop-blur-sm rounded-t-2xl">
         <div class="relative flex items-center justify-center">
           <h1 id="detail-title" class="text-2xl sm:text-2xl font-bold text-gray-900 tracking-tight">Detail Ticket</h1>
+          <button type="button" class="absolute right-0 top-1/2 -translate-y-1/2 p-2 rounded-lg text-gray-600 hover:text-gray-900 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-rose-400" aria-label="Close" onclick="closeDetailHotel()">
+            <i class="fas fa-times"></i>
+          </button>
         </div>
       </div>
 
@@ -380,7 +431,7 @@
                 </div>
                 <div class="flex items-center gap-2">
                   <button class="px-3 py-2 text-xs bg-white border border-gray-200 text-gray-700 rounded-lg hover:bg-gray-100">Lihat</button>
-                  <button class="px-3 py-2 text-xs bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white rounded-lg">Download</button>
+                  <button class="px-3 py-2 text-xs bg-[#FE0004] text-white rounded-lg">Download</button>
                 </div>
               </li>
               <li class="flex items-center justify-between bg-gray-50 border border-gray-200 rounded-xl px-4 py-3">
@@ -393,18 +444,61 @@
                 </div>
                 <div class="flex items-center gap-2">
                   <button class="px-3 py-2 text-xs bg-white border border-gray-200 text-gray-700 rounded-lg hover:bg-gray-100">Lihat</button>
-                  <button class="px-3 py-2 text-xs bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white rounded-lg">Download</button>
+                  <button class="px-3 py-2 text-xs bg-[#FE0004] text-white rounded-lg">Download</button>
                 </div>
               </li>
             </ul>
           </section>
+
+                    <!-- Upload E-Tiket (Hotel) -->
+                    <section class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
+            <div class="flex items-start justify-between mb-4">
+              <h2 class="text-lg font-semibold text-gray-900">4. Upload E‑Tiket</h2>
+            </div>
+            <div id="eticket-upload-hotel" class="group">
+              <!-- Dropzone -->
+              <label class="block relative border-2 border-dashed rounded-2xl p-6 text-center cursor-pointer transition shadow-sm border-gray-200 hover:border-rose-300 hover:bg-rose-50/30" id="eticket-label-hotel">
+                <input id="eticket-input-hotel" type="file" class="sr-only" accept=".pdf,.jpg,.jpeg,.png" />
+
+                <!-- Instruction State -->
+                <div id="eticket-instruction-hotel" class="flex flex-col items-center gap-2">
+                  <div class="h-12 w-12 rounded-xl bg-[#FE0004] text-white flex items-center justify-center shadow-md">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                    </svg>
+                  </div>
+                  <p class="text-sm font-medium text-gray-900">Tarik & letakkan file di sini, atau <span class="text-rose-600">pilih file</span></p>
+                  <p class="text-xs text-gray-500">PDF, JPG, PNG • Maks 5 MB</p>
+                </div>
+
+                <!-- Success State -->
+                <div id="eticket-success-hotel" class="hidden flex flex-col items-center gap-2">
+                  <div class="h-12 w-12 rounded-full bg-green-500/90 text-white flex items-center justify-center shadow-md">
+                    <svg class="w-7 h-7" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-7.25 7.25a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414l2.293 2.293 6.543-6.543a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                  </div>
+                  <p class="text-sm font-semibold text-green-700">E‑tiket berhasil diupload</p>
+                  <p class="text-xs text-green-700/80"><span id="eticket-success-name-hotel">e-ticket.pdf</span> • <span id="eticket-success-size-hotel">0 KB</span></p>
+                  <button type="button" id="eticket-reset-hotel" class="mt-1 text-xs text-green-700 hover:text-green-800 underline">Ganti file</button>
+                </div>
+              </label>
+
+              <!-- Tips -->
+              <ul class="mt-3 text-xs text-gray-500 space-y-1">
+                <li>• Pastikan data pada e‑tiket terbaca jelas.</li>
+                <li>• Jika lebih dari satu file, gabungkan ke PDF.</li>
+              </ul>
+            </div>
+          </section>
+
         </div>
       </div>
 
       <!-- Footer -->
       <div class="flex items-center justify-end gap-3 px-6 py-4 border-t border-gray-100">
-        <button type="button" class="px-4 py-2 rounded-lg bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2" onclick="closeDetailHotel()">
-          Tutup
+        <button type="button" class="px-4 py-2 rounded-lg bg-[#FE0004] text-white hover:opacity-95 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2" onclick="closeDetailHotel()">
+          Simpan
         </button>
       </div>
     </div>
@@ -480,12 +574,13 @@
       e.preventDefault();
       (labelEl || root).classList.remove('ring-2','ring-rose-300','bg-rose-50/30');
       if (e.dataTransfer?.files?.length) {
-        input.files = e.dataTransfer.files;
-        handleFile();
+        // Do not assign to input.files (some browsers block it).
+        // Directly process the dropped file for visual success state.
+        handleFile(e.dataTransfer.files[0]);
       }
     });
 
-    input.addEventListener('change', handleFile);
+    input.addEventListener('change', () => handleFile());
     resetBtn?.addEventListener('click', (e) => {
       e.preventDefault();
       input.value = '';
@@ -494,8 +589,8 @@
       (labelEl || root).classList.remove('border-green-400','bg-green-50/40');
     });
 
-    function handleFile() {
-      const file = input.files && input.files[0];
+    function handleFile(passedFile) {
+      const file = passedFile || (input.files && input.files[0]);
       if (!file) return;
       successName.textContent = file.name;
       successSize.textContent = formatBytes(file.size);
@@ -508,6 +603,8 @@
 
   // Initialize for hotel modal
   initUploadArea('hotel');
+  initUploadArea('kereta');
+  initUploadArea('pesawat');
 
   function openDetailKereta() { keretaCtrl.open(); }
   function closeDetailKereta() { keretaCtrl.close(); }

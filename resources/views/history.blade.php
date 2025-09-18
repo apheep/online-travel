@@ -13,7 +13,7 @@
         <!-- Header Section -->
         <div class="relative z-10 text-center text-white py-16 px-6">
             <h1 class="text-4xl md:text-5xl font-bold mb-4">
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#FE0004] to-[#F6B101]">
+                <span class="text-white bg-clip-text">
                     Riwayat Pesanan
                 </span>
             </h1>
@@ -94,7 +94,7 @@
                         <span id="selectedDate" class="text-gray-700">Pilih tanggal</span>
                         <span id="tripType" class="text-xs text-gray-500"></span>
                     </button>
-                    <button class="px-6 py-3 bg-gradient-to-r from-[#FE0004] to-[#F6B101]  text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105">
+                    <button class="px-6 py-3 bg-[#FE0004]   text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105">
                         Filter
                     </button>
                 </div>
@@ -106,7 +106,7 @@
 
         <!-- Back Button -->
         <div class="mb-6">
-            <button onclick="history.back()" class="inline-flex items-center gap-2 px-4 py-2 text-[#FE0004] hover:text-white hover:bg-gradient-to-r  rounded-lg transition-all duration-200">
+            <button onclick="history.back()" class="inline-flex items-center gap-2 px-4 py-2 text-blue-600 hover:underline transition-all duration-200">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                 </svg>
@@ -125,29 +125,33 @@
                 <table class="w-full">
                     <thead class="bg-gray-50">
                         <tr>
-                            <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Kode Booking</th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">No</th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                            <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Aksi</th>
                             <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Jenis</th>
                             <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Detail</th>
                             <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tanggal</th>
                             <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total</th>
-                            <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-                            <th class="px-6 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Aksi</th>
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
                         <!-- Sample Data - In Progress Order -->
                         <tr class="hover:bg-gray-50 transition-colors duration-200">
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm font-medium text-gray-900">TRV001234</div>
-                                <div class="text-sm text-gray-500">12 Jan 2024</div>
+                                <div class="text-sm font-medium text-gray-900">1</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                                    <div class="w-2 h-2 bg-yellow-400 rounded-full mr-2 animate-pulse"></div>
+                                    Dalam Proses
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                <button class="text-blue-600 hover:text-blue-900 mr-3">Detail</button>
+                                <button class="text-red-600 hover:text-red-900">Batalkan</button>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="flex items-center">
-                                    <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-3">
-                                        <svg class="w-4 h-4 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
-                                            <path d="M10 2L3 7v11a2 2 0 002 2h10a2 2 0 002-2V7l-7-5z"/>
-                                        </svg>
-                                    </div>
                                     <span class="text-sm font-medium text-gray-900">Pesawat</span>
                                 </div>
                             </td>
@@ -163,31 +167,25 @@
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="text-sm font-bold text-gray-900">Rp 2.450.000</div>
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
-                                    <div class="w-2 h-2 bg-yellow-400 rounded-full mr-2 animate-pulse"></div>
-                                    Dalam Proses
-                                </span>
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                <button class="text-blue-600 hover:text-blue-900 mr-3">Detail</button>
-                                <button class="text-red-600 hover:text-red-900">Batalkan</button>
-                            </td>
                         </tr>
 
                         <!-- Sample Data - Successful Order -->
                         <tr class="hover:bg-gray-50 transition-colors duration-200">
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm font-medium text-gray-900">TRV001233</div>
-                                <div class="text-sm text-gray-500">10 Jan 2024</div>
+                                <div class="text-sm font-medium text-gray-900">2</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                                    <div class="w-2 h-2 bg-green-400 rounded-full mr-2"></div>
+                                    Selesai
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                <button class="text-blue-600 hover:text-blue-900 mr-3">Detail</button>
+                                <button class="text-emerald-600 hover:text-emerald-900">Unduh Tiket</button>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="flex items-center">
-                                    <div class="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center mr-3">
-                                        <svg class="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
-                                            <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
-                                        </svg>
-                                    </div>
                                     <span class="text-sm font-medium text-gray-900">Hotel</span>
                                 </div>
                             </td>
@@ -203,31 +201,25 @@
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="text-sm font-bold text-gray-900">Rp 4.500.000</div>
                             </td>
+                        </tr>
+
+                        <!-- Sample Data - Confirmed Order -->
+                        <tr class="hover:bg-gray-50 transition-colors duration-200">
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                                    <div class="w-2 h-2 bg-green-400 rounded-full mr-2"></div>
-                                    Selesai
+                                <div class="text-sm font-medium text-gray-900">3</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                                    <div class="w-2 h-2 bg-blue-400 rounded-full mr-2"></div>
+                                    Dikonfirmasi
                                 </span>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                                 <button class="text-blue-600 hover:text-blue-900 mr-3">Detail</button>
                                 <button class="text-emerald-600 hover:text-emerald-900">Unduh Tiket</button>
                             </td>
-                        </tr>
-
-                        <!-- Sample Data - Confirmed Order -->
-                        <tr class="hover:bg-gray-50 transition-colors duration-200">
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm font-medium text-gray-900">TRV001232</div>
-                                <div class="text-sm text-gray-500">08 Jan 2024</div>
-                            </td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="flex items-center">
-                                    <div class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-3">
-                                        <svg class="w-4 h-4 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
-                                            <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/>
-                                        </svg>
-                                    </div>
                                     <span class="text-sm font-medium text-gray-900">Kereta</span>
                                 </div>
                             </td>
@@ -243,31 +235,25 @@
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="text-sm font-bold text-gray-900">Rp 450.000</div>
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
-                                    <div class="w-2 h-2 bg-blue-400 rounded-full mr-2"></div>
-                                    Dikonfirmasi
-                                </span>
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                <button class="text-blue-600 hover:text-blue-900 mr-3">Detail</button>
-                                <button class="text-emerald-600 hover:text-emerald-900">Unduh Tiket</button>
-                            </td>
                         </tr>
 
                         <!-- Sample Data - Cancelled Order -->
                         <tr class="hover:bg-gray-50 transition-colors duration-200">
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <div class="text-sm font-medium text-gray-900">TRV001231</div>
-                                <div class="text-sm text-gray-500">05 Jan 2024</div>
+                                <div class="text-sm font-medium text-gray-900">4</div>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap">
+                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">
+                                    <div class="w-2 h-2 bg-red-400 rounded-full mr-2"></div>
+                                    Dibatalkan
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                                <button class="text-blue-600 hover:text-blue-900 mr-3">Detail</button>
+                                <button class="text-gray-400 cursor-not-allowed">Tidak Tersedia</button>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="flex items-center">
-                                    <div class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center mr-3">
-                                        <svg class="w-4 h-4 text-orange-600" fill="currentColor" viewBox="0 0 20 20">
-                                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                        </svg>
-                                    </div>
                                     <span class="text-sm font-medium text-gray-900">Paket Wisata</span>
                                 </div>
                             </td>
@@ -283,16 +269,6 @@
                             <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="text-sm font-bold text-gray-900">Rp 6.800.000</div>
                             </td>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">
-                                    <div class="w-2 h-2 bg-red-400 rounded-full mr-2"></div>
-                                    Dibatalkan
-                                </span>
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                <button class="text-blue-600 hover:text-blue-900 mr-3">Detail</button>
-                                <button class="text-gray-400 cursor-not-allowed">Tidak Tersedia</button>
-                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -304,8 +280,7 @@
                 <div class="p-6 border-b border-gray-200">
                     <div class="flex items-start justify-between mb-4">
                         <div>
-                            <div class="text-sm font-medium text-gray-900">TRV001234</div>
-                            <div class="text-xs text-gray-500">12 Jan 2024</div>
+                            <div class="text-sm font-medium text-gray-900">1</div>
                         </div>
                         <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
                             <div class="w-1.5 h-1.5 bg-yellow-400 rounded-full mr-1 animate-pulse"></div>
@@ -350,8 +325,7 @@
                 <div class="p-6 border-b border-gray-200">
                     <div class="flex items-start justify-between mb-4">
                         <div>
-                            <div class="text-sm font-medium text-gray-900">TRV001233</div>
-                            <div class="text-xs text-gray-500">10 Jan 2024</div>
+                            <div class="text-sm font-medium text-gray-900">2</div>
                         </div>
                         <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
                             <div class="w-1.5 h-1.5 bg-green-400 rounded-full mr-1"></div>
@@ -403,7 +377,7 @@
                 <button class="px-3 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed" disabled>
                     Sebelumnya
                 </button>
-                <button class="px-3 py-2 text-sm font-medium text-white bg-gradient-to-r from-[#FE0004] to-[#F6B101] rounded-lg">
+                <button class="px-3 py-2 text-sm font-medium text-white bg-[#FE0004] rounded-lg">
                     1
                 </button>
                 <button class="px-3 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50">

@@ -6,7 +6,7 @@
 
     <!-- Header -->
     <div class="flex items-center gap-3 mb-8">
-      <a href="{{ url()->previous() }}" class="text-[#FE0004] hover:text-[#F6B101] text-sm inline-flex items-center gap-2">
+      <a href="{{ url()->previous() }}" class="text-[#FE0004] text-medium text-sm inline-flex items-center gap-2">
         <i class="fas fa-chevron-left text-xs"></i>
         Back
       </a>
@@ -23,7 +23,7 @@
         <div class="p-6">
           <div class="flex items-start justify-between mb-2">
             <div class="flex items-center gap-2">
-              <div class="h-8 w-8 rounded-lg bg-gradient-to-r from-[#FE0004] to-[#F6B101] flex items-center justify-center text-white">
+              <div class="h-8 w-8 rounded-lg bg-[#FE0004] flex items-center justify-center text-white">
                 <i class="fas fa-check text-xs"></i>
               </div>
               <h3 class="text-lg font-semibold text-gray-900">Konfirmasi</h3>
@@ -36,7 +36,7 @@
 
           <div class="mt-5 flex items-center justify-end gap-2">
             <button id="btn-terima-cancel" class="px-4 py-2 text-sm rounded-lg border border-gray-200 text-gray-700 hover:bg-gray-100">Tidak</button>
-            <button id="btn-terima-confirm" class="px-4 py-2 text-sm rounded-lg text-white bg-gradient-to-r from-[#FE0004] to-[#F6B101]  shadow">Ya, Terima</button>
+            <button id="btn-terima-confirm" class="px-4 py-2 text-sm rounded-lg text-white bg-[#FE0004]  shadow">Ya, Terima</button>
           </div>
         </div>
       </div>
@@ -123,7 +123,7 @@
             </div>
             <div class="flex items-center gap-2">
               <button class="px-3 py-2 text-xs bg-white border border-gray-200 text-gray-700 rounded-lg hover:bg-gray-100">Lihat</button>
-              <button class="px-3 py-2 text-xs bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white rounded-lg">Download</button>
+              <button class="px-3 py-2 text-xs bg-[#FE0004] text-white rounded-lg">Download</button>
             </div>
           </li>
           <li class="flex items-center justify-between bg-gray-50 border border-gray-200 rounded-xl px-4 py-3">
@@ -136,7 +136,7 @@
             </div>
             <div class="flex items-center gap-2">
               <button class="px-3 py-2 text-xs bg-white border border-gray-200 text-gray-700 rounded-lg hover:bg-gray-100">Lihat</button>
-              <button class="px-3 py-2 text-xs bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white rounded-lg">Download</button>
+              <button class="px-3 py-2 text-xs bg-[#FE0004] text-white rounded-lg">Download</button>
             </div>
           </li>
         </ul>
@@ -154,7 +154,7 @@
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <button id="btn-tolak" class="w-full px-6 py-3 rounded-xl font-semibold text-white bg-red-600 hover:bg-red-700 transition shadow-md">Tolak</button>
-          <button id="btn-terima" class="w-full px-6 py-3 rounded-xl font-semibold text-white bg-gradient-to-r from-[#FE0004] to-[#F6B101]  transition shadow-md">Terima</button>
+          <button id="btn-terima" class="w-full px-6 py-3 rounded-xl font-semibold text-white bg-[#FE0004]  transition shadow-md">Terima</button>
         </div>
       </div>
     </div>
@@ -171,7 +171,7 @@
         <div class="p-6">
           <div class="flex items-start justify-between mb-2">
             <div class="flex items-center gap-2">
-              <div class="h-8 w-8 rounded-lg bg-gradient-to-r from-[#FE0004] to-[#F6B101] flex items-center justify-center text-white">
+              <div class="h-8 w-8 rounded-lg bg-[#FE0004] flex items-center justify-center text-white">
                 <i class="fas fa-comment-dots text-xs"></i>
               </div>
               <h3 class="text-lg font-semibold text-gray-900">Alasan menolak</h3>
@@ -186,7 +186,7 @@
 
           <div class="mt-4 flex items-center justify-end gap-2">
             <button id="btn-cancel" class="px-4 py-2 text-sm rounded-lg border border-gray-200 text-gray-700 hover:bg-gray-100">Batal</button>
-            <button id="btn-submit" class="px-4 py-2 text-sm rounded-lg text-white bg-gradient-to-r from-[#FE0004] to-[#F6B101]  shadow">Simpan</button>
+            <button id="btn-submit" class="px-4 py-2 text-sm rounded-lg text-white bg-[#FE0004]  shadow">Simpan</button>
           </div>
         </div>
       </div>

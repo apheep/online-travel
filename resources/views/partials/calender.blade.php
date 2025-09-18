@@ -86,7 +86,7 @@
                     
                     <!-- Save Button -->
                     <div class="flex justify-end">
-                        <button onclick="saveDate()" class="px-4 py-2 text-white rounded-lg text-sm font-medium transition duration-200 shadow-md hover:shadow-lg bg-gradient-to-r from-[#FE0004] to-[#F6B101] hover:scale-105">
+                        <button onclick="saveDate()" class="px-4 py-2 text-white rounded-lg text-sm font-medium transition duration-200 shadow-md hover:shadow-lg bg-[#FE0004] hover:scale-105">
                             Simpan
                         </button>
                     </div>

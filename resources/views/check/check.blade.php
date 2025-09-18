@@ -16,7 +16,7 @@
           <h2 class="text-3xl font-bold text-gray-900">Admin</h2>
           <p class="text-gray-600 mt-1">Order Management</p>
         </div>
-        <a href="{{ url('/check/report') }}" class="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white rounded-full text-sm font-medium shadow-md hover:shadow-lg transform hover:-translate-y-0.5 hover:opacity-95 transition duration-300 shrink-0">
+        <a href="{{ url('/check/report') }}" class="inline-flex items-center gap-2 px-4 py-2 bg-[#FE0004] text-white rounded-full text-sm font-medium shadow-md hover:shadow-lg transform hover:-translate-y-0.5 hover:opacity-95 transition duration-300 shrink-0">
           <i class="fas fa-chart-line"></i>
           <span>Report</span>
         </a>
@@ -26,16 +26,16 @@
     <!-- Filter Tabs -->
     <div class="mb-6">
       <div class="flex flex-wrap gap-2">
-        <button class="px-4 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white rounded-full text-sm font-medium">
+        <button class="px-4 py-2 bg-[#FE0004] text-white rounded-full text-sm font-medium">
           All
         </button>
-        <button class="px-4 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white rounded-full text-sm font-medium">
+        <button class="px-4 py-2 bg-[#FE0004] text-white rounded-full text-sm font-medium">
           Request
         </button>
-        <button class="px-4 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white rounded-full text-sm font-medium">
+        <button class="px-4 py-2 bg-[#FE0004] text-white rounded-full text-sm font-medium">
           Approve
         </button>
-        <button class="px-4 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white rounded-full text-sm font-medium">
+        <button class="px-4 py-2 bg-[#FE0004] text-white rounded-full text-sm font-medium">
           Reject
         </button>
       </div>
@@ -109,7 +109,7 @@
             btn.className = 'px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-300 transition';
           }
         });
-        clicked.className = 'px-4 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white rounded-full text-sm font-medium';
+        clicked.className = 'px-4 py-2 bg-[#FE0004] text-white rounded-full text-sm font-medium';
       }
 
       function applyFilter(filterLabel) {
