@@ -63,6 +63,9 @@
 <script>
     // Global Page Transition Overlay (Spinner + "Loading")
     (function () {
+        // Track if we're currently showing the overlay
+        var isOverlayVisible = false;
+        
         function buildOverlayContent() {
             return (
                 '<div class="w-full h-full flex flex-col items-center justify-center">' +
@@ -79,6 +82,7 @@
                 overlay.id = 'page-transition-overlay';
                 overlay.className = 'fixed inset-0 bg-white/95 backdrop-blur-md z-[9999] hidden';
                 overlay.innerHTML = buildOverlayContent();
+                
                 // Defer append until body is available
                 if (document.body) {
                     document.body.appendChild(overlay);
@@ -89,15 +93,25 @@
                         }
                     }, { once: true });
                 }
-            } else {
-                // Page already provides its own overlay (e.g., checkout). Do not modify it.
             }
             return overlay;
         }
 
         function showOverlay() {
+            if (isOverlayVisible) return;
             var overlay = ensureOverlay();
-            if (overlay) overlay.classList.remove('hidden');
+            if (overlay) {
+                overlay.classList.remove('hidden');
+                isOverlayVisible = true;
+            }
+        }
+
+        function hideOverlay() {
+            var overlay = document.getElementById('page-transition-overlay');
+            if (overlay) {
+                overlay.classList.add('hidden');
+                isOverlayVisible = false;
+            }
         }
 
         function shouldIgnoreLink(a) {
@@ -117,15 +131,28 @@
             return !!(existing && existing.querySelector('#loading-progress-bar'));
         }
 
+        // Handle page show event (triggered on both initial load and when navigating back/forward)
+        function handlePageShow(event) {
+            // If this is a back/forward navigation (persisted is true), hide the overlay
+            if (event.persisted) {
+                hideOverlay();
+            }
+        }
+
         // Idempotent attachment of listeners
         function attachGlobalListenersOnce() {
             if (window.__globalOverlayListenersAttached) return;
             window.__globalOverlayListenersAttached = true;
 
+            // Handle page show event (for back/forward navigation)
+            window.addEventListener('pageshow', handlePageShow);
+
             // Show on full page unload/navigation
             window.addEventListener('beforeunload', function () {
-                // Some browsers may block DOM mutations in beforeunload; attempt anyway
-                try { showOverlay(); } catch (e) {}
+                // Only show overlay if not already showing
+                if (!isOverlayVisible) {
+                    try { showOverlay(); } catch (e) {}
+                }
             });
 
             // Show on anchor navigations (same-tab)
@@ -145,14 +172,22 @@
                     showOverlay();
                 }
             }, true);
+
+            // Hide overlay when page is fully loaded
+            window.addEventListener('load', function() {
+                // Small delay to ensure smooth transition
+                setTimeout(hideOverlay, 100);
+            });
         }
 
-        // Attach listeners after DOM is ready, but only if no custom overlay exists
-        function setupListenersWhenReady() {
+        // Initialize listeners when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
             if (!isCustomOverlay()) {
                 attachGlobalListenersOnce();
             }
-        }
+            // Hide overlay in case it was shown during page load
+            setTimeout(hideOverlay, 100);
+        });
 
         // Ensure overlay exists and attach listeners after DOM is ready
         if (document.readyState === 'loading') {
