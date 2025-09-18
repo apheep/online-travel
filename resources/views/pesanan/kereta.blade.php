@@ -550,4 +550,237 @@
 
 </body>
 
+<script>
+// Simple lazy loading for images
+document.addEventListener('DOMContentLoaded', function() {
+    const images = document.querySelectorAll('img[loading="lazy"]');
+    images.forEach(img => {
+        img.addEventListener('load', function() {
+            this.classList.add('loaded');
+        });
+        if (img.complete) {
+            img.classList.add('loaded');
+        }
+    });
+});
+
+// Search flights function with loading animation
+function searchFlights() {
+    // Show loading state
+    const searchBtn = document.querySelector('button[onclick="searchFlights()"]');
+    if (searchBtn) {
+        const originalText = searchBtn.innerHTML;
+        searchBtn.innerHTML = `
+            <span class="flex items-center justify-center space-x-2">
+                <div class="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                <span>Mencari...</span>
+            </span>
+        `;
+        searchBtn.disabled = true;
+        
+        // Simulate search delay
+        setTimeout(() => {
+            searchBtn.innerHTML = originalText;
+            searchBtn.disabled = false;
+            // Here you would normally trigger the actual search
+            console.log('Search completed');
+        }, 2000);
+    }
+}
+
+// Load more flights with lazy loading
+function loadMoreFlights() {
+    const loadBtn = document.querySelector('button[onclick="loadMoreFlights()"]');
+    if (loadBtn) {
+        const originalText = loadBtn.textContent;
+        loadBtn.innerHTML = `
+            <div class="flex items-center justify-center space-x-2">
+                <div class="w-4 h-4 border-2 border-gray-600 border-t-transparent rounded-full animate-spin"></div>
+                <span>Loading...</span>
+            </div>
+        `;
+        loadBtn.disabled = true;
+        
+        // Simulate loading delay
+        setTimeout(() => {
+            loadBtn.textContent = originalText;
+            loadBtn.disabled = false;
+            console.log('More flights loaded');
+        }, 1500);
+    }
+}
+
+// Modal functions for departure location
+function openDepartureModal() {
+    const modal = document.getElementById('departureModal');
+    const content = document.getElementById('departureModalContent');
+    if (modal && content) {
+        modal.classList.remove('hidden');
+        setTimeout(() => {
+            content.classList.remove('scale-95', 'opacity-0');
+            content.classList.add('scale-100', 'opacity-100');
+        }, 10);
+    }
+}
+
+function closeDepartureModal() {
+    const modal = document.getElementById('departureModal');
+    const content = document.getElementById('departureModalContent');
+    if (modal && content) {
+        content.classList.add('scale-95', 'opacity-0');
+        content.classList.remove('scale-100', 'opacity-100');
+        setTimeout(() => {
+            modal.classList.add('hidden');
+        }, 300);
+    }
+}
+
+// Modal functions for arrival location
+function openArrivalModal() {
+    const modal = document.getElementById('arrivalModal');
+    const content = document.getElementById('arrivalModalContent');
+    if (modal && content) {
+        modal.classList.remove('hidden');
+        setTimeout(() => {
+            content.classList.remove('scale-95', 'opacity-0');
+            content.classList.add('scale-100', 'opacity-100');
+        }, 10);
+    }
+}
+
+function closeArrivalModal() {
+    const modal = document.getElementById('arrivalModal');
+    const content = document.getElementById('arrivalModalContent');
+    if (modal && content) {
+        content.classList.add('scale-95', 'opacity-0');
+        content.classList.remove('scale-100', 'opacity-100');
+        setTimeout(() => {
+            modal.classList.add('hidden');
+        }, 300);
+    }
+}
+
+// Modal functions for passenger selection
+function openPassengerModal() {
+    const modal = document.getElementById('passengerModal');
+    const content = document.getElementById('passengerModalContent');
+    if (modal && content) {
+        modal.classList.remove('hidden');
+        setTimeout(() => {
+            content.classList.remove('scale-95', 'opacity-0');
+            content.classList.add('scale-100', 'opacity-100');
+        }, 10);
+    }
+}
+
+function closePassengerModal() {
+    const modal = document.getElementById('passengerModal');
+    const content = document.getElementById('passengerModalContent');
+    if (modal && content) {
+        content.classList.add('scale-95', 'opacity-0');
+        content.classList.remove('scale-100', 'opacity-100');
+        setTimeout(() => {
+            modal.classList.add('hidden');
+        }, 300);
+    }
+}
+
+// Date modal functions
+function openDateModal() {
+    // Implementation for date modal
+    console.log('Opening date modal');
+}
+
+// Location selection functions
+function selectDeparturePopularLocation(location) {
+    document.getElementById('fromLocation').textContent = location;
+    closeDepartureModal();
+}
+
+function selectArrivalPopularLocation(location) {
+    document.getElementById('toLocation').textContent = location;
+    closeArrivalModal();
+}
+
+// Passenger count functions
+function changePassengerCount(change) {
+    const display = document.getElementById('passengerCountDisplay');
+    const countText = document.getElementById('passengerCount');
+    if (display && countText) {
+        let current = parseInt(display.textContent);
+        current = Math.max(1, Math.min(9, current + change));
+        display.textContent = current;
+        countText.textContent = `${current} Penumpang`;
+    }
+}
+
+// Class selection functions
+function toggleClassDropdown() {
+    const options = document.getElementById('classOptions');
+    const arrow = document.getElementById('dropdownArrow');
+    if (options && arrow) {
+        options.classList.toggle('hidden');
+        arrow.classList.toggle('rotate-180');
+    }
+}
+
+function selectClass(className) {
+    document.getElementById('selectedClass').textContent = className;
+    document.getElementById('passengerClass').textContent = `(${className.split(' ')[0]})`;
+    toggleClassDropdown();
+}
+
+// Save functions
+function saveDepartureLocation() {
+    closeDepartureModal();
+}
+
+function saveArrivalLocation() {
+    closeArrivalModal();
+}
+
+function savePassenger() {
+    closePassengerModal();
+}
+
+// Location reverse function
+function reverseLocations() {
+    const from = document.getElementById('fromLocation').textContent;
+    const to = document.getElementById('toLocation').textContent;
+    document.getElementById('fromLocation').textContent = to;
+    document.getElementById('toLocation').textContent = from;
+}
+
+// Search functions for modals
+function searchDepartureCities() {
+    // Implementation for departure city search
+    console.log('Searching departure cities');
+}
+
+function searchArrivalCities() {
+    // Implementation for arrival city search
+    console.log('Searching arrival cities');
+}
+
+// Clear recent searches
+function clearDepartureRecentSearches() {
+    console.log('Clearing departure recent searches');
+}
+
+function clearArrivalRecentSearches() {
+    console.log('Clearing arrival recent searches');
+}
+
+// Recent location selection
+function selectDepartureRecentLocation(location, code) {
+    document.getElementById('fromLocation').textContent = location.split(',')[0];
+    closeDepartureModal();
+}
+
+function selectArrivalRecentLocation(location, code) {
+    document.getElementById('toLocation').textContent = location.split(',')[0];
+    closeArrivalModal();
+}
+</script>
+
 @include('partials.footer')

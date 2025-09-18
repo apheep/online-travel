@@ -246,7 +246,7 @@
         <!-- Actions -->
         <div class="flex flex-col space-y-3">
             <button onclick="viewOtherFlights()" 
-                    class="w-full px-6 py-3 bg-gradient-to-r from-blue-50 to-blue-100 text-[#F6B101] rounded-xl hover:from-blue-100 hover:to-blue-200 transition-all duration-200 font-medium">
+                    class="w-full px-6 py-3 bg-gradient-to-r from-red-50 to-red-100 text-[#FE0004] rounded-xl hover:from-red-100 hover:to-red-200 transition-all duration-200 font-medium">
                 Lihat Penerbangan Lain
             </button>
             <button onclick="completeBooking()" 
