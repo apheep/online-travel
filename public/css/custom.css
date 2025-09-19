@@ -1,0 +1,116 @@
+/* Custom Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Custom Font Family */
+.font-poppins {
+    font-family: "Poppins", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+}
+
+/* Custom Colors */
+.bg-custom-nav {
+    background-color: #F4F7FE;
+}
+
+.text-custom-nav {
+    color: #A0AAC3;
+}
+
+/* Additional custom styles can be added here */
+
+/* Page Transition Loading (global) */
+.page-transition-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.page-transition-overlay.active {
+    display: flex;
+}
+
+.loading-spinner {
+    width: 60px;
+    height: 60px;
+    border: 4px solid #f3f4f6;
+    border-top: 4px solid #FE0004;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-text {
+    color: #374151;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 8px;
+}
+
+.loading-progress {
+    width: 250px;
+    height: 6px;
+    background: #e5e7eb;
+    border-radius: 3px;
+    margin-top: 16px;
+    overflow: hidden;
+}
+
+.loading-progress-bar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #FE0004, #F6B101);
+    border-radius: 3px;
+    transition: width 0.5s ease;
+}
+
+.loading-steps {
+    margin-top: 12px;
+    font-size: 14px;
+    color: #6b7280;
+    text-align: center;
+}
+
+/* Simple Lazy Loading (global) */
+img[loading="lazy"] {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+    
+img[loading="lazy"].loaded {
+    opacity: 1;
+}
+
+/* Fade-in for lazy iframes */
+iframe[loading="lazy"] {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+iframe[loading="lazy"].loaded {
+    opacity: 1;
+}
+
+/* Lazy background helpers: any element with data-bg or data-bg-src starts hidden */
+[data-bg], [data-bg-src] {
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.bg-loaded {
+    opacity: 1;
+}

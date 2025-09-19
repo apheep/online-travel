@@ -1,0 +1,177 @@
+@include('partials.head')
+    
+@section('title', 'Home - Online Travel')
+
+@include('partials.navbarcheck')
+
+<body class="bg-[F4F7FE] min-h-screen font-poppins">
+  <!-- Main Content -->
+  <main id="page-main" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 opacity-0 translate-y-2 transition-all duration-500 ease-out">
+
+  @include('partials.alert')
+    <!-- Page Header -->
+    <div class="mb-8 pl-2">
+      <h2 class="text-3xl font-bold text-gray-900">Ticketing</h2>
+      <p class="text-gray-600 mt-1">Ticket Management</p>
+    </div>
+<!-- Search and Filter -->
+<div class="mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+  <!-- Search Bar -->
+  <div class="w-full sm:max-w-sm">
+    <div class="relative">
+      <input type="text" placeholder="Search"
+             class="w-full pl-3 pr-10 py-2 border-2 border-gray-200 rounded-full text-sm focus:outline-none focus:ring-0 hover:border-[#FE0004] focus:border-[#F6B101] transition-all duration-200">
+      <button class="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700 transition-colors duration-200">
+        <i class="fas fa-search"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Date Filter -->
+  <div class="flex flex-col sm:flex-row sm:items-center gap-3 w-full sm:w-auto">
+    <div class="flex items-center gap-2 w-full sm:w-auto">
+      <button type="button" onclick="openDateFor('ticketFrom')"
+              class="flex-1 min-w-[200px] px-4 py-2 border-2 border-gray-200 rounded-full text-gray-700 focus:outline-none focus:ring-0 focus:border-[#F6B101] transition-all duration-200 flex items-center gap-2">
+        <i class="fas fa-calendar-alt text-gray-500 text-sm shrink-0"></i>
+        <div class="flex-1 overflow-hidden">
+          <span id="ticketFromDateDisplay" class="text-gray-700 text-sm whitespace-nowrap truncate">Pilih tanggal</span>
+        </div>
+      </button>
+      <span class="text-gray-500 text-sm text-center">to</span>
+      <button type="button" onclick="openDateFor('ticketTo')"
+              class="flex-1 min-w-[200px] px-4 py-2 border-2 border-gray-200 rounded-full text-gray-700 focus:outline-none focus:ring-0 focus:border-[#F6B101] transition-all duration-200 flex items-center gap-2">
+        <i class="fas fa-calendar-alt text-gray-500 text-sm shrink-0"></i>
+        <div class="flex-1 overflow-hidden">
+          <span id="ticketToDateDisplay" class="text-gray-700 text-sm whitespace-nowrap truncate">Pilih tanggal</span>
+        </div>
+      </button>
+    </div>
+    <button class="px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-full transition-colors duration-200 flex items-center justify-center space-x-2 focus:outline-none w-full sm:w-auto">
+      <i class="fas fa-filter text-sm"></i>
+      <span class="text-sm font-medium">Filter</span>
+    </button>
+  </div>
+</div>
+
+@include('partials.table-ticketing')
+
+
+</main>
+
+  {{-- Calendar Modal Partial for date picking --}}
+  @include('partials.calender')
+
+@include('partials.overlay-detail-ticket')
+
+  <script>
+    // Smooth page enter transition
+    document.addEventListener('DOMContentLoaded', function() {
+      const mainEl = document.getElementById('page-main');
+      if (mainEl) {
+        requestAnimationFrame(() => {
+          mainEl.classList.remove('opacity-0', 'translate-y-2');
+        });
+      }
+    });
+    // Filter tabs functionality (active styling + table filter)
+    (function() {
+      const FILTER_LABELS = ['All', 'Request', 'Approve', 'Reject'];
+      const isFilterButton = (el) => el && el.tagName === 'BUTTON' && FILTER_LABELS.includes(el.textContent.trim());
+
+      function setActiveButton(clicked) {
+        document.querySelectorAll('button[class*="px-4 py-2"]').forEach(btn => {
+          if (isFilterButton(btn)) {
+            btn.className = 'px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-300 transition';
+          }
+        });
+        clicked.className = 'px-4 py-2 bg-[#FE0004] text-white rounded-full text-sm font-medium';
+      }
+
+      function applyFilter(filterLabel) {
+        const tbody = document.getElementById('orders-tbody');
+        if (!tbody) return;
+        const rows = Array.from(tbody.querySelectorAll('tr'));
+
+        rows.forEach(tr => {
+          const cells = tr.querySelectorAll('td');
+          // Status column is the last column based on current table layout
+          const statusCell = cells[cells.length - 1];
+          const statusText = statusCell ? statusCell.textContent.trim() : '';
+
+          if (filterLabel === 'All') {
+            tr.style.display = '';
+          } else {
+            tr.style.display = (statusText === filterLabel) ? '' : 'none';
+          }
+        });
+      }
+
+      document.querySelectorAll('button[class*="px-4 py-2"]').forEach(button => {
+        if (!isFilterButton(button)) return;
+        button.addEventListener('click', function() {
+          const label = this.textContent.trim();
+          setActiveButton(this);
+          applyFilter(label);
+        });
+      });
+      // Initialize default: set "All" active and apply filter on load
+      const allBtn = Array.from(document.querySelectorAll('button[class*="px-4 py-2"]')).find(b => b.textContent.trim() === 'All');
+      if (allBtn) {
+        setActiveButton(allBtn);
+        applyFilter('All');
+      }
+    })();
+
+    // Bridge calendar modal to this page's date fields (From/To)
+    (function(){
+      const dateDisplayMap = {
+        ticketFrom: 'ticketFromDateDisplay',
+        ticketTo: 'ticketToDateDisplay',
+      };
+
+      // Current target span to update
+      window._dateTarget = null;
+
+      // Open the shared calendar modal for a specific target
+      window.openDateFor = function(targetKey){
+        window._dateTarget = targetKey;
+        if (typeof switchTripType === 'function') {
+          try { switchTripType('oneWay'); } catch(e) {}
+        }
+        if (typeof openDateModal === 'function') {
+          openDateModal();
+        }
+      };
+
+      // Wrap global saveDate so selecting a date updates our display
+      if (typeof window.saveDate === 'function' && !window._origSaveDate_ticket) {
+        window._origSaveDate_ticket = window.saveDate;
+        window.saveDate = function(){
+          // Call original behavior safely
+          try { window._origSaveDate_ticket(); } catch(e) { /* ignore */ }
+          try {
+            const key = window._dateTarget;
+            if (key && dateDisplayMap[key]) {
+              const displayEl = document.getElementById(dateDisplayMap[key]);
+              if (displayEl) {
+                const depTextEl = document.getElementById('departureDateDisplay');
+                let text = depTextEl ? depTextEl.textContent : '';
+                if ((!text || text.trim().length === 0) && window.departureDate instanceof Date) {
+                  text = window.departureDate.toLocaleDateString('id-ID', { weekday: 'long', day: 'numeric', month: 'short', year: 'numeric' });
+                }
+                if (text && text.trim().length > 0) {
+                  displayEl.textContent = text;
+                }
+              }
+            }
+          } catch(e) { /* no-op */ }
+          try { if (typeof closeDateModal === 'function') closeDateModal(); } catch(e) {}
+          window._dateTarget = null;
+        };
+      }
+    })();
+  </script>
+</body>
+
+
+@include('partials.footer')
