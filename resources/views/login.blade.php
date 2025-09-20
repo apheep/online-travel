@@ -22,7 +22,7 @@
 
       {{-- KIRI: gambar besar --}}
       <div class="img-frame lg:w-[540px] lg:h-[720px] w-full max-w-xl">
-        <img src="{{ asset('background.png') }}" alt="Pantai" class="object-cover w-full h-full">
+        <img src="{{ asset('background.png') }}" alt="Pantai" class="object-cover object-left w-full h-full">
       </div>
 
       {{-- KANAN: form --}}

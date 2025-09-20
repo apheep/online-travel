@@ -208,7 +208,7 @@
         <div class="text-center">
             <button type="submit" id="checkout-submit"
 
-                     class="w-full max-w-md bg-gradient-to-r from-[#FE0004] to-[#FE0004] text-white font-bold py-4 px-8 rounded-xl hover:from-[#FE0004] hover:to-[#FE0004] transition-all duration-200 transform hover:scale-105 shadow-lg mt-10">
+                     class="w-full max-w-md bg-gradient-to-r from-[#FE0004] to-[#FE0004] text-white font-bold py-4 px-8 rounded-xl hover:from-[#FE0004] hover:to-[#FE0004] transition-all duration-200 transform hover:scale-105 shadow-lg mt-10 mb-10">
 
                  SUBMIT
             </button>
