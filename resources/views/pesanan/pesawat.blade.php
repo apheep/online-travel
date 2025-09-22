@@ -72,7 +72,7 @@
 
             <!-- Search Button -->
             <div class="sm:ml-auto">
-              <button onclick="searchFlights()" class="w-full sm:w-auto text-white px-6 py-2 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95 text-sm sm:text-base bg-gradient-to-r from-[#FE0004] to-[#F6B101]">
+              <button onclick="searchFlights()" class="w-full sm:w-auto text-white px-6 py-2 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95 text-sm sm:text-base bg-[#FE0004]">
                 <span class="flex items-center justify-center space-x-2">
                   <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
@@ -165,7 +165,7 @@
                         <button onclick="closeDepartureModal()" class="flex-1 px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition duration-200 font-medium">
                             Batal
                         </button>
-                        <button onclick="saveDepartureLocation()" class="flex-1 px-4 py-2 text-white rounded-lg font-medium transition duration-200 shadow-md hover:shadow-lg bg-gradient-to-r from-[#FE0004] to-[#F6B101]" >
+                        <button onclick="saveDepartureLocation()" class="flex-1 px-4 py-2 text-white rounded-lg font-medium transition duration-200 shadow-md hover:shadow-lg bg-[#FE0004]" >
                             Simpan
                         </button>
                     </div>
@@ -254,7 +254,7 @@
                         <button onclick="closeArrivalModal()" class="flex-1 px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 transition duration-200 font-medium">
                             Batal
                         </button>
-                        <button onclick="saveArrivalLocation()" class="flex-1 px-4 py-2 text-white rounded-lg font-medium transition duration-200 shadow-md hover:shadow-lg bg-gradient-to-r from-[#FE0004] to-[#F6B101]">
+                        <button onclick="saveArrivalLocation()" class="flex-1 px-4 py-2 text-white rounded-lg font-medium transition duration-200 shadow-md hover:shadow-lg bg-[#FE0004]">
                             Simpan
                         </button>
                     </div>
@@ -330,7 +330,7 @@
                         <button onclick="closePassengerModal()" class="flex-1 px-6 py-3 border-2 border-gray-300 rounded-xl text-gray-700 hover:bg-gray-50 transition duration-200 font-semibold">
                             Batal
                         </button>
-                        <button onclick="savePassenger()" class="flex-1 px-6 py-3 text-white rounded-xl font-semibold transition duration-200 shadow-lg hover:shadow-xl bg-gradient-to-r from-[#FE0004] to-[#F6B101]">
+                        <button onclick="savePassenger()" class="flex-1 px-6 py-3 text-white rounded-xl font-semibold transition duration-200 shadow-lg hover:shadow-xl bg-[#FE0004]">
                             Simpan
                         </button>
                     </div>

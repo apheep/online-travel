@@ -59,7 +59,7 @@
         </div>
         
         <div class="relative">
-          <button id="user-menu-btn" class="bg-gradient-to-r from-[#FE0004] to-[#F6B101] px-6 py-3 rounded-full font-medium  transition-all duration-300 shadow-lg flex items-center justify-center gap-3 text-white cursor-pointer hover:scale-105">
+          <button id="user-menu-btn" class="bg-[#FE0004] px-6 py-3 rounded-full font-medium  transition-all duration-300 shadow-lg flex items-center justify-center gap-3 text-white cursor-pointer hover:scale-105">
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
             </svg>
@@ -77,7 +77,7 @@
               <div class="py-2">
                     <form action="{{ route('logout') }}" method="POST" class="inline">
                     @csrf
-                    <button type="submit" class="w-full flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-gradient-to-r hover:from-[#F6B101] hover:to-[#FE0004] hover:text-white rounded-lg transition-all duration-200 group/item">
+                    <button type="submit" class="w-full flex items-center gap-3 px-4 py-3 text-gray-700 hover:bg-[#FE0004] hover:text-white rounded-lg transition-all duration-200 group/item">
                       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
                       </svg>
@@ -118,7 +118,7 @@
           <!-- Mobile User Profile -->
           <div class="mb-6">
             <!-- User Info Card -->
-            <div class="bg-gradient-to-r from-[#FE0004] to-[#F6B101] rounded-2xl p-4 text-white shadow-lg">
+            <div class="bg-[#FE0004] rounded-2xl p-4 text-white shadow-lg">
               <div class="flex items-center gap-3 mb-3">
                 <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center">
                   <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">

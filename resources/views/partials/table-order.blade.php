@@ -56,7 +56,7 @@
               </td>
               <td class="px-6 py-5 whitespace-nowrap text-center">
                 <div class="flex items-center justify-center">
-                  <a href="{{ route('check.detail-kereta') }}" class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs font-semibold rounded-lg  transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                  <a href="{{ route('check.detail-kereta') }}" class="inline-flex items-center px-4 py-2 bg-[#FE0004] text-white text-xs font-semibold rounded-lg  transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
                     <i class="fas fa-eye mr-2"></i>
                     Detail
                   </a>
@@ -98,7 +98,7 @@
               </td>
               <td class="px-6 py-5 whitespace-nowrap text-center">
                 <div class="flex items-center justify-center">
-                  <button class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs font-semibold rounded-lg  transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                  <button class="inline-flex items-center px-4 py-2 bg-[#FE0004] text-white text-xs font-semibold rounded-lg  transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
                     <i class="fas fa-eye mr-2"></i>
                     Detail
                   </button>
@@ -140,7 +140,7 @@
               </td>
               <td class="px-6 py-5 whitespace-nowrap text-center">
                 <div class="flex items-center justify-center">
-                <a href="{{ route('check.detail-hotel') }}" class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs font-semibold rounded-lg  transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                <a href="{{ route('check.detail-hotel') }}" class="inline-flex items-center px-4 py-2 bg-[#FE0004] text-white text-xs font-semibold rounded-lg  transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
                     <i class="fas fa-eye mr-2"></i>
                     Detail
                   </a>
@@ -182,7 +182,7 @@
               </td>
               <td class="px-6 py-5 whitespace-nowrap text-center">
                 <div class="flex items-center justify-center">
-                  <a href="{{ route('check.detail') }}" class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs font-semibold rounded-lg  transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                  <a href="{{ route('check.detail') }}" class="inline-flex items-center px-4 py-2 bg-[#FE0004] text-white text-xs font-semibold rounded-lg  transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
                     <i class="fas fa-eye mr-2"></i>
                     Detail
                   </a>
@@ -237,7 +237,7 @@
             <div class="text-xs text-gray-500">Kontak</div>
             <div class="text-sm text-gray-900">+62 812-3456-7890 (WhatsApp)</div>
           </div>
-          <a href="{{ url('/check/detail-kereta') }}" class="ml-3 px-3 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs font-semibold rounded-lg shadow-md">Detail</a>
+          <a href="{{ url('/check/detail-kereta') }}" class="ml-3 px-3 py-2 bg-[#FE0004] text-white text-xs font-semibold rounded-lg shadow-md">Detail</a>
         </div>
       </div>
 
@@ -265,7 +265,7 @@
             <div class="text-xs text-gray-500">Kontak</div>
             <div class="text-sm text-gray-900">+62 813-9876-5432 (WhatsApp)</div>
           </div>
-          <a href="{{ route('check.detail') }}" class="ml-3 px-3 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs font-semibold rounded-lg shadow-md">Detail</a>
+          <a href="{{ route('check.detail') }}" class="ml-3 px-3 py-2 bg-[#FE0004] text-white text-xs font-semibold rounded-lg shadow-md">Detail</a>
         </div>
       </div>
 
@@ -293,7 +293,7 @@
             <div class="text-xs text-gray-500">Kontak</div>
             <div class="text-sm text-gray-900">+62 814-1234-5678 (WhatsApp)</div>
           </div>
-          <a href="{{ url('/check/detail-hotel') }}" class="ml-3 px-3 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs font-semibold rounded-lg shadow-md">Detail</a>
+          <a href="{{ url('/check/detail-hotel') }}" class="ml-3 px-3 py-2 bg-[#FE0004] text-white text-xs font-semibold rounded-lg shadow-md">Detail</a>
         </div>
       </div>
 
@@ -321,7 +321,7 @@
             <div class="text-xs text-gray-500">Kontak</div>
             <div class="text-sm text-gray-900">+62 815-5678-9012 (WhatsApp)</div>
           </div>
-          <a href="{{ route('check.detail') }}" class="ml-3 px-3 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs font-semibold rounded-lg shadow-md">Detail</a>
+          <a href="{{ route('check.detail') }}" class="ml-3 px-3 py-2 bg-[#FE0004] text-white text-xs font-semibold rounded-lg shadow-md">Detail</a>
         </div>
       </div>
     </div>
@@ -384,7 +384,7 @@
           btn.type = 'button';
           btn.className = [
             'px-3 py-2 text-sm rounded-md transition',
-            active ? 'bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white' : 'text-gray-700 hover:bg-gray-100 hover:text-[#FE0004]',
+            active ? 'bg-[#FE0004] text-white' : 'text-gray-700 hover:bg-gray-100 hover:text-[#FE0004]',
             disabled ? 'text-gray-400 cursor-not-allowed opacity-50 hover:bg-transparent hover:text-gray-400' : '',
           ].join(' ');
           btn.innerHTML = label;

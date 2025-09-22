@@ -22,7 +22,7 @@
 
                     <!-- Location Info -->
                     <div class="flex items-center space-x-2 cursor-pointer bg-gradient-to-r from-[#FE0004]/5 to-[#F6B101]/5 p-3 rounded-lg transition-all duration-300 transform hover:scale-105 active:scale-95 group" onclick="openLocationModal()">
-                        <div class="p-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] rounded-lg">
+                        <div class="p-2 bg-[#FE0004] rounded-lg">
                             <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
@@ -39,7 +39,7 @@
 
                     <!-- Check-in Date -->
                     <div class="flex items-center space-x-2 cursor-pointer bg-gradient-to-r from-[#FE0004]/5 to-[#F6B101]/5 p-3 rounded-lg transition-all duration-300 transform hover:scale-105 active:scale-95 group" onclick="openCheckinModal()">
-                        <div class="p-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] rounded-lg">
+                        <div class="p-2 bg-[#FE0004] rounded-lg">
                             <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                             </svg>
@@ -55,7 +55,7 @@
 
                     <!-- Check-out Date -->
                     <div class="flex items-center space-x-2 cursor-pointer bg-gradient-to-r from-[#FE0004]/5 to-[#F6B101]/5 p-3 rounded-lg transition-all duration-300 transform hover:scale-105 active:scale-95 group" onclick="openCheckoutModal()">
-                        <div class="p-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] rounded-lg">
+                        <div class="p-2 bg-[#FE0004] rounded-lg">
                             <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                             </svg>
@@ -71,7 +71,7 @@
 
                     <!-- Guests & Rooms Info -->
                     <div class="flex items-center space-x-2 cursor-pointer bg-gradient-to-r from-[#FE0004]/5 to-[#F6B101]/5 p-3 rounded-lg transition-all duration-300 transform hover:scale-105 active:scale-95 group" onclick="openGuestModal()">
-                        <div class="p-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] rounded-lg">
+                        <div class="p-2 bg-[#FE0004] rounded-lg">
                             <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
                             </svg>
@@ -91,7 +91,7 @@
 
                 <!-- Search Button -->
                 <div class="sm:ml-auto">
-                    <button onclick="searchHotels()" class="w-full sm:w-auto bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white px-6 py-2 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95 text-sm sm:text-base">
+                    <button onclick="searchHotels()" class="w-full sm:w-auto bg-[#FE0004] text-white px-6 py-2 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg active:scale-95 text-sm sm:text-base">
                         <span class="flex items-center justify-center space-x-2">
                             <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
@@ -224,7 +224,7 @@
                 <div class="p-6 border-t border-gray-200 bg-white rounded-b-2xl sticky bottom-0 z-10">
                     <div class="flex space-x-3">
                         <button onclick="closeLocationModal()" class="flex-1 px-4 py-3 border-2 border-gray-300 rounded-xl text-gray-700 hover:bg-gray-50 transition-all duration-200 font-medium transform hover:scale-105">Batal</button>
-                        <button onclick="saveLocation()" class="flex-1 px-4 py-3 text-white rounded-xl font-medium transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-105 bg-gradient-to-r from-[#FE0004] to-[#F6B101]">Simpan</button>
+                        <button onclick="saveLocation()" class="flex-1 px-4 py-3 text-white rounded-xl font-medium transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-105 bg-[#FE0004]">Simpan</button>
                     </div>
                 </div>
             </div>
@@ -316,7 +316,7 @@
                 <div class="p-6 border-t border-gray-200 bg-white rounded-b-2xl">
                     <div class="flex space-x-3">
                         <button onclick="closeGuestModal()" class="flex-1 px-4 py-3 border-2 border-gray-300 rounded-xl text-gray-700 hover:bg-gray-50 transition-all duration-200 font-medium transform hover:scale-105">Batal</button>
-                        <button onclick="saveGuest()" class="flex-1 px-4 py-3 text-white rounded-xl font-medium transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 bg-gradient-to-r from-[#FE0004] to-[#F6B101]">Simpan</button>
+                        <button onclick="saveGuest()" class="flex-1 px-4 py-3 text-white rounded-xl font-medium transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 bg-[#FE0004]">Simpan</button>
                     </div>
                 </div>
             </div>
@@ -422,7 +422,7 @@
                         <button onclick="closeCheckinModal()" class="flex-1 px-6 py-3 border-2 border-gray-300 rounded-xl text-gray-700 hover:bg-gray-50 transition-all duration-200 font-semibold transform hover:scale-105">
                             Batal
                         </button>
-                        <button onclick="saveCheckinDate()" class="flex-1 px-6 py-3 text-white rounded-xl font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 bg-gradient-to-r from-[#FE0004] to-[#F6B101]">
+                        <button onclick="saveCheckinDate()" class="flex-1 px-6 py-3 text-white rounded-xl font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 bg-[#FE0004]">
                             Simpan
                         </button>
                     </div>
@@ -531,7 +531,7 @@
                         <button onclick="closeCheckoutModal()" class="flex-1 px-6 py-3 border-2 border-gray-300 rounded-xl text-gray-700 hover:bg-gray-50 transition-all duration-200 font-semibold transform hover:scale-105">
                             Batal
                         </button>
-                        <button onclick="saveCheckoutDate()" class="flex-1 px-6 py-3 text-white rounded-xl font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 bg-gradient-to-r from-[#FE0004] to-[#F6B101]">
+                        <button onclick="saveCheckoutDate()" class="flex-1 px-6 py-3 text-white rounded-xl font-semibold transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 bg-[#FE0004]">
                             Simpan
                         </button>
                     </div>
@@ -559,7 +559,7 @@
                                        class="absolute w-full h-2 bg-transparent rounded-lg appearance-none cursor-pointer slider-thumb z-[2]"
                                        oninput="updatePriceRange()">
                                 <div class="relative h-2 bg-gray-200 rounded-lg">
-                                    <div id="priceRangeTrack" class="absolute h-2 rounded-lg bg-gradient-to-r from-[#FE0004] to-[#F6B101] left-[0%] right-[20%]"></div>
+                                    <div id="priceRangeTrack" class="absolute h-2 rounded-lg bg-[#FE0004] left-[0%] right-[20%]"></div>
                                 </div>
                             </div>
                             
@@ -577,7 +577,7 @@
                             
                             <!-- Apply Price Filter Button -->
                             <div class="mt-3">
-                                <button onclick="applyPriceFilter()" class="w-full bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-sm py-2 px-4 rounded-lg hover:bg-teal-700 transition-colors duration-200">
+                                <button onclick="applyPriceFilter()" class="w-full bg-[#FE0004] text-white text-sm py-2 px-4 rounded-lg hover:bg-teal-700 transition-colors duration-200">
                                     Terapkan Harga
                                 </button>
                             </div>
@@ -719,7 +719,7 @@
                                     <div class="text-sm text-gray-600">
                                         <span class="text-green-600 font-medium">Pembatalan Gratis</span> hingga 24 jam sebelum check-in
                                     </div>
-                                    <a href="{{ url('/checkout/informasi-hotel') }}" class="px-6 py-2 text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg bg-gradient-to-r from-[#FE0004] to-[#F6B101]">
+                                    <a href="{{ url('/checkout/informasi-hotel') }}" class="px-6 py-2 text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg bg-[#FE0004]">
                                         Pilih Kamar
                                     </a>
                                 </div>
@@ -758,7 +758,7 @@
                                     <div class="text-sm text-gray-600">
                                         <span class="text-green-600 font-medium">Pembatalan Gratis</span> hingga 48 jam sebelum check-in
                                     </div>
-                                    <a href="{{ url('/checkout/informasi-hotel') }}" class="px-6 py-2 text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg bg-gradient-to-r from-[#FE0004] to-[#F6B101]">
+                                    <a href="{{ url('/checkout/informasi-hotel') }}" class="px-6 py-2 text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg bg-[#FE0004]">
                                         Pilih Kamar
                                     </a>
                                 </div>
@@ -797,7 +797,7 @@
                                     <div class="text-sm text-gray-600">
                                         <span class="text-green-600 font-medium">Pembatalan Gratis</span> hingga 24 jam sebelum check-in
                                     </div>
-                                    <button class="px-6 py-2 text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg bg-gradient-to-r from-[#FE0004] to-[#F6B101]">
+                                    <button class="px-6 py-2 text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg bg-[#FE0004]">
                                         Pilih Kamar
                                     </button>
                                 </div>
@@ -816,6 +816,7 @@
         </div>
     </div>
 
+    @include('partials.footer')
 </body>
 
 <script>
