@@ -11,6 +11,7 @@
                 </div>
               </th>
               <th class="px-6 py-5 text-center text-xs font-bold text-gray-700 uppercase tracking-wider">Detail</th>
+              <th class="px-6 py-5 text-center text-xs font-bold text-gray-700 uppercase tracking-wider">Status</th>
               <th class="px-6 py-5 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">
                 <div class="flex items-center space-x-1">
                   <span>Jenis Tiket</span>
@@ -62,10 +63,15 @@
               </td>
               <td class="px-6 py-5 whitespace-nowrap text-center">
                 <div class="flex items-center justify-center">
-                  <button class="btn-open-detail inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs font-semibold rounded-lg  transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                  <button class="btn-open-detail inline-flex items-center px-4 py-2 bg-[#FE0004] text-white text-xs font-semibold rounded-lg  transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
                     <i class="fas fa-eye mr-2"></i>
                     Detail
                   </button>
+                </div>
+              </td>
+              <td class="px-6 py-5 whitespace-nowrap text-center">
+                <div class="flex items-center justify-center">
+                  <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-800">Sudah Upload</span>
                 </div>
               </td>
               <td class="px-6 py-5 whitespace-nowrap">
@@ -100,10 +106,15 @@
               </td>
               <td class="px-6 py-5 whitespace-nowrap text-center">
                 <div class="flex items-center justify-center">
-                  <button class="btn-open-detail inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs font-semibold rounded-lg  transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                  <button class="btn-open-detail inline-flex items-center px-4 py-2 bg-[#FE0004]  text-white text-xs font-semibold rounded-lg  transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
                     <i class="fas fa-eye mr-2"></i>
                      Detail
                   </button>
+                </div>
+              </td>
+              <td class="px-6 py-5 whitespace-nowrap text-center">
+                <div class="flex items-center justify-center">
+                  <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-red-100 text-red-700">Belum Upload</span>
                 </div>
               </td>
               <td class="px-6 py-5 whitespace-nowrap">
@@ -138,10 +149,15 @@
               </td>
               <td class="px-6 py-5 whitespace-nowrap text-center">
                 <div class="flex items-center justify-center">
-                  <button class="btn-open-detail inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs font-semibold rounded-lg  transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
-                    <i class="fas fa-eye mr-2"></i>
+                    <button class="btn-open-detail inline-flex items-center px-4 py-2 bg-[#FE0004] text-white text-xs font-semibold rounded-lg  transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                      <i class="fas fa-eye mr-2"></i>
                      Detail
                   </button>
+                </div>
+              </td>
+              <td class="px-6 py-5 whitespace-nowrap text-center">
+                <div class="flex items-center justify-center">
+                  <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-800">Sudah Upload</span>
                 </div>
               </td>
               <td class="px-6 py-5 whitespace-nowrap">
@@ -176,10 +192,15 @@
               </td>
               <td class="px-6 py-5 whitespace-nowrap text-center">
                 <div class="flex items-center justify-center">
-                  <button type="button" class="btn-open-detail inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs font-semibold rounded-lg  transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                  <button type="button" class="btn-open-detail inline-flex items-center px-4 py-2 bg-[#FE0004] text-white text-xs font-semibold rounded-lg  transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
                     <i class="fas fa-eye mr-2"></i>
                      Detail
                   </button>
+                </div>
+              </td>
+              <td class="px-6 py-5 whitespace-nowrap text-center">
+                <div class="flex items-center justify-center">
+                  <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-red-100 text-red-700">Belum Upload</span>
                 </div>
               </td>
               <td class="px-6 py-5 whitespace-nowrap">
@@ -215,7 +236,7 @@
             <div class="text-sm font-medium text-gray-900">1</div>
           </div>
           <div class="flex items-center space-x-2">
-            <button class="btn-open-detail px-3 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs font-semibold rounded-lg shadow-md">Detail</button>
+            <button class="btn-open-detail px-3 py-2 bg-[#FE0004] text-white text-xs font-semibold rounded-lg shadow-md">Detail</button>
           </div>
         </div>
         <div class="flex items-center mb-3">
@@ -248,7 +269,7 @@
             <div class="text-sm font-medium text-gray-900">2</div>
           </div>
           <div class="flex items-center space-x-2">
-            <button class="btn-open-detail px-3 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs font-semibold rounded-lg shadow-md">Detail</button>
+            <button class="btn-open-detail px-3 py-2 bg-[#FE0004] text-white text-xs font-semibold rounded-lg shadow-md">Detail</button>
           </div>
         </div>
         <div class="flex items-center mb-3">
@@ -281,7 +302,7 @@
             <div class="text-sm font-medium text-gray-900">3</div>
           </div>
           <div class="flex items-center space-x-2">
-            <button class="btn-open-detail px-3 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs font-semibold rounded-lg shadow-md">Detail</button>
+            <button class="btn-open-detail px-3 py-2 bg-[#FE0004] text-white text-xs font-semibold rounded-lg shadow-md">Detail</button>
           </div>
         </div>
         <div class="flex items-center mb-3">
@@ -314,7 +335,7 @@
             <div class="text-sm font-medium text-gray-900">4</div>
           </div>
           <div class="flex items-center space-x-2">
-            <button type="button" class="btn-open-detail px-3 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white text-xs font-semibold rounded-lg shadow-md">Detail</button>
+            <button type="button" class="btn-open-detail px-3 py-2 bg-[#FE0004] text-white text-xs font-semibold rounded-lg shadow-md">Detail</button>
           </div>
         </div>
         <div class="flex items-center mb-3">
@@ -399,7 +420,7 @@
           btn.type = 'button';
           btn.className = [
             'px-3 py-2 text-sm rounded-md transition',
-            active ? 'bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white' : 'text-gray-700',
+            active ? 'bg-[#FE0004] text-white' : 'text-gray-700',
             disabled ? 'text-gray-400 cursor-not-allowed opacity-50 hover:bg-transparent hover:text-gray-400' : '',
           ].join(' ');
           btn.innerHTML = label;
@@ -528,7 +549,7 @@
                 // Visual uploaded state only (no backend logic)
                 btn.innerHTML = '<i class="fas fa-check mr-2"></i> Uploaded';
                 btn.classList.remove('from-[#F6B101]', 'to-[#F6B101]');
-                btn.classList.add('from-[#F6B101]', 'to-[#F6B101]');
+                btn.classList.add('bg-[#F6B101]');
                 btn.disabled = true;
                 btn.classList.add('opacity-90', 'cursor-default');
               }

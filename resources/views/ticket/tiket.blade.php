@@ -84,7 +84,7 @@
             btn.className = 'px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-300 transition';
           }
         });
-        clicked.className = 'px-4 py-2 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white rounded-full text-sm font-medium';
+        clicked.className = 'px-4 py-2 bg-[#FE0004] text-white rounded-full text-sm font-medium';
       }
 
       function applyFilter(filterLabel) {
