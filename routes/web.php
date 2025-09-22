@@ -68,6 +68,23 @@ Route::get('/checkout/checkout-kereta', function () {
     return view('checkout.checkout-kereta');
 });
 
+// API route for user search
+Route::get('/api/search-users', function () {
+    $query = request('q');
+    if (!$query || strlen($query) < 2) {
+        return response()->json([]);
+    }
+    
+    // Search users by name (excluding current user)
+    $users = \App\Models\User::where('name', 'LIKE', "%{$query}%")
+        ->where('id', '!=', auth()->id())
+        ->select('id', 'name', 'email', 'phone')
+        ->limit(10)
+        ->get();
+    
+    return response()->json($users);
+})->middleware('auth');
+
 // Protected routes for logged in users
 Route::middleware(['auth'])->group(function () {
     // Dashboard routes based on user role

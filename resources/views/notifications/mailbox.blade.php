@@ -11,7 +11,7 @@
         <!-- Header Section -->
         <div class="mb-8 flex items-center justify-between">
             <div class="flex items-center space-x-4">
-                <div class="p-3 rounded-full bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white">
+                <div class="p-3 rounded-full bg-[#FE0004] text-white">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                     </svg>
@@ -39,13 +39,13 @@
         <!-- Tabs -->
         <div class="mb-8">
             <div class="flex space-x-2 sm:space-x-4">
-                <button id="tab-all" class="tab-button bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white px-4 py-2 sm:px-8 sm:py-3 rounded-full text-xs sm:text-sm font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+                <button id="tab-all" class="tab-button bg-[#FE0004] text-white px-4 py-2 sm:px-8 sm:py-3 rounded-full text-xs sm:text-sm font-semibold shadow-lg hover:shadow-xl hover:bg-white hover:text-[#FE0004] transition-all duration-300 transform hover:scale-105">
                     All
                 </button>
-                <button id="tab-diterima" class="tab-button bg-white text-gray-700 px-4 py-2 sm:px-8 sm:py-3 rounded-full text-xs sm:text-sm font-semibold shadow-lg hover:bg-gray-50 transition-all duration-300 transform hover:scale-105">
+                <button id="tab-diterima" class="tab-button bg-white text-gray-700 px-4 py-2 sm:px-8 sm:py-3 rounded-full text-xs sm:text-sm font-semibold shadow-lg hover:bg-white hover:text-[#FE0004] transition-all duration-300 transform hover:scale-105">
                     Diterima
                 </button>
-                <button id="tab-ditolak" class="tab-button bg-white text-gray-700 px-4 py-2 sm:px-8 sm:py-3 rounded-full text-xs sm:text-sm font-semibold shadow-lg hover:bg-gray-50 transition-all duration-300 transform hover:scale-105">
+                <button id="tab-ditolak" class="tab-button bg-white text-gray-700 px-4 py-2 sm:px-8 sm:py-3 rounded-full text-xs sm:text-sm font-semibold shadow-lg hover:bg-white hover:text-[#FE0004] transition-all duration-300 transform hover:scale-105">
                     Ditolak
                 </button>
             </div>
@@ -59,10 +59,10 @@
                         <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
                     </svg>
                 </div>
-                <input id="search-input" type="text" class="block w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-yellow-500 text-sm shadow-lg transition-all duration-300" placeholder="Search">
+                <input id="search-input" type="text" class="block w-full pl-12 pr-4 py-3 border border-gray-300 rounded-xl bg-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#FE0004] focus:border-[#FE0004] text-sm shadow-lg transition-all duration-300" placeholder="Search">
             </div>
             <!-- Trigger calendar modal -->
-            <button id="open-calendar" class="px-4 py-3 bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white rounded-xl text-sm font-semibold shadow hover:shadow-md transition">Pilih Tanggal</button>
+            <button id="open-calendar" class="px-4 py-3 bg-[#FE0004] text-white rounded-xl text-sm font-semibold shadow hover:shadow-md transition">Pilih Tanggal</button>
             @include('partials.calender')
         </div>
         
@@ -106,7 +106,7 @@
             <!-- Pagination Controls -->
             <div class="flex items-center space-x-2">
                 <!-- Previous Button -->
-                <button id="prev-btn" class="flex items-center px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 hover:text-gray-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                <button id="prev-btn" class="flex items-center px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-white hover:text-[#FE0004] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed" disabled>
                     <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                     </svg>
@@ -115,19 +115,19 @@
                 
                 <!-- Page Numbers -->
                 <div id="page-numbers" class="flex items-center space-x-1">
-                    <button class="page-btn px-4 py-2 text-sm font-medium text-white bg-gradient-to-r from-[#FE0004] to-[#F6B101] rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105" data-page="1">
+                    <button class="page-btn px-4 py-2 text-sm font-medium text-white bg-[#FE0004] rounded-lg shadow-lg hover:shadow-xl hover:bg-white hover:text-[#FE0004] transition-all duration-200 transform hover:scale-105" data-page="1">
                         1
                     </button>
-                    <button class="page-btn px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 hover:text-gray-900 transition-all duration-200 transform hover:scale-105" data-page="2">
+                    <button class="page-btn px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-white hover:text-[#FE0004] transition-all duration-200 transform hover:scale-105" data-page="2">
                         2
                     </button>
-                    <button class="page-btn px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 hover:text-gray-900 transition-all duration-200 transform hover:scale-105" data-page="3">
+                    <button class="page-btn px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-white hover:text-[#FE0004] transition-all duration-200 transform hover:scale-105" data-page="3">
                         3
                     </button>
                 </div>
                 
                 <!-- Next Button -->
-                <button id="next-btn" class="flex items-center px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 hover:text-gray-700 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed">
+                <button id="next-btn" class="flex items-center px-4 py-2 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-white hover:text-[#FE0004] transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed">
                     Next
                     <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -154,13 +154,13 @@
                 button.addEventListener('click', function() {
                     // Remove active class from all buttons
                     tabButtons.forEach(btn => {
-                        btn.classList.remove('bg-gradient-to-r', 'from-[#FE0004]', 'to-[#F6B101]', 'text-white');
+                        btn.classList.remove('bg-[#FE0004]', 'text-white');
                         btn.classList.add('bg-white', 'text-gray-700');
                     });
                     
                     // Add active class to clicked button
                     this.classList.remove('bg-white', 'text-gray-700');
-                    this.classList.add('bg-gradient-to-r', 'from-[#FE0004]', 'to-[#F6B101]', 'text-white');
+                    this.classList.add('bg-[#FE0004]', 'text-white');
                     
                     const filter = this.id.replace('tab-', '');
                     
@@ -208,9 +208,9 @@
                     const page = parseInt(btn.getAttribute('data-page'));
                     if (page === currentPage) {
                         btn.classList.remove('text-gray-700', 'bg-white', 'border', 'border-gray-300');
-                        btn.classList.add('text-white', 'bg-gradient-to-r', 'from-[#FE0004]', 'to-[#F6B101]', 'shadow-lg');
+                        btn.classList.add('text-white', 'bg-[#FE0004]', 'shadow-lg');
                     } else {
-                        btn.classList.remove('text-white', 'bg-gradient-to-r', 'from-[#FE0004]', 'to-[#F6B101]', 'shadow-lg');
+                        btn.classList.remove('text-white', 'bg-[#FE0004]', 'shadow-lg');
                         btn.classList.add('text-gray-700', 'bg-white', 'border', 'border-gray-300');
                     }
                 });
@@ -327,11 +327,11 @@
                     `).join('');
                     
                     const detailButton = status === 'diterima' 
-                        ? `<a href="/notifications/diterima/${rowNumber}" class="bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white px-3 py-2 rounded-xl text-xs font-medium hover:shadow-lg transition-all duration-300 transform hover:scale-105 w-full inline-block text-center flex items-center justify-center gap-2">
+                        ? `<a href="/notifications/diterima/${rowNumber}" class="bg-gray-200 text-gray-800 px-3 py-2 rounded-xl text-xs font-medium hover:bg-gray-300 transition-all duration-300 w-full inline-block text-center flex items-center justify-center gap-2">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
                                 Detail
                            </a>`
-                        : `<a href="/notifications/ditolak/${rowNumber}" class="bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white px-3 py-2 rounded-xl text-xs font-medium hover:shadow-lg transition-all duration-300 transform hover:scale-105 w-full inline-block text-center flex items-center justify-center gap-2">
+                        : `<a href="/notifications/ditolak/${rowNumber}" class="bg-gray-200 text-gray-800 px-3 py-2 rounded-xl text-xs font-medium hover:bg-gray-300 transition-all duration-300 w-full inline-block text-center flex items-center justify-center gap-2">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
                                 Detail
                            </a>`;
@@ -455,11 +455,11 @@
                     `).join('');
                     
                     const detailButton = status === 'diterima' 
-                        ? `<a href="/notifications/diterima/${rowNumber}" class="bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white px-4 py-2 rounded-xl text-sm font-medium hover:shadow-lg transition-all duration-300 transform hover:scale-105 w-full inline-block text-center flex items-center justify-center gap-2">
+                        ? `<a href="/notifications/diterima/${rowNumber}" class="bg-gray-200 text-gray-800 px-4 py-2 rounded-xl text-sm font-medium hover:bg-gray-300 transition-all duration-300 w-full inline-block text-center flex items-center justify-center gap-2">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
                                 Lihat Detail
                            </a>`
-                        : `<a href="/notifications/ditolak/${rowNumber}" class="bg-gradient-to-r from-[#FE0004] to-[#F6B101] text-white px-4 py-2 rounded-xl text-sm font-medium hover:shadow-lg transition-all duration-300 transform hover:scale-105 w-full inline-block text-center flex items-center justify-center gap-2">
+                        : `<a href="/notifications/ditolak/${rowNumber}" class="bg-gray-200 text-gray-800 px-4 py-2 rounded-xl text-sm font-medium hover:bg-gray-300 transition-all duration-300 w-full inline-block text-center flex items-center justify-center gap-2">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
                                 Lihat Detail
                            </a>`;
