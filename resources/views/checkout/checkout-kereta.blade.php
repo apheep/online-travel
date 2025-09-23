@@ -18,7 +18,7 @@
     <div class="max-w-6xl mx-auto">
         <!-- Back Navigation -->
         <div class="flex items-center mb-4 sm:mb-6">
-            <button onclick="goBack()" class="flex items-center text-blue-600 hover:text-blue-800 transition-colors duration-200">
+            <button onclick="goBack()" class="flex items-center text-red-600 hover:text-red-800 transition-colors duration-200">
                  <svg class="w-5 h-5 mr-2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
                  </svg>
@@ -87,14 +87,6 @@
                 </div>
             </div>
 
-            <!-- Reuse previous data toggle -->
-            <div class="flex items-center justify-end gap-3 mb-6">
-                <span class="text-sm text-gray-700 font-medium">Gunakan data sebelumnya?</span>
-                <button id="reuse-prev-data" type="button"
-                        class="relative inline-flex h-6 w-11 items-center rounded-full bg-gray-200 transition-colors">
-                    <span class="toggle-knob inline-block h-4 w-4 transform rounded-full bg-white transition-transform translate-x-1"></span>
-                </button>
-            </div>
 
             <!-- Passengers container: each passenger card is a single white rectangle with left/right columns -->
             <div id="passengers-container" class="space-y-6">
@@ -112,7 +104,7 @@
                                 <div class="passenger-search-bar hidden">
                                     <div class="w-64">
                                         <div class="relative">
-                                            <input type="text" class="passenger-search-input w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 pr-8 text-sm" placeholder="Cari pengguna...">
+                                            <input type="text" class="passenger-search-input w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200 pr-8 text-sm" placeholder="Cari pengguna...">
                                             <svg class="absolute right-2 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
                                             </svg>
@@ -158,8 +150,17 @@
                             <div class="space-y-4">
                               <!-- Upload KTP -->
                               <div>
-                                <label class="block text-sm font-medium text-gray-700 mb-2">Upload KTP</label>
-                                <div class="upload-box border-2 border-dashed border-gray-200 rounded-xl p-4 hover:border-blue-300 transition-colors duration-200 cursor-pointer flex items-center gap-4" onclick="triggerFileForPassenger(0,'ktp')">
+                                <div class="flex items-center justify-between mb-2">
+                                  <label class="text-sm font-medium text-gray-700">Upload KTP</label>
+                                  <div class="flex items-center gap-2">
+                                    <span class="text-xs text-gray-600">Gunakan KTP sebelumnya?</span>
+                                    <button id="ktp-toggle-0" type="button"
+                                            class="relative inline-flex h-5 w-9 items-center rounded-full bg-gray-200 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">
+                                      <span class="toggle-knob inline-block h-3 w-3 transform rounded-full bg-white transition-transform duration-200 translate-x-1 shadow-sm"></span>
+                                    </button>
+                                  </div>
+                                </div>
+                                <div class="upload-box border-2 border-dashed border-gray-200 rounded-xl p-4 hover:border-red-300 transition-colors duration-200 cursor-pointer flex items-center gap-4" onclick="triggerFileForPassenger(0,'ktp')">
                                   <img src="{{ asset('folder.png') }}" alt="icon" class="w-8 h-8" loading="lazy">
                                   <div class="flex-1 text-left">
                                     <div class="text-gray-700">Klik untuk upload atau tarik file ke sini</div>
@@ -176,7 +177,7 @@
                                   <div class="flex items-center gap-2">
                                     <span class="text-xs text-gray-600">Gunakan surat dinas sebelumnya?</span>
                                     <button id="surat-toggle-0" type="button"
-                                            class="relative inline-flex h-5 w-9 items-center rounded-full bg-gray-200 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                                            class="relative inline-flex h-5 w-9 items-center rounded-full bg-gray-200 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2">
                                       <span class="toggle-knob inline-block h-3 w-3 transform rounded-full bg-white transition-transform duration-200 translate-x-1 shadow-sm"></span>
                                     </button>
                                   </div>
@@ -364,7 +365,7 @@
             <button onclick="cancelSubmit()" class="flex-1 bg-red-500 text-white py-3 px-6 rounded-lg font-medium hover:bg-red-600 transition">
                 tidak
             </button>
-            <button onclick="confirmSubmit()" class="flex-1 bg-gradient-to-r from-[#FE0004] to-[#FE0004] text-white py-3 px-6 rounded-lg font-medium hover:from-[#FE0004] hover:to-[#F6B101] transition">
+            <button onclick="confirmSubmit()" class="flex-1 bg-gradient-to-r from-[#FE0004] to-[#FE0004] text-white py-3 px-6 rounded-lg font-medium hover:from-[#FE0004] hover:to-[#FE0004] transition">
                 iya
             </button>
         </div>
@@ -377,7 +378,7 @@
          <h3 class="text-2xl font-bold text-gray-800 mb-6">Mau lihat kereta lain?</h3>
          <p class="text-gray-600 mb-8 leading-relaxed px-2">Kalau kamu kembali ke halaman sebelumnya, semua info yang diisi dan keberangkatan yang dipilih akan hilang.</p>
          <div class="flex flex-col space-y-4">
-              <button onclick="window.location.href='{{ url('pesanan/kereta') }}'" class="w-full px-6 py-4 bg-gradient-to-r from-red-50 to-red-100 text-red-600 rounded-xl hover:from-red-100 hover:to-red-200 transition-all duration-200 font-medium border border-blue-200">
+              <button onclick="window.location.href='{{ url('pesanan/kereta') }}'" class="w-full px-6 py-4 bg-gradient-to-r from-red-50 to-red-100 text-red-600 rounded-xl hover:from-red-100 hover:to-red-200 transition-all duration-200 font-medium border border-red-200">
 
                   Lihat Kereta Lain
               </button>
@@ -396,114 +397,27 @@ let currentTrainPassengerIndex = 0;
 let trainSelectedSeats = {};
 let currentTrainCar = 'ekonomi1';
 
-// Reuse previous booking data helpers
-function getPreviousBookingData() {
-    try {
-        const raw = localStorage.getItem('prevBookingPassengers');
-        if (!raw) return [];
-        const data = JSON.parse(raw);
-        return Array.isArray(data) ? data : [];
-    } catch (_) {
-        return [];
-    }
-}
-
-// Dummy passengers for testing when no previous data exists
-function getDummyPassengers() {
-    return [
-        { nama: 'WILDAN ANWAR', telepon: '0812-3456-7890', email: 'wildan@example.com' },
-        { nama: 'NUR AINI', telepon: '0813-1111-2222', email: 'nuraini@example.com' }
-    ];
-}
-
-// Dummy files for testing when no previous file data exists
-function getDummyFiles() {
-    return {
-        ktp: [
-            { name: 'KTP_WILDAN_ANWAR.pdf', size: '2.1 MB' },
-            { name: 'KTP_NUR_AINI.pdf', size: '1.8 MB' }
-        ],
-        surat: [
-            { name: 'SURAT_DINAS_WILDAN.pdf', size: '1.5 MB' },
-            { name: 'SURAT_DINAS_NUR.pdf', size: '1.3 MB' }
-        ]
-    };
-}
-
-// Apply dummy files to upload areas
-function applyDummyFilesToForm(files) {
-    if (!files) return false;
-    
-    // Apply KTP files
-    if (files.ktp) {
-        files.ktp.forEach((file, idx) => {
-            const ktpFilename = document.getElementById(`ktp-filename-${idx}`);
-            const ktpUploadBox = ktpFilename?.closest('.upload-box');
-            if (ktpFilename && ktpUploadBox) {
-                ktpFilename.textContent = file.name;
-                ktpUploadBox.innerHTML = `
-                    <div class="flex flex-col items-center">
-                        <svg class="w-8 h-8 text-green-500 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                        </svg>
-                        <span class="text-green-600 text-sm">${file.name}</span>
-                        <span class="text-gray-400 text-xs">${file.size}</span>
-                    </div>
-                `;
-                ktpUploadBox.classList.remove('border-gray-200', 'hover:border-red-300');
-                ktpUploadBox.classList.add('border-green-400', 'bg-green-50');
-            }
-        });
-    }
-    
-    // Apply Surat Dinas files
-    if (files.surat) {
-        files.surat.forEach((file, idx) => {
-            const suratFilename = document.getElementById(`surat-filename-${idx}`);
-            const suratUploadBox = suratFilename?.closest('.upload-box');
-            if (suratFilename && suratUploadBox) {
-                suratFilename.textContent = file.name;
-                suratUploadBox.innerHTML = `
-                    <div class="flex flex-col items-center">
-                        <svg class="w-8 h-8 text-green-500 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                        </svg>
-                        <span class="text-green-600 text-sm">${file.name}</span>
-                        <span class="text-gray-400 text-xs">${file.size}</span>
-                    </div>
-                `;
-                suratUploadBox.classList.remove('border-gray-200', 'hover:border-red-300');
-                suratUploadBox.classList.add('border-green-400', 'bg-green-50');
-            }
-        });
-    }
-    
-    return true;
-}
 
 // Reset file upload areas to empty state (for toggle OFF)
 function resetFileUploadsToEmpty() {
     for (let i = 0; i < trainPassengerCount; i++) {
-        // Reset KTP upload to empty state
-        const ktpFilename = document.getElementById(`ktp-filename-${i}`);
-        const ktpUploadBox = ktpFilename?.closest('.upload-box');
-        const ktpInput = document.getElementById(`ktp-${i}`);
+        // Reset KTP upload
+        resetKtpUploadBox(i);
         
-        if (ktpFilename && ktpUploadBox) {
-            // Reset the file input value
-            if (ktpInput) ktpInput.value = '';
+        // Reset KTP toggle
+        const ktpToggle = document.getElementById(`ktp-toggle-${i}`);
+        if (ktpToggle) {
+            const knob = ktpToggle.querySelector('.toggle-knob');
+            ktpToggle.classList.remove('bg-red-500');
+            ktpToggle.classList.add('bg-gray-200');
+            if (knob) {
+                knob.classList.remove('translate-x-5');
+                knob.classList.add('translate-x-1');
+            }
             
-            ktpUploadBox.innerHTML = `
-                <img src="{{ asset('folder.png') }}" alt="icon" class="w-8 h-8">
-                <div class="flex-1 text-left">
-                    <div class="text-gray-700">Klik untuk upload atau tarik file ke sini</div>
-                    <div id="ktp-filename-${i}" class="text-sm text-gray-400">Format: PDF (maks 5MB)</div>
-                </div>
-                <input type="file" id="ktp-${i}" name="ktp[]" accept=".pdf" class="hidden" onchange="handleFileChange(event, 'ktp-filename-${i}')">
-            `;
-            ktpUploadBox.classList.remove('border-green-400', 'bg-green-50');
-            ktpUploadBox.classList.add('border-gray-200', 'hover:border-red-300');
-            ktpUploadBox.setAttribute('onclick', `triggerFileForPassenger(${i},'ktp')`);
+            if (window.ktpToggleStates) {
+                window.ktpToggleStates[i] = false;
+            }
         }
         
         // Reset Surat Dinas upload to empty state
@@ -547,36 +461,6 @@ function resetFileUploadsToEmpty() {
     }
 }
 
-function applyPreviousDataToForm(passengers) {
-    if (!passengers || passengers.length === 0) return false;
-
-    // Ensure passenger cards match length
-    while (trainPassengerCount < passengers.length && trainPassengerCount < 4) {
-        addPassenger();
-    }
-    // If more forms than data, keep remaining empty
-
-    passengers.forEach((p, idx) => {
-        const nama = document.getElementById(`nama-${idx}`);
-        const telp = document.getElementById(`telepon-${idx}`);
-        const email = document.getElementById(`email-${idx}`);
-        if (nama) nama.value = p.nama || p.name || '';
-        if (telp) telp.value = p.telepon || p.phone || '';
-        if (email) email.value = p.email || '';
-    });
-    return true;
-}
-
-function clearPassengerForms() {
-    for (let i = 0; i < trainPassengerCount; i++) {
-        const nama = document.getElementById(`nama-${i}`);
-        const telp = document.getElementById(`telepon-${i}`);
-        const email = document.getElementById(`email-${i}`);
-        if (nama) nama.value = '';
-        if (telp) telp.value = '';
-        if (email) email.value = '';
-    }
-}
 
 // Verification modal functions
 function showVerificationModal() {
@@ -698,7 +582,7 @@ function initializeSuratDinasToggle(index, stateTracker) {
             
             // Reset upload box
             resetSuratDinasUploadBox(index);
-            showNotification('Toggle dimatikan - Upload box direset ke kondisi awal', 'info');
+            showNotification('Silahkan Upload Surat Dinas yang Baru', 'info');
         }
     });
 }
@@ -710,17 +594,24 @@ function applySuratDinasToUploadBox(index, fileData) {
     
     if (suratFilename && suratUploadBox) {
         suratUploadBox.innerHTML = `
-            <div class="flex flex-col items-center">
-                <svg class="w-8 h-8 text-green-500 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                </svg>
-                <span class="text-green-600 text-sm">${fileData.fileName}</span>
-                <span class="text-gray-400 text-xs">${fileData.fileSize}</span>
-                <span class="text-blue-500 text-xs mt-1">(Menggunakan file sebelumnya)</span>
+            <div class="flex items-center justify-between w-full">
+                <div class="flex items-center gap-3">
+                    <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                    </svg>
+                    <div>
+                        <div class="text-sm font-medium text-gray-800">Surat Dinas</div>
+                        <div class="text-sm text-gray-600">${fileData.fileName}</div>
+                        <div class="text-xs text-blue-500 mt-1">(Menggunakan file sebelumnya)</div>
+                    </div>
+                </div>
+                <button type="button" onclick="event.stopPropagation(); viewSuratDinas('${fileData.fileName}')" class="px-4 py-2 bg-red-500 text-white text-sm font-medium rounded-lg hover:bg-red-600 transition-colors duration-200">
+                    View
+                </button>
             </div>
         `;
-        suratUploadBox.classList.remove('border-gray-200', 'hover:border-red-300', 'cursor-pointer');
-        suratUploadBox.classList.add('border-green-400', 'bg-green-50');
+        suratUploadBox.classList.remove('border-dashed', 'border-gray-200', 'hover:border-red-300', 'cursor-pointer');
+        suratUploadBox.classList.add('border-solid', 'border-red-200', 'bg-red-50');
         suratUploadBox.removeAttribute('onclick');
     }
 }
@@ -751,8 +642,8 @@ function resetSuratDinasUploadBox(index) {
         `;
         
         // Reset all styling to original state
-        suratUploadBox.classList.remove('border-green-400', 'bg-green-50');
-        suratUploadBox.classList.add('border-gray-200', 'hover:border-red-300', 'cursor-pointer');
+        suratUploadBox.classList.remove('border-solid', 'border-red-200', 'bg-red-50', 'border-green-400', 'bg-green-50');
+        suratUploadBox.classList.add('border-dashed', 'border-gray-200', 'hover:border-red-300', 'cursor-pointer');
         suratUploadBox.setAttribute('onclick', `triggerFileForPassenger(${index},'surat')`);
         
         console.log('Upload box reset complete for passenger', index);
@@ -814,17 +705,223 @@ function handleFileChange(e, labelId) {
         return; 
     }
     const name = file.name.length > 40 ? file.name.slice(0,37) + '...' : file.name;
-    label.textContent = name;
     
-    // Save to localStorage for future reuse if it's a surat dinas
+    // Check if this is a surat dinas upload
     if (labelId.includes('surat-filename')) {
+        // Update the upload box to show file with view button
+        const uploadBox = label.closest('.upload-box');
+        if (uploadBox) {
+            uploadBox.innerHTML = `
+                <div class="flex items-center justify-between w-full">
+                    <div class="flex items-center gap-3">
+                        <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                        <div>
+                            <div class="text-sm font-medium text-gray-800">Surat Dinas</div>
+                            <div class="text-sm text-gray-600">${file.name}</div>
+                        </div>
+                    </div>
+                    <button type="button" onclick="event.stopPropagation(); viewSuratDinas('${file.name}')" class="px-4 py-2 bg-red-500 text-white text-sm font-medium rounded-lg hover:bg-red-600 transition-colors duration-200">
+                        View
+                    </button>
+                </div>
+            `;
+            uploadBox.classList.remove('border-dashed', 'border-gray-200', 'hover:border-red-300');
+            uploadBox.classList.add('border-solid', 'border-red-200', 'bg-red-50');
+            uploadBox.removeAttribute('onclick');
+        }
+        
+        // Save to localStorage for future reuse
         const fileData = {
             fileName: file.name,
             fileSize: (file.size / (1024 * 1024)).toFixed(1) + ' MB',
             uploadDate: new Date().toISOString()
         };
         localStorage.setItem('previousNotaDinas', JSON.stringify(fileData));
+    } else if (labelId.includes('ktp-filename')) {
+        // Handle KTP upload with view button
+        const uploadBox = label.closest('.upload-box');
+        if (uploadBox) {
+            uploadBox.innerHTML = `
+                <div class="flex items-center justify-between w-full">
+                    <div class="flex items-center gap-3">
+                        <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                        </svg>
+                        <div>
+                            <div class="text-sm font-medium text-gray-800">KTP</div>
+                            <div class="text-sm text-gray-600">${file.name}</div>
+                        </div>
+                    </div>
+                    <button type="button" onclick="event.stopPropagation(); viewKtp('${file.name}')" class="px-4 py-2 bg-red-500 text-white text-sm font-medium rounded-lg hover:bg-red-600 transition-colors duration-200">
+                        View
+                    </button>
+                </div>
+            `;
+            uploadBox.classList.remove('border-dashed', 'border-gray-200', 'hover:border-red-300');
+            uploadBox.classList.add('border-solid', 'border-red-200', 'bg-red-50');
+            uploadBox.removeAttribute('onclick');
+        }
+        
+        // Save to localStorage for future reuse
+        const fileData = {
+            fileName: file.name,
+            fileSize: (file.size / (1024 * 1024)).toFixed(1) + ' MB',
+            uploadDate: new Date().toISOString()
+        };
+        localStorage.setItem('previousKtp', JSON.stringify(fileData));
+    } else {
+        // Regular file display fallback
+        label.textContent = name;
     }
+}
+
+// Function to view surat dinas
+function viewSuratDinas(fileName) {
+    // Show notification that the file would be opened
+    showNotification(`Membuka file: ${fileName}`, 'info');
+    
+    // In a real implementation, this would:
+    // 1. Open the PDF in a new tab/window
+    // 2. Show a modal with PDF viewer
+    // 3. Download the file for viewing
+    
+    // For demo purposes, show a simple alert
+    setTimeout(() => {
+        alert(`File "${fileName}" akan dibuka di tab baru.\n\nNote: Dalam implementasi production, ini akan membuka PDF viewer atau mendownload file.`);
+    }, 500);
+}
+
+// KTP Toggle Management Functions
+function initializeKtpToggles() {
+    const ktpToggleStates = {};
+    
+    // Initialize existing passengers
+    for (let i = 0; i < trainPassengerCount; i++) {
+        initializeKtpToggle(i, ktpToggleStates);
+    }
+    
+    return ktpToggleStates;
+}
+
+function initializeKtpToggle(index, stateTracker) {
+    const toggleId = `ktp-toggle-${index}`;
+    const existingToggle = document.getElementById(toggleId);
+    
+    if (existingToggle) {
+        // Create new toggle element to remove old listeners
+        const newToggle = existingToggle.cloneNode(true);
+        existingToggle.parentNode.replaceChild(newToggle, existingToggle);
+        
+        // Initialize state
+        stateTracker[index] = false;
+        
+        // Add event listener
+        newToggle.addEventListener('click', function() {
+            stateTracker[index] = !stateTracker[index];
+            const knob = newToggle.querySelector('.toggle-knob');
+            
+            if (stateTracker[index]) {
+                // Toggle ON - load previous KTP
+                newToggle.classList.remove('bg-gray-200');
+                newToggle.classList.add('bg-red-500');
+                if (knob) knob.classList.add('translate-x-5');
+                if (knob) knob.classList.remove('translate-x-1');
+                
+                // Load previous KTP data
+                const previousData = JSON.parse(localStorage.getItem('previousKtp') || '{}');
+                
+                if (previousData.fileName) {
+                    applyKtpToUploadBox(index, previousData);
+                    showNotification('KTP sebelumnya berhasil digunakan!', 'success');
+                } else {
+                    const dummyData = {
+                        fileName: 'KTP_Contoh.pdf',
+                        fileSize: '1.2 MB',
+                        uploadDate: new Date().toISOString()
+                    };
+                    localStorage.setItem('previousKtp', JSON.stringify(dummyData));
+                    applyKtpToUploadBox(index, dummyData);
+                    showNotification('File contoh KTP berhasil digunakan!', 'success');
+                }
+            } else {
+                // Toggle OFF - reset to normal
+                newToggle.classList.remove('bg-red-500');
+                newToggle.classList.add('bg-gray-200');
+                if (knob) knob.classList.remove('translate-x-5');
+                if (knob) knob.classList.add('translate-x-1');
+                
+                resetKtpUploadBox(index);
+                showNotification('Silahkan Upload KTP yang Baru', 'info');
+            }
+        });
+    }
+}
+
+// Apply KTP data to upload box
+function applyKtpToUploadBox(index, fileData) {
+    const ktpFilename = document.getElementById(`ktp-filename-${index}`);
+    const ktpUploadBox = ktpFilename?.closest('.upload-box');
+    
+    if (ktpFilename && ktpUploadBox) {
+        ktpUploadBox.innerHTML = `
+            <div class="flex items-center justify-between w-full">
+                <div class="flex items-center gap-3">
+                    <svg class="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                    </svg>
+                    <div>
+                        <div class="text-sm font-medium text-gray-800">KTP</div>
+                        <div class="text-sm text-gray-600">${fileData.fileName}</div>
+                        <div class="text-xs text-blue-500 mt-1">(Menggunakan file sebelumnya)</div>
+                    </div>
+                </div>
+                <button type="button" onclick="event.stopPropagation(); viewKtp('${fileData.fileName}')" class="px-4 py-2 bg-red-500 text-white text-sm font-medium rounded-lg hover:bg-red-600 transition-colors duration-200">
+                    View
+                </button>
+            </div>
+        `;
+        ktpUploadBox.classList.remove('border-dashed', 'border-gray-200', 'hover:border-red-300', 'cursor-pointer');
+        ktpUploadBox.classList.add('border-solid', 'border-red-200', 'bg-red-50');
+        ktpUploadBox.removeAttribute('onclick');
+    }
+}
+
+// Reset KTP upload box to normal state
+function resetKtpUploadBox(index) {
+    const ktpFilename = document.getElementById(`ktp-filename-${index}`);
+    const ktpUploadBox = ktpFilename?.closest('.upload-box');
+    const ktpInput = document.getElementById(`ktp-${index}`);
+    
+    if (ktpFilename && ktpUploadBox) {
+        if (ktpInput) {
+            ktpInput.value = '';
+            ktpInput.files = null;
+        }
+        
+        ktpUploadBox.innerHTML = `
+            <img src="{{ asset('folder.png') }}" alt="icon" class="w-8 h-8" loading="lazy">
+            <div class="flex-1 text-left">
+                <div class="text-gray-700">Klik untuk upload atau tarik file ke sini</div>
+                <div id="ktp-filename-${index}" class="text-sm text-gray-400">Format: PDF (maks 5MB)</div>
+            </div>
+            <input type="file" id="ktp-${index}" name="ktp[]" accept=".pdf" class="hidden" onchange="handleFileChange(event, 'ktp-filename-${index}')">
+        `;
+        
+        ktpUploadBox.classList.remove('border-solid', 'border-red-200', 'bg-red-50', 'border-green-400', 'bg-green-50');
+        ktpUploadBox.classList.add('border-dashed', 'border-gray-200', 'hover:border-red-300', 'cursor-pointer');
+        ktpUploadBox.setAttribute('onclick', `triggerFileForPassenger(${index},'ktp')`);
+    }
+}
+
+// Function to view KTP
+function viewKtp(fileName) {
+    showNotification(`Membuka file: ${fileName}`, 'info');
+    
+    setTimeout(() => {
+        alert(`File "${fileName}" akan dibuka di tab baru.\n\nNote: Dalam implementasi production, ini akan membuka PDF viewer atau mendownload file.`);
+    }, 500);
 }
 
 // Seat selection functions
@@ -983,7 +1080,7 @@ function initializeGlobalUserSearch() {
                                         <div class="text-sm text-gray-500">${user.email}</div>
                                         ${user.phone ? `<div class="text-sm text-gray-500">${user.phone}</div>` : ''}
                                     </div>
-                                    <div class="text-sm text-blue-600 font-medium">Pilih →</div>
+                                    <div class="text-sm text-red-600 font-medium">Pilih →</div>
                                 </div>
                             `;
                             
@@ -1044,7 +1141,7 @@ function showPassengerSelectionModal(userData) {
     const passengers = document.querySelectorAll('.passenger-card');
     passengers.forEach((passenger, index) => {
         const button = document.createElement('button');
-        button.className = 'w-full p-3 text-left bg-gray-50 hover:bg-blue-50 rounded-lg transition border border-gray-200 hover:border-blue-300';
+        button.className = 'w-full p-3 text-left bg-gray-50 hover:bg-red-50 rounded-lg transition border border-gray-200 hover:border-red-300';
         button.innerHTML = `
             <div class="font-medium text-gray-800">Penumpang ${index + 1}</div>
             <div class="text-sm text-gray-500">Klik untuk mengisi data</div>
@@ -1273,11 +1370,7 @@ function addPassenger() {
     const uploadBoxes = newPassenger.querySelectorAll('.upload-box');
     uploadBoxes.forEach((box, index) => {
         const type = index === 0 ? 'ktp' : 'surat';
-        if (type === 'surat') {
-            box.onclick = () => triggerFileForPassenger(trainPassengerCount - 1, type);
-        } else {
-            box.onclick = () => triggerFileForPassenger(trainPassengerCount - 1, type);
-        }
+        box.onclick = () => triggerFileForPassenger(trainPassengerCount - 1, type);
     });
 
     // Update filename display elements
@@ -1287,13 +1380,31 @@ function addPassenger() {
         el.textContent = 'Format: PDF (maks 5MB)';
     });
 
+    // Update KTP toggle
+    const ktpToggle = newPassenger.querySelector('[id*="ktp-toggle"]');
+    if (ktpToggle) {
+        ktpToggle.id = `ktp-toggle-${trainPassengerCount - 1}`;
+        ktpToggle.removeAttribute('onclick');
+        ktpToggle.classList.remove('bg-red-500');
+        ktpToggle.classList.add('bg-gray-200');
+        const knob = ktpToggle.querySelector('.toggle-knob');
+        if (knob) {
+            knob.classList.remove('translate-x-5');
+            knob.classList.add('translate-x-1');
+        }
+        
+        setTimeout(() => {
+            if (window.ktpToggleStates) {
+                initializeKtpToggle(trainPassengerCount - 1, window.ktpToggleStates);
+            }
+        }, 100);
+    }
+
     // Update surat dinas toggle
     const suratToggle = newPassenger.querySelector('[id*="surat-toggle"]');
     if (suratToggle) {
         suratToggle.id = `surat-toggle-${trainPassengerCount - 1}`;
-        // Remove onclick attribute - will be handled by event listener
         suratToggle.removeAttribute('onclick');
-        // Ensure toggle starts in OFF state
         suratToggle.classList.remove('bg-red-500');
         suratToggle.classList.add('bg-gray-200');
         const knob = suratToggle.querySelector('.toggle-knob');
@@ -1302,7 +1413,6 @@ function addPassenger() {
             knob.classList.add('translate-x-1');
         }
         
-        // Initialize toggle for new passenger (will be done after DOM update)
         setTimeout(() => {
             if (window.suratToggleStates) {
                 initializeSuratDinasToggle(trainPassengerCount - 1, window.suratToggleStates);
@@ -1501,49 +1611,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Ensure upload areas start in empty state
     resetFileUploadsToEmpty();
     
+    // Initialize KTP toggles
+    window.ktpToggleStates = initializeKtpToggles();
+    
     // Initialize surat dinas toggles
     window.suratToggleStates = initializeSuratDinasToggles();
-    
-    // Bind reuse previous data toggle
-    const reuseBtn = document.getElementById('reuse-prev-data');
-    if (reuseBtn) {
-        let reuseOn = false;
-        reuseBtn.addEventListener('click', function() {
-            reuseOn = !reuseOn;
-            const knob = reuseBtn.querySelector('.toggle-knob');
-            
-            if (reuseOn) {
-                // Toggle ON - change to gradient and fill data
-                reuseBtn.classList.remove('bg-gray-200');
-                reuseBtn.classList.add('bg-gradient-to-r', 'from-[#FE0004]', 'to-[#FE0004]');
-                if (knob) knob.classList.add('translate-x-6');
-
-                // Try previous data, otherwise use dummy for testing
-                let prev = getPreviousBookingData();
-                if (!prev || prev.length === 0) prev = getDummyPassengers();
-                
-                if (!applyPreviousDataToForm(prev)) {
-                    // If still cannot apply, revert toggle
-                    reuseOn = false;
-                    reuseBtn.classList.remove('bg-gradient-to-r', 'from-[#FE0004]', 'to-[#FE0004]');
-                    reuseBtn.classList.add('bg-gray-200');
-                    if (knob) knob.classList.remove('translate-x-6');
-                    alert('Data sebelumnya tidak ditemukan.');
-                } else {
-                    // Also apply dummy files
-                    const dummyFiles = getDummyFiles();
-                    applyDummyFilesToForm(dummyFiles);
-                }
-            } else {
-                // Toggle OFF - return to gray and clear data, show empty upload areas
-                reuseBtn.classList.remove('bg-gradient-to-r', 'from-[#FE0004]', 'to-[#FE0004]');
-                reuseBtn.classList.add('bg-gray-200');
-                if (knob) knob.classList.remove('translate-x-6');
-                clearPassengerForms();
-                resetFileUploadsToEmpty();
-            }
-        });
-    }
 
     // Override problematic external script event listeners
     const originalAddEventListener = document.addEventListener;
@@ -1565,37 +1637,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
     
-    // File upload functionality
-    const fileInputs = document.querySelectorAll('input[type="file"]');
-    const uploadAreas = document.querySelectorAll('.border-dashed');
-    
-    fileInputs.forEach((input, index) => {
-        const uploadArea = uploadAreas[index];
-        
-        if (uploadArea) {
-            uploadArea.addEventListener('click', () => {
-                input.click();
-            });
-        }
-        
-        input.addEventListener('change', (e) => {
-            if (e.target.files.length > 0) {
-                const fileName = e.target.files[0].name;
-                if (uploadArea) {
-                    uploadArea.innerHTML = `
-                        <div class="flex flex-col items-center">
-                            <svg class="w-8 h-8 text-green-500 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                            </svg>
-                            <span class="text-green-600 text-sm">${fileName}</span>
-                        </div>
-                    `;
-                    uploadArea.classList.remove('border-gray-300', 'hover:border-red-400');
-                    uploadArea.classList.add('border-green-400', 'bg-green-50');
-                }
-            }
-        });
-    });
+    // Note: File upload functionality is handled by triggerFileForPassenger() and handleFileChange()
+    // Removed duplicate event listeners to prevent double file dialog opening
     
     // Confirm modal button events
     const confirmCancel = document.getElementById('confirm-cancel');
